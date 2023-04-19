@@ -1,3 +1,5 @@
+#include "../../includes/cub3D_struct.h"
+
 static int	ft_little_check(char *map_name)
 {
 	int	last_index;

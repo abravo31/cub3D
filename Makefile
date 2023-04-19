@@ -14,7 +14,7 @@ COR_DIR		=	core/
 CORS		=	main.c
 
 PARSE_DIR	=	[0]parsing/
-PARSE		=	[0]arguments.c
+PARSE		=	[0]arguments.c [1]parsing.c
 
 # EXEC_DIR	=	exec/
 # EXEC		=	exec_core.c fill_heredocs.c path.c cmd_signals.c main_hrdc_signals.c \

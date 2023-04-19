@@ -1,7 +1,8 @@
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
 
-# include "libft.h"
+# include "../libft/includes/libft.h"
+# include <stdio.h>
 
 typedef enum ident_type
 {

@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "../../includes/cub3D_struct.h"
 
 int main(int argc, char *argv[])
 {

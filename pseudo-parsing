@@ -1,0 +1,77 @@
+1. Parsing au niveau d'arguments du program : # de arguments, nom de du fichier
+
+./cub3d map.cub
+
+2. Partie coordonnees, texture, colors avec parsing minishell
+
+	- Recupertion des donnees :
+	
+	Tant que on a pas recuperer les 6 identifiers correspondant les textures et couleurs :
+		Conditions :
+			- On va IGNORER les espaces
+			- On va verifier qu'il a pas des doublons dans les identifiers 
+		
+			- Pour gerer les identifiers de base, on doit verifier que les identifier NO, SO, WE, EA soient suivis
+			par des chemins vers le fichier de la texture
+
+			NO ./path_to_the_north_texture 					-> Valide
+			     SO           ./path_to_the_south_texture	-> Valide
+			./path_to_the_west_texture WE 					-> Pas valide
+			EA ./path ./path_to_the_east_texture			-> Pas valide
+			EA hola											-> Valide
+			
+			- Pour gerer les identifers F et C, on doit verifier qu'ils soient suivis par un format RGB
+		
+			De facon a bien respecter le format attendu pour les identifiers :
+
+			1. Il peut avoir des espaces avant les identifier
+			2. IL FAUT qu'il aie au 1 ESPACE entre les identifiers et les donnes correspondant aux textures et colors en RGB format 
+			F      255,   255,   0 	-> Valide
+			F 255,255,0				-> Valide
+			F255,255,0				-> Pas valide
+			F 2555, 255, 0			-> Pas valide
+
+	- Pour bien gerer le texture dans le sol et le ciel, on va aussi gerer les identifiers :
+		FT : Floor texture
+		CT : Ciel texture
+
+	- Pour les indentifiers:
+		On verifie s'ils sont bien valides et si oui on traite l,info differrament, coord : 2 elements dans la liste, haut-bas : 4 et gerer les vigules.
+		
+
+3. Importer les fonctions modulables de liste chaines a Amanda 
+
+4. Partie map : S'informer a propos de Deep Sequential Model pour materialiser ces idees :
+
+
+a. Tokens valides dans la map
+Un seule characters dans ce liste N, S, W, E
+Space, tab, 1, 0, \n, \t (a verifier characters table ascii 7-13)
+
+Pour commencer, verifier si la ligne contient des characters de vides on continue la lecture du fichier.
+
+Algorithmes pour verifier la map:
+	BFS - Breadth-First Search 
+	DFS - Depth-First Search
+
+Peu importe l'algorithme, on doit recuperer la quantite des lignes et la quantite max de colonne de l'element dans une ligne
+
+On doit regarder chaque case du map dans tous les sens possibles a partir d'un point specifique
+explore(x-1, y); // Gauche
+explore(x+1, y); // Droite
+explore(x, y-1); // Haut
+explore(x, y+1); // Bas
+
+6. Gestion d'erreurs avec les messages precises
+1 -> Invalid identifier
+2 -> Map not closed
+3 -> Perso entoure de murs (ne peut pas bouger)
+4 -> Multiple personnages
+5 -> Texture fausse (ouverture, pas existant) 
+
+7. Pour recuperer l'info, on garde les lignes du fichier en utilisant gnl dans une liste chainee pour ensuite recuperer 
+les infos de coordonnees 
+
+8. Essayer d'apprendre le maximum des choses par rapport a git 
+
+

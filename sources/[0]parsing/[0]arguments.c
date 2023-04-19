@@ -1,35 +1,93 @@
 #include "../../includes/cub3D_struct.h"
 
-// static int	ft_check_extension(char *file_name, int idx)
-// {
-// 	if (idx == -1)
-// 		idx = ft_idx_last_occur_char(file_name, '.');
-// 	while (file_name[idx] != '\0')
-// 	{
-// 		printf("%c ", file_name[idx]);
-// 		idx++;
-// 	}
-// 	return (1);
-// }
-
-static int	ft_check_file_str(char *f_name)
+static int	ft_get_lines_from_file(char *file_name, t_list **lst)
 {
-	int	idx;
-	int	length_f_name;
+	int		fd_map;
+	char	*line;
+	t_list	*aux;
+	char	c;
 
-	length_f_name = ft_strlen_int(f_name);
-	idx = ft_idx_last_occur_char(f_name, '/');
-	if (idx >= 0 && f_name[idx] == '/' && (idx == (length_f_name - 1)))
-		return(printf(ARG_IS_DIR), 1);
-	idx = ft_idx_last_occur_char(f_name, '.');
-	if (idx < 0 || ft_strncmp(f_name + idx, ".cub", ft_strlen_int(f_name + idx)))
-		return (printf(INVALID_EXTENSION), 1);
+	fd_map = open(file_name, O_RDONLY);
+	if (fd_map == -1)
+		return (1);
+	line = get_next_line(fd_map);
+	while (line)
+	{
+		aux = ft_lstnew((void *)line);
+		if (!aux)
+		{
+			free(line);
+			return (1);
+		}
+		ft_lstadd_back(lst, aux);
+		free(line);
+		line = get_next_line(fd_map);
+		if (!line && read(fd_map, &c, sizeof(char)) > 0)
+			return (ft_free_list(*lst));
+	}
+	close(fd_map);
 	return (0);
 }
 
-int check_file_arg(char *arg_file_name)
+static int	ft_number_words_in_line(char *str, char sep)
 {
-	if (ft_check_file_str(arg_file_name))
-		return (1);
-    return (0);
+	int		i;
+	int		number_words;
+	char	*str_trim;
+
+	str_trim = ft_strtrim(str, " \n");
+	number_words = 0;
+	i = 0;
+	while (str_trim[i])
+	{
+		while (str_trim[i] && str_trim[i] == sep)
+			i++;
+		if (str_trim[i] && str_trim[i] != sep)
+		{
+			number_words++;
+			while (str_trim[i] && str_trim[i] != sep)
+				i++;
+		}
+	}
+	free (str_trim);
+	return (number_words);
 }
+
+/*Setting map->is_rectancle_map*/
+static int	ft_get_dimensions_map(t_list *lst, t_map *map)
+{
+	char	*line;
+	t_list	*aux;
+
+	aux = lst;
+	while (aux)
+	{
+		line = (char *)aux->content;
+		if (map->map_width == 0)
+			map->map_width = ft_number_words_in_line(line, ' ');
+		else if (map->map_width != ft_number_words_in_line(line, ' '))
+		{
+			ft_free_list(lst);
+			return (1);
+		}
+		map->map_heigth++;
+		aux = aux->next;
+	}
+	map->amount_vec = map->map_width * map->map_heigth;
+	ft_free_list(lst);
+	return (0);
+}
+
+int	ft_read_file(char *file_name, t_lstb **lst_tabs, t_map *map)
+{
+	t_list		*lines_map;
+
+	lines_map = NULL;
+	if (ft_get_lines_from_file(file_name, &lines_map))
+		return (1);
+	
+	if (ft_get_dimensions_map(lines_map, map) || (map->amount_vec == 0))
+		return (1);
+	return (0);
+}
+

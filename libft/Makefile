@@ -38,7 +38,7 @@ SOURCES	= 	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 			ft_free_split.c ft_strlen_int.c ft_strjoin_secure.c \
 			ft_strnstr_int.c ft_strchr_int.c ft_length_split.c ft_concatenation.c\
 			ft_tabdup.c ft_get_index_char_str.c ft_strdup_i.c ft_idx_last_occur_char.c\
-			ft_swap_dp.c
+			ft_swap_dp.c get_next_line.c
 			
 
 ### Objects ###

@@ -1,5 +1,5 @@
 ### Compilation ###
-CC      = cc
+CC      = clang
 FLAGS  = -Wall -Wextra -Werror -g
 ### Executable ###
 NAME   = cub3D

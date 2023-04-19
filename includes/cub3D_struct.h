@@ -6,6 +6,7 @@
 
 typedef enum ident_type
 {
+    UNASSIGNED;
     NO,
     SE,
     WE,
@@ -38,10 +39,11 @@ typedef struct map_list
 
 typedef struct cub3D
 {
+    char    *parsing_error
     t_list  *ident_FC;
     t_list  *ident_coord;
     t_list  *map_list;
-}   t_Cub3D;
+}   t_cub3D;
 
 
 #endif

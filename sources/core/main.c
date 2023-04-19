@@ -2,10 +2,12 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argv;
 	if (argc == 2)
-		printf("We can lauch the program\n");
+	{
+		if (check_file_arg(argv[1]))
+			return (1);
+	}
 	else
-		printf("Invalid number of arguments\n");
+		return (printf("Invalid number of arguments\n"), 1);
 	return (0);
 }

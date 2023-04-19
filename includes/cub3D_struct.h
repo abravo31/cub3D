@@ -2,6 +2,7 @@
 # define CUB3D_STRUCT_H
 
 # include "../libft/includes/libft.h"
+# include "./parsing.h"
 # include <stdio.h>
 
 typedef enum ident_type

@@ -1,25 +1,85 @@
 #include "../../includes/cub3D_struct.h"
 
-// Function that returns 1 or 0 weither c is a token or not
-// int	is_token(char c)
-// {
-// 	size_t				i;
-// 	static const char	*tokens[] = {
-// 		">",
-// 		"<",
-// 		"|",
-// 		NULL,
-// 	};
+void	get_char(char c, char **str)
+{
+	char	*tmp;
 
-// 	i = 0;
-// 	while (tokens[i])
-// 	{
-// 		if (tokens[i][0] == c)
-// 			return (1);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	if (!*str)
+	{
+		*str = ft_strdup("?");
+		if (!*str)
+		{
+			*str = NULL; 
+			printf("Malloc failed\n");
+		}
+			
+		*str[0] = c;
+		return ;
+	}
+	tmp = ft_strjoin(*str, "?");
+	free(*str);
+	if (!tmp)
+	{
+		*str = NULL;
+		printf("Malloc failed\n");
+	}
+	tmp[ft_strlen(tmp) - 1] = c;
+	*str = tmp;
+}
+
+//IMPORTANT check malloc failed
+t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
+{
+	t_ident_coord	*elem;
+	int				j;
+
+	j = 0;
+	elem = malloc(sizeof(t_ident_coord));
+	if (!elem)
+		printf("Malloc failed\n"); // gerer le retour et la memoire
+	while (line[i] == ' ' && line[i])
+		i++;
+	j = i;
+	while (line[i] && line[i] != ' ')
+		i++;
+	if (line[i] == ' ')
+		printf("Error path identifier\n"); // gerer le retour et la memoire
+	elem->path = ft_strdup_i(line, j);
+	elem->id = id;
+	return (elem);
+}
+
+t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
+{
+	t_ident_FC	*elem;
+	char 		*color;
+
+	elem = malloc(sizeof(t_ident_coord));
+	if (!elem)
+		printf("Malloc failed\n");// gerer le retour et la memoire
+	elem->R = -1;
+	elem->G = -1;
+	elem->B = -1;
+	while (line[i])
+	{
+		color = NULL;
+		while (line[i] == ' ' && line[i] != '\n' && line[i])
+			i++;
+		while (line[i] >= '0' && line[i] <= '9')
+			get_char(line[i++], &color);
+		if (line[i] == ',' && elem->R < 0)
+			elem->R = ft_atoi(color);
+		else if (line[i] == ',' && elem->G < 0)
+			elem->G = ft_atoi(color);
+		else if (line[i] == '\n' && elem->B < 0)
+			elem->B = ft_atoi(color);
+		i++;
+	}
+	if (elem->R < 0 || elem->R > 255 || elem->G < 0 || elem->G > 255 || elem->B < 0 || elem->B > 255)	
+		printf("error F or C format\n"); // gerer le retour et la memoire
+	elem->id = id;
+	return (elem);
+}
 
 int	is_identical(char *s1, char *s2)
 {
@@ -33,113 +93,148 @@ int	is_identical(char *s1, char *s2)
 	return (s1[i] == '\0');
 }
 
+int check_double(int empty)
+{
+	if (empty == 0)
+		return (1);
+	return (0); // peut-etre mettre l'erreur et free ici
+}
+
 // Function to return corresponding token from string
-t_ident_type	eval_ident_type(char *ident)
+t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
 	if (is_identical("NO", ident))
-		return (NO);
+	{
+		if (data->NO == check_double(data->NO))
+			return (NO);
+		else
+			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
+	}
 	else if (is_identical("SE", ident))
-		return (SE);
+	{
+		if (data->SE == check_double(data->SE))
+			return (SE);
+		else
+			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
+	}
 	else if (is_identical("WE", ident))
-		return (WE);
+	{
+		if (data->WE == check_double(data->WE))
+			return (WE);
+		else
+			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
+	}
 	else if (is_identical("EA", ident))
-		return (EA);
-	else if (is_identical("F", ident))
-		return (F);
-	else if (is_identical("C", ident))
-		return (C);
+	{
+		if (data->EA == check_double(data->EA))
+			return (EA);
+		else
+			return (UNASSIGNED);//imprimer erreur et free tout qui a ete malloque avant
+	}
 	return (UNASSIGNED);
 }
 
-void	cmd_without_quotes(t_minishell *msh, char prompt, char **str)
+t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 {
-	if ((is_token(prompt) && *str && !is_token(*str[0]))
-		|| (!is_token(prompt) && *str && is_token(*str[0])))
-		delimitor(str, msh, 0);
-	if ((prompt == '>' || prompt == '<')
-		&& *str && *str[0] == '|')
-		delimitor(str, msh, 0);
+	if (is_identical("F", ident))
+	{
+		if (data->F == check_double(data->F))
+			return (F);
+		else
+			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
+	}
+	else if (is_identical("C", ident))
+	{
+		if (data->C == check_double(data->C))
+			return (C);
+		else
+			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
+	}
+	return (UNASSIGNED);
 }
 
-void	iter_line(t_cub3D *cub3D, char **str, int i, char *line)
+void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
-	while (line[++i] && !cub3D->parsing_error)
+	t_list	*new;
+	// int		check;
+
+	if (!*str || data->parsing_error)
+		return ;
+	if (data->ident_coord == NULL && eval_ident_coord(*str, data))
 	{
-		check_parsing_errors(cub3D, 0);
-		// if ([i] == '$' 
-		// 	&& (msh->prompt[i + 1] == '"' || msh->prompt[i + 1] == '\''))
-		// 	msh->prompt[i] = ' ';
-		if (line[i] == ' ')
-			delimitor(str, cub3D, 1);
-		else if (!is_space(line[i]) && (line[i] != '\'' 
-		&& msh->prompt[i] != '\"'))
-		{
-			cmd_without_quotes(msh, msh->prompt[i], str);
-			get_char(msh->prompt[i], str);
-		}
-		else if (msh->prompt[i] == '\'' || msh->prompt[i] == '\"')
-		{			
-			if ((i > 0 && !is_token(msh->prompt[i - 1]))
-				&& !is_space(msh->prompt[i - 1]))
-				delimitor(str, msh, 0);
-			i = is_quote(msh, i, &msh->prompt, 0);
-		}
+		data->ident_coord = ft_lstnew((void *)new_coord(eval_ident_coord(*str, data), line, i));
+		if (!data->ident_coord)
+			printf("Malloc failed, il faut gerer");
 	}
+	else if (data->ident_coord && eval_ident_coord(*str, data))
+	{
+		new = ft_lstnew((void *)new_coord(eval_ident_coord(*str, data), line, i));
+		if (!new)
+			printf("Malloc failed, il faut gerer");
+		ft_lstadd_back(&data->ident_coord, new);
+	}
+	else if (data->ident_FC == NULL && eval_ident_FC(*str, data))
+	{
+		data->ident_FC = ft_lstnew((void *)new_FC(eval_ident_FC(*str, data), line, i));
+		if (!data->ident_FC)
+			printf("Malloc failed, il faut gerer");
+	}
+	else if (data->ident_FC && eval_ident_FC(*str, data))
+	{
+		new = ft_lstnew((void *)new_FC(eval_ident_FC(*str, data), line, i));
+		if (!new)
+			printf("Malloc failed, il faut gerer");
+		ft_lstadd_back(&data->ident_FC, new);
+	}
+	// else
+	// {
+	// 	check = data->NO + data->SE + data->WE + data->EA + data->F + data->C;
+	// }
+	//check_parsing_errors(data, 0);
+	*str = NULL;
+}
+
+void	iter_line(t_cub3D *data, char **str, int i, char *line)
+{
+	while (line[++i] && !data->parsing_error)
+	{
+		//check_parsing_errors(data);
+		if (line[i] == ' ' && line[i] != '\n' && line[i])
+			delimitor(str, data, line, i);
+		else if (line[i] != ' ' && line[i])
+			get_char(line[i], str);
+		// else if (line[i] == '\'' || line[i] == '\"')
+		// {			
+		// 	if ((i > 0 && !is_token(msh->prompt[i - 1]))
+		// 		&& !is_space(msh->prompt[i - 1]))
+		// 		delimitor(str, msh, 0);
+		// 	i = is_quote(msh, i, &msh->prompt, 0);
+		// }
+	}
+	//delimitor(&str, data, line, --i);
 }
 
 // Function to parse cmd from user input
-int	get_list(t_cub3D *cub3D, char *line)
+int	get_list(t_cub3D *data, char *line)
 {
 	int		i;
 	char	*str;	
 
 	i = -1;
 	str = NULL;
-	iter_line(cub3D, &str, i, line);
-	delimitor(&str, cub3D, 0);
-	check_parsing_errors(msh, 1);
-	check_tild(msh);
-	if (msh->parsing_error)
-		return (0);
-	ft_dup_list(msh);
-	expanded_cmd_list(msh, msh->cmd_expand);
-	ft_join_quote(msh);
-	pop_nulls(&msh->cmd_expand);
-	return (!msh->parsing_error);
+	iter_line(data, &str, i, line);
+	//delimitor(&str, data);
+	//check_parsing_errors(data);
+	// check_tild(msh);
+	// if (msh->parsing_error)
+	// 	return (0);
+	// ft_dup_list(msh);
+	// expanded_cmd_list(msh, msh->cmd_expand);
+	// ft_join_quote(msh);
+	// pop_nulls(&msh->cmd_expand);
+	return (!data->parsing_error);
 }
 
 // Function to handle space delimitor case
 // will create and pus a new node with cmd and it's token
-void	delimitor(char **str, t_cub3D *cub3D, int space)
-{
-	t_list	*new;
 
-	if (!*str || cub3D->parsing_error)
-		return ;
-	if (cub3D->ident_coord == NULL && eval_ident_type(*str) <= 3 && eval_ident_type(*str))
-	{
-		cub3D->ident_coord = ft_lstnew((void *)new_cmd(*str, eval_ident_type(*str), space));
-		if (!cub3D->ident_coord)
-			printf("Malloc failed, il faut gerer");
-		//add_to_garbage_collector((void *)&msh->cmd, CMD);
-	}
-	else if (cub3D->ident_FC == NULL && eval_ident_type(*str) <= 3 && eval_ident_type(*str))
-	{
-		/* code */
-	}
-	
-	else
-	{
-		new = ft_lstnew((void *)new_cmd(*cmd, eval_token(*cmd), space));
-		if (!new)
-		{
-			free_garbage_collector(ALL);
-			printf("error while adding a delimitor,
-			still not error or way toe xit this function!\n");
-			return ;
-		}
-		ft_lstadd_back(&msh->cmd, new);
-	}
-	check_parsing_errors(msh, 0);
-	*cmd = NULL;
-}

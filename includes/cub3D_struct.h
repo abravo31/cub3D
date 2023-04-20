@@ -9,7 +9,7 @@ typedef enum ident_type
 {
     UNASSIGNED,
     NO,
-    SE,
+    SO,
     WE,
     EA,
     F,
@@ -52,6 +52,7 @@ typedef struct cub3D
     t_list  *map_list;
 }   t_cub3D;
 
-int	get_list(t_cub3D *data, char *line);
+int	    get_list(t_cub3D *data, char *line);
+void    __debug_parsing(t_cub3D *data);
 
 #endif

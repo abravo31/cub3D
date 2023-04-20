@@ -96,28 +96,30 @@ void	data_init(t_cub3D *data)
 	data->EA = 0;
 	data->F = -1;
 	data->C = -1;
+	data->ident_coord = NULL;
 	data->parsing_error = NULL;
 	//data->ident_FC->content->F = -1;
 }
 
 int main ()
 {
-    char *line;
-    int fd;
+    // char *line;
+    // int fd;
 	t_cub3D data;
     
 	data_init(&data);
-    fd = open("test.txt", O_RDONLY);
-	printf("%d\n", fd);
-    line = get_next_line(fd);
-    while(line)
-    {
-        printf("line : %s", line);
-		get_list(&data, line);
-        free(line);
-        line = get_next_line(fd);
-    }
-    close(fd);
+    // fd = open("test.txt", O_RDONLY);
+	// printf("%d\n", fd);
+    // line = get_next_line(fd);
+    // while(line)
+    // {
+    //     printf("line : %s", line);
+		get_list(&data, "NO ./path_to_the_north_texture");
+		get_list(&data, "SO ./path_to_the_south_texture");
+    //     free(line);
+    //     line = get_next_line(fd);
+    // }
+    // close(fd);
     return (0);
 }
 

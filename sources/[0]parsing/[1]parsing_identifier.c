@@ -32,19 +32,24 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 {
 	t_ident_coord	*elem;
 	int				j;
+	int				k;
 
-	j = 0;
 	elem = malloc(sizeof(t_ident_coord));
 	if (!elem)
 		printf("Malloc failed\n"); // gerer le retour et la memoire
 	while (line[i] == ' ' && line[i])
 		i++;
 	j = i;
+	k = 0;
 	while (line[i] && line[i] != ' ')
+	{
+		k++;
 		i++;
+	}
+	printf("%s\n", &line[i]);	
 	if (line[i] == ' ')
 		printf("Error path identifier\n"); // gerer le retour et la memoire
-	elem->path = ft_strdup_i(line, j);
+	elem->path = ft_strdup_i(&line[j], k);
 	elem->id = id;
 	return (elem);
 }
@@ -93,41 +98,48 @@ int	is_identical(char *s1, char *s2)
 	return (s1[i] == '\0');
 }
 
-int check_double(int empty)
-{
-	if (empty == 0)
-		return (1);
-	return (0); // peut-etre mettre l'erreur et free ici
-}
-
 // Function to return corresponding token from string
 t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
 	if (is_identical("NO", ident))
 	{
-		if (data->NO == check_double(data->NO))
+		if (data->NO == 0)
+		{
+			data->NO = 1;
 			return (NO);
+		}	
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
-	else if (is_identical("SE", ident))
+	else if (is_identical("SO", ident))
 	{
-		if (data->SE == check_double(data->SE))
-			return (SE);
+		if (data->SE == 0)
+		{
+			data->SE = 1;
+			return (SO);
+		}	
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("WE", ident))
 	{
-		if (data->WE == check_double(data->WE))
+		if (data->WE == 0)
+		{
+			data->WE = 1;
 			return (WE);
+		}
+			
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("EA", ident))
 	{
-		if (data->EA == check_double(data->EA))
+		if (data->EA == 0)
+		{
+			data->EA = 1;
 			return (EA);
+		}
+			
 		else
 			return (UNASSIGNED);//imprimer erreur et free tout qui a ete malloque avant
 	}
@@ -138,15 +150,23 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 {
 	if (is_identical("F", ident))
 	{
-		if (data->F == check_double(data->F))
+		if (data->F == 0)
+		{
+			data->F = 1;
 			return (F);
+		}
+			
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("C", ident))
 	{
-		if (data->C == check_double(data->C))
+		if (data->C == 0)
+		{
+			data->C = 1;
 			return (C);
+		}
+			
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
@@ -156,19 +176,24 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_list	*new;
-	// int		check;
+	int		tmp;
 
+
+	tmp = 0;
+	//printf("%s\n", *str);
 	if (!*str || data->parsing_error)
 		return ;
-	if (data->ident_coord == NULL && eval_ident_coord(*str, data))
+	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		data->ident_coord = ft_lstnew((void *)new_coord(eval_ident_coord(*str, data), line, i));
+		printf("%s", *str);
+		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!data->ident_coord)
 			printf("Malloc failed, il faut gerer");
 	}
-	else if (data->ident_coord && eval_ident_coord(*str, data))
+	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		new = ft_lstnew((void *)new_coord(eval_ident_coord(*str, data), line, i));
+		printf("%s\n", *str);
+		new = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!new)
 			printf("Malloc failed, il faut gerer");
 		ft_lstadd_back(&data->ident_coord, new);
@@ -222,6 +247,7 @@ int	get_list(t_cub3D *data, char *line)
 
 	i = -1;
 	str = NULL;
+	//printf("%s\n", line);
 	iter_line(data, &str, i, line);
 	//delimitor(&str, data);
 	//check_parsing_errors(data);
@@ -232,9 +258,21 @@ int	get_list(t_cub3D *data, char *line)
 	// expanded_cmd_list(msh, msh->cmd_expand);
 	// ft_join_quote(msh);
 	// pop_nulls(&msh->cmd_expand);
+	__debug_parsing(data);
 	return (!data->parsing_error);
 }
 
 // Function to handle space delimitor case
 // will create and pus a new node with cmd and it's token
 
+void __debug_parsing(t_cub3D *data)
+{
+    t_list *iter = data->ident_coord;
+    t_ident_coord  *current = NULL;
+    while (iter)
+    {
+        current = (t_ident_coord*) iter->content;
+        printf("{%d}[%s]\n", current->id, current->path);
+        iter = iter->next;
+    }
+}

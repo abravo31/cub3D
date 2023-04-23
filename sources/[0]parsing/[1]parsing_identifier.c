@@ -39,45 +39,80 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 		printf("Malloc failed\n"); // gerer le retour et la memoire
 	while (line[i] == ' ' && line[i])
 		i++;
-	j = i;
+	j = i - 1;
 	k = 0;
 	while (line[i] && line[i] != ' ')
 	{
 		k++;
 		i++;
-	}
-	printf("%s\n", &line[i]);	
+	}	
 	if (line[i] == ' ')
 		printf("Error path identifier\n"); // gerer le retour et la memoire
-	elem->path = ft_strdup_i(&line[j], k);
+	elem->path = ft_strdup_i(&line[++j], k-1);
 	elem->id = id;
 	return (elem);
 }
 
+int	ft_atoi_FC(const char *str)
+{
+	int	res;
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	res = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	while(str[i] && str[i] == ' ')
+		i++;
+	if (str[i])
+		res = 256;
+	return (res);
+}
 t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 {
 	t_ident_FC	*elem;
 	char 		*color;
 
-	elem = malloc(sizeof(t_ident_coord));
+	elem = malloc(sizeof(t_ident_FC));
 	if (!elem)
 		printf("Malloc failed\n");// gerer le retour et la memoire
 	elem->R = -1;
 	elem->G = -1;
 	elem->B = -1;
+	//printf("%s\n", &line[i]);
 	while (line[i])
 	{
 		color = NULL;
-		while (line[i] == ' ' && line[i] != '\n' && line[i])
-			i++;
-		while (line[i] >= '0' && line[i] <= '9')
+		// while (line[i] == ' ' && line[i] != '\n' && line[i])
+		// 	i++;
+		// while (line[i] >= '0' && line[i] <= '9')
+		while (line[i] != ',' && line[i] != '\n')
 			get_char(line[i++], &color);
-		if (line[i] == ',' && elem->R < 0)
-			elem->R = ft_atoi(color);
-		else if (line[i] == ',' && elem->G < 0)
-			elem->G = ft_atoi(color);
-		else if (line[i] == '\n' && elem->B < 0)
-			elem->B = ft_atoi(color);
+		if (line[i] == ',' && color && elem->R < 0)
+			elem->R = ft_atoi_FC(color);
+		else if (line[i] == ',' && color && elem->G < 0)
+			elem->G = ft_atoi_FC(color);
+		else if ((line[i] == '\n' || line[i] == ' ') && color && elem->B < 0)
+			elem->B = ft_atoi_FC(color);
+		if (elem->B >= 0)
+			break;
+		i++;
+	}
+	// printf("%d\n", i);
+	while (line[i])
+	{
+		if (line[i] && line[i] != ' ' && line[i] != '\n')
+		{
+			printf("erreur format RGB\n");
+			break; //il faut exit et liberer la memoire
+		}
 		i++;
 	}
 	if (elem->R < 0 || elem->R > 255 || elem->G < 0 || elem->G > 255 || elem->B < 0 || elem->B > 255)	
@@ -139,7 +174,6 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->EA = 1;
 			return (EA);
 		}
-			
 		else
 			return (UNASSIGNED);//imprimer erreur et free tout qui a ete malloque avant
 	}
@@ -153,9 +187,9 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 		if (data->F == 0)
 		{
 			data->F = 1;
+			//printf("%d\n", F);
 			return (F);
-		}
-			
+		}	
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
@@ -165,8 +199,7 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 		{
 			data->C = 1;
 			return (C);
-		}
-			
+		}	
 		else
 			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
@@ -176,37 +209,31 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_list	*new;
-	int		tmp;
-
+	t_ident_type	tmp;
 
 	tmp = 0;
-	//printf("%s\n", *str);
-	if (!*str || data->parsing_error)
-		return ;
 	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		printf("%s", *str);
 		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!data->ident_coord)
 			printf("Malloc failed, il faut gerer");
 	}
 	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		printf("%s\n", *str);
 		new = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!new)
 			printf("Malloc failed, il faut gerer");
 		ft_lstadd_back(&data->ident_coord, new);
 	}
-	else if (data->ident_FC == NULL && eval_ident_FC(*str, data))
+	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data))!= 0)
 	{
-		data->ident_FC = ft_lstnew((void *)new_FC(eval_ident_FC(*str, data), line, i));
+		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
 		if (!data->ident_FC)
 			printf("Malloc failed, il faut gerer");
 	}
-	else if (data->ident_FC && eval_ident_FC(*str, data))
+	else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
 	{
-		new = ft_lstnew((void *)new_FC(eval_ident_FC(*str, data), line, i));
+		new = ft_lstnew((void *)new_FC(tmp, line, i));
 		if (!new)
 			printf("Malloc failed, il faut gerer");
 		ft_lstadd_back(&data->ident_FC, new);
@@ -219,24 +246,58 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	*str = NULL;
 }
 
+int	check_full_identifier(t_cub3D *data)
+{
+	int check;
+
+	check = data->NO + data->SE + data->WE + data->EA + data->F + data->C;
+	if (check == 6)
+		return (1);
+	return (0);
+}
+
+t_map_list	*new_map_list(char *line, int y)
+{
+	t_map_list	*elem;
+
+	elem = malloc(sizeof(t_map_list)); //verifier le retour
+	elem->line = ft_strdup(line); //verifier le retour et free
+	elem->_y = y;
+	elem->_x = ft_strlen(line);
+	
+	return(elem);
+}
+
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
-	while (line[++i] && !data->parsing_error)
-	{
-		//check_parsing_errors(data);
-		if (line[i] == ' ' && line[i] != '\n' && line[i])
-			delimitor(str, data, line, i);
-		else if (line[i] != ' ' && line[i])
-			get_char(line[i], str);
-		// else if (line[i] == '\'' || line[i] == '\"')
-		// {			
-		// 	if ((i > 0 && !is_token(msh->prompt[i - 1]))
-		// 		&& !is_space(msh->prompt[i - 1]))
-		// 		delimitor(str, msh, 0);
-		// 	i = is_quote(msh, i, &msh->prompt, 0);
-		// }
+	t_list	*new;
+
+	if (!check_full_identifier(data))
+		while (line[++i] && !data->parsing_error )
+		{
+			//check_parsing_errors(data);
+			if (line[i] == ' ' && line[i] != '\n' && line[i])
+				delimitor(str, data, line, i);
+			else if (line[i] != ' ' && line[i])
+				get_char(line[i], str);
 	}
-	//delimitor(&str, data, line, --i);
+	else
+	{
+		data->Y = data->Y + 1;
+		if (data->map_list == NULL)
+		{
+			data->map_list = ft_lstnew((void *)new_map_list(line, data->Y));
+			if (!data->map_list)
+			printf("Malloc failed, il faut gerer");
+		}
+		else if (data->map_list)
+		{
+			new = ft_lstnew((void *)new_map_list(line, data->Y));
+			if (!new)
+			printf("Malloc failed, il faut gerer");
+			ft_lstadd_back(&data->map_list, new);
+		}
+	}
 }
 
 // Function to parse cmd from user input
@@ -258,7 +319,6 @@ int	get_list(t_cub3D *data, char *line)
 	// expanded_cmd_list(msh, msh->cmd_expand);
 	// ft_join_quote(msh);
 	// pop_nulls(&msh->cmd_expand);
-	__debug_parsing(data);
 	return (!data->parsing_error);
 }
 
@@ -274,5 +334,23 @@ void __debug_parsing(t_cub3D *data)
         current = (t_ident_coord*) iter->content;
         printf("{%d}[%s]\n", current->id, current->path);
         iter = iter->next;
+    }
+
+	t_list *iter2 = data->ident_FC;
+    t_ident_FC  *current2 = NULL;
+    while (iter2)
+    {
+        current2 = (t_ident_FC*) iter2->content;
+        printf("{%d}(%d)(%d)(%d)\n", current2->id, current2->R, current2->G, current2->B);
+        iter2 = iter2->next;
+    }
+
+	t_list *iter3 = data->map_list;
+    t_map_list  *current3 = NULL;
+    while (iter3)
+    {
+        current3 = (t_map_list*) iter3->content;
+        printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
+        iter3 = iter3->next;
     }
 }

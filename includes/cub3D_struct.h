@@ -34,7 +34,8 @@ typedef struct ident_coord
 typedef struct map_list
 {
     char    *line;
-    int     index;
+    int     _y;
+    int     _x;
 }   t_map_list;
 
 
@@ -46,6 +47,7 @@ typedef struct cub3D
     int     EA;
     int     F;
     int     C;
+    int     Y;
     char    *parsing_error;
     t_list  *ident_FC;
     t_list  *ident_coord;

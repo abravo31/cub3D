@@ -74,7 +74,6 @@ Ideas parsing:
 No hay mas espacios o fueron revisados siguiendo la expansion de busqueda
 de caminos 
 
-
 7. Pour recuperer l'info, on garde les lignes du fichier en utilisant gnl dans une liste chainee pour ensuite recuperer 
 les infos de coordonnees 
 

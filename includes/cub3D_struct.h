@@ -36,13 +36,11 @@ typedef struct map_list
     int     index;
 }   t_map_list;
 
-
 typedef struct cub3D
 {
     t_list  *ident_FC;
     t_list  *ident_coord;
     t_list  *map_list;
 }   t_Cub3D;
-
 
 #endif

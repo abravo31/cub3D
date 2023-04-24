@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 	{
 		if (ft_check_file_str(argv[1]))
 			return (1);
+		if (ft_check_map(argv[1]))
+			return (1);
 	}
 	else
 		return (printf("Invalid number of arguments\n"), 1);

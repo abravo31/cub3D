@@ -1,6 +1,7 @@
 ### Compilation ###
 CC      = cc
-FLAGS  = -Wall -Wextra -Werror -g
+# FLAGS  = -Wall -Wextra -Werror -g
+FLAGS  = -g
 ### Executable ###
 NAME   = cub3D
 ### Includes ###
@@ -14,7 +15,7 @@ COR_DIR		=	core/
 CORS		=	main.c
 
 PARSE_DIR	=	[0]parsing/
-PARSE		=	[0]arguments.c [1]parsing.c
+PARSE		=	[0]read_map.c [1]parsing_map.c
 
 # EXEC_DIR	=	exec/
 # EXEC		=	exec_core.c fill_heredocs.c path.c cmd_signals.c main_hrdc_signals.c \

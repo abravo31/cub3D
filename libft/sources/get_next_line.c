@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "../includes/libft.h"
 
 static char *new_buf(char *buf, size_t len_read)
 {

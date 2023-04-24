@@ -6,7 +6,7 @@
 #    By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:26:55 by gamoreno          #+#    #+#              #
-#    Updated: 2023/01/17 10:59:11 by dnieto-c         ###   ########.fr        #
+#    Updated: 2023/04/19 22:01:46 by dnieto-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,13 @@ SOURCES	= 	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 			ft_memmove.c ft_putnbr_fd.c  ft_strdup.c ft_strlen.c  ft_strrchr.c \
 			ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 			ft_putstr_fd.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c \
+			ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
+			ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 			ft_abs.c ft_strcmp.c ft_atof.c ft_ftoa.c ft_atoli.c \
 			ft_free_split.c ft_strlen_int.c ft_strjoin_secure.c \
 			ft_strnstr_int.c ft_strchr_int.c ft_length_split.c ft_concatenation.c\
 			ft_tabdup.c ft_get_index_char_str.c ft_strdup_i.c ft_idx_last_occur_char.c\
-			ft_swap_dp.c get_next_line.c
+			ft_swap_dp.c get_next_line.c ft_check_presence_char.c
 			
 
 ### Objects ###

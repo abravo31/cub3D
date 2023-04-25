@@ -13,6 +13,7 @@ typedef struct map
 	int			max_width;
 	int			max_heigth;
 	int			closed_map;
+	int			begin_idx;
 	int			**map;
 }				t_map;
 

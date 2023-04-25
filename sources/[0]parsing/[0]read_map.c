@@ -20,38 +20,6 @@ void	generic_lst_free(t_list **lst)
 	}
 }
 
-static int	ft_length_until_new_line(char *s)
-{
-	int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == '\n')
-			break ;
-		i++;
-	}
-	return (i);
-}
-
-static int	ft_consider_line(char *line, t_list *node, int in_map)
-{
-	if (ft_strnstr_int(line, "1", ft_strlen(line)) < 0)
-	{
-		if (node->next)
-		{
-			printf("Aun no hemos llegado al final de la lista y no hay 1 en esta linea\n");
-		}
-		else
-		{
-			printf("La ultima linea no tiene 1\n");
-		}
-	}
-	return (0);
-}
-
 static int	ft_get_lines_from_file(int fd_map, t_list **lst)
 {
 	char	*line;
@@ -76,39 +44,88 @@ static int	ft_get_lines_from_file(int fd_map, t_list **lst)
 	return (0);
 }
 
-static int	ft_initialize_map(t_map *map, int max_width, int max_heigth)
+static int	ft_length_until_new_line(char *s)
 {
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '\n')
+			break ;
+		i++;
+	}
+	return (i);
+}
+
+static int	ft_consider_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '1' || line[i] == '0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	ft_initialize_map(t_list **lst, t_map *map, int begin_idx, int max_width)
+{
+	// printf("donde comienza %d -- donde termina %d\n", begin_idx, ft_lstsize(*lst));
+	map->begin_idx = begin_idx;
 	map->max_width = max_width;
-	map->max_heigth = max_heigth;
+	map->max_heigth = ft_lstsize(*lst) - begin_idx;
+	// printf("%d\n", map->max_heigth);
 	map->closed_map = 1;
-	map->map = (int  **)malloc(sizeof(int *) * (max_heigth + 1));
+	map->map = (int  **)malloc(sizeof(int *) * (map->max_heigth + 1));
 	if (!map->map)
 		return (1);
 	return (0);
 }
 
-static int	ft_get_dimensions_map(t_list **lst, t_map *map)
+static int	ft_get_pos_map_in_file(t_list **lst, t_map *map)
 {
 	t_list	*aux;
-	char	*line;
 	int		b_idx;
-	int		max_w;
 	int		i;
+	int		max_w;
 
-	b_idx = -1;
+	max_w = -1;
 	aux = *lst;
 	i = 0;
+	b_idx = -1;
 	while (aux)
 	{
-		line = (char *)aux->content;
-		if (ft_strnstr_int(line, "1", ft_strlen(line)) >= 0 && b_idx == -1)
+		// Here we find the index of the first line of the map in the file
+		if (ft_consider_line((char *)aux->content) && b_idx == -1)
 			b_idx = i;
-		if (ft_strnstr_int(line, "1", ft_strlen(line)) < 0 && b_idx != -1)
-			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
+		if (!ft_consider_line((char *)aux->content) && b_idx != -1)
+		{
+			while (aux)
+			{
+				if (ft_consider_line((char *)aux->content))
+					return (printf(MAP_IS_NOT_LAST_ELEM), 1);
+				if (ft_length_until_new_line((char *)aux->content) > max_w)
+					max_w = ft_length_until_new_line((char *)aux->content);
+				aux = aux->next;
+			}
+			// Ce break sert à qqc ?
+			break ;
+		}
+		if (b_idx != -1)
+		{
+			if (ft_length_until_new_line((char *)aux->content) > max_w)
+				max_w = ft_length_until_new_line((char *)aux->content);
+		}
 		i++;
 		aux = aux->next;
 	}
-	if (ft_initialize_map(map, b_idx, i))
+	if (ft_initialize_map(lst, map, b_idx, max_w))
 		return (1);
 	return (0);
 }
@@ -146,16 +163,18 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 
 	aux = *lst;
 	i = 0;
+	while (i++ < map->begin_idx)
+		aux = aux->next;
 	while (aux)
 	{
 		line = (char *)aux->content;
-		map->map[i] = (int *)malloc(sizeof(int) * map->max_width);
-		if (!map->map[i])
+		map->map[i - map->begin_idx - 1] = (int *)malloc(sizeof(int) * map->max_width);
+		if (!map->map[i - map->begin_idx - 1])
 			return (ft_free_map(map), 1);
 		if (ft_length_until_new_line(line) < map->max_width)
-			ft_create_tab_from_line(map->map[i], line, map->max_width, 0);
+			ft_create_tab_from_line(map->map[i - map->begin_idx - 1], line, map->max_width, 0);
 		else
-			ft_create_tab_from_line(map->map[i], line, map->max_width, 1);
+			ft_create_tab_from_line(map->map[i - map->begin_idx - 1], line, map->max_width, 1);
 		aux = aux->next;
 		i++;
 	}
@@ -175,10 +194,10 @@ int	ft_read_file(char *file_name, t_map *map)
 	begin_lines_map = &lines_map;
 	if (ft_get_lines_from_file(fd_map, begin_lines_map))
 		return (1);
-	if (ft_get_dimensions_map(begin_lines_map, map))
+	if (ft_get_pos_map_in_file(begin_lines_map, map))
 		return (generic_lst_free(begin_lines_map), 1);
-	// if (ft_create_map_from_list(begin_lines_map, map))
-	// 	return (generic_lst_free(begin_lines_map), 1);
+	if (ft_create_map_from_list(begin_lines_map, map))
+		return (generic_lst_free(begin_lines_map), 1);
 	generic_lst_free(begin_lines_map);
 	close (fd_map);
 	return (0);

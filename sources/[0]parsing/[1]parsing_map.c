@@ -32,27 +32,32 @@ void	ft_free_map(t_map *map)
 
 /**************************************************************/
 
-void	ft_print_around(t_map *map, int y, int x)
+static void	ft_scan_around(t_map *map, int y, int x, int error_int)
 {
 	if ((x < 0 || x == map->max_width) || (y < 0 || y == map->max_heigth))
 		return ;
-	// printf("%d\n", map->map[y][x]);
-	if (map->map[y][x] == 0)
+	if (map->map[y][x] == error_int)
 	{
 		map->closed_map = 0;
 	}
 }
 
-void	ft_scan_point_area(t_map *map, int y, int x)
+void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 {
-	// printf("Abajo : ");
-	ft_print_around(map, y + 1, x);
-	// printf("Arriba:	  ");
-	ft_print_around(map, y - 1, x);
-	// printf("Derecha:  ");
-	ft_print_around(map, y, x + 1);
-	// printf("Izquierda:");
-	ft_print_around(map, y, x - 1);
+	int	error_int;
+
+	if (empty)
+		error_int = 0;
+	else
+		error_int = 32;
+	// Top
+	ft_scan_around(map, y + 1, x, error_int);
+	// Down
+	ft_scan_around(map, y - 1, x, error_int);
+	// Rigth
+	ft_scan_around(map, y, x + 1, error_int);
+	// Left
+	ft_scan_around(map, y, x - 1, error_int);
 }
 
 void	ft_scan_map(t_map *map)
@@ -67,7 +72,10 @@ void	ft_scan_map(t_map *map)
 		while (j < map->max_width)
 		{
 			if (map->map[i][j] == 32)
-				ft_scan_point_area(map, i, j);
+				ft_scan_point_area(map, i, j, 1);
+			else if (map->map[i][j] == 0)
+				ft_scan_point_area(map, i, j, 0);
+
 			j++;
 		}
 		i++;
@@ -80,17 +88,17 @@ int	ft_check_map(char *file_name)
 
 	if (ft_read_file(file_name, &map))
 		return (1);
-	// ft_print_map(&map);
-	// ft_scan_map(&map);
-	// if (map.closed_map == 0)
-	// {
-	// 	ft_free_map(&map);
-	// 	return (printf(INVALID_MAP), 1);
-	// }
-	// else
-	// {
-	// 	printf("Valido\n");
-	// }
-    // ft_free_map(&map);
+	ft_print_map(&map);
+	ft_scan_map(&map);
+	if (map.closed_map == 0)
+	{
+		ft_free_map(&map);
+		return (printf(INVALID_MAP), 1);
+	}
+	else
+	{
+		printf("Valido\n");
+	}
+    ft_free_map(&map);
 	return (0);
 }

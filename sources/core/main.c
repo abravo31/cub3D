@@ -101,7 +101,6 @@ void	data_init(t_cub3D *data)
 	data->ident_FC = NULL;
 	data->parsing_error = NULL;
     data->map_list = NULL;
-	//data->ident_FC->content->F = -1;
 }
 
 int main ()
@@ -112,20 +111,17 @@ int main ()
     
 	data_init(&data);
     fd = open("test.txt", O_RDONLY);
-	// perror("amanda");
-	// printf("%d\n", fd);
     line = get_next_line(fd);
     while(line)
     {
-        //printf("line : %s", line);
 		get_list(&data, line);
-		// get_list(&data, "NO ./path_to_the_north_texture");
-		// get_list(&data, "SO ./path_to_the_south_texture");
         free(line);
         line = get_next_line(fd);
     }
+    free(line);
 	__debug_parsing(&data);
     close(fd);
+    ft_exit_and_free(&data, 0);
     return (0);
 }
 

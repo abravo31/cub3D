@@ -10,9 +10,8 @@ void	get_char(char c, char **str)
 		if (!*str)
 		{
 			*str = NULL; 
-			printf("Malloc failed\n");
+			printf("Malloc failed\n"); //checker
 		}
-			
 		*str[0] = c;
 		return ;
 	}
@@ -21,7 +20,7 @@ void	get_char(char c, char **str)
 	if (!tmp)
 	{
 		*str = NULL;
-		printf("Malloc failed\n");
+		printf("Malloc failed\n"); //checker
 	}
 	tmp[ft_strlen(tmp) - 1] = c;
 	*str = tmp;
@@ -75,6 +74,7 @@ int	ft_atoi_FC(const char *str)
 		res = 256;
 	return (res);
 }
+
 t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 {
 	t_ident_FC	*elem;
@@ -86,13 +86,9 @@ t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 	elem->R = -1;
 	elem->G = -1;
 	elem->B = -1;
-	//printf("%s\n", &line[i]);
 	while (line[i])
 	{
 		color = NULL;
-		// while (line[i] == ' ' && line[i] != '\n' && line[i])
-		// 	i++;
-		// while (line[i] >= '0' && line[i] <= '9')
 		while (line[i] != ',' && line[i] != '\n')
 			get_char(line[i++], &color);
 		if (line[i] == ',' && color && elem->R < 0)
@@ -101,11 +97,12 @@ t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 			elem->G = ft_atoi_FC(color);
 		else if ((line[i] == '\n' || line[i] == ' ') && color && elem->B < 0)
 			elem->B = ft_atoi_FC(color);
+		free(color);
 		if (elem->B >= 0)
 			break;
 		i++;
 	}
-	// printf("%d\n", i);
+
 	while (line[i])
 	{
 		if (line[i] && line[i] != ' ' && line[i] != '\n')
@@ -143,8 +140,6 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->NO = 1;
 			return (NO);
 		}	
-		else
-			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("SO", ident))
 	{
@@ -153,8 +148,6 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->SE = 1;
 			return (SO);
 		}	
-		else
-			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("WE", ident))
 	{
@@ -163,9 +156,6 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->WE = 1;
 			return (WE);
 		}
-			
-		else
-			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("EA", ident))
 	{
@@ -174,8 +164,6 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->EA = 1;
 			return (EA);
 		}
-		else
-			return (UNASSIGNED);//imprimer erreur et free tout qui a ete malloque avant
 	}
 	return (UNASSIGNED);
 }
@@ -187,11 +175,8 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 		if (data->F == 0)
 		{
 			data->F = 1;
-			//printf("%d\n", F);
 			return (F);
 		}	
-		else
-			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	else if (is_identical("C", ident))
 	{
@@ -200,8 +185,6 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 			data->C = 1;
 			return (C);
 		}	
-		else
-			return (UNASSIGNED); //imprimer erreur et free tout qui a ete malloque avant
 	}
 	return (UNASSIGNED);
 }
@@ -238,12 +221,7 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			printf("Malloc failed, il faut gerer");
 		ft_lstadd_back(&data->ident_FC, new);
 	}
-	// else
-	// {
-	// 	check = data->NO + data->SE + data->WE + data->EA + data->F + data->C;
-	// }
-	//check_parsing_errors(data, 0);
-	*str = NULL;
+	//*str = NULL;
 }
 
 int	check_full_identifier(t_cub3D *data)
@@ -268,6 +246,51 @@ t_map_list	*new_map_list(char *line, int y)
 	return(elem);
 }
 
+void	ft_free_FC(void *content)
+{
+	free(content);
+}
+
+void	ft_free_coord(void *content)
+{
+	t_ident_coord *tmp;
+
+	tmp = (t_ident_coord *)content;
+	free(tmp->path);
+	free(tmp);
+}
+
+void ft_free_map_list(void *content)
+{
+	t_map_list *tmp;
+
+	tmp = (t_map_list *)content;
+	free(tmp->line);
+	free(tmp);
+}
+
+void ft_exit_and_free(t_cub3D *data, int ret)
+{
+	if (data->parsing_error)
+		free(data->parsing_error);
+	if (data->ident_coord)
+		ft_lstclear(&data->ident_coord, &ft_free_coord);
+	if (data->ident_FC)
+		ft_lstclear(&data->ident_FC, &ft_free_FC);
+	if (data->map_list)
+		ft_lstclear(&data->map_list, &ft_free_map_list);
+	exit(ret);
+}
+
+void	check_parsing_error(t_cub3D *data)
+{
+	if (data->parsing_error)
+	{
+		printf("%s\n", data->parsing_error);
+		ft_exit_and_free(data, 1);
+	}
+}
+
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
 	t_list	*new;
@@ -279,7 +302,11 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
 				delimitor(str, data, line, i);
 			else if (line[i] != ' ' && line[i])
+			{
 				get_char(line[i], str);
+				if (!*str)
+					ft_exit_and_free(data, 1);
+			}
 	}
 	else
 	{
@@ -298,9 +325,10 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 			ft_lstadd_back(&data->map_list, new);
 		}
 	}
+	free(*str);
 }
 
-// Function to parse cmd from user input
+// Function to parse the file map in a liked list
 int	get_list(t_cub3D *data, char *line)
 {
 	int		i;
@@ -308,23 +336,11 @@ int	get_list(t_cub3D *data, char *line)
 
 	i = -1;
 	str = NULL;
-	//printf("%s\n", line);
 	iter_line(data, &str, i, line);
-	//delimitor(&str, data);
-	//check_parsing_errors(data);
-	// check_tild(msh);
-	// if (msh->parsing_error)
-	// 	return (0);
-	// ft_dup_list(msh);
-	// expanded_cmd_list(msh, msh->cmd_expand);
-	// ft_join_quote(msh);
-	// pop_nulls(&msh->cmd_expand);
 	return (!data->parsing_error);
 }
 
-// Function to handle space delimitor case
-// will create and pus a new node with cmd and it's token
-
+// Function to check if the likeds list are created
 void __debug_parsing(t_cub3D *data)
 {
     t_list *iter = data->ident_coord;

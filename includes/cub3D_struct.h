@@ -3,6 +3,7 @@
 
 # include "../libft/includes/libft.h"
 # include <stdio.h>
+ #include <stdlib.h>
 # define BUFFER_SIZE 42
 
 typedef enum ident_type
@@ -56,5 +57,6 @@ typedef struct cub3D
 
 int	    get_list(t_cub3D *data, char *line);
 void    __debug_parsing(t_cub3D *data);
+void    ft_exit_and_free(t_cub3D *data, int ret);
 
 #endif

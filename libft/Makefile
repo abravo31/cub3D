@@ -6,14 +6,14 @@
 #    By: amanda <amanda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:26:55 by gamoreno          #+#    #+#              #
-#    Updated: 2023/04/20 18:56:46 by amanda           ###   ########.fr        #
+#    Updated: 2023/04/25 20:18:02 by amanda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Compilation ###
 
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror -I -g
+CFLAGS	= -Wall -Wextra -Werror -I -g3
 
 ### Executable ###
 

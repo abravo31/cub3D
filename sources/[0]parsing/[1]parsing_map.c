@@ -88,17 +88,17 @@ int	ft_check_map(char *file_name)
 
 	if (ft_read_file(file_name, &map))
 		return (1);
-	ft_print_map(&map);
-	ft_scan_map(&map);
-	if (map.closed_map == 0)
-	{
-		ft_free_map(&map);
-		return (printf(INVALID_MAP), 1);
-	}
-	else
-	{
-		printf("Valido\n");
-	}
-    ft_free_map(&map);
+	// ft_print_map(&map);
+	// ft_scan_map(&map);
+	// if (map.closed_map == 0)
+	// {
+	// 	ft_free_map(&map);
+	// 	return (printf(INVALID_MAP), 1);
+	// }
+	// else
+	// {
+	// 	printf("Valido\n");
+	// }
+    // ft_free_map(&map);
 	return (0);
 }

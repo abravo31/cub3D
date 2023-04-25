@@ -8,12 +8,20 @@
 #define INVALID_MAP "Invalid map\n"
 #define MAP_IS_NOT_LAST_ELEM "The map is not the last element in the file\n"
 
+typedef	struct player_position
+{
+	int	y;
+	int	x;
+	int	direction;
+}				t_p_pos;
+
 typedef struct map
 {
 	int			max_width;
 	int			max_heigth;
 	int			closed_map;
 	int			begin_idx;
+	t_p_pos		player;
 	int			**map;
 }				t_map;
 

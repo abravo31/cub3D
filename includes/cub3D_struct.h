@@ -57,9 +57,9 @@ typedef struct cub3D
     int     C;
     int     Y;
     char    *parsing_error;
-    t_list  *ident_FC;
-    t_list  *ident_coord;
-    t_list  *map_list;
+    t_list  **ident_FC;
+    t_list  **ident_coord;
+    t_list  **map_list;
 }   t_cub3D;
 
 int	    get_list(t_cub3D *data, char *line);

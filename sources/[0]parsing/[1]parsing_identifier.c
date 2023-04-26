@@ -194,13 +194,13 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
-	t_list	*new;
+	t_list			*new;
 	t_ident_type	tmp;
 
 	tmp = 0;
 	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
+		new = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!data->ident_coord)
 		{
 			free (line);
@@ -217,25 +217,26 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		}
 		ft_lstadd_back(&data->ident_coord, new);
 	}
-	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data))!= 0)
-	{
-		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!data->ident_FC)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-	}
-	else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
+	else if (tmp = eval_ident_FC(*str, data) != 0)
 	{
 		new = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!new)
+		if (!data->ident_FC)
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
 		ft_lstadd_back(&data->ident_FC, new);
 	}
+	// else if (*data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
+	// {
+	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
+	// 	if (!new)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// 	ft_lstadd_back(&data->ident_FC, new);
+	// }
 	//*str = NULL;
 }
 

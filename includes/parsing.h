@@ -17,10 +17,11 @@ typedef	struct player_position
 
 typedef struct map
 {
-	int			max_width;
-	int			max_heigth;
+	int			max_w;
+	int			max_h;
 	int			closed_map;
-	int			begin_idx;
+	int			b_idx;
+	int			l_idx;
 	t_p_pos		player;
 	int			**map;
 }				t_map;

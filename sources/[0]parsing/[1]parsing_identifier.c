@@ -7,12 +7,14 @@ void	get_char(char c, char **str)
 	if (!*str)
 	{
 		*str = ft_strdup("?");
+		// *str = malloc(sizeof(char) * 2);
 		if (!*str)
 		{
 			*str = NULL; 
 			printf("Malloc failed\n"); //checker
 		}
 		*str[0] = c;
+		// *str[1] = '\0';
 		return ;
 	}
 	tmp = ft_strjoin(*str, "?");
@@ -295,8 +297,9 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
 	t_list	*new;
 
+	// Error et si c'est bon passer a la partie map 
 	if (!check_full_identifier(data))
-		while (line[++i] && !data->parsing_error )
+		while (line[++i] && !data->parsing_error)
 		{
 			//check_parsing_errors(data);
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
@@ -304,10 +307,11 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 			else if (line[i] != ' ' && line[i])
 			{
 				get_char(line[i], str);
+				// printf("%s\n", *str);
 				if (!*str)
 					ft_exit_and_free(data, 1);
 			}
-	}
+		}
 	else
 	{
 		data->Y = data->Y + 1;

@@ -121,7 +121,7 @@ int main ()
     free(line);
 	__debug_parsing(&data);
     close(fd);
-    ft_exit_and_free(&data, 0);
+    ft_exit_and_free(&data, 0, NULL, NULL);
     return (0);
 }
 

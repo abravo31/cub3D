@@ -6,6 +6,13 @@
  #include <stdlib.h>
 # define BUFFER_SIZE 42
 
+/*Macros for the errors*/
+#define ARG_IS_DIR "You probably aren't launching the program with a file\n"
+#define INVALID_EXTENSION "Provided file doesn't finish by .cub\n"
+#define ERROR_OPEN_FD "Error opening the file, check if it exists or permissions\n"
+#define INVALID_MAP "Invalid map\n"
+#define MAP_IS_NOT_LAST_ELEM "The map is not the last element in the file\n"
+#define MALLOC_FAIL "Malloc failed, exiting properly"
 typedef enum ident_type
 {
     UNASSIGNED,
@@ -57,6 +64,6 @@ typedef struct cub3D
 
 int	    get_list(t_cub3D *data, char *line);
 void    __debug_parsing(t_cub3D *data);
-void    ft_exit_and_free(t_cub3D *data, int ret);
+void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
 
 #endif

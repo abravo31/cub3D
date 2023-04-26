@@ -110,6 +110,7 @@ t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 		if (line[i] && line[i] != ' ' && line[i] != '\n')
 		{
 			printf("erreur format RGB\n");
+			// fonction qui mettre l'erreur dans check_parsing_error 
 			break; //il faut exit et liberer la memoire
 		}
 		i++;
@@ -201,26 +202,38 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	{
 		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!data->ident_coord)
-			printf("Malloc failed, il faut gerer");
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
 	}
 	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
 		new = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!new)
-			printf("Malloc failed, il faut gerer");
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
 		ft_lstadd_back(&data->ident_coord, new);
 	}
 	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data))!= 0)
 	{
 		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
 		if (!data->ident_FC)
-			printf("Malloc failed, il faut gerer");
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
 	}
 	else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
 	{
 		new = ft_lstnew((void *)new_FC(tmp, line, i));
 		if (!new)
-			printf("Malloc failed, il faut gerer");
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
 		ft_lstadd_back(&data->ident_FC, new);
 	}
 	//*str = NULL;
@@ -271,8 +284,12 @@ void ft_free_map_list(void *content)
 	free(tmp);
 }
 
-void ft_exit_and_free(t_cub3D *data, int ret)
+void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 {
+	if (error_msg)
+		printf("%s\n", error_msg);
+	if (*str)
+		free (*str);
 	if (data->parsing_error)
 		free(data->parsing_error);
 	if (data->ident_coord)
@@ -284,32 +301,31 @@ void ft_exit_and_free(t_cub3D *data, int ret)
 	exit(ret);
 }
 
-void	check_parsing_error(t_cub3D *data)
-{
-	if (data->parsing_error)
-	{
-		printf("%s\n", data->parsing_error);
-		ft_exit_and_free(data, 1);
-	}
-}
+// void	check_parsing_error(t_cub3D *data)
+// {
+// 	if (data->parsing_error)
+// 	{
+// 		printf("%s\n", data->parsing_error);
+// 		ft_exit_and_free(data, 1);
+// 	}
+// }
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
 	t_list	*new;
 
-	// Error et si c'est bon passer a la partie map 
 	if (!check_full_identifier(data))
 		while (line[++i] && !data->parsing_error)
 		{
-			//check_parsing_errors(data);
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
 				delimitor(str, data, line, i);
 			else if (line[i] != ' ' && line[i])
 			{
 				get_char(line[i], str);
-				// printf("%s\n", *str);
 				if (!*str)
-					ft_exit_and_free(data, 1);
+				{
+					ft_exit_and_free(data, 1, &line, MALLOC_FAIL);
+				}
 			}
 		}
 	else

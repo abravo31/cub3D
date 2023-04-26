@@ -52,7 +52,11 @@ static int	ft_get_lines_from_file(int fd_map, t_list **lst)
 	{
 		aux = ft_lstnew((void *)line);
 		if (!aux)
+		{
+			printf("Malloc failed\n");
+			generic_lst_free(lst);
 			return (free(line), 1);
+		}
 		ft_lstadd_back(lst, aux);
 		free(line);
 		line = get_next_line(fd_map);

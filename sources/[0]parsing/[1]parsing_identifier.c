@@ -30,11 +30,8 @@ void	get_char(char c, char **str)
 
 int	check_path_format(char *path)
 {
-	char *format;
-
-	format = ".xpm";
 	//printf("%s\n", &path[ft_strlen_int(path) - 4]);
-	if (!ft_strcmp(&path[ft_strlen_int(path) - 4], format))
+	if (!ft_strcmp(&path[ft_strlen_int(path) - 4], ".xpm"))
 		return (1);
 	return (0);
 }
@@ -215,6 +212,29 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 		}	
 	}
 	return (UNASSIGNED);
+}
+
+int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
+{
+	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
+	{
+		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
+		if (!data->ident_coord)
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+	}
+	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
+	{
+		new = ft_lstnew((void *)new_coord(tmp, line, i));
+		if (!new)
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+		ft_lstadd_back(&data->ident_coord, new);
+	}
 }
 
 void	delimitor(char **str, t_cub3D *data, char *line, int i)

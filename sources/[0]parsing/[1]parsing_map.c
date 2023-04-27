@@ -38,15 +38,12 @@ static void	ft_scan_around(t_map *map, int y, int x, int error_int)
 		return ;
 	if (map->map[y][x] == error_int)
 	{
+		printf("la la y %d -- x %d\n", y, x);
 		map->valide_map = 0;
-		if (error_int == 32)
-			printf(MAP_UNCLOSED);
-		else
-			printf(INVALID_MAP);
 	}
 }
 
-void	ft_scan_point_area(t_map *map, int y, int x, int empty)
+static void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 {
 	int	error_int;
 
@@ -54,6 +51,7 @@ void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 		error_int = 0;
 	else
 		error_int = 32;
+	printf("y %d -- x %d\n", y, x);
 	// Top
 	ft_scan_around(map, y + 1, x, error_int);
 	// Down
@@ -62,6 +60,16 @@ void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 	ft_scan_around(map, y, x + 1, error_int);
 	// Left
 	ft_scan_around(map, y, x - 1, error_int);
+}
+
+static int	ft_check_empty_space(t_map *map, int y, int x, int empty)
+{
+	if (y == 0 || y == map->max_h)
+		return (1);
+	else if (x == 0 || x == (map->max_w - 1))
+		return (1);
+	ft_scan_point_area(map, y, x, empty);
+	return (0);
 }
 
 static int	ft_check_player(t_map *map, int c_player, int y, int x)
@@ -81,26 +89,25 @@ static int	ft_check_player(t_map *map, int c_player, int y, int x)
 	return (0);
 }
 
-int	ft_scan_map(t_map *map)
+int	ft_scan_map(t_map *map, int i, int j)
 {
-	int	i;
-	int j;
-
-	i = 0;
-	while (i < map->max_h)
+	while (i++ < map->max_h)
 	{
 		j = 0;
-		while (j < map->max_w)
+		while (j++ < map->max_w)
 		{
+			if (!map->valide_map)
+				return (printf("INVALID_MAPA\n"), 1);
 			if (ft_check_player(map, map->map[i][j], i, j))
 				return (printf(DOUBLE_PLAYER), 1);
 			if (map->map[i][j] == 32)
 				ft_scan_point_area(map, i, j, 1);
 			else if (map->map[i][j] == 0)
-				ft_scan_point_area(map, i, j, 0);
-			j++;
+			{
+				if (ft_check_empty_space(map, i, j, 0))
+					return (printf(MAP_UNCLOSED), 1);
+			}
 		}
-		i++;
 	}
 	return (0);
 }
@@ -108,17 +115,16 @@ int	ft_scan_map(t_map *map)
 int	ft_check_map(char *file_name)
 {
 	t_map	map;
+	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
 	if (ft_read_file(file_name, &map))
 		return (1);
-	if (ft_scan_map(&map))
-		return (ft_free_map(&map), 1);
-	if (map.valide_map == 0)
-	{
-		ft_free_map(&map);
-		return (printf(INVALID_MAP), 1);
-	}
 	ft_print_map(&map);
+	if (ft_scan_map(&map, i, j))
+		return (ft_free_map(&map), 1);
     ft_free_map(&map);
 	return (0);
 }

@@ -60,6 +60,22 @@ void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 	ft_scan_around(map, y, x - 1, error_int);
 }
 
+static int	ft_check_player(int c_player, int y, int x)
+{
+	if (c_player == 'N' || c_player == 'S' || c_player == 'E' || c_player == 'W')
+	{
+		if (map->player->is_set != 0)
+		{
+			map->player->_direction = 0;
+			map->player->_y = y;
+			map->player->_x = x;
+			map->player->is_set = 1;
+		}
+		else
+			printf("Double player\n")
+	}
+}
+
 void	ft_scan_map(t_map *map)
 {
 	int	i;

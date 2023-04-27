@@ -104,6 +104,7 @@ static int	ft_initialize_map(t_list **lst, t_map *map)
 {
 	map->max_h = map->l_idx - map->b_idx;
 	map->closed_map = 1;
+	map->player->_is_set = 0;
 	map->map = (int  **)malloc(sizeof(int *) * (map->max_h + 1));
 	if (!map->map)
 		return (1);
@@ -112,7 +113,6 @@ static int	ft_initialize_map(t_list **lst, t_map *map)
 
 static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 {
-	// t_p_pos	player;
 	t_list	*aux;
 
 	aux = generic_get_node_by_idx(lst, *i);

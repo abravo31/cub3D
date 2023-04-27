@@ -10,10 +10,11 @@
 
 typedef	struct player_position
 {
-	int	y;
-	int	x;
-	int	direction;
-}				t_p_pos;
+	int		_is_set;
+	int		_y;
+	int		_x;
+	int		_direction;
+}			t_p_pos;
 
 typedef struct map
 {

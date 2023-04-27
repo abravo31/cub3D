@@ -216,24 +216,24 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 
 int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
-	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
+	t_ident_coord	*new_coord;
+	t_list			*new_node;
+
+	new_coord = new_coord(tmp, line, i);
+	if (!new_coord)
+		return (1);
+	if (data->ident_coord == NULL)
 	{
-		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
+		data->ident_coord = ft_lstnew((void*)new_coord);
 		if (!data->ident_coord)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
+			return (ft_free_coord(new_coord), 1);
 	}
-	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
+	else
 	{
-		new = ft_lstnew((void *)new_coord(tmp, line, i));
-		if (!new)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-		ft_lstadd_back(&data->ident_coord, new);
+		new_node = ft_lstnew((void*)new_coord);
+		if (!new_node)
+			return (ft_free_coord(new_coord), 1);
+		ft_lstadd_back(&data->ident_coord, new_node);
 	}
 }
 
@@ -243,25 +243,26 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	t_ident_type	tmp;
 
 	tmp = 0;
-	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
+	if (tmp = eval_ident_coord(*str, data) != 0)
 	{
-		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
-		if (!data->ident_coord)
+		if (handle_new_coord(data, tmp, line, i))
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
 	}
-	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
-	{
-		new = ft_lstnew((void *)new_coord(tmp, line, i));
-		if (!new)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-		ft_lstadd_back(&data->ident_coord, new);
-	}
+	else if ()
+	// }
+	// else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
+	// {
+	// 	new = ft_lstnew((void *)new_coord(tmp, line, i));
+	// 	if (!new)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// 	ft_lstadd_back(&data->ident_coord, new);
+	// }
 	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data)) != 0)
 	{
 		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
@@ -300,11 +301,17 @@ t_map_list	*new_map_list(char *line, int y)
 {
 	t_map_list	*elem;
 
-	elem = malloc(sizeof(t_map_list)); //verifier le retour
-	elem->line = ft_strdup(line); //verifier le retour et free
+	elem = malloc(sizeof(t_map_list));
+	if (elem)
+		return (NULL);
+	elem->line = ft_strdup(line);
+	if (!elem->line)
+	{
+		free (elem);
+		return (NULL);
+	}
 	elem->_y = y;
 	elem->_x = ft_strlen(line);
-	
 	return(elem);
 }
 

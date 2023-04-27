@@ -93,6 +93,10 @@ static int	ft_consider_line(char *line)
 		if (line[i] == '1' || line[i] == '0' || line[i] == 'N' ||
 			line[i] == 'S' || line[i] == 'E' || line[i] == 'W')
 			return (1);
+		else
+		{
+			printf("Here %d\n", line[i]);
+		}
 		// else if (line[i] == '\n' || line[i] == '\t' || line[i] == ' ')
 		// 	return (2);
 		i++;

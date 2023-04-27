@@ -91,11 +91,13 @@ static int	ft_check_player(t_map *map, int c_player, int y, int x)
 
 int	ft_scan_map(t_map *map, int i, int j)
 {
-	while (i++ < map->max_h)
+	while (i < map->max_h)
 	{
 		j = 0;
-		while (j++ < map->max_w)
+		while (j < map->max_w)
 		{
+			if (map->map[i][j] == 50)
+				printf("Here\n");
 			if (!map->valide_map)
 				return (printf("INVALID_MAPA\n"), 1);
 			if (ft_check_player(map, map->map[i][j], i, j))
@@ -107,7 +109,9 @@ int	ft_scan_map(t_map *map, int i, int j)
 				if (ft_check_empty_space(map, i, j, 0))
 					return (printf(MAP_UNCLOSED), 1);
 			}
+			j++;
 		}
+		i++;
 	}
 	return (0);
 }

@@ -38,7 +38,11 @@ static void	ft_scan_around(t_map *map, int y, int x, int error_int)
 		return ;
 	if (map->map[y][x] == error_int)
 	{
-		map->closed_map = 0;
+		map->valide_map = 0;
+		if (error_int == 32)
+			printf(MAP_UNCLOSED);
+		else
+			printf(INVALID_MAP);
 	}
 }
 
@@ -60,23 +64,24 @@ void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 	ft_scan_around(map, y, x - 1, error_int);
 }
 
-static int	ft_check_player(int c_player, int y, int x)
+static int	ft_check_player(t_map *map, int c_player, int y, int x)
 {
 	if (c_player == 'N' || c_player == 'S' || c_player == 'E' || c_player == 'W')
 	{
-		if (map->player->is_set != 0)
+		if (!map->player._is_set)
 		{
-			map->player->_direction = 0;
-			map->player->_y = y;
-			map->player->_x = x;
-			map->player->is_set = 1;
+			map->player._direction = 0;
+			map->player._y = y;
+			map->player._x = x;
+			map->player._is_set = 1;
 		}
 		else
-			printf("Double player\n")
+			return (1);
 	}
+	return (0);
 }
 
-void	ft_scan_map(t_map *map)
+int	ft_scan_map(t_map *map)
 {
 	int	i;
 	int j;
@@ -87,15 +92,17 @@ void	ft_scan_map(t_map *map)
 		j = 0;
 		while (j < map->max_w)
 		{
+			if (ft_check_player(map, map->map[i][j], i, j))
+				return (printf(DOUBLE_PLAYER), 1);
 			if (map->map[i][j] == 32)
 				ft_scan_point_area(map, i, j, 1);
 			else if (map->map[i][j] == 0)
 				ft_scan_point_area(map, i, j, 0);
-
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 int	ft_check_map(char *file_name)
@@ -104,17 +111,14 @@ int	ft_check_map(char *file_name)
 
 	if (ft_read_file(file_name, &map))
 		return (1);
-	ft_print_map(&map);
-	ft_scan_map(&map);
-	if (map.closed_map == 0)
+	if (ft_scan_map(&map))
+		return (ft_free_map(&map), 1);
+	if (map.valide_map == 0)
 	{
 		ft_free_map(&map);
 		return (printf(INVALID_MAP), 1);
 	}
-	else
-	{
-		printf("Valido\n");
-	}
+	ft_print_map(&map);
     ft_free_map(&map);
 	return (0);
 }

@@ -102,9 +102,13 @@ static int	ft_consider_line(char *line)
 
 static int	ft_initialize_map(t_list **lst, t_map *map)
 {
-	map->max_h = map->l_idx - map->b_idx;
-	map->closed_map = 1;
-	map->player->_is_set = 0;
+	// printf("%d --- %d\n", map->b_idx, map->l_idx);
+	if (map->l_idx == -1)
+		map->max_h = ft_lstsize(*lst) - map->b_idx;
+	else
+		map->max_h = map->l_idx - map->b_idx;
+	map->valide_map = 1;
+	map->player._is_set = 0;
 	map->map = (int  **)malloc(sizeof(int *) * (map->max_h + 1));
 	if (!map->map)
 		return (1);

@@ -70,7 +70,7 @@ int	ft_atoi_FC(const char *str)
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
-	while(str[i] && str[i] == ' ')
+	while(str[i] && (str[i] == ' ' || str[i] == '\n'))
 		i++;
 	if (str[i])
 		res = 256;
@@ -93,11 +93,13 @@ t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 		color = NULL;
 		while (line[i] != ',' && line[i] != '\n')
 			get_char(line[i++], &color);
-		if (line[i] == ',' && color && elem->R < 0)
+		if (!color)
+			printf("error format RGB1\n");
+		if (color && elem->R < 0)
 			elem->R = ft_atoi_FC(color);
-		else if (line[i] == ',' && color && elem->G < 0)
+		else if (elem->R >= 0 && color && elem->G < 0)
 			elem->G = ft_atoi_FC(color);
-		else if ((line[i] == '\n' || line[i] == ' ') && color && elem->B < 0)
+		else if (elem->R >= 0 && elem->G >= 0 && color && elem->B < 0)
 			elem->B = ft_atoi_FC(color);
 		free(color);
 		if (elem->B >= 0)
@@ -109,7 +111,7 @@ t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
 	{
 		if (line[i] && line[i] != ' ' && line[i] != '\n')
 		{
-			printf("erreur format RGB\n");
+			printf("erreur format RGB2\n");
 			// fonction qui mettre l'erreur dans check_parsing_error 
 			break; //il faut exit et liberer la memoire
 		}

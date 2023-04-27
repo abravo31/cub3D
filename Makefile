@@ -11,7 +11,7 @@ LIBFT = libft/
 
 ### Source Files ###
 COR_DIR		=	core/
-CORS		=	main.c
+CORS		=	main2.c
 
 PARSE_DIR	=	[0]parsing/
 PARSE		=	[0]arguments.c [1]parsing_identifier.c

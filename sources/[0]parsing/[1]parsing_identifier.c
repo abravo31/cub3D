@@ -60,7 +60,9 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 	}	
 	if (line[i] == ' ')
 		printf("Error path identifier\n"); // gerer le retour et la memoire
-	elem->path = ft_strdup_i(&line[++j], k-1);
+	elem->path = ft_strdup_i(&line[++j], --k);
+	if (!elem->path)
+		printf("Malloc failed\n");
 	if (!check_path_format(elem->path))
 		printf("Error path format identifier\n");
 	elem->id = id;
@@ -148,6 +150,26 @@ int	is_identical(char *s1, char *s2)
 	return (s1[i] == '\0');
 }
 
+t_ident_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
+{
+	if (is_identical("WE", ident))
+	{
+		if (data->WE == 0)
+		{
+			data->WE = 1;
+			return (WE);
+		}
+	}
+	else if (is_identical("EA", ident))
+	{
+		if (data->EA == 0)
+		{
+			data->EA = 1;
+			return (EA);
+		}
+	}
+	return (UNASSIGNED);
+}
 // Function to return corresponding token from string
 t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
@@ -168,21 +190,9 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 		}	
 	}
 	else if (is_identical("WE", ident))
-	{
-		if (data->WE == 0)
-		{
-			data->WE = 1;
-			return (WE);
-		}
-	}
+		return (eval_ident_coord_bis(ident, data));
 	else if (is_identical("EA", ident))
-	{
-		if (data->EA == 0)
-		{
-			data->EA = 1;
-			return (EA);
-		}
-	}
+		return (eval_ident_coord_bis(ident, data));
 	return (UNASSIGNED);
 }
 

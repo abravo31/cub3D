@@ -117,10 +117,10 @@ int gnl_loop(t_cub3D *data, char *file_name)
 		get_list(data, line);
         free(line);
         line = get_next_line(fd);
-        if (!line)
-            printf("A gerer!\n");
     }
     free(line);
+    if (check_full_identifier(data) < 6)
+		printf("Texture or color identifier missing (1) \n");
 	__debug_parsing(data);
     close(fd);
     ft_exit_and_free(data, 0, NULL, NULL);
@@ -139,7 +139,8 @@ static int	ft_check_file_str(char *f_name)
 		return(printf(ARG_IS_DIR), 1);
 	idx = ft_idx_last_occur_char(f_name, '.');
 	if (idx < 0 || ft_strncmp(f_name + idx, ".cub", ft_strlen_int(f_name + idx)))
-		return (printf(INVALID_EXTENSION), 1);
+        return (printf(INVALID_EXTENSION), 1);
+		
 	return (0);
 }
 

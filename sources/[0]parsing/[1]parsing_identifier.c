@@ -28,6 +28,17 @@ void	get_char(char c, char **str)
 	*str = tmp;
 }
 
+int	check_path_format(char *path)
+{
+	char *format;
+
+	format = ".xpm";
+	//printf("%s\n", &path[ft_strlen_int(path) - 4]);
+	if (!ft_strcmp(&path[ft_strlen_int(path) - 4], format))
+		return (1);
+	return (0);
+}
+
 //IMPORTANT check malloc failed
 t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 {
@@ -50,6 +61,8 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 	if (line[i] == ' ')
 		printf("Error path identifier\n"); // gerer le retour et la memoire
 	elem->path = ft_strdup_i(&line[++j], k-1);
+	if (!check_path_format(elem->path))
+		printf("Error path format identifier\n");
 	elem->id = id;
 	return (elem);
 }
@@ -238,6 +251,8 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		}
 		ft_lstadd_back(&data->ident_FC, new);
 	}
+	else if (!(tmp = eval_ident_coord(*str, data)) && !(tmp = eval_ident_FC(*str, data)))
+		printf("Ivalid texture identifier (2) \n");
 	//*str = NULL;
 }
 
@@ -246,8 +261,8 @@ int	check_full_identifier(t_cub3D *data)
 	int check;
 
 	check = data->NO + data->SE + data->WE + data->EA + data->F + data->C;
-	if (check == 6)
-		return (1);
+	if (check > 0)
+		return (check);
 	return (0);
 }
 
@@ -314,7 +329,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
 	t_list	*new;
 
-	if (!check_full_identifier(data))
+	if (check_full_identifier(data) < 6)
 		while (line[++i])
 		{
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
@@ -328,7 +343,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 				}
 			}
 		}
-	else
+	else if (check_full_identifier(data) == 6)
 	{
 		data->Y = data->Y + 1;
 		if (data->map_list == NULL)

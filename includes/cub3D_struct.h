@@ -63,6 +63,7 @@ typedef struct cub3D
 
 int	    get_list(t_cub3D *data, char *line);
 void    __debug_parsing(t_cub3D *data);
-void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
+void    ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
+int	    check_full_identifier(t_cub3D *data);
 
 #endif

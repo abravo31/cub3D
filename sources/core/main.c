@@ -90,9 +90,6 @@ char	  *get_next_line(int fd)
 
 void	data_init(t_cub3D *data)
 {
-    t_list  *list_null;
-
-    list_null = NULL;
 	data->NO = 0;
 	data->SE = 0;
 	data->WE = 0;
@@ -100,9 +97,9 @@ void	data_init(t_cub3D *data)
 	data->F = 0;
 	data->C = 0;
     data->Y = -1;
-	data->ident_coord = &list_null;
-	data->ident_FC = &list_null;
-    data->map_list = &list_null;
+	data->ident_coord = NULL;
+	data->ident_FC = NULL;
+    data->map_list = NULL;
 }
 
 int main ()

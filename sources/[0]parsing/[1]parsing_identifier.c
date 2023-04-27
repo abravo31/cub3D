@@ -200,7 +200,7 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	tmp = 0;
 	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
 	{
-		new = ft_lstnew((void *)new_coord(tmp, line, i));
+		data->ident_coord = ft_lstnew((void *)new_coord(tmp, line, i));
 		if (!data->ident_coord)
 		{
 			free (line);
@@ -217,26 +217,25 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		}
 		ft_lstadd_back(&data->ident_coord, new);
 	}
-	else if (tmp = eval_ident_FC(*str, data) != 0)
+	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data)) != 0)
+	{
+		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
+		if (!data->ident_FC)
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+	}
+	else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
 	{
 		new = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!data->ident_FC)
+		if (!new)
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
 		ft_lstadd_back(&data->ident_FC, new);
 	}
-	// else if (*data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
-	// {
-	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
-	// 	if (!new)
-	// 	{
-	// 		free (line);
-	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-	// 	}
-	// 	ft_lstadd_back(&data->ident_FC, new);
-	// }
 	//*str = NULL;
 }
 
@@ -289,10 +288,8 @@ void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 {
 	if (error_msg)
 		printf("%s\n", error_msg);
-	if (*str)
+	if (str)
 		free (*str);
-	if (data->parsing_error)
-		free(data->parsing_error);
 	if (data->ident_coord)
 		ft_lstclear(&data->ident_coord, &ft_free_coord);
 	if (data->ident_FC)
@@ -316,7 +313,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 	t_list	*new;
 
 	if (!check_full_identifier(data))
-		while (line[++i] && !data->parsing_error)
+		while (line[++i])
 		{
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
 				delimitor(str, data, line, i);
@@ -358,7 +355,7 @@ int	get_list(t_cub3D *data, char *line)
 	i = -1;
 	str = NULL;
 	iter_line(data, &str, i, line);
-	return (!data->parsing_error);
+	return (0);
 }
 
 // Function to check if the likeds list are created

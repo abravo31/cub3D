@@ -56,7 +56,6 @@ typedef struct cub3D
     int     F;
     int     C;
     int     Y;
-    char    *parsing_error;
     t_list  **ident_FC;
     t_list  **ident_coord;
     t_list  **map_list;
@@ -64,6 +63,8 @@ typedef struct cub3D
 
 int	    get_list(t_cub3D *data, char *line);
 void    __debug_parsing(t_cub3D *data);
-void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
+void    ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
 
+/*Generic list*/
+int     generic_lst_add_node(t_list **lst, void *data, size_t data_size);
 #endif

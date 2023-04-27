@@ -26,7 +26,9 @@ PARSE		=	[0]arguments.c [1]parsing_identifier.c
 # BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \
 # 				pwd.c exit.c
 
-# UTILS_DIR	=	utils/
+UTILS_DIR	=	utils/
+UTILS		=	lst_new_generic.c
+
 # UTILS		=	env_list.c env_list_2.c env_list_3.c generic_list.c generic_list_2.c \
 # 				token_list.c token_list_2.c hrdoc_list.c hrdoc_list_utils.c \
 # 				comand_list.c comand_list_utils.c general_utils.c 
@@ -35,7 +37,7 @@ SOURCES		+=	$(addprefix	$(COR_DIR),$(CORS))
 # SOURCES		+=	$(addprefix	$(EXEC_DIR),$(EXEC))
 SOURCES		+=	$(addprefix	$(PARSE_DIR),$(PARSE))
 # SOURCES		+=	$(addprefix	$(BUILTIN_DIR),$(BUILTIN))
-# SOURCES		+=	$(addprefix	$(UTILS_DIR),$(UTILS))
+SOURCES		+=	$(addprefix	$(UTILS_DIR),$(UTILS))
 
 ### Objects ###
 
@@ -61,7 +63,7 @@ tmp:
 	@mkdir -p $(OBJ_PATH)$(PARSE_DIR)
 # @mkdir -p $(OBJ_PATH)$(EXEC_DIR)
 # @mkdir -p $(OBJ_PATH)$(BUILTIN_DIR)
-# @mkdir -p $(OBJ_PATH)$(UTILS_DIR)
+	@mkdir -p $(OBJ_PATH)$(UTILS_DIR)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lm -l:libft.a

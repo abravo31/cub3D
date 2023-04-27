@@ -101,8 +101,8 @@ void	data_init(t_cub3D *data)
 	data->C = 0;
     data->Y = -1;
 	data->ident_coord = &list_null;
-	data->ident_FC = &list_null;
-    data->map_list = &list_null;
+	data->ident_FC = NULL;
+    data->map_list = NULL;
 }
 
 int main ()

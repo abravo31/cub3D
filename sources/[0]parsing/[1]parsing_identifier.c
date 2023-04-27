@@ -1,5 +1,19 @@
 #include "../../includes/cub3D_struct.h"
 
+static void	print_generic_list(t_list **lst)
+{
+	t_ident_coord	*aux;
+	t_list			*aux_lst;
+
+	aux_lst = *lst;
+	while (aux_lst)
+	{
+		aux = (t_ident_coord *)aux_lst->content;
+		printf("%d --- %s\n", aux->id, aux->path);
+		aux_lst = aux_lst->next;
+	}
+}
+
 void	get_char(char c, char **str)
 {
 	char	*tmp;
@@ -51,6 +65,8 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 		printf("Error path identifier\n"); // gerer le retour et la memoire
 	elem->path = ft_strdup_i(&line[++j], k-1);
 	elem->id = id;
+	// printf("here : %s\n", elem->path);
+	// printf("here %d\n", elem->id);
 	return (elem);
 }
 
@@ -192,41 +208,56 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 	return (UNASSIGNED);
 }
 
-void	delimitor(char **str, t_cub3D *data, char *line, int i)
+void	delimitor(t_list **begin_lst_delim, char **str, t_cub3D *data, char *line, int i)
 {
-	t_list			*new;
+	// t_list			*new;
 	t_ident_type	tmp;
+	t_ident_coord	*aux_coord;
 
 	tmp = 0;
-	if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data))!= 0)
+	if ((tmp = eval_ident_coord(*str, data)) != 0)
 	{
-		new = ft_lstnew((void *)new_coord(tmp, line, i));
-		if (!data->ident_coord)
+		//printf("tmp : %d, line %s, i %d\n", tmp, line, i);
+		aux_coord = new_coord(tmp, line, i);
+		if (!aux_coord)
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
+		generic_lst_add_node(begin_lst_delim, (void *)aux_coord, sizeof(t_ident_coord));
 	}
-	else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
-	{
-		new = ft_lstnew((void *)new_coord(tmp, line, i));
-		if (!new)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-		ft_lstadd_back(&data->ident_coord, new);
-	}
-	else if (tmp = eval_ident_FC(*str, data) != 0)
-	{
-		new = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!data->ident_FC)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-		ft_lstadd_back(&data->ident_FC, new);
-	}
+	// if (data->ident_coord == NULL && (tmp = eval_ident_coord(*str, data)) != 0)
+	// {
+	// 	new = ft_lstnew((void *)new_coord(tmp, line, i));
+	// 	if (!data->ident_coord)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// }
+	// else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
+	// {
+	// 	new = ft_lstnew((void *)new_coord(tmp, line, i));
+	// 	if (!new)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// 	ft_lstadd_back(&data->ident_coord, new);
+	// }
+
+	/*FC --- COLORS*/
+
+	// else if (tmp = eval_ident_FC(*str, data) != 0)
+	// {
+	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
+	// 	if (!data->ident_FC)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// 	ft_lstadd_back(&data->ident_FC, new);
+	// }
 	// else if (*data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
 	// {
 	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
@@ -258,7 +289,6 @@ t_map_list	*new_map_list(char *line, int y)
 	elem->line = ft_strdup(line); //verifier le retour et free
 	elem->_y = y;
 	elem->_x = ft_strlen(line);
-	
 	return(elem);
 }
 
@@ -291,14 +321,12 @@ void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 		printf("%s\n", error_msg);
 	if (*str)
 		free (*str);
-	if (data->parsing_error)
-		free(data->parsing_error);
 	if (data->ident_coord)
-		ft_lstclear(&data->ident_coord, &ft_free_coord);
+		ft_lstclear(data->ident_coord, &ft_free_coord);
 	if (data->ident_FC)
-		ft_lstclear(&data->ident_FC, &ft_free_FC);
+		ft_lstclear(data->ident_FC, &ft_free_FC);
 	if (data->map_list)
-		ft_lstclear(&data->map_list, &ft_free_map_list);
+		ft_lstclear(data->map_list, &ft_free_map_list);
 	exit(ret);
 }
 
@@ -313,13 +341,19 @@ void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
-	t_list	*new;
+	// t_list	*new;
+	t_list			**begin_list_coord;
+	t_list			*list_coord;
+
+	list_coord = NULL;
+	begin_list_coord = &list_coord;
 
 	if (!check_full_identifier(data))
-		while (line[++i] && !data->parsing_error)
+	{
+		while (line[++i])
 		{
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
-				delimitor(str, data, line, i);
+				delimitor(begin_list_coord, str, data, line, i);
 			else if (line[i] != ' ' && line[i])
 			{
 				get_char(line[i], str);
@@ -328,24 +362,29 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 					ft_exit_and_free(data, 1, &line, MALLOC_FAIL);
 				}
 			}
+			print_generic_list(begin_list_coord);
+			printf("***************************");
 		}
-	else
-	{
-		data->Y = data->Y + 1;
-		if (data->map_list == NULL)
-		{
-			data->map_list = ft_lstnew((void *)new_map_list(line, data->Y));
-			if (!data->map_list)
-			printf("Malloc failed, il faut gerer");
-		}
-		else if (data->map_list)
-		{
-			new = ft_lstnew((void *)new_map_list(line, data->Y));
-			if (!new)
-			printf("Malloc failed, il faut gerer");
-			ft_lstadd_back(&data->map_list, new);
-		}
+		// data->ident_coord = begin_list_coord;
 	}
+
+	// else
+	// {
+	// 	data->Y = data->Y + 1;
+	// 	if (data->map_list == NULL)
+	// 	{
+	// 		data->map_list = ft_lstnew((void *)new_map_list(line, data->Y));
+	// 		if (!data->map_list)
+	// 		printf("Malloc failed, il faut gerer");
+	// 	}
+	// 	else if (data->map_list)
+	// 	{
+	// 		new = ft_lstnew((void *)new_map_list(line, data->Y));
+	// 		if (!new)
+	// 		printf("Malloc failed, il faut gerer");
+	// 		ft_lstadd_back(&data->map_list, new);
+	// 	}
+	// }
 	free(*str);
 }
 
@@ -358,13 +397,13 @@ int	get_list(t_cub3D *data, char *line)
 	i = -1;
 	str = NULL;
 	iter_line(data, &str, i, line);
-	return (!data->parsing_error);
+	return (0);
 }
 
 // Function to check if the likeds list are created
 void __debug_parsing(t_cub3D *data)
 {
-    t_list *iter = data->ident_coord;
+    t_list *iter = (*data->ident_coord);
     t_ident_coord  *current = NULL;
     while (iter)
     {
@@ -373,21 +412,21 @@ void __debug_parsing(t_cub3D *data)
         iter = iter->next;
     }
 
-	t_list *iter2 = data->ident_FC;
-    t_ident_FC  *current2 = NULL;
-    while (iter2)
-    {
-        current2 = (t_ident_FC*) iter2->content;
-        printf("{%d}(%d)(%d)(%d)\n", current2->id, current2->R, current2->G, current2->B);
-        iter2 = iter2->next;
-    }
+	// t_list *iter2 = data->ident_FC;
+    // t_ident_FC  *current2 = NULL;
+    // while (iter2)
+    // {
+    //     current2 = (t_ident_FC*) iter2->content;
+    //     printf("{%d}(%d)(%d)(%d)\n", current2->id, current2->R, current2->G, current2->B);
+    //     iter2 = iter2->next;
+    // }
 
-	t_list *iter3 = data->map_list;
-    t_map_list  *current3 = NULL;
-    while (iter3)
-    {
-        current3 = (t_map_list*) iter3->content;
-        printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
-        iter3 = iter3->next;
-    }
+	// t_list *iter3 = data->map_list;
+    // t_map_list  *current3 = NULL;
+    // while (iter3)
+    // {
+    //     current3 = (t_map_list*) iter3->content;
+    //     printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
+    //     iter3 = iter3->next;
+    // }
 }

@@ -197,9 +197,9 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 	}
 	else if (is_identical("SO", ident))
 	{
-		if (data->SE == 0)
+		if (data->SO == 0)
 		{
-			data->SE = 1;
+			data->SO = 1;
 			return (SO);
 		}	
 	}
@@ -362,7 +362,7 @@ int	check_full_identifier(t_cub3D *data)
 {
 	int check;
 
-	check = data->NO + data->SE + data->WE + data->EA + data->F + data->C;
+	check = data->NO + data->SO + data->WE + data->EA + data->F + data->C;
 	if (check > 0)
 		return (check);
 	return (0);

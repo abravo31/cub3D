@@ -91,7 +91,7 @@ char	  *get_next_line(int fd)
 void	data_init(t_cub3D *data)
 {
 	data->NO = 0;
-	data->SE = 0;
+	data->SO = 0;
 	data->WE = 0;
 	data->EA = 0;
 	data->F = 0;
@@ -123,6 +123,8 @@ int gnl_loop(t_cub3D *data, char *file_name)
 		printf("Texture or color identifier missing (1) \n");
 	__debug_parsing(data);
     close(fd);
+    // Ce ligne la 
+    ft_check_map(data);
     ft_exit_and_free(data, 0, NULL, NULL);
     return (0);
 

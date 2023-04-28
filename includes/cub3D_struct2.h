@@ -14,6 +14,8 @@
 #define MAP_IS_NOT_LAST_ELEM "The map is not the last element in the file\n"
 #define MALLOC_FAIL "Malloc failed, exiting properly"
 #define INVALID_PATH_TEXTURE "Error path identifier\n"
+#define ERROR_RGB_FORMAT "Error format RGB\n"
+
 typedef enum ident_type
 {
     UNASSIGNED,

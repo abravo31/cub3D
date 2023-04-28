@@ -1,6 +1,6 @@
 #include "../../includes/cub3D_struct.h"
 
-void	get_char(char c, char **str)
+int	get_char(char c, char **str)
 {
 	char	*tmp;
 
@@ -11,21 +11,22 @@ void	get_char(char c, char **str)
 		if (!*str)
 		{
 			*str = NULL; 
-			printf("Malloc failed\n"); //checker
+			return (1);
 		}
 		*str[0] = c;
 		// *str[1] = '\0';
-		return ;
+		return (0);
 	}
 	tmp = ft_strjoin(*str, "?");
 	free(*str);
 	if (!tmp)
 	{
 		*str = NULL;
-		printf("Malloc failed\n"); //checker
+		return (1);
 	}
 	tmp[ft_strlen(tmp) - 1] = c;
 	*str = tmp;
+	return (0);
 }
 
 int	check_path_format(char *path)
@@ -35,7 +36,6 @@ int	check_path_format(char *path)
 	return (0);
 }
 
-//IMPORTANT check malloc failed
 int	get_new_coord_path(char **path, char *line, int i)
 {
 	int		k;
@@ -86,6 +86,8 @@ int	ft_atoi_FC(const char *str)
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
+	if (str[i] == '\n' || !str[i])
+		return (256);
 	res = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -99,48 +101,52 @@ int	ft_atoi_FC(const char *str)
 	return (res);
 }
 
-t_ident_FC	*new_FC(t_ident_type id, char *line, int i)
+int		get_new_FC_colors(t_ident_FC *temp, char *line, int i)
 {
-	t_ident_FC	*elem;
 	char 		*color;
 
-	elem = malloc(sizeof(t_ident_FC));
-	if (!elem)
-		printf("Malloc failed\n");// gerer le retour et la memoire
-	elem->R = -1;
-	elem->G = -1;
-	elem->B = -1;
 	while (line[i])
 	{
 		color = NULL;
 		while (line[i] != ',' && line[i] != '\n')
-			get_char(line[i++], &color);
+		{
+			if (get_char(line[i++], &color))
+				return (1);
+		}
 		if (!color)
-			printf("error format RGB1\n");
-		if (color && elem->R < 0)
-			elem->R = ft_atoi_FC(color);
-		else if (elem->R >= 0 && color && elem->G < 0)
-			elem->G = ft_atoi_FC(color);
-		else if (elem->R >= 0 && elem->G >= 0 && color && elem->B < 0)
-			elem->B = ft_atoi_FC(color);
+			return (2);
+		if (color && temp->R < 0)
+			temp->R = ft_atoi_FC(color);
+		else if (temp->R >= 0 && color && temp->G < 0)
+			temp->G = ft_atoi_FC(color);
+		else if (temp->R >= 0 && temp->G >= 0 && color && temp->B < 0)
+			temp->B = ft_atoi_FC(color);
 		free(color);
-		if (elem->B >= 0)
+		if (temp->B >= 0)
 			break;
 		i++;
 	}
-
 	while (line[i])
 	{
 		if (line[i] && line[i] != ' ' && line[i] != '\n')
-		{
-			printf("erreur format RGB2\n");
-			// fonction qui mettre l'erreur dans check_parsing_error 
-			break; //il faut exit et liberer la memoire
-		}
+			return (2);
 		i++;
 	}
-	if (elem->R < 0 || elem->R > 255 || elem->G < 0 || elem->G > 255 || elem->B < 0 || elem->B > 255)	
-		printf("error F or C format\n"); // gerer le retour et la memoire
+	if (temp->R < 0 || temp->R > 255 || temp->G < 0 || temp->G > 255 || temp->B < 0 || temp->B > 255)
+		return (2);
+	return (0);
+}
+
+t_ident_FC	*new_FC(t_ident_FC *temp, t_ident_type id)
+{
+	t_ident_FC	*elem;
+
+	elem = malloc(sizeof(t_ident_FC));
+	if (!elem)
+		return (NULL);
+	elem->R = temp->R;
+	elem->G = temp->G;
+	elem->B = temp->B;
 	elem->id = id;
 	return (elem);
 }
@@ -177,6 +183,7 @@ t_ident_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 	}
 	return (UNASSIGNED);
 }
+
 // Function to return corresponding token from string
 t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
@@ -254,8 +261,21 @@ int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 int		handle_new_FC(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
 	t_ident_FC	*new_FC_node;
+	t_ident_FC	temp;
+	int			res;
 
-	new_FC_node = new_FC(tmp, line, i);
+	temp.R = -1;
+	temp.G = -1;
+	temp.B = -1;
+	if ((res = get_new_FC_colors(&temp, line, i)) > 0)
+	{
+		// res == 1 -> Malloc failed
+		if (res == 1)
+			return (1);
+		else
+			return (2);
+	}
+	new_FC_node = new_FC(&temp, tmp);
 	if (!new_FC_node)
 		return (1);
 	if (generic_lst_add_node(&data->ident_FC, (void *)new_FC_node, sizeof(t_ident_FC)))
@@ -324,10 +344,16 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	}
 	else if ((tmp = eval_ident_FC(*str, data)) != 0)
 	{
-		if (handle_new_FC(data, tmp, line, i))
+		res = handle_new_FC(data, tmp, line, i);
+		if (res == 1)
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+		else if (res == 2)
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, ERROR_RGB_FORMAT);
 		}
 	}
 }
@@ -373,36 +399,16 @@ void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 	if (str)
 		free (*str);
 	if (data->ident_coord)
-	{
-		printf("Here ident lcoord\n");
 		ft_lstclear(&data->ident_coord, &ft_free_coord);
-	}
 	if (data->ident_FC)
-	{
-		printf("Here ident list\n");
 		ft_lstclear(&data->ident_FC, &ft_free_FC);
-	}
 	if (data->map_list)
-	{
-		printf("Here map list\n");
 		ft_lstclear(&data->map_list, &ft_free_map_list);
-	}	
 	exit(ret);
 }
 
-// void	check_parsing_error(t_cub3D *data)
-// {
-// 	if (data->parsing_error)
-// 	{
-// 		printf("%s\n", data->parsing_error);
-// 		ft_exit_and_free(data, 1);
-// 	}
-// }
-
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
-	// t_list	*new;
-
 	if (check_full_identifier(data) < 6)
 		while (line[++i])
 		{
@@ -421,9 +427,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 	{
 		data->Y = data->Y + 1;
 		if (handle_new_line_map(data, line, data->Y))
-		{
 			ft_exit_and_free(data, 1, &line, MALLOC_FAIL);
-		}	
 	}
 	free(*str);
 }

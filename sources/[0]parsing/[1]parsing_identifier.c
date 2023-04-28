@@ -30,22 +30,17 @@ void	get_char(char c, char **str)
 
 int	check_path_format(char *path)
 {
-	//printf("%s\n", &path[ft_strlen_int(path) - 4]);
 	if (!ft_strcmp(&path[ft_strlen_int(path) - 4], ".xpm"))
 		return (1);
 	return (0);
 }
 
 //IMPORTANT check malloc failed
-t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
+int	get_new_coord_path(char **path, char *line, int i)
 {
-	t_ident_coord	*elem;
-	int				j;
-	int				k;
+	int		k;
+	int		j;
 
-	elem = malloc(sizeof(t_ident_coord));
-	if (!elem)
-		printf("Malloc failed\n"); // gerer le retour et la memoire
 	while (line[i] && line[i] == ' ')
 		i++;
 	j = i - 1;
@@ -56,12 +51,27 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 		i++;
 	}	
 	if (line[i] == ' ')
-		printf("Error path identifier\n"); // gerer le retour et la memoire
-	elem->path = ft_strdup_i(&line[++j], --k);
-	if (!elem->path) // gerer le retour et la memoire
-		printf("Malloc failed\n"); 
-	if (!check_path_format(elem->path)) // gerer le retour et la memoire
-		printf("Error path format identifier\n");
+		return (2);
+	*path = ft_strdup_i(&line[++j], --k);
+	if (!*path)
+		return (1);
+	if (!check_path_format(*path))
+		return (2);
+	return (0);
+}
+
+t_ident_coord	*new_coord(char *path, t_ident_type id)
+{
+	t_ident_coord	*elem;
+	int				j;
+	int				k;
+
+	j = 0;
+	k = 0;
+	elem = malloc(sizeof(t_ident_coord));
+	if (!elem)
+		return (NULL);
+	elem->path = path;
 	elem->id = id;
 	return (elem);
 }
@@ -217,8 +227,19 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
 	t_ident_coord	*new_coord_node;
+	char			*path;
+	int				res;
 
-	new_coord_node = new_coord(tmp, line, i);
+	path = NULL;
+	if ((res = get_new_coord_path(&path, line, i)) > 0)
+	{
+		// res == 1 -> Malloc failed
+		if (res == 1)
+			return (1);
+		else
+			return (2);
+	}
+	new_coord_node = new_coord(path, tmp);
 	if (!new_coord_node)
 		return (1);
 	if (generic_lst_add_node(&data->ident_coord, (void *)new_coord_node, sizeof(t_ident_coord)))
@@ -284,14 +305,21 @@ int		handle_new_line_map(t_cub3D *data, char *line, int y)
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_ident_type	tmp;
+	int				res;
 
 	tmp = 0;
 	if ((tmp = eval_ident_coord(*str, data)) != 0)
 	{
-		if (handle_new_coord(data, tmp, line, i))
+		res = handle_new_coord(data, tmp, line, i);
+		if (res == 1)
 		{
 			free (line);
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+		else if (res == 2)
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, INVALID_PATH_TEXTURE);
 		}
 	}
 	else if ((tmp = eval_ident_FC(*str, data)) != 0)
@@ -340,7 +368,6 @@ void ft_free_map_list(void *content)
 
 void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 {
-	printf("Free..\n");
 	if (error_msg)
 		printf("%s\n", error_msg);
 	if (str)

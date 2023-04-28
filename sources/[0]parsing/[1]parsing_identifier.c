@@ -293,15 +293,9 @@ int		handle_new_line_map(t_cub3D *data, char *line, int y)
 
 	new_line_node = new_map_list(line, y);
 	if (!new_line_node)
-	{
-		printf("Ou?\n");
 		return (1);
-	}
 	if (generic_lst_add_node(&data->map_list, (void *)new_line_node, sizeof(t_map_list)))
-	{
-		printf("Ouuuu?\n");
 		return (1);
-	}
 	return (0);
 }
 

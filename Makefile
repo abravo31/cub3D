@@ -27,7 +27,7 @@ PARSE		=	[0]arguments.c [1]parsing_identifier.c
 # 				pwd.c exit.c
 
 UTILS_DIR	=	utils/
-UTILS		=	lst_new_generic.c
+UTILS		=	lst_new_generic.c debuging_list_of_structs.c
 
 SOURCES		+=	$(addprefix	$(COR_DIR),$(CORS))
 # SOURCES		+=	$(addprefix	$(EXEC_DIR),$(EXEC))

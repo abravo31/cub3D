@@ -3,10 +3,7 @@
 static t_list	*generic_lstlast(t_list *lst)
 {
 	if (!lst)
-	{
-		printf("Hereee\n");
 		return (NULL);
-	}
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
@@ -28,7 +25,6 @@ static void	generic_lstadd_back(t_list **lst, t_list *new)
 		}
 		else
 		{
-			printf("MMM?\n");
 			last_node = generic_lstlast(*lst);
 			last_node->next = new;
 			// new->prev = last_node;
@@ -49,7 +45,6 @@ static t_list	*generic_lst_malloc_node(size_t data_size)
 		free(new_node);
 		return (NULL);
 	}
-	// new_node->prev = NULL;
 	new_node->next = NULL;
 	return (new_node);
 }

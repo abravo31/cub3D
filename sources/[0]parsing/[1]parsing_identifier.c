@@ -46,7 +46,7 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 	elem = malloc(sizeof(t_ident_coord));
 	if (!elem)
 		printf("Malloc failed\n"); // gerer le retour et la memoire
-	while (line[i] == ' ' && line[i])
+	while (line[i] && line[i] == ' ')
 		i++;
 	j = i - 1;
 	k = 0;
@@ -58,9 +58,9 @@ t_ident_coord	*new_coord(t_ident_type id, char *line, int i)
 	if (line[i] == ' ')
 		printf("Error path identifier\n"); // gerer le retour et la memoire
 	elem->path = ft_strdup_i(&line[++j], --k);
-	if (!elem->path)
-		printf("Malloc failed\n");
-	if (!check_path_format(elem->path))
+	if (!elem->path) // gerer le retour et la memoire
+		printf("Malloc failed\n"); 
+	if (!check_path_format(elem->path)) // gerer le retour et la memoire
 		printf("Error path format identifier\n");
 	elem->id = id;
 	return (elem);
@@ -216,34 +216,101 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 
 int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
-	t_ident_coord	*new_coord;
-	t_list			*new_node;
+	t_ident_coord	*new_coord_node;
+	// t_list			*new_node;
 
-	new_coord = new_coord(tmp, line, i);
-	if (!new_coord)
+	new_coord_node = new_coord(tmp, line, i);
+	if (!new_coord_node)
 		return (1);
-	if (data->ident_coord == NULL)
+	if (generic_lst_add_node(&data->ident_coord, (void *)new_coord_node, sizeof(t_ident_coord)))
+		return (1);
+	// print_coord_lst(&data->ident_coord);
+	// if (data->ident_coord == NULL)
+	// {
+	// 	data->ident_coord = ft_lstnew((void*)new_coord);
+	// 	if (!data->ident_coord)
+	// 		return (ft_free_coord(new_coord), 1);
+	// }
+	// else
+	// {
+	// 	new_node = ft_lstnew((void*)new_coord);
+	// 	if (!new_node)
+	// 		return (ft_free_coord(new_coord), 1);
+	// 	ft_lstadd_back(&data->ident_coord, new_node);
+	// }
+	return (0);
+}
+
+int		handle_new_FC(t_cub3D *data, t_ident_type tmp, char *line, int i)
+{
+	t_ident_FC	*new_FC_node;
+	// t_list			*new_node;
+
+	new_FC_node = new_FC(tmp, line, i);
+	if (!new_FC_node)
+		return (1);
+	if (generic_lst_add_node(&data->ident_FC, (void *)new_FC_node, sizeof(t_ident_FC)))
+		return (1);
+	// print_FC_lst(&data->ident_FC);
+	// if (data->ident_coord == NULL)
+	// {
+	// 	data->ident_coord = ft_lstnew((void*)new_coord);
+	// 	if (!data->ident_coord)
+	// 		return (ft_free_coord(new_coord), 1);
+	// }
+	// else
+	// {
+	// 	new_node = ft_lstnew((void*)new_coord);
+	// 	if (!new_node)
+	// 		return (ft_free_coord(new_coord), 1);
+	// 	ft_lstadd_back(&data->ident_coord, new_node);
+	// }
+	return (0);
+}
+
+t_map_list	*new_map_list(char *line, int y)
+{
+	t_map_list	*elem;
+
+	elem = malloc(sizeof(t_map_list));
+	if (!elem)
+		return (NULL);
+	elem->line = ft_strdup(line);
+	if (!elem->line)
 	{
-		data->ident_coord = ft_lstnew((void*)new_coord);
-		if (!data->ident_coord)
-			return (ft_free_coord(new_coord), 1);
+		free (elem);
+		return (NULL);
 	}
-	else
+	elem->_y = y;
+	// Creo que aqui habria que cambiarlo por la funcion until_new_line
+	elem->_x = ft_strlen(line);
+	return(elem);
+}
+
+int		handle_new_line_map(t_cub3D *data, char *line, int y)
+{
+	t_map_list	*new_line_node;
+
+	new_line_node = new_map_list(line, y);
+	if (!new_line_node)
 	{
-		new_node = ft_lstnew((void*)new_coord);
-		if (!new_node)
-			return (ft_free_coord(new_coord), 1);
-		ft_lstadd_back(&data->ident_coord, new_node);
+		printf("Ou?\n");
+		return (1);
 	}
+	if (generic_lst_add_node(&data->map_list, (void *)new_line_node, sizeof(t_map_list)))
+	{
+		printf("Ouuuu?\n");
+		return (1);
+	}
+	return (0);
 }
 
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
-	t_list			*new;
 	t_ident_type	tmp;
 
 	tmp = 0;
-	if (tmp = eval_ident_coord(*str, data) != 0)
+	if ((tmp = eval_ident_coord(*str, data)) != 0)
 	{
 		if (handle_new_coord(data, tmp, line, i))
 		{
@@ -251,7 +318,15 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
 	}
-	else if ()
+	else if ((tmp = eval_ident_FC(*str, data)) != 0)
+	{
+		if (handle_new_FC(data, tmp, line, i))
+		{
+			free (line);
+			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+		}
+	}
+	// else if ()
 	// }
 	// else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
 	// {
@@ -263,27 +338,27 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	// 	}
 	// 	ft_lstadd_back(&data->ident_coord, new);
 	// }
-	else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data)) != 0)
-	{
-		data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!data->ident_FC)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-	}
-	else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
-	{
-		new = ft_lstnew((void *)new_FC(tmp, line, i));
-		if (!new)
-		{
-			free (line);
-			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-		}
-		ft_lstadd_back(&data->ident_FC, new);
-	}
-	else if (!(tmp = eval_ident_coord(*str, data)) && !(tmp = eval_ident_FC(*str, data)))
-		printf("Ivalid texture identifier (2) \n");
+	// else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data)) != 0)
+	// {
+	// 	data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
+	// 	if (!data->ident_FC)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// }
+	// else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
+	// {
+	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
+	// 	if (!new)
+	// 	{
+	// 		free (line);
+	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
+	// 	}
+	// 	ft_lstadd_back(&data->ident_FC, new);
+	// }
+	// else if (!(tmp = eval_ident_coord(*str, data)) && !(tmp = eval_ident_FC(*str, data)))
+	// 	printf("Ivalid texture identifier (2) \n");
 	//*str = NULL;
 }
 
@@ -297,23 +372,6 @@ int	check_full_identifier(t_cub3D *data)
 	return (0);
 }
 
-t_map_list	*new_map_list(char *line, int y)
-{
-	t_map_list	*elem;
-
-	elem = malloc(sizeof(t_map_list));
-	if (elem)
-		return (NULL);
-	elem->line = ft_strdup(line);
-	if (!elem->line)
-	{
-		free (elem);
-		return (NULL);
-	}
-	elem->_y = y;
-	elem->_x = ft_strlen(line);
-	return(elem);
-}
 
 void	ft_free_FC(void *content)
 {
@@ -340,16 +398,26 @@ void ft_free_map_list(void *content)
 
 void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 {
+	printf("Free..\n");
 	if (error_msg)
 		printf("%s\n", error_msg);
 	if (str)
 		free (*str);
 	if (data->ident_coord)
+	{
+		printf("Here ident lcoord\n");
 		ft_lstclear(&data->ident_coord, &ft_free_coord);
+	}
 	if (data->ident_FC)
+	{
+		printf("Here ident list\n");
 		ft_lstclear(&data->ident_FC, &ft_free_FC);
+	}
 	if (data->map_list)
+	{
+		printf("Here map list\n");
 		ft_lstclear(&data->map_list, &ft_free_map_list);
+	}	
 	exit(ret);
 }
 
@@ -364,7 +432,7 @@ void ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
-	t_list	*new;
+	// t_list	*new;
 
 	if (check_full_identifier(data) < 6)
 		while (line[++i])
@@ -383,19 +451,10 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 	else if (check_full_identifier(data) == 6)
 	{
 		data->Y = data->Y + 1;
-		if (data->map_list == NULL)
+		if (handle_new_line_map(data, line, data->Y))
 		{
-			data->map_list = ft_lstnew((void *)new_map_list(line, data->Y));
-			if (!data->map_list)
-			printf("Malloc failed, il faut gerer");
-		}
-		else if (data->map_list)
-		{
-			new = ft_lstnew((void *)new_map_list(line, data->Y));
-			if (!new)
-			printf("Malloc failed, il faut gerer");
-			ft_lstadd_back(&data->map_list, new);
-		}
+			ft_exit_and_free(data, 1, &line, MALLOC_FAIL);
+		}	
 	}
 	free(*str);
 }

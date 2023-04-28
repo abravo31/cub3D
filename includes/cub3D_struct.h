@@ -66,4 +66,10 @@ void    __debug_parsing(t_cub3D *data);
 void    ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
 int	    check_full_identifier(t_cub3D *data);
 
+/*Generic linked list*/
+int     generic_lst_add_node(t_list **lst, void *data, size_t data_size);
+
+/*Debuging*/
+void    print_coord_lst(t_list **begin_lst);
+void    print_FC_lst(t_list **begin_lst);
 #endif

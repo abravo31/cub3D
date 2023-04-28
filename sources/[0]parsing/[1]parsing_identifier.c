@@ -217,54 +217,32 @@ t_ident_type	eval_ident_FC(char *ident, t_cub3D *data)
 int		handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
 	t_ident_coord	*new_coord_node;
-	// t_list			*new_node;
 
 	new_coord_node = new_coord(tmp, line, i);
 	if (!new_coord_node)
 		return (1);
 	if (generic_lst_add_node(&data->ident_coord, (void *)new_coord_node, sizeof(t_ident_coord)))
+	{
+		free (new_coord_node);
 		return (1);
-	// print_coord_lst(&data->ident_coord);
-	// if (data->ident_coord == NULL)
-	// {
-	// 	data->ident_coord = ft_lstnew((void*)new_coord);
-	// 	if (!data->ident_coord)
-	// 		return (ft_free_coord(new_coord), 1);
-	// }
-	// else
-	// {
-	// 	new_node = ft_lstnew((void*)new_coord);
-	// 	if (!new_node)
-	// 		return (ft_free_coord(new_coord), 1);
-	// 	ft_lstadd_back(&data->ident_coord, new_node);
-	// }
+	}
+	free (new_coord_node);
 	return (0);
 }
 
 int		handle_new_FC(t_cub3D *data, t_ident_type tmp, char *line, int i)
 {
 	t_ident_FC	*new_FC_node;
-	// t_list			*new_node;
 
 	new_FC_node = new_FC(tmp, line, i);
 	if (!new_FC_node)
 		return (1);
 	if (generic_lst_add_node(&data->ident_FC, (void *)new_FC_node, sizeof(t_ident_FC)))
+	{
+		free (new_FC_node);
 		return (1);
-	// print_FC_lst(&data->ident_FC);
-	// if (data->ident_coord == NULL)
-	// {
-	// 	data->ident_coord = ft_lstnew((void*)new_coord);
-	// 	if (!data->ident_coord)
-	// 		return (ft_free_coord(new_coord), 1);
-	// }
-	// else
-	// {
-	// 	new_node = ft_lstnew((void*)new_coord);
-	// 	if (!new_node)
-	// 		return (ft_free_coord(new_coord), 1);
-	// 	ft_lstadd_back(&data->ident_coord, new_node);
-	// }
+	}
+	free (new_FC_node);
 	return (0);
 }
 
@@ -295,7 +273,11 @@ int		handle_new_line_map(t_cub3D *data, char *line, int y)
 	if (!new_line_node)
 		return (1);
 	if (generic_lst_add_node(&data->map_list, (void *)new_line_node, sizeof(t_map_list)))
+	{
+		free (new_line_node);
 		return (1);
+	}
+	free (new_line_node);
 	return (0);
 }
 
@@ -320,40 +302,6 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			ft_exit_and_free(data, 1, str, MALLOC_FAIL);
 		}
 	}
-	// else if ()
-	// }
-	// else if (data->ident_coord && (tmp = eval_ident_coord(*str, data))!= 0)
-	// {
-	// 	new = ft_lstnew((void *)new_coord(tmp, line, i));
-	// 	if (!new)
-	// 	{
-	// 		free (line);
-	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-	// 	}
-	// 	ft_lstadd_back(&data->ident_coord, new);
-	// }
-	// else if (data->ident_FC == NULL && (tmp = eval_ident_FC(*str, data)) != 0)
-	// {
-	// 	data->ident_FC = ft_lstnew((void *)new_FC(tmp, line, i));
-	// 	if (!data->ident_FC)
-	// 	{
-	// 		free (line);
-	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-	// 	}
-	// }
-	// else if (data->ident_FC && (tmp = eval_ident_FC(*str, data))!= 0)
-	// {
-	// 	new = ft_lstnew((void *)new_FC(tmp, line, i));
-	// 	if (!new)
-	// 	{
-	// 		free (line);
-	// 		ft_exit_and_free(data, 1, str, MALLOC_FAIL);
-	// 	}
-	// 	ft_lstadd_back(&data->ident_FC, new);
-	// }
-	// else if (!(tmp = eval_ident_coord(*str, data)) && !(tmp = eval_ident_FC(*str, data)))
-	// 	printf("Ivalid texture identifier (2) \n");
-	//*str = NULL;
 }
 
 int	check_full_identifier(t_cub3D *data)

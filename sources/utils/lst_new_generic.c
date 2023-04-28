@@ -1,36 +1,31 @@
 #include "../../includes/cub3D_struct.h"
 
-static t_list	*generic_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
+// static t_list	*generic_lstlast(t_list *lst)
+// {
+// 	if (!lst)
+// 		return (NULL);
+// 	while (lst->next)
+// 		lst = lst->next;
+// 	return (lst);
+// }
 
-static void	generic_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*last_node;
-	// t_ident_coord	*coord;
+// static void	generic_lstadd_back(t_list **lst, t_list *new)
+// {
+// 	t_list	*last_node;
 
-	if (new)
-	{
-		if (*lst == NULL)
-		{
-			*lst = new;
-			// coord = (t_ident_coord *) (*lst)->content;
-			// printf("!!! %s\n", coord->path);
-			// printf("%d\n", *lst == NULL);
-		}
-		else
-		{
-			last_node = generic_lstlast(*lst);
-			last_node->next = new;
-			// new->prev = last_node;
-		}
-	}
-}
+// 	if (new)
+// 	{
+// 		if (*lst == NULL)
+// 		{
+// 			*lst = new;
+// 		}
+// 		else
+// 		{
+// 			last_node = generic_lstlast(*lst);
+// 			last_node->next = new;
+// 		}
+// 	}
+// }
 
 static t_list	*generic_lst_malloc_node(size_t data_size)
 {
@@ -60,7 +55,7 @@ int	generic_lst_add_node(t_list **lst, void *data, size_t data_size)
 	new_node->content = ft_memcpy(new_node->content, data, data_size);
 	// coord = (t_ident_coord *)new_node->content;
 	// printf("??? %s\n", coord->path);
-	generic_lstadd_back(lst, new_node);
+	ft_lstadd_back(lst, new_node);
 	return (0);
 }
 

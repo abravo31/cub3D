@@ -9,6 +9,7 @@
 #define MAP_IS_NOT_LAST_ELEM "The map is not the last element in the file\n"
 #define DOUBLE_PLAYER "There's more than one player on the map\n"
 #define MAP_UNCLOSED "The map isn't closed\n"
+#define PLAYER_NONE "There is not player in map\n"
 
 typedef	struct player_position
 {

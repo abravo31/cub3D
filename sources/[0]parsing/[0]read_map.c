@@ -86,27 +86,29 @@ static int	ft_length_until_new_line(char *s)
 static int	ft_consider_line(char *line)
 {
 	int	i;
-
+	int	is_valid_line;
+	
+	is_valid_line = 1;
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '1' || line[i] == '0' || line[i] == 'N' ||
-			line[i] == 'S' || line[i] == 'E' || line[i] == 'W')
-			return (1);
-		else
+		if (line[i] != ' ' && line[i] != '\n')
 		{
-			printf("Here %d\n", line[i]);
+			if (!(line[i] >= '0' && line[i] <= '2') && !(line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i] == 'W'))
+			{
+				printf("hereee %c\n", line[i]);
+				is_valid_line = 0;
+			}
 		}
-		// else if (line[i] == '\n' || line[i] == '\t' || line[i] == ' ')
-		// 	return (2);
 		i++;
 	}
+	if (is_valid_line)
+		return (1);
 	return (0);
 }
 
 static int	ft_initialize_map(t_list **lst, t_map *map)
 {
-	// printf("%d --- %d\n", map->b_idx, map->l_idx);
 	if (map->l_idx == -1)
 		map->max_h = ft_lstsize(*lst) - map->b_idx;
 	else
@@ -119,18 +121,21 @@ static int	ft_initialize_map(t_list **lst, t_map *map)
 	return (0);
 }
 
+/*
+Here we find the index (in the linked list) of the first line of
+the map in the file checking (using ft_consider_line function) if in
+the line contains at least one '0', '1', 'W', 'S', 'E', 'W'
+*/
 static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 {
 	t_list	*aux;
+	int		is_valid_line;
 
 	aux = generic_get_node_by_idx(lst, *i);
-	/*
-	Here we find the index (in the linked list) of the first line of
-	the map in the file checking (using ft_consider_line function) if in
-	the line contains at least one '0', '1', 'W', 'S', 'E', 'W'
-	*/
-	if (ft_consider_line((char *)aux->content) && map->b_idx == -1)
+	is_valid_line = ft_consider_line((char *)aux->content);
+	if (is_valid_line && map->b_idx == -1)
 		map->b_idx = *i;
+	else (is_valid_line && map->b_idx != -1)
 	if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
 	{
 		if (map->l_idx == -1)
@@ -145,6 +150,22 @@ static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 		}
 	}
 	return (0);
+	// if (ft_consider_line((char *)aux->content) && map->b_idx == -1)
+	// 	map->b_idx = *i;
+	// if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
+	// {
+	// 	if (map->l_idx == -1)
+	// 		map->l_idx = *i;
+	// 	while (aux)
+	// 	{
+	// 		if (ft_consider_line((char *)aux->content))
+	// 			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
+	// 		if (ft_length_until_new_line((char *)aux->content) > map->max_w)
+	// 			map->max_w = ft_length_until_new_line((char *)aux->content);
+	// 		aux = aux->next;
+	// 	}
+	// }
+	// return (0);
 }
 
 static int	ft_get_pos_map_in_file(t_list **lst, t_map *map)
@@ -183,7 +204,7 @@ static void ft_create_tab_from_line(int *map_l, char *l, int max_w, int full)
 	{
 		if ((int)l[i] == 10)
 			break ;
-		else if ((int)l[i] == 48 || (int)l[i] == 49)
+		else if ((int)l[i] >= 48 && (int)l[i] <= 50)
 			map_l[i] = (int)l[i] - '0';
 		else
 			map_l[i] = (int)l[i];
@@ -243,8 +264,8 @@ int	ft_read_file(char *file_name, t_map *map)
 	close(fd_map);
 	if (ft_get_pos_map_in_file(begin_lines_map, map))
 		return (generic_lst_free(begin_lines_map), 1);
-	if (ft_create_map_from_list(begin_lines_map, map))
-		return (generic_lst_free(begin_lines_map), 1);
+	// if (ft_create_map_from_list(begin_lines_map, map))
+	// 	return (generic_lst_free(begin_lines_map), 1);
 	generic_lst_free(begin_lines_map);
 	return (0);
 }

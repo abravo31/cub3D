@@ -96,8 +96,6 @@ int	ft_scan_map(t_map *map, int i, int j)
 		j = 0;
 		while (j < map->max_w)
 		{
-			if (map->map[i][j] == 50)
-				printf("Here\n");
 			if (!map->valide_map)
 				return (printf("INVALID_MAPA\n"), 1);
 			if (ft_check_player(map, map->map[i][j], i, j))
@@ -126,9 +124,14 @@ int	ft_check_map(char *file_name)
 	j = 0;
 	if (ft_read_file(file_name, &map))
 		return (1);
-	ft_print_map(&map);
-	if (ft_scan_map(&map, i, j))
-		return (ft_free_map(&map), 1);
+	// ft_print_map(&map);
+	// if (ft_scan_map(&map, i, j))
+	// 	return (ft_free_map(&map), 1);
+	// if (!map.player._is_set)
+	// {
+	// 	printf (PLAYER_NONE);
+	// 	return (ft_free_map(&map), 1);
+	// }
     ft_free_map(&map);
 	return (0);
 }

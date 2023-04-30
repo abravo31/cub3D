@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 20:21:05 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:56:13 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_full_identifier(t_cub3D *data)
 {
 	int	check;
 
-	check = data->NO + data->SO + data->WE + data->EA + data->F + data->C;
+	check = data->no + data->so + data->we + data->ea + data->f + data->c;
 	if (check > 0)
 		return (check);
 	return (0);

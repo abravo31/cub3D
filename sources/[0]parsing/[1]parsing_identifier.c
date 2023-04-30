@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:30:52 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:51:56 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	handle_new_fc(t_cub3D *data, t_ident_type tmp, char *line, int i)
 	t_fc	temp;
 	int		res;
 
-	temp.R = -1;
-	temp.G = -1;
-	temp.B = -1;
+	temp.r = -1;
+	temp.g = -1;
+	temp.b = -1;
 	res = get_new_fc_colors(&temp, line, i, NULL);
 	if (res > 0)
 	{
@@ -60,7 +60,7 @@ int	handle_new_fc(t_cub3D *data, t_ident_type tmp, char *line, int i)
 	fc_node = new_fc(&temp, tmp);
 	if (!fc_node)
 		return (1);
-	if (generic_lst_add_node(&data->ident_FC, (void *)fc_node, sizeof(t_fc)))
+	if (generic_lst_add_node(&data->ident_fc, (void *)fc_node, sizeof(t_fc)))
 	{
 		free (fc_node);
 		return (1);
@@ -115,8 +115,8 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 	}
 	else if (check_full_identifier(data) == 6)
 	{
-		data->Y = data->Y + 1;
-		if (handle_new_line_map(data, line, data->Y))
+		data->y = data->y + 1;
+		if (handle_new_line_map(data, line, data->y))
 			ft_exit_and_free(data, 1, &line, MALLOC_FAIL);
 	}
 	free(*str);
@@ -146,12 +146,12 @@ void __debug_parsing(t_cub3D *data)
         iter = iter->next;
     }
 
-	t_list *iter2 = data->ident_FC;
+	t_list *iter2 = data->ident_fc;
     t_fc  *cur = NULL;
     while (iter2)
     {
         cur = (t_fc*) iter2->content;
-        printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->R, cur->G, cur->B);
+        printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->r, cur->g, cur->b);
         iter2 = iter2->next;
     }
 	t_list *iter3 = data->map_list;

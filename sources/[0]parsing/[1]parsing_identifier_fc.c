@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:05:47 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:55:04 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	fill_rgb(t_fc *temp, char *color)
 {
 	if (!color)
 		return (2);
-	if (color && temp->R < 0)
-		temp->R = ft_atoi_fc(color);
-	else if (temp->R >= 0 && color && temp->G < 0)
-		temp->G = ft_atoi_fc(color);
-	else if (temp->R >= 0 && temp->G >= 0 && color && temp->B < 0)
-		temp->B = ft_atoi_fc(color);
+	if (color && temp->r < 0)
+		temp->r = ft_atoi_fc(color);
+	else if (temp->r >= 0 && color && temp->g < 0)
+		temp->g = ft_atoi_fc(color);
+	else if (temp->r >= 0 && temp->g >= 0 && color && temp->b < 0)
+		temp->b = ft_atoi_fc(color);
 	return (0);
 }
 
@@ -63,7 +63,7 @@ int	get_new_fc_colors(t_fc *temp, char *line, int i, char *color)
 		if (fill_rgb(temp, color))
 			return (2);
 		free(color);
-		if (temp->B >= 0)
+		if (temp->b >= 0)
 			break ;
 		i++;
 	}
@@ -72,8 +72,8 @@ int	get_new_fc_colors(t_fc *temp, char *line, int i, char *color)
 		if (line[i] && line[i] != ' ' && line[i] != '\n')
 			return (2);
 	}
-	if (temp->R < 0 || temp->R > 255 || temp->G < 0
-		|| temp->G > 255 || temp->B < 0 || temp->B > 255)
+	if (temp->r < 0 || temp->r > 255 || temp->g < 0
+		|| temp->g > 255 || temp->b < 0 || temp->b > 255)
 		return (2);
 	return (0);
 }
@@ -85,9 +85,9 @@ t_fc	*new_fc(t_fc *temp, t_ident_type id)
 	elem = malloc(sizeof(t_fc));
 	if (!elem)
 		return (NULL);
-	elem->R = temp->R;
-	elem->G = temp->G;
-	elem->B = temp->B;
+	elem->r = temp->r;
+	elem->g = temp->g;
+	elem->b = temp->b;
 	elem->id = id;
 	return (elem);
 }
@@ -96,17 +96,17 @@ t_ident_type	eval_ident_fc(char *ident, t_cub3D *data)
 {
 	if (is_identical("F", ident))
 	{
-		if (data->F == 0)
+		if (data->f == 0)
 		{
-			data->F = 1;
+			data->f = 1;
 			return (F);
 		}	
 	}
 	else if (is_identical("C", ident))
 	{
-		if (data->C == 0)
+		if (data->c == 0)
 		{
-			data->C = 1;
+			data->c = 1;
 			return (C);
 		}	
 	}

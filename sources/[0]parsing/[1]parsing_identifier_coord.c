@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:15:24 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:52:56 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ t_ident_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 {
 	if (is_identical("WE", ident))
 	{
-		if (data->WE == 0)
+		if (data->we == 0)
 		{
-			data->WE = 1;
+			data->we = 1;
 			return (WE);
 		}
 	}
 	else if (is_identical("EA", ident))
 	{
-		if (data->EA == 0)
+		if (data->ea == 0)
 		{
-			data->EA = 1;
+			data->ea = 1;
 			return (EA);
 		}
 	}
@@ -85,17 +85,17 @@ t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
 	if (is_identical("NO", ident))
 	{
-		if (data->NO == 0)
+		if (data->no == 0)
 		{
-			data->NO = 1;
+			data->no = 1;
 			return (NO);
 		}	
 	}
 	else if (is_identical("SO", ident))
 	{
-		if (data->SO == 0)
+		if (data->so == 0)
 		{
-			data->SO = 1;
+			data->so = 1;
 			return (SO);
 		}	
 	}

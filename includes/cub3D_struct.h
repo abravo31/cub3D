@@ -119,4 +119,7 @@ t_type	eval_ident_fc(char *ident, t_cub3D *data);
 /*Identifier map*/
 int		handle_new_line_map(t_cub3D *data, char *line, int y);
 
+//window
+
+void	open_window(t_cub3D *data);
 #endif

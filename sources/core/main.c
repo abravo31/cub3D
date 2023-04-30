@@ -154,6 +154,7 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (gnl_loop(&data, argv[1]))
 			return (1);
+		open_window(&data);
 	}
 	else
 		return (printf("Invalid number of arguments\n"), 1);

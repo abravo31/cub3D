@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 22:28:30 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 22:53:03 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	handle_new_fc(t_cub3D *data, t_type tmp, char *line, int i)
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_type	tmp;
-	int				res;
+	int		res;
 
 	tmp = eval_ident_coord(*str, data);
 	if (tmp != 0)
@@ -87,6 +87,7 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	tmp = eval_ident_fc(*str, data);
 	if (tmp != 0)
 	{
+		printf("str:inside %s\n", *str);
 		res = handle_new_fc(data, tmp, line, i);
 		if (res == 1)
 			free_line_end_exit(line, data, str, MALLOC_FAIL);
@@ -94,7 +95,10 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
 	}
 	else if (tmp == 0)
+	{
+		printf("str: %s\n", *str);
 		free_line_end_exit (line, data, str, IDENT_INVALID);
+	}
 }
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line)

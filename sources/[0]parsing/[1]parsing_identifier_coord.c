@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:52:56 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 22:28:30 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	get_new_coord_path(char **path, char *line, int i)
 	return (0);
 }
 
-t_coord	*new_coord(char *path, t_ident_type id)
+t_coord	*new_coord(char *path, t_type id)
 {
 	t_coord	*elem;
 	int		j;
@@ -59,7 +59,7 @@ t_coord	*new_coord(char *path, t_ident_type id)
 	return (elem);
 }
 
-t_ident_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
+t_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 {
 	if (is_identical("WE", ident))
 	{
@@ -81,7 +81,7 @@ t_ident_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 }
 
 // Function to return corresponding token from string
-t_ident_type	eval_ident_coord(char *ident, t_cub3D *data)
+t_type	eval_ident_coord(char *ident, t_cub3D *data)
 {
 	if (is_identical("NO", ident))
 	{

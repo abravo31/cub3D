@@ -6,13 +6,13 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:51:56 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 22:28:30 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D_struct.h"
 
-int	handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
+int	handle_new_coord(t_cub3D *data, t_type tmp, char *line, int i)
 {
 	t_coord	*coord_node;
 	char	*path;
@@ -40,7 +40,7 @@ int	handle_new_coord(t_cub3D *data, t_ident_type tmp, char *line, int i)
 	return (0);
 }
 
-int	handle_new_fc(t_cub3D *data, t_ident_type tmp, char *line, int i)
+int	handle_new_fc(t_cub3D *data, t_type tmp, char *line, int i)
 {
 	t_fc	*fc_node;
 	t_fc	temp;
@@ -71,7 +71,7 @@ int	handle_new_fc(t_cub3D *data, t_ident_type tmp, char *line, int i)
 
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
-	t_ident_type	tmp;
+	t_type	tmp;
 	int				res;
 
 	tmp = eval_ident_coord(*str, data);

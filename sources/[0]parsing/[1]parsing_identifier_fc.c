@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:55:04 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 22:28:30 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	get_new_fc_colors(t_fc *temp, char *line, int i, char *color)
 	return (0);
 }
 
-t_fc	*new_fc(t_fc *temp, t_ident_type id)
+t_fc	*new_fc(t_fc *temp, t_type id)
 {
 	t_fc	*elem;
 
@@ -92,7 +92,7 @@ t_fc	*new_fc(t_fc *temp, t_ident_type id)
 	return (elem);
 }
 
-t_ident_type	eval_ident_fc(char *ident, t_cub3D *data)
+t_type	eval_ident_fc(char *ident, t_cub3D *data)
 {
 	if (is_identical("F", ident))
 	{

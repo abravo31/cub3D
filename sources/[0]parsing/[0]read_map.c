@@ -87,7 +87,7 @@ static int	ft_consider_line(char *line)
 {
 	int	i;
 	int	is_valid_line;
-	
+
 	is_valid_line = 1;
 	i = 0;
 	printf("line : %s\n", line);
@@ -136,7 +136,7 @@ static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 	is_valid_line = ft_consider_line((char *)aux->content);
 	if (is_valid_line && map->b_idx == -1)
 		map->b_idx = *i;
-	else if(is_valid_line && map->b_idx != -1)
+	else if (is_valid_line && map->b_idx != -1)
 	{
 		if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
 		{

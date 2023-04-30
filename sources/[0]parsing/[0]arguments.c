@@ -14,8 +14,8 @@ static int	ft_little_check(char *map_name)
 	return (1);
 }
 
-int check_file_args(char *arg_file_name)
+int	check_file_args(char *arg_file_name)
 {
-    ft_little_check(arg_file_name);
-    return (0);
+	ft_little_check(arg_file_name);
+	return (0);
 }

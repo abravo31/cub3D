@@ -111,7 +111,7 @@ int gnl_loop(t_cub3D *data, char *file_name)
     fd = open(file_name, O_RDONLY);
     line = get_next_line(fd);
     if (!line)
-        printf("A gerer!\n");
+        return (ft_putstr_fd("Failed to open file!\n", 1), 1);
     while(line)
     {
 		get_list(data, line);
@@ -120,11 +120,11 @@ int gnl_loop(t_cub3D *data, char *file_name)
     }
     free(line);
     if (check_full_identifier(data) < 6)
-		printf("Texture or color identifier missing (1) \n");
+		ft_exit_and_free(data, 1, NULL, IDENT_MISSING);
 	__debug_parsing(data);
     close(fd);
     // Ce ligne la 
-    ft_check_map(data);
+    //ft_check_map(data);
     ft_exit_and_free(data, 0, NULL, NULL);
     return (0);
 

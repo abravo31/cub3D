@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 22:53:03 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/01 00:50:08 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,31 +74,27 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	t_type	tmp;
 	int		res;
 
-	tmp = eval_ident_coord(*str, data);
-	if (tmp != 0)
+	tmp = eval_ident(*str, data);
+	if (tmp != 0 && tmp < 5)
 	{
 		res = handle_new_coord(data, tmp, line, i);
 		if (res == 1)
 			free_line_end_exit(line, data, str, MALLOC_FAIL);
 		else if (res == 2)
 			free_line_end_exit (line, data, str, INVALID_PATH_TEXTURE);
-		return ;
 	}
-	tmp = eval_ident_fc(*str, data);
-	if (tmp != 0)
+	else if (tmp != 0 && tmp > 4 && tmp < 7)
 	{
-		printf("str:inside %s\n", *str);
 		res = handle_new_fc(data, tmp, line, i);
 		if (res == 1)
 			free_line_end_exit(line, data, str, MALLOC_FAIL);
 		else if (res == 2)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
 	}
-	else if (tmp == 0)
-	{
-		printf("str: %s\n", *str);
+	else if (tmp == 7)
 		free_line_end_exit (line, data, str, IDENT_INVALID);
-	}
+	free(*str);
+	*str = NULL;
 }
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line)

@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 22:46:57 by abravo           ###   ########.fr       */
+/*   Updated: 2023/04/30 23:43:30 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ t_type	eval_ident_fc(char *ident, t_cub3D *data)
 		if (data->f == 0)
 		{
 			data->f = 1;
-			printf("hello???\n");
 			return (F);
-		}	
+		}
+		return (7);
 	}
 	else if (is_identical("C", ident))
 	{
@@ -109,7 +109,8 @@ t_type	eval_ident_fc(char *ident, t_cub3D *data)
 		{
 			data->c = 1;
 			return (C);
-		}	
+		}
+		return (7);	
 	}
 	return (UNASSIGNED);
 }

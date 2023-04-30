@@ -34,15 +34,15 @@ typedef enum ident_type
 typedef struct fc
 {
 	t_type	id;
-	int				r;
-	int				g;
-	int				b;
+	int		r;
+	int		g;
+	int		b;
 }	t_fc;
 
 typedef struct coord
 {
 	t_type	id;
-	char			*path;
+	char	*path;
 }	t_coord;
 
 typedef struct map_list
@@ -109,7 +109,7 @@ void	free_line_end_exit(char *line, t_cub3D *data, char **str, char *error);
 /*Identifier coord*/
 int		get_new_coord_path(char **path, char *line, int i);
 t_coord	*new_coord(char *path, t_type id);
-t_type	eval_ident_coord(char *ident, t_cub3D *data);
+t_type	eval_ident(char *ident, t_cub3D *data);
 
 /*Identifier FC*/
 int		get_new_fc_colors(t_fc *temp, char *line, int i, char *color);

@@ -21,7 +21,7 @@ PARSE		=	[0]arguments.c [0]read_map.c [1]parsing_identifier.c [1]parsing_identif
 				[1]parsing_identifier_fc.c [1]parsing_identifier_free.c [1]parsing_identifier_map.c [1]parsing_identifier_tools.c
 
 EXEC_DIR	=	[1]execution/
-EXEC		=	[0]window.c
+EXEC		=	[0]window.c [1]mlx_tools.c [2]mini_map.c
 
 # BUILTIN_DIR	=	builtin/
 # BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \

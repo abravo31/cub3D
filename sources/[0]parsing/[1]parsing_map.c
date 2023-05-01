@@ -132,6 +132,7 @@ int	ft_check_map(t_cub3D *data)
 	// 	printf (PLAYER_NONE);
 	// 	return (ft_free_map(&map), 1);
 	// }
-    ft_free_map(&map);
+    // ft_free_map(&map);
+	data->map = map;
 	return (0);
 }

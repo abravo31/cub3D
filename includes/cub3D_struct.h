@@ -86,6 +86,7 @@ typedef struct cub3D
 	t_list	*ident_fc;
 	t_list	*ident_coord;
 	t_list	*map_list;
+	t_map	map;
 	int		win_x;
 	int		win_y;
 	int		mid_x;

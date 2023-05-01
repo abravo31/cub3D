@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   [1]parsing_identifier_coord.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amanda <amanda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/01 00:50:12 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/01 21:43:55 by amanda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,7 @@ int	get_new_coord_path(char **path, char *line, int i)
 t_coord	*new_coord(char *path, t_type id)
 {
 	t_coord	*elem;
-	int		j;
-	int		k;
 
-	j = 0;
-	k = 0;
 	elem = malloc(sizeof(t_coord));
 	if (!elem)
 		return (NULL);

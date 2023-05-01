@@ -105,6 +105,7 @@ void	ft_free_map(t_map *map);
 int		ft_read_file(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 void	free_line_end_exit(char *line, t_cub3D *data, char **str, char *error);
+int		ft_length_until_new_line(char *s);
 
 /*Identifier coord*/
 int		get_new_coord_path(char **path, char *line, int i);
@@ -122,4 +123,5 @@ int		handle_new_line_map(t_cub3D *data, char *line, int y);
 //window
 
 void	open_window(t_cub3D *data);
+
 #endif

@@ -117,11 +117,11 @@ int	ft_scan_map(t_map *map, int i, int j)
 int	ft_check_map(t_cub3D *data)
 {
 	t_map	map;
-	int		i;
-	int		j;
+	// int		i;
+	// int		j;
 
-	i = 0;
-	j = 0;
+	// i = 0;
+	// j = 0;
 	if (ft_read_file(&data->map_list, &map))
 		return (1);
 	ft_print_map(&map);

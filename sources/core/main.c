@@ -121,10 +121,10 @@ int	gnl_loop(t_cub3D *data, char *file_name)
 	free(line);
 	if (check_full_identifier(data) < 6)
 		ft_exit_and_free(data, 1, NULL, IDENT_MISSING);
-	__debug_parsing(data);
+	// __debug_parsing(data);
 	close(fd);
 	// Ce ligne la 
-	//ft_check_map(data);
+	ft_check_map(data);
 	ft_exit_and_free(data, 0, NULL, NULL);
 	return (0);
 }

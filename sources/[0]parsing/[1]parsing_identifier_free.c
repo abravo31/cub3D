@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   [1]parsing_identifier_free.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amanda <amanda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:55:29 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/01 22:03:52 by amanda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg)
 	if (data->ident_fc)
 		ft_lstclear(&data->ident_fc, &ft_free_fc);
 	if (data->map_list)
+	{
 		ft_lstclear(&data->map_list, &ft_free_map_list);
+	}
 	exit(ret);
 }
 

@@ -67,7 +67,7 @@ t_list	*generic_get_node_by_idx(t_list **lst, int idx)
 // 	return (0);
 // }
 
-static int	ft_length_until_new_line(char *s)
+int	ft_length_until_new_line(char *s)
 {
 	int	i;
 
@@ -90,14 +90,14 @@ static int	ft_consider_line(char *line)
 
 	is_valid_line = 1;
 	i = 0;
-	printf("line : %s\n", line);
+	// printf("line : %s\n", line);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\n')
 		{
 			if (!(line[i] >= '0' && line[i] <= '2') && !(line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i] == 'W'))
 			{
-				printf("hereee %c\n", line[i]);
+				// printf("hereee %c\n", line[i]);
 				is_valid_line = 0;
 			}
 		}
@@ -133,51 +133,51 @@ static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 	int		is_valid_line;
 
 	aux = generic_get_node_by_idx(lst, *i);
-	is_valid_line = ft_consider_line((char *)aux->content);
+	is_valid_line = ft_consider_line(((t_map_list *)(aux->content))->line);
 	if (is_valid_line && map->b_idx == -1)
 		map->b_idx = *i;
 	else if (is_valid_line && map->b_idx != -1)
 	{
-		if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
+		if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
 		{
 			if (map->l_idx == -1)
 				map->l_idx = *i;
 			while (aux)
 			{
-				if (ft_consider_line((char *)aux->content))
+				if (ft_consider_line(((t_map_list *)(aux->content))->line))
 					return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-				if (ft_length_until_new_line((char *)aux->content) > map->max_w)
-					map->max_w = ft_length_until_new_line((char *)aux->content);
+				if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
+					map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
 				aux = aux->next;
 			}
 		}
 	}
-	// if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
+	// if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
 	// {
 	// 	if (map->l_idx == -1)
 	// 		map->l_idx = *i;
 	// 	while (aux)
 	// 	{
-	// 		if (ft_consider_line((char *)aux->content))
+	// 		if (ft_consider_line(((t_map_list *)(aux->content))->line))
 	// 			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-	// 		if (ft_length_until_new_line((char *)aux->content) > map->max_w)
-	// 			map->max_w = ft_length_until_new_line((char *)aux->content);
+	// 		if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
+	// 			map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
 	// 		aux = aux->next;
 	// 	}
 	// }
 	return (0);
-	// if (ft_consider_line((char *)aux->content) && map->b_idx == -1)
+	// if (ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx == -1)
 	// 	map->b_idx = *i;
-	// if (!ft_consider_line((char *)aux->content) && map->b_idx != -1)
+	// if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
 	// {
 	// 	if (map->l_idx == -1)
 	// 		map->l_idx = *i;
 	// 	while (aux)
 	// 	{
-	// 		if (ft_consider_line((char *)aux->content))
+	// 		if (ft_consider_line(((t_map_list *)(aux->content))->line))
 	// 			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-	// 		if (ft_length_until_new_line((char *)aux->content) > map->max_w)
-	// 			map->max_w = ft_length_until_new_line((char *)aux->content);
+	// 		if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
+	// 			map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
 	// 		aux = aux->next;
 	// 	}
 	// }
@@ -200,8 +200,8 @@ static int	ft_get_pos_map_in_file(t_list **lst, t_map *map)
 			return (1);
 		if (map->b_idx != -1)
 		{
-			if (ft_length_until_new_line((char *)aux->content) > map->max_w)
-				map->max_w = ft_length_until_new_line((char *)aux->content);
+			if (((t_map_list *)(aux->content))->_x > map->max_w)
+				map->max_w = ((t_map_list *)(aux->content))->_x;
 		}
 		i++;
 		aux = aux->next;
@@ -248,11 +248,11 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 		aux = aux->next;
 	while (aux)
 	{
-		line = (char *)aux->content;
+		line = ((t_map_list *)(aux->content))->line;
 		map->map[i - map->b_idx - 1] = (int *)malloc(sizeof(int) * map->max_w);
 		if (!map->map[i - map->b_idx - 1])
 			return (ft_free_map(map), 1);
-		if (ft_length_until_new_line(line) < map->max_w)
+		if (((t_map_list *)(aux->content))->_x < map->max_w)
 			ft_create_tab_from_line(map->map[i - map->b_idx - 1], line, map->max_w, 0);
 		else
 			ft_create_tab_from_line(map->map[i - map->b_idx - 1], line, map->max_w, 1);
@@ -267,10 +267,10 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 int	ft_read_file(t_list **lst, t_map *map)
 {
 	if (ft_get_pos_map_in_file(lst, map))
-		return (generic_lst_free(lst), 1);
+		return (1);
 	if (ft_create_map_from_list(lst, map))
-		return (generic_lst_free(lst), 1);
-	generic_lst_free(lst);
+		return (1);
+	// generic_lst_free(lst);
 	return (0);
 }
 

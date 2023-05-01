@@ -125,7 +125,7 @@ int	gnl_loop(t_cub3D *data, char *file_name)
 	close(fd);
 	// Ce ligne la 
 	ft_check_map(data);
-	ft_exit_and_free(data, 0, NULL, NULL);
+	// ft_exit_and_free(data, 0, NULL, NULL);
 	return (0);
 }
 
@@ -154,6 +154,7 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (gnl_loop(&data, argv[1]))
 			return (1);
+		printf("hellooo\n");
 		open_window(&data);
 	}
 	else

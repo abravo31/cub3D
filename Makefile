@@ -9,6 +9,8 @@ HEADER = includes/
 SRC_PATH  = sources/
 INC_PATH  = includes/
 LIBFT = libft/
+MLX_LINUX	=	minilibx-linux/
+MLX_LINUX_FLAGS	=	-L. -lXext -L. -lX11 -lm -lbsd
 FLAGS += -I$(INC_PATH)
 ### Source Files ###
 COR_DIR		=	core/
@@ -50,7 +52,8 @@ CYAN        = \033[1;36m
 all: lib tmp $(NAME)
 
 lib:
-	@make --no-print-directory -C $(LIBFT)
+	@make --no-print-directory -s -C $(LIBFT)
+	@make --no-print-directory -s -C $(MLX_LINUX)
 
 tmp:
 	@mkdir -p $(OBJ_PATH)
@@ -61,7 +64,7 @@ tmp:
 	@mkdir -p $(OBJ_PATH)$(UTILS_DIR)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lm -l:libft.a
+	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX_LINUX) -o $@ $^ -lm -l:libft.a -l:libmlx.a $(MLX_LINUX_FLAGS)
 	@echo "$(GREEN)Project compiled succesfully$(NOC)"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -70,14 +73,16 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 clean:
 	@echo "$(GREEN)Cleaning libraries$(NOC)"
-	@make clean -C $(LIBFT)
+	@make -s clean -C $(LIBFT)
+	@make -s clean -C $(MLX_LINUX)
 	@rm -rf $(OBJ_PATH)
 
 fclean:
 	@echo "$(GREEN)Cleaning libraries files$(NOC)"
 	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
-	@make fclean -C $(LIBFT)
+	@make -s fclean -C $(LIBFT)
+	@make -s clean -C $(MLX_LINUX)
 
 re: fclean all
 

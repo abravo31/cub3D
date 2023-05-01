@@ -2,6 +2,8 @@
 # define CUB3D_STRUCT_H
 
 # include "../libft/includes/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx_int.h"
 # include <stdio.h>
 # define BUFFER_SIZE 42
 
@@ -84,6 +86,17 @@ typedef struct cub3D
 	t_list	*ident_fc;
 	t_list	*ident_coord;
 	t_list	*map_list;
+	int		win_x;
+	int		win_y;
+	int		mid_x;
+	int		mid_y;
+	void	*mlx;
+	void	*mlx_win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
 }	t_cub3D;
 
 int		get_list(t_cub3D *data, char *line);

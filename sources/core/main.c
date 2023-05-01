@@ -154,7 +154,8 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (gnl_loop(&data, argv[1]))
 			return (1);
-		printf("hellooo\n");
+		if (data.map_list)
+			ft_lstclear(&data.map_list, &ft_free_map_list);
 		open_window(&data);
 	}
 	else

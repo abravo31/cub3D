@@ -13,7 +13,7 @@ MLX_LINUX	=	minilibx-linux/
 # COMMENT FOR COMPILE
 # MLX_LINUX_FLAGS	=	-L. -lXext -L. -lX11 -lm -lbsd
 MLX_LINUX_FLAGS = -lm
-FLAGS += -I$(INC_PATH)
+# FLAGS += -I$(INC_PATH)
 ### Source Files ###
 COR_DIR		=	core/
 CORS		=	main.c
@@ -53,13 +53,13 @@ CYAN        = \033[1;36m
 
 ### RULES ###
 
-# COMMENT FOR COMPILE
-# all: lib tmp $(NAME)
-all: tmp $(NAME)
+
+all: lib tmp $(NAME)
 
 lib:
 	@make --no-print-directory -s -C $(LIBFT)
-	@make --no-print-directory -s -C $(MLX_LINUX)
+# COMMENT FOR COMPILE
+# @make --no-print-directory -s -C $(MLX_LINUX)
 
 tmp:
 	@mkdir -p $(OBJ_PATH)
@@ -73,7 +73,8 @@ tmp:
 $(NAME): $(OBJS)
 # COMMENT FOR COMPILE
 # $(CC) $(FLAGS) -L $(LIBFT) -L $(MLX_LINUX) -o $@ $^ -lm -l:libft.a -l:libmlx.a $(MLX_LINUX_FLAGS)
-	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX_LINUX) -o $@ $^ -lm -l:libft.a
+# $(CC) $(FLAGS) -L $(LIBFT) -L $(MLX_LINUX) -o $@ $^ -lm -l:libft.a
+	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lm -l:libft.a
 	@echo "$(GREEN)Project compiled succesfully$(NOC)"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

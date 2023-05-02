@@ -1,5 +1,20 @@
 #include "../../includes/cub3D_struct.h"
 
+void print_data_lst(t_list **begin_lst)
+{
+	t_list          *aux;
+	t_map_list		*aux_map_line;
+	
+	aux = *begin_lst;
+	while (aux)
+	{
+		aux_map_line = (t_map_list *)aux->content;
+		printf("line %d\n", aux_map_line->_y);
+		printf("line %d\n", aux_map_line->_x);
+		printf("line %s\n", aux_map_line->line);
+		aux = aux->next;
+	}
+}
 void	generic_lst_free(t_list **lst)
 {
 	t_list	*lst_ptr;
@@ -86,24 +101,25 @@ int	ft_length_until_new_line(char *s)
 static int	ft_consider_line(char *line)
 {
 	int	i;
-	int	is_valid_line;
+	int	flag_not_char_map;
 
-	is_valid_line = 1;
+	flag_not_char_map = 0;
 	i = 0;
 	// printf("line : %s\n", line);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\n')
 		{
+			if (flag_not_char_map != 1)
+				flag_not_char_map  = 1;
 			if (!(line[i] >= '0' && line[i] <= '2') && !(line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i] == 'W'))
 			{
-				// printf("hereee %c\n", line[i]);
-				is_valid_line = 0;
+				flag_not_char_map = 2;
 			}
 		}
 		i++;
 	}
-	if (is_valid_line)
+	if (!flag_not_char_map)
 		return (1);
 	return (0);
 }
@@ -135,7 +151,10 @@ static int	ft_scan_line(t_list **lst, t_map *map, int *i)
 	aux = generic_get_node_by_idx(lst, *i);
 	is_valid_line = ft_consider_line(((t_map_list *)(aux->content))->line);
 	if (is_valid_line && map->b_idx == -1)
+	{
+		printf("Begin in index: %d\n", *i);
 		map->b_idx = *i;
+	}
 	else if (is_valid_line && map->b_idx != -1)
 	{
 		if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
@@ -266,6 +285,7 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 
 int	ft_read_file(t_list **lst, t_map *map)
 {
+	print_data_lst(lst);
 	if (ft_get_pos_map_in_file(lst, map))
 		return (1);
 	if (ft_create_map_from_list(lst, map))

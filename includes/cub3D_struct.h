@@ -2,9 +2,8 @@
 # define CUB3D_STRUCT_H
 
 # include "../libft/includes/libft.h"
-// COMMENT FOR COMPILE
-// # include "../minilibx-linux/mlx.h"
-// # include "../minilibx-linux/mlx_int.h"
+# include "../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx_int.h"
 # include <stdio.h>
 # define BUFFER_SIZE 42
 

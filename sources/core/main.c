@@ -156,8 +156,7 @@ int	main(int argc, char *argv[])
 			return (1);
 		if (data.map_list)
 			ft_lstclear(&data.map_list, &ft_free_map_list);
-		// COMMENT FOR COMPILE
-		// open_window(&data);
+		open_window(&data);
 	}
 	else
 		return (printf("Invalid number of arguments\n"), 1);

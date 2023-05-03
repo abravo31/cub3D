@@ -16,8 +16,8 @@ int	ft_exit(t_cub3D *data)
 
 void	setup_data_for_mlx(t_cub3D *data)
 {
-	data->win_x = 1920;
-	data->win_y = 1080;
+	data->win_x = 1200;
+	data->win_y = 700;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();

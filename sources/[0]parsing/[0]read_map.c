@@ -98,6 +98,16 @@ int	ft_length_until_new_line(char *s)
 	return (i);
 }
 
+static int	ft_valid_map_char(char c)
+{
+	if ((c >= '0' && c <= '2') ||
+		(c == 'N' || c == 'S' || c == 'E' || c == 'W'))
+	{
+		return (1);
+	}
+	return (-1);
+}
+
 static int	ft_consider_line(char *line)
 {
 	int	i;
@@ -105,23 +115,19 @@ static int	ft_consider_line(char *line)
 
 	flag_not_char_map = 0;
 	i = 0;
-	// printf("line : %s\n", line);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\n')
 		{
-			if (flag_not_char_map != 1)
-				flag_not_char_map  = 1;
-			if (!(line[i] >= '0' && line[i] <= '2') && !(line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i] == 'W'))
-			{
-				flag_not_char_map = 2;
-			}
+			flag_not_char_map = ft_valid_map_char(line[i]);
+			if (flag_not_char_map == -1)
+				return (-1);
 		}
 		i++;
 	}
-	if (!flag_not_char_map)
-		return (1);
-	return (0);
+	if (flag_not_char_map == 0)
+		return (0);
+	return (1);
 }
 
 static int	ft_initialize_map(t_list **lst, t_map *map)
@@ -143,69 +149,36 @@ Here we find the index (in the linked list) of the first line of
 the map in the file checking (using ft_consider_line function) if in
 the line contains at least one '0', '1', 'W', 'S', 'E', 'W'
 */
-static int	ft_scan_line(t_list **lst, t_map *map, int *i)
+
+static int	ft_check_end_of_the_map(t_list **lst, t_map *map, int *i)
 {
 	t_list	*aux;
 	int		is_valid_line;
+	int		idx;
 
-	aux = generic_get_node_by_idx(lst, *i);
-	is_valid_line = ft_consider_line(((t_map_list *)(aux->content))->line);
-	if (is_valid_line && map->b_idx == -1)
+	idx = *i;
+	aux = generic_get_node_by_idx(lst, idx);
+	while (aux)
 	{
-		printf("Begin in index: %d\n", *i);
-		map->b_idx = *i;
+		is_valid_line = ft_consider_line(((t_map_list *)(aux->content))->line);
+		if (is_valid_line == -1)
+			return (printf(INVALID_SYMBOL_MAP), 1);
+		else if (is_valid_line == 0 && map->l_idx == -1)
+			map->l_idx = idx;
+		else if (is_valid_line == 1 && map->l_idx != -1)
+			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
+		if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
+			map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
+		idx++;
+		aux = aux->next;
 	}
-	else if (is_valid_line && map->b_idx != -1)
-	{
-		if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
-		{
-			if (map->l_idx == -1)
-				map->l_idx = *i;
-			while (aux)
-			{
-				if (ft_consider_line(((t_map_list *)(aux->content))->line))
-					return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-				if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
-					map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
-				aux = aux->next;
-			}
-		}
-	}
-	// if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
-	// {
-	// 	if (map->l_idx == -1)
-	// 		map->l_idx = *i;
-	// 	while (aux)
-	// 	{
-	// 		if (ft_consider_line(((t_map_list *)(aux->content))->line))
-	// 			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-	// 		if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
-	// 			map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
-	// 		aux = aux->next;
-	// 	}
-	// }
 	return (0);
-	// if (ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx == -1)
-	// 	map->b_idx = *i;
-	// if (!ft_consider_line(((t_map_list *)(aux->content))->line) && map->b_idx != -1)
-	// {
-	// 	if (map->l_idx == -1)
-	// 		map->l_idx = *i;
-	// 	while (aux)
-	// 	{
-	// 		if (ft_consider_line(((t_map_list *)(aux->content))->line))
-	// 			return (printf(MAP_IS_NOT_LAST_ELEM), 1);
-	// 		if (ft_length_until_new_line(((t_map_list *)(aux->content))->line) > map->max_w)
-	// 			map->max_w = ft_length_until_new_line(((t_map_list *)(aux->content))->line);
-	// 		aux = aux->next;
-	// 	}
-	// }
-	// return (0);
 }
 
 static int	ft_get_pos_map_in_file(t_list **lst, t_map *map)
 {
 	t_list	*aux;
+	int		is_valid_line;
 	int		i;
 
 	aux = *lst;
@@ -215,8 +188,18 @@ static int	ft_get_pos_map_in_file(t_list **lst, t_map *map)
 	i = 0;
 	while (aux)
 	{
-		if (ft_scan_line(lst, map, &i))
-			return (1);
+		is_valid_line = ft_consider_line(((t_map_list *)(aux->content))->line);
+		if (is_valid_line == -1)
+			return (printf(INVALID_SYMBOL_MAP), 1);
+		else if (is_valid_line == 1 && map->b_idx == -1)
+			map->b_idx = i;
+		else if (is_valid_line >= 0 && map->b_idx != -1)
+		{
+			if (!ft_check_end_of_the_map(lst, map, &i))
+				break ;
+			else
+				return (1);
+		}
 		if (map->b_idx != -1)
 		{
 			if (((t_map_list *)(aux->content))->_x > map->max_w)
@@ -285,7 +268,7 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 
 int	ft_read_file(t_list **lst, t_map *map)
 {
-	print_data_lst(lst);
+	// print_data_lst(lst);
 	if (ft_get_pos_map_in_file(lst, map))
 		return (1);
 	if (ft_create_map_from_list(lst, map))

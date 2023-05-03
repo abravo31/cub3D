@@ -17,8 +17,9 @@ COR_DIR		=	core/
 CORS		=	main.c
 
 PARSE_DIR	=	[0]parsing/
-PARSE		=	[0]arguments.c [0]read_map.c [1]parsing_identifier.c [1]parsing_identifier_coord.c [1]parsing_map.c \
-				[1]parsing_identifier_fc.c [1]parsing_identifier_free.c [1]parsing_identifier_map.c [1]parsing_identifier_tools.c
+PARSE		=	[0]check_map_lst.c [0]get_map.c \
+				[1]parsing_identifier.c [1]parsing_identifier_coord.c [1]parsing_identifier_fc.c [1]parsing_identifier_free.c [1]parsing_identifier_map.c [1]parsing_identifier_tools.c \
+				[2]parsing_map.c [2]parsing_map_player.c
 
 EXEC_DIR	=	[1]execution/
 EXEC		=	[0]window.c [1]mlx_tools.c [2]mini_map.c

@@ -38,7 +38,8 @@ static void	ft_scan_around(t_map *map, int y, int x, int error_int)
 		return ;
 	if (map->map[y][x] == error_int)
 	{
-		printf("la la y %d -- x %d\n", y, x);
+		if (map->valide_map)
+			printf(MAP_UNCLOSED);
 		map->valide_map = 0;
 	}
 }
@@ -51,7 +52,6 @@ static void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 		error_int = 0;
 	else
 		error_int = 32;
-	printf("y %d -- x %d\n", y, x);
 	// Top
 	ft_scan_around(map, y + 1, x, error_int);
 	// Down
@@ -64,7 +64,7 @@ static void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 
 static int	ft_check_empty_space(t_map *map, int y, int x, int empty)
 {
-	if (y == 0 || y == map->max_h)
+	if (y == 0 || y == (map->max_h - 1))
 		return (1);
 	else if (x == 0 || x == (map->max_w - 1))
 		return (1);
@@ -72,40 +72,52 @@ static int	ft_check_empty_space(t_map *map, int y, int x, int empty)
 	return (0);
 }
 
-static int	ft_check_player(t_map *map, int c_player, int y, int x)
+
+static int	ft_check_doors(t_map *map, int y, int x)
 {
-	if (c_player == 'N' || c_player == 'S' || c_player == 'E' || c_player == 'W')
+	if (y == 0 || y == (map->max_h - 1))
+		return (1);
+	else if (x == 0 || x == (map->max_w - 1))
+		return (1);
+	if (map->map[y - 1][x] == 1 || map->map[y + 1][x] == 1)
 	{
-		if (!map->player._is_set)
+		if ((map->map[y - 1][x] != 1 || map->map[y + 1][x] != 1)
+			|| (map->map[y][x - 1] != 0 || map->map[y][x + 1] != 0))
 		{
-			map->player._direction = 0;
-			map->player._y = y;
-			map->player._x = x;
-			map->player._is_set = 1;
-		}
-		else
 			return (1);
+		}
+	}
+	else if (map->map[y][x - 1] == 1 || map->map[y][x + 1] == 1)
+	{
+		if ((map->map[y][x - 1] != 1 || map->map[y][x + 1] != 1)
+			|| (map->map[y - 1][x] != 0 || map->map[y + 1][x] != 0))
+		{
+			return (1);
+		}
 	}
 	return (0);
 }
 
-int	ft_scan_map(t_map *map, int i, int j)
+static int	ft_scan_map(t_map *map, int i, int j)
 {
 	while (i < map->max_h)
 	{
 		j = 0;
 		while (j < map->max_w)
 		{
-			if (!map->valide_map)
-				return (printf("INVALID_MAPA\n"), 1);
 			if (ft_check_player(map, map->map[i][j], i, j))
-				return (printf(DOUBLE_PLAYER), 1);
+				return (1);
 			if (map->map[i][j] == 32)
 				ft_scan_point_area(map, i, j, 1);
 			else if (map->map[i][j] == 0)
 			{
 				if (ft_check_empty_space(map, i, j, 0))
 					return (printf(MAP_UNCLOSED), 1);
+			}
+			else if (map->map[i][j] == 2)
+			{
+				if (ft_check_doors(map, i, j))
+					return (printf(INVALID_DOOR_POS), 1);
 			}
 			j++;
 		}
@@ -117,21 +129,18 @@ int	ft_scan_map(t_map *map, int i, int j)
 int	ft_check_map(t_cub3D *data)
 {
 	t_map	map;
-	// int		i;
-	// int		j;
+	int		i;
+	int		j;
 
-	// i = 0;
-	// j = 0;
-	if (ft_read_file(&data->map_list, &map))
+	i = 0;
+	j = 0;
+	if (ft_get_map(&data->map_list, &map))
 		return (1);
 	ft_print_map(&map);
-	// if (ft_scan_map(&map, i, j))
-	// 	return (ft_free_map(&map), 1);
-	// if (!map.player._is_set)
-	// {
-	// 	printf (PLAYER_NONE);
-	// 	return (ft_free_map(&map), 1);
-	// }
+	if (ft_scan_map(&map, i, j))
+		return (ft_free_map(&map), 1);
+	if (!map.player._is_set)
+		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
     // ft_free_map(&map);
 	data->map = map;
 	return (0);

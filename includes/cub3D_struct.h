@@ -5,7 +5,6 @@
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
 # include <stdio.h>
-# define BUFFER_SIZE 42
 
 # define ARG_IS_DIR "You probably aren't launching the program with a file\n"
 # define INVALID_EXTENSION "Provided file doesn't finish by .cub\n"
@@ -17,6 +16,9 @@ check if it exists or permissions\n"
 # define DOUBLE_PLAYER "There's more than one player on the map\n"
 # define MAP_UNCLOSED "The map isn't closed\n"
 # define PLAYER_NONE "There is not player in map\n"
+# define PLAYER_IN_EDGE "The player's in the edge\n"
+# define INVALID_DOOR_POS "Invalid door's position\n"
+# define PLAYER_CANT_MOVE "The player can't move in any direction\n"
 # define MALLOC_FAIL "Malloc failed, exiting properly\n"
 # define INVALID_PATH_TEXTURE "Error path identifier\n"
 # define ERROR_RGB_FORMAT "Error format RGB\n"
@@ -108,6 +110,7 @@ int		check_full_identifier(t_cub3D *data);
 
 /*Generic linked list*/
 int		generic_lst_add_node(t_list **lst, void *data, size_t data_size);
+t_list	*generic_get_node_by_idx(t_list **lst, int idx);
 
 /*Debuging*/
 void	print_coord_lst(t_list **begin_lst);
@@ -120,7 +123,7 @@ void	ft_free_map(t_map *map);
 int		ft_read_file(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 void	free_line_end_exit(char *line, t_cub3D *data, char **str, char *error);
-int		ft_length_until_new_line(char *s);
+int		ft_len_until_nl(char *s);
 void	ft_free_fc(void *content);
 void	ft_free_coord(void *content);
 void	ft_free_map_list(void *content);
@@ -138,6 +141,12 @@ t_type	eval_ident_fc(char *ident, t_cub3D *data);
 /*Identifier map*/
 int		handle_new_line_map(t_cub3D *data, char *line, int y);
 
+/*Parsing map*/
+int		ft_check_map_lst(t_list **lst, t_map *map);
+void	ft_free_map(t_map *map);
+int		ft_get_map(t_list **lst, t_map *map);
+int		ft_check_map(t_cub3D *data);
+int		ft_check_player(t_map *map, int c_player, int y, int x);
 //window
 
 void	open_window(t_cub3D *data);

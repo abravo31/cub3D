@@ -1,31 +1,23 @@
 #include "../../includes/cub3D_struct.h"
 
-// static t_list	*generic_lstlast(t_list *lst)
-// {
-// 	if (!lst)
-// 		return (NULL);
-// 	while (lst->next)
-// 		lst = lst->next;
-// 	return (lst);
-// }
+t_list	*generic_get_node_by_idx(t_list **lst, int idx)
+{
+	t_list	*lst_ptr;
+	int		i;
 
-// static void	generic_lstadd_back(t_list **lst, t_list *new)
-// {
-// 	t_list	*last_node;
-
-// 	if (new)
-// 	{
-// 		if (*lst == NULL)
-// 		{
-// 			*lst = new;
-// 		}
-// 		else
-// 		{
-// 			last_node = generic_lstlast(*lst);
-// 			last_node->next = new;
-// 		}
-// 	}
-// }
+	if (lst)
+	{
+		lst_ptr = *lst;
+		i = 0;
+		while (i < idx)
+		{
+			i++;
+			lst_ptr = lst_ptr->next;
+		}
+		return (lst_ptr);
+	}
+	return (NULL);
+}
 
 static t_list	*generic_lst_malloc_node(size_t data_size)
 {
@@ -47,36 +39,11 @@ static t_list	*generic_lst_malloc_node(size_t data_size)
 int	generic_lst_add_node(t_list **lst, void *data, size_t data_size)
 {
 	t_list			*new_node;
-	// t_ident_coord	*coord;
 
 	new_node = generic_lst_malloc_node(data_size);
 	if (!new_node)
 		return (1);
 	new_node->content = ft_memcpy(new_node->content, data, data_size);
-	// coord = (t_ident_coord *)new_node->content;
-	// printf("??? %s\n", coord->path);
 	ft_lstadd_back(lst, new_node);
 	return (0);
 }
-
-// int	ft_add_item(t_lst **lst, char *meta)
-// {
-// 	char	*aux_metachar;
-// 	size_t	size_meta;
-
-// 	aux_metachar = ft_strdup(meta);
-// 	if (!aux_metachar)
-// 	{
-// 		generic_lst_free(lst);
-// 		return (1);
-// 	}
-// 	size_meta = sizeof(char) * ft_strlen_int(aux_metachar) + 1;
-// 	if (generic_lst_add_node(lst, aux_metachar, size_meta))
-// 	{
-// 		free (aux_metachar);
-// 		generic_lst_free(lst);
-// 		return (1);
-// 	}
-// 	free (aux_metachar);
-// 	return (0);
-// }

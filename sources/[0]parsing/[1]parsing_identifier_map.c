@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   [1]parsing_identifier_map.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanda <amanda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/01 21:57:28 by amanda           ###   ########.fr       */
+/*   Updated: 2023/05/03 17:37:46 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_map_list	*new_map_list(char *line, int y)
 		return (NULL);
 	}
 	elem->_y = y;
-	elem->_x = ft_length_until_new_line(line);
+	elem->_x = ft_len_until_nl(line);
 	return (elem);
 }
 

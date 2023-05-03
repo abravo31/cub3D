@@ -34,6 +34,8 @@ void	draw_minimap(t_cub3D *data)
 		{
 			if (data->map.map[y][x] == 1)
 				place_square(data, (t_point){x * square_size, y * square_size, 0xFFFF00FF}, square_size);
+			else if (data->map.map[y][x] == 2)
+				place_square(data, (t_point){x * square_size, y * square_size, 0xFF0FF0F}, square_size);
 			else if (data->map.map[y][x] == 'N' || data->map.map[y][x] == 'S' \
 			|| data->map.map[y][x] == 'E' || data->map.map[y][x] == 'W')
 				place_square(data, (t_point){x * square_size, y * square_size, 0xFF0000FF}, square_size);

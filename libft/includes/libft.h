@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:30:49 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/01/17 12:02:06 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:23:19 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
+# define BUFFER_SIZE 42
 
 typedef struct s_list
 {
@@ -83,4 +84,5 @@ int		ft_get_index_char_str(char *str, char c);
 char	*ft_strdup_i(char *s, int index);
 int		ft_idx_last_occur_char(char *str, char c);
 void	ft_swap_dp(char **a, char **b);
+char	*get_next_line(int fd);
 #endif

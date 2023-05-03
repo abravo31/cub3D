@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amanda <amanda@student.42.fr>              +#+  +:+       +#+         #
+#    By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:26:55 by gamoreno          #+#    #+#              #
-#    Updated: 2023/04/25 20:18:02 by amanda           ###   ########.fr        #
+#    Updated: 2023/05/03 17:22:36 by dnieto-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SOURCES	= 	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 			ft_strnstr_int.c ft_strchr_int.c ft_length_split.c ft_concatenation.c\
 			ft_tabdup.c ft_get_index_char_str.c ft_strdup_i.c ft_idx_last_occur_char.c\
 			ft_swap_dp.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+			get_next_line.c
 			
 
 ### Objects ###

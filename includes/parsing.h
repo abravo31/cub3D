@@ -34,6 +34,6 @@ typedef struct map
 
 /*Parsing utils*/
 void	ft_free_map(t_map *map);
-int		ft_read_file(t_list **lst, t_map *map);
+int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 #endif

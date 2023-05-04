@@ -8,6 +8,7 @@ static int	ft_initialize_map(t_list **lst, t_map *map)
 		map->max_h = map->l_idx - map->b_idx;
 	map->valide_map = 1;
 	map->player._is_set = 0;
+	map->scale = 30;
 	map->map = (int  **)malloc(sizeof(int *) * (map->max_h + 1));
 	if (!map->map)
 		return (1);

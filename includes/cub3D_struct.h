@@ -73,6 +73,7 @@ typedef struct map
 	int			valide_map;
 	int			b_idx;
 	int			l_idx;
+	int			scale;
 	t_p_pos		player;
 	int			**map;
 }				t_map;

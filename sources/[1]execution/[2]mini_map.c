@@ -1,5 +1,7 @@
 #include "execution.h"
 
+// void	place_single_square(t_)
+
 void	place_square(t_cub3D *data, t_point point, int square_size)
 {
 	int x;
@@ -23,9 +25,9 @@ void	draw_minimap(t_cub3D *data)
 {
 	int	x;
 	int	y;
-	int	square_size;
-	
-	square_size = 7;
+	int	scale_map;
+
+	scale_map = data->map.scale;
 	y = 0;
 	while (y < data->map.max_h)
 	{
@@ -33,12 +35,12 @@ void	draw_minimap(t_cub3D *data)
 		while (x < data->map.max_w)
 		{
 			if (data->map.map[y][x] == 1)
-				place_square(data, (t_point){x * square_size, y * square_size, 0xFFFF00FF}, square_size);
+				place_square(data, (t_point){x * scale_map, y * scale_map, 0xFFFF00FF}, scale_map);
 			else if (data->map.map[y][x] == 2)
-				place_square(data, (t_point){x * square_size, y * square_size, 0xFF0FF0F}, square_size);
+				place_square(data, (t_point){x * scale_map, y * scale_map, 0xFF0FF0F}, scale_map);
 			else if (data->map.map[y][x] == 'N' || data->map.map[y][x] == 'S' \
 			|| data->map.map[y][x] == 'E' || data->map.map[y][x] == 'W')
-				place_square(data, (t_point){x * square_size, y * square_size, 0xFF0000FF}, square_size);
+				place_square(data, (t_point){x * scale_map, y * scale_map, 0xFF0000FF}, scale_map);
 			x++;
 		}
 		y++;

@@ -22,14 +22,14 @@ PARSE		=	[0]check_map_lst.c [0]get_map.c \
 				[2]parsing_map.c [2]parsing_map_player.c
 
 EXEC_DIR	=	[1]execution/
-EXEC		=	[0]window.c [1]mlx_tools.c [2]mini_map.c
+EXEC		=	[0]window.c [1]mlx_tools.c [2]mini_map.c [3]try_raycasting.c
 
 # BUILTIN_DIR	=	builtin/
 # BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \
 # 				pwd.c exit.c
 
 UTILS_DIR	=	utils/
-UTILS		=	lst_new_generic.c debuging_list_of_structs.c
+UTILS		=	lst_new_generic.c debuging_list_of_structs.c math_utils.c
 
 SOURCES		+=	$(addprefix	$(COR_DIR),$(CORS))
 SOURCES		+=	$(addprefix	$(EXEC_DIR),$(EXEC))

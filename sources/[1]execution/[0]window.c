@@ -20,6 +20,7 @@ void	setup_data_for_mlx(t_cub3D *data)
 	data->win_y = 700;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
+	data->fov = ft_deg_to_rad(60.0);
 	data->mlx = mlx_init();
 	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, "cub3D");
 	data->img = mlx_new_image(data->mlx, data->win_x, data->win_y);
@@ -56,4 +57,5 @@ void	open_window(t_cub3D *data)
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 	setup_controls(data);
 	mlx_loop(data->mlx);
+	// try_raycasting(data);
 }

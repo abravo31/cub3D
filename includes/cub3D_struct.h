@@ -95,6 +95,7 @@ typedef struct cub3D
 	int		win_y;
 	int		mid_x;
 	int		mid_y;
+	double	fov;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;
@@ -148,8 +149,10 @@ void	ft_free_map(t_map *map);
 int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 int		ft_check_player(t_map *map, int c_player, int y, int x);
-//window
 
+/*Window*/
 void	open_window(t_cub3D *data);
 
+/*Math utils*/
+double	ft_deg_to_rad(double angle);
 #endif

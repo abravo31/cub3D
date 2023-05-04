@@ -46,3 +46,4 @@ void	draw_minimap(t_cub3D *data)
 		y++;
 	}
 }
+

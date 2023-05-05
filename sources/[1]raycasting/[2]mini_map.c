@@ -1,6 +1,4 @@
-#include "execution.h"
-
-// void	place_single_square(t_)
+#include "../../includes/cub3D_struct.h"
 
 void	place_square(t_cub3D *data, t_point point, int square_size)
 {
@@ -11,6 +9,7 @@ void	place_square(t_cub3D *data, t_point point, int square_size)
 	while (y < square_size)
 	{
 		x = 0;
+
 		while (x < square_size)
 		{
 			my_mlx_pixel_put(data, (t_point){point.x + x, point.y + y, point.color});
@@ -18,7 +17,6 @@ void	place_square(t_cub3D *data, t_point point, int square_size)
 		}
 		y++;
 	}
-
 }
 
 void	draw_minimap(t_cub3D *data)
@@ -46,4 +44,3 @@ void	draw_minimap(t_cub3D *data)
 		y++;
 	}
 }
-

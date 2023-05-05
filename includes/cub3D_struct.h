@@ -4,6 +4,7 @@
 # include "../libft/includes/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
+// # include "execution.h"
 # include <stdio.h>
 
 # define ARG_IS_DIR "You probably aren't launching the program with a file\n"
@@ -24,6 +25,13 @@ check if it exists or permissions\n"
 # define ERROR_RGB_FORMAT "Error format RGB\n"
 # define IDENT_MISSING "Identifier missing\n"
 # define IDENT_INVALID "Invalid identifier\n"
+# define MLX_ERROR "Minilibx error initializing"
+
+# define ROTATE_LEFT 65361
+# define ROTATE_RIGTH 65363
+# define ROTATE_UP 65362
+# define ROTATE_DOWN 65364
+# define ESCAPE 65307
 
 typedef enum ident_type
 {
@@ -57,6 +65,26 @@ typedef struct map_list
 	int		_x;
 }	t_map_list;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+	int	color;
+}		t_point;
+
+typedef struct vector_2D
+{
+	double	x;
+	double	y;
+}			t_vec2D;
+
+
+typedef struct player
+{
+	t_point	i_coords;
+	t_vec2D	d_coords;
+}			t_player;
+
 
 typedef struct	player_position
 {
@@ -78,8 +106,37 @@ typedef struct map
 	int			**map;
 }				t_map;
 
+typedef struct image
+{
+	void	*img;
+	char	*addr;
+	int		offset_window_x;
+	int		offset_window_y;
+	int		bbp;
+	int		line_len;
+	int		endian;
+}			t_image;
+
+typedef struct s_cam
+{
+	double		scale;
+	double		fov;
+}				t_cam;
+
 typedef struct cub3D
 {
+	int		win_x;
+	int		win_y;
+	int		mid_x;
+	int		mid_y;
+	void	*mlx;
+	void	*mlx_win;
+	t_map	map;
+	t_image	img;
+	t_cam	cam;
+	t_list	*ident_fc;
+	t_list	*ident_coord;
+	t_list	*map_list;
 	int		no;
 	int		so;
 	int		we;
@@ -87,22 +144,6 @@ typedef struct cub3D
 	int		f;
 	int		c;
 	int		y;
-	t_list	*ident_fc;
-	t_list	*ident_coord;
-	t_list	*map_list;
-	t_map	map;
-	int		win_x;
-	int		win_y;
-	int		mid_x;
-	int		mid_y;
-	double	fov;
-	void	*mlx;
-	void	*mlx_win;
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
 }	t_cub3D;
 
 int		get_list(t_cub3D *data, char *line);
@@ -150,9 +191,20 @@ int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 int		ft_check_player(t_map *map, int c_player, int y, int x);
 
-/*Window*/
-void	open_window(t_cub3D *data);
-
+/*Init minilibx*/
+int		ft_exit(t_cub3D *data);
+int		setup_mlx_env(t_cub3D *data);
+/*Hooks*/
+void	setup_controls_hooks(t_cub3D *data);
+/*Scene*/
+void	draw_scene(t_cub3D *data);
+/*Raycasting main function*/
+int		lauch_raycasting(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
+
+/*Execution*/
+void	my_mlx_pixel_put(t_cub3D *data, t_point point);
+void	place_square(t_cub3D *data, t_point point, int square_size);
+void	draw_minimap(t_cub3D *data);
 #endif

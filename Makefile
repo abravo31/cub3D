@@ -21,8 +21,8 @@ PARSE		=	[0]check_map_lst.c [0]get_map.c \
 				[1]parsing_identifier.c [1]parsing_identifier_coord.c [1]parsing_identifier_fc.c [1]parsing_identifier_free.c [1]parsing_identifier_map.c [1]parsing_identifier_tools.c \
 				[2]parsing_map.c [2]parsing_map_player.c
 
-EXEC_DIR	=	[1]execution/
-EXEC		=	[0]window.c [1]mlx_tools.c [2]mini_map.c [3]try_raycasting.c
+EXEC_DIR	=	[1]raycasting/
+EXEC		=	[0]init.c [1]mlx_tools.c [2]hooks.c [2]mini_map.c [3]draw_scene.c raycasting.c
 
 # BUILTIN_DIR	=	builtin/
 # BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \

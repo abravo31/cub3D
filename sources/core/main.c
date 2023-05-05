@@ -66,7 +66,8 @@ int	main(int argc, char *argv[])
 			return (ft_exit_and_free(&data, 1, NULL, NULL), 1);
 		if (data.map_list)
 			ft_lstclear(&data.map_list, &ft_free_map_list);
-		open_window(&data);
+		if (lauch_raycasting(&data))
+			return (1);
 	}
 	else
 		return (printf("Invalid number of arguments\n"), 1);

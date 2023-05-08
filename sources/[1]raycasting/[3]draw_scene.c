@@ -28,21 +28,25 @@ static void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 	int pixel_step_x;
 	int color;
 
-
-	my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0xFFFFFF});
-	pixel_step_y = 1;
+	color = 0xFF0FF0F;
+	(void)data;
+	printf("y : %d -- x %d\n", y, x);
+	// my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0xFFFFFF});
+	pixel_step_y = 0;
 	while (pixel_step_y < square_size)
 	{
-		my_mlx_pixel_put(data, (t_point){x + 0, y + pixel_step_y, 0xFFFFFF});
-		pixel_step_x = 1;
+		// my_mlx_pixel_put(data, (t_point){x + 0, y + pixel_step_y, 0xFFFFFF});
+		pixel_step_x = 0;
 		while (pixel_step_x < square_size)
 		{
-			if (obj == 1)
-				color = 0xFFFF00FF;
-			else if (obj == 2)
-				color = 0xFF0FF0F;
-			else
-				color = 0xFF0000FF;
+			// if (obj == 1)
+			// 	color = 0xFFFF00FF;
+			// else if (obj == 2)
+			// 	color = 0xFF0FF0F;
+			// else
+			// 	color = 0xFF0000FF;
+			// printf("x + pixel_step_x %d | y + pixel_step_y %d\n", x + pixel_step_x, y + pixel_step_y);
+			// printf("%d\n", color);
 			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});
 			pixel_step_x++;
 		}
@@ -57,6 +61,7 @@ static void	draw_minimap_grid(t_cub3D *data)
 	int		scale_map;
 
 	scale_map = data->map.scale;
+	printf("%d\n", scale_map);
 	y = 0;
 	while (y < data->map.max_h)
 	{

@@ -12,13 +12,6 @@
 
 #include "../includes/libft.h"
 
-static int	ft_abs(int c)
-{
-	if (c < 0)
-		return (-1 * c);
-	return (c);
-}
-
 static char	*ft_revstr(char *str)
 {
 	size_t	i;

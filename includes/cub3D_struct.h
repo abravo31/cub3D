@@ -94,6 +94,17 @@ typedef struct	player_position
 	int		_direction;
 }			t_p_pos;
 
+typedef struct line
+{
+	int		dx;
+	int		dy;
+	int		length;
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
+}			t_line;
+
 typedef struct map
 {
 	int			max_w;
@@ -125,25 +136,26 @@ typedef struct s_cam
 
 typedef struct cub3D
 {
-	int		win_x;
-	int		win_y;
-	int		mid_x;
-	int		mid_y;
-	void	*mlx;
-	void	*mlx_win;
-	t_map	map;
-	t_image	img;
-	t_cam	cam;
-	t_list	*ident_fc;
-	t_list	*ident_coord;
-	t_list	*map_list;
-	int		no;
-	int		so;
-	int		we;
-	int		ea;
-	int		f;
-	int		c;
-	int		y;
+	int			win_x;
+	int			win_y;
+	int			mid_x;
+	int			mid_y;
+	void		*mlx;
+	void		*mlx_win;
+	t_map		map;
+	t_image		img;
+	t_cam		cam;
+	t_list		*ident_fc;
+	t_list		*ident_coord;
+	t_list		*map_list;
+	t_player	player;
+	int			no;
+	int			so;
+	int			we;
+	int			ea;
+	int			f;
+	int			c;
+	int			y;
 }	t_cub3D;
 
 int		get_list(t_cub3D *data, char *line);
@@ -196,12 +208,16 @@ int		ft_exit(t_cub3D *data);
 int		setup_mlx_env(t_cub3D *data);
 /*Hooks*/
 void	setup_controls_hooks(t_cub3D *data);
+/*Render*/
+void	render(t_cub3D *data);
 /*Scene*/
 void	draw_scene(t_cub3D *data);
 /*Raycasting main function*/
 int		lauch_raycasting(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
+t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
+int		ft_abs_2_values(int a, int b);
 
 /*Execution*/
 void	my_mlx_pixel_put(t_cub3D *data, t_point point);

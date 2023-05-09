@@ -39,29 +39,22 @@ static void	ft_draw_line(t_cub3D *data, t_vec2D vec_1, t_vec2D vec_2)
 
 static void	draw_square_player(t_cub3D *data)
 {
-
+	t_player	player;
 	int	y;
 	int	x;
 	int i;
 	int j;
 
-	// printf("int y %d\n", data->player.i_coords.y);
-	// printf("int x %d\n", data->player.i_coords.x);
-	// printf("f y %f\n", data->player.d_coords.y);
-	// printf("f x %f\n", data->player.d_coords.x);
-	// printf("f * scale y %d\n", (int)(data->player.d_coords.y * data->map.scale));
-	// printf("f *scale x %d\n", (int)(data->player.d_coords.x * data->map.scale));
-	y = (int)(data->player.d_coords.y * data->map.scale);
-	x = (int)(data->player.d_coords.x * data->map.scale);
-	// printf("y: %d\n", y);
-	// printf("x :%d\n", x);
+	player = data->rc.player;
+	y = (int)(player.d_coords.y * data->rc.cam.scale);
+	x = (int)(player.d_coords.x * data->rc.cam.scale);
 	i = 0;
 	while (i < 5)
 	{
 		j = 0;
 		while (j < 5)
 		{
-			my_mlx_pixel_put(data, (t_point){x + j, y + i, data->player.i_coords.color});
+			my_mlx_pixel_put(data, (t_point){x + j, y + i, player.i_coords.color});
 			j++;
 		}
 		i++;
@@ -70,16 +63,24 @@ static void	draw_square_player(t_cub3D *data)
 
 static void	draw_dir_vector(t_cub3D *data)
 {
-	t_vec2D	dir_vec;
-	t_vec2D	res_vector;
-	
-	// To the north
-	dir_vec.x = 0;
-	dir_vec.y = 1;
-	printf("%f - %f\n", data->player.d_coords.y, data->player.d_coords.x);
-	res_vector = add_2D_vec(data->player.d_coords, dir_vec);
-	printf("res : %f - %f\n", res_vector.y, res_vector.x);
-	ft_draw_line(data, data->player.d_coords, res_vector);
+	t_vec2D		res_vector;
+	t_vec2D		player_screen;
+	t_player	player;
+
+
+
+	player = data->rc.player;
+	// printf("Player -> y : %f - x : %f\n", player.d_coords.y, player.d_coords.x);
+	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
+	data->rc.dir_vec = rotate_2D_vector(data->rc.dir_vec, player.angle_direction);
+	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
+	res_vector = add_2D_vec(player.d_coords, data->rc.dir_vec);
+	// printf("res : %f - %f\n", res_vector.y, res_vector.x);
+	res_vector.y *= data->rc.cam.scale;
+	res_vector.x *= data->rc.cam.scale;
+	player_screen.y = player.d_coords.y * data->rc.cam.scale;
+	player_screen.x = player.d_coords.x * data->rc.cam.scale;
+	ft_draw_line(data, player_screen, res_vector);
 }
 
 void	draw_player(t_cub3D *data)
@@ -94,7 +95,7 @@ static void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 	int pixel_step_x;
 	int color;
 
-	my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0xFFFFFF});
+	my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0x000000});
 	pixel_step_y = 1;
 	while (pixel_step_y < square_size)
 	{
@@ -103,11 +104,11 @@ static void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 		while (pixel_step_x < square_size)
 		{
 			if (obj == 1)
-				color = 0xFFFF00FF;
+				color = 0x0000FF;
 			else if (obj == 2)
-				color = 0xFF0FF0F;
+				color = 0x0FF000;
 			else
-				color = 0xFF0000FF;
+				color = 0xFFFFFF;
 			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});
 			pixel_step_x++;
 		}
@@ -121,7 +122,7 @@ static void	draw_minimap_grid(t_cub3D *data)
 	int		y;
 	int		scale_map;
 
-	scale_map = data->map.scale;
+	scale_map = data->rc.cam.scale;
 	y = 0;
 	while (y < data->map.max_h)
 	{

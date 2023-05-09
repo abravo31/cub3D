@@ -23,7 +23,7 @@ PARSE		=	[0]check_map_lst.c [0]get_map.c \
 				[2]parsing_map.c [2]parsing_map_player.c
 
 EXEC_DIR	=	[1]raycasting/
-EXEC		=	[0]init.c [1]mlx_tools.c [2]hooks.c [2]mini_map.c [3]draw_scene.c raycasting.c
+EXEC		=	[0]init_raycasting.c [1]init_mlx.c [2]mlx_tools.c [3]hooks.c [4]mini_map.c [5]draw_scene.c raycasting.c
 
 # BUILTIN_DIR	=	builtin/
 # BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \

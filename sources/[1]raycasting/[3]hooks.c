@@ -3,16 +3,14 @@
 static int	key_hook_player(int key_code, t_cub3D *data)
 {
 	printf("key code : %d\n", key_code);
-	if (key_code == ROTATE_LEFT)
-		data->player.d_coords.x -= 0.1;
-	// else if (key_code == ROTATE_RIGTH)
-	// 	fdf->cam.angle_y_rot += 5;
-	// else if (key_code == ROTATE_UP)
-	// 	ft_scale_vertex(fdf, 1);
-	// else if (key_code == ROTATE_DOWN)
-	// 	ft_scale_vertex(fdf, 0);
-	// else if (key_code == ZOOM_IN)
-	// 	fdf->cam.scale += 2;
+	if (key_code == MOVE_LEFT)
+		data->rc.player.d_coords.x -= 0.1;
+	else if (key_code == MOVE_RIGTH)
+		data->rc.player.d_coords.x += 0.1;
+	else if (key_code == MOVE_FORWARD)
+		data->rc.player.d_coords.y -= 0.1;
+	else if (key_code == MOVE_BACKWARD)
+		data->rc.player.d_coords.y += 0.1;
 	if (key_code == ESCAPE)
 		ft_exit(data);
 	render(data);

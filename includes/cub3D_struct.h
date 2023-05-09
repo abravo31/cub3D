@@ -27,11 +27,14 @@ check if it exists or permissions\n"
 # define IDENT_INVALID "Invalid identifier\n"
 # define MLX_ERROR "Minilibx error initializing"
 
+# define ESCAPE 65307
+# define MOVE_FORWARD 119
+# define MOVE_BACKWARD 115
+# define MOVE_LEFT 97
+# define MOVE_RIGTH 100
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGTH 65363
-# define ROTATE_UP 65362
-# define ROTATE_DOWN 65364
-# define ESCAPE 65307
+
 
 typedef enum ident_type
 {
@@ -83,6 +86,8 @@ typedef struct player
 {
 	t_point	i_coords;
 	t_vec2D	d_coords;
+	int		direction;
+	int		angle_direction;
 }			t_player;
 
 
@@ -112,7 +117,6 @@ typedef struct map
 	int			valide_map;
 	int			b_idx;
 	int			l_idx;
-	int			scale;
 	t_p_pos		player;
 	int			**map;
 }				t_map;
@@ -134,6 +138,14 @@ typedef struct s_cam
 	double		fov;
 }				t_cam;
 
+typedef	struct	s_rc
+{
+	t_player	player;
+	t_cam		cam;
+	t_vec2D		dir_vec;
+	t_vec2D		plane_vec;
+}				t_rc;
+
 typedef struct cub3D
 {
 	int			win_x;
@@ -142,13 +154,12 @@ typedef struct cub3D
 	int			mid_y;
 	void		*mlx;
 	void		*mlx_win;
-	t_map		map;
 	t_image		img;
-	t_cam		cam;
+	t_rc		rc;
+	t_map		map;
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;
-	t_player	player;
 	int			no;
 	int			so;
 	int			we;
@@ -203,6 +214,8 @@ int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 int		ft_check_player(t_map *map, int c_player, int y, int x);
 
+/*Init raycasting*/
+void    ft_initialize_raycasting(t_cub3D *data);
 /*Init minilibx*/
 int		ft_exit(t_cub3D *data);
 int		setup_mlx_env(t_cub3D *data);
@@ -211,6 +224,7 @@ void	setup_controls_hooks(t_cub3D *data);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
+t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 void	draw_scene(t_cub3D *data);
 /*Raycasting main function*/
 int		lauch_raycasting(t_cub3D *data);
@@ -218,7 +232,8 @@ int		lauch_raycasting(t_cub3D *data);
 double	ft_deg_to_rad(double angle);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);
-
+t_vec2D	get_perpendicular_vec(t_vec2D vec);
+double	ft_abs_double(double n);
 /*Execution*/
 void	my_mlx_pixel_put(t_cub3D *data, t_point point);
 void	place_square(t_cub3D *data, t_point point, int square_size);

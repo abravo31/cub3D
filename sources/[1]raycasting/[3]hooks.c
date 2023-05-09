@@ -2,7 +2,7 @@
 
 static int	key_hook_player(int key_code, t_cub3D *data)
 {
-	printf("key code : %d\n", key_code);
+	// printf("key code : %d\n", key_code);
 	if (key_code == MOVE_LEFT)
 		data->rc.player.d_coords.x -= 0.1;
 	else if (key_code == MOVE_RIGTH)
@@ -11,6 +11,10 @@ static int	key_hook_player(int key_code, t_cub3D *data)
 		data->rc.player.d_coords.y -= 0.1;
 	else if (key_code == MOVE_BACKWARD)
 		data->rc.player.d_coords.y += 0.1;
+	else if (key_code == ROTATE_LEFT)
+		data->rc.angle_direction -= 15;
+	else if (key_code == ROTATE_RIGTH)
+		data->rc.angle_direction += 15;
 	if (key_code == ESCAPE)
 		ft_exit(data);
 	render(data);

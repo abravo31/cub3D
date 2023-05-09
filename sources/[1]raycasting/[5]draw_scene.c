@@ -46,8 +46,8 @@ static void	draw_square_player(t_cub3D *data)
 	int j;
 
 	player = data->rc.player;
-	y = (int)(player.d_coords.y * data->rc.cam.scale);
-	x = (int)(player.d_coords.x * data->rc.cam.scale);
+	y = (int)(player.d_coords.y * data->rc.scale);
+	x = (int)(player.d_coords.x * data->rc.scale);
 	i = 0;
 	while (i < 5)
 	{
@@ -63,23 +63,25 @@ static void	draw_square_player(t_cub3D *data)
 
 static void	draw_dir_vector(t_cub3D *data)
 {
+	t_rc		rc;
 	t_vec2D		res_vector;
 	t_vec2D		player_screen;
 	t_player	player;
 
-
-
-	player = data->rc.player;
+	rc = data->rc;
+	player = rc.player;
 	// printf("Player -> y : %f - x : %f\n", player.d_coords.y, player.d_coords.x);
-	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
-	data->rc.dir_vec = rotate_2D_vector(data->rc.dir_vec, player.angle_direction);
-	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
-	res_vector = add_2D_vec(player.d_coords, data->rc.dir_vec);
+	// printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
+	// printf("angle_direction %d\n", player.angle_direction);
+	// data->rc.dir_vec = rotate_2D_vector(data->rc.dir_vec, player.angle_direction);
+	rc.dir_vec = rotate_2D_vector(rc.initial_dir_vec, rc.angle_direction);
+	printf("Direction vector -> y: %f - x : %f\n", rc.dir_vec.y, rc.dir_vec.x);
+	res_vector = add_2D_vec(player.d_coords, rc.dir_vec);
 	// printf("res : %f - %f\n", res_vector.y, res_vector.x);
-	res_vector.y *= data->rc.cam.scale;
-	res_vector.x *= data->rc.cam.scale;
-	player_screen.y = player.d_coords.y * data->rc.cam.scale;
-	player_screen.x = player.d_coords.x * data->rc.cam.scale;
+	res_vector.y *= rc.scale;
+	res_vector.x *= rc.scale;
+	player_screen.y = player.d_coords.y * rc.scale;
+	player_screen.x = player.d_coords.x * rc.scale;
 	ft_draw_line(data, player_screen, res_vector);
 }
 
@@ -122,7 +124,7 @@ static void	draw_minimap_grid(t_cub3D *data)
 	int		y;
 	int		scale_map;
 
-	scale_map = data->rc.cam.scale;
+	scale_map = data->rc.scale;
 	y = 0;
 	while (y < data->map.max_h)
 	{

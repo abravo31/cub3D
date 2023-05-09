@@ -29,55 +29,36 @@ static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 	rc->player.d_coords.y = (double)rc->player.i_coords.y + 0.5;
 	rc->player.d_coords.x = (double)rc->player.i_coords.x + 0.5;
 	rc->player.direction = data->map.player._direction;
+}
+
+// static void	ft_init_cam(t_rc *rc)
+// {
+// 	t_cam		*cam;
+
+// 	cam = &rc->cam;
+// 	cam->scale = 32;
+//     cam->fov = 60;
+// }
+
+static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
+{
+	rc->initial_dir_vec.x = 1;
+	rc->initial_dir_vec.y = 0;
 	if (rc->player.direction == 0)
-		rc->player.angle_direction = 90;
+		rc->angle_direction = 270;
 	else if (rc->player.direction == 1)
-		rc->player.angle_direction = 270;
+		rc->angle_direction = 90;
 	else if (rc->player.direction == 2)
-		rc->player.angle_direction = 0;
+		rc->angle_direction = 0;
 	else if (rc->player.direction == 3)
-		rc->player.angle_direction = 180;
-}
-
-static void	ft_init_cam(t_rc *rc)
-{
-	t_cam		*cam;
-
-	cam = &rc->cam;
-	cam->scale = 32;
-    cam->fov = 60;
-}
-
-static void	ft_initialize_vectors(t_rc *rc)
-{
-	if (rc->player.direction == 0)
-	{
-		rc->dir_vec.x = 0;
-		rc->dir_vec.y = -1;
-		rc->plane_vec.x = 0.66;
-		rc->plane_vec.y = 0;
-	}
-	else if (rc->player.direction == 1)
-	{
-		rc->dir_vec.x = 0;
-		rc->dir_vec.y = 1;
-		rc->plane_vec.x = 0.66;
-		rc->plane_vec.y = 0;
-	}
-	else if (rc->player.direction == 2)
-	{
-		rc->dir_vec.x = 1;
-		rc->dir_vec.y = 0;
-		rc->plane_vec.x = 0;
-		rc->plane_vec.y = 0.66;
-	}
-	if (rc->player.direction == 3)
-	{
-		rc->dir_vec.x = -1;
-		rc->dir_vec.y = 0;
-		rc->plane_vec.x = 0;
-		rc->plane_vec.y = 0.66;
-	}
+		rc->angle_direction = 180;
+	rc->dir_vec = rotate_2D_vector(rc->initial_dir_vec, rc->angle_direction);
+	rc->scale = 32;
+    rc->fov = ft_deg_to_rad((double)60);
+	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
+	printf("fov : %f\n", rc->fov);
+	printf("tan : %f\n", (2 * tan(rc->fov / 2)));
+	printf("ray_dist : %f\n", rc->ray_dist);
 }
 
 void    ft_initialize_raycasting(t_cub3D *data)
@@ -86,8 +67,8 @@ void    ft_initialize_raycasting(t_cub3D *data)
 
     rc = &data->rc;
 	ft_initialize_player(data, rc);
-	ft_init_cam(rc);
-	ft_initialize_vectors(rc);
+	// ft_init_cam(rc);
+	ft_initialize_vectors(data, rc);
 	// // ft_print_raycasting_params(rc);
 	// try_raycasting(data, rc);
 }

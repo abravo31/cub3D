@@ -26,6 +26,15 @@ t_vec2D	get_perpendicular_vec(t_vec2D vec)
 	return (perpendicular_vec);
 }
 
+t_vec2D	scalar_mult(t_vec2D vec, double scalar)
+{
+	t_vec2D	res_scalar_product;
+
+	res_scalar_product.x = vec.x * scalar;
+	res_scalar_product.y = vec.y * scalar;
+	return (res_scalar_product);
+}
+
 int	ft_abs_2_values(int a, int b)
 {
 	if (a == b)

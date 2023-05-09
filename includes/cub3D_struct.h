@@ -87,7 +87,6 @@ typedef struct player
 	t_point	i_coords;
 	t_vec2D	d_coords;
 	int		direction;
-	int		angle_direction;
 }			t_player;
 
 
@@ -141,9 +140,14 @@ typedef struct s_cam
 typedef	struct	s_rc
 {
 	t_player	player;
-	t_cam		cam;
+	t_vec2D		initial_dir_vec;	
 	t_vec2D		dir_vec;
 	t_vec2D		plane_vec;
+	int			angle_direction;
+	double ray_dist;
+	double		scale;
+	double		fov;
+	double		fov_radians;
 }				t_rc;
 
 typedef struct cub3D
@@ -233,6 +237,7 @@ double	ft_deg_to_rad(double angle);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);
 t_vec2D	get_perpendicular_vec(t_vec2D vec);
+t_vec2D	scalar_mult(t_vec2D vec, double scalar);
 double	ft_abs_double(double n);
 /*Execution*/
 void	my_mlx_pixel_put(t_cub3D *data, t_point point);

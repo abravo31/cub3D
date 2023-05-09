@@ -70,11 +70,49 @@ void	render(t_cub3D *data)
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 }
 
+
+// void dda(t_cub3D *data)
+// {
+
+// }
+
+
+static t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec)
+{
+	t_vec2D	res_perpendicular_vec;
+	double	norm;
+
+	norm = sqrt(1 + (((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y))));
+	res_perpendicular_vec.x = -1 / norm;
+	res_perpendicular_vec.y = ((dir_vec.x) / dir_vec.y) / norm;
+	printf("perpendicular x %f - y %f\n", res_perpendicular_vec.x, res_perpendicular_vec.y);
+	return (res_perpendicular_vec);
+}
+
+void init_dda(t_cub3D *data)
+{
+	int		i;
+	t_vec2D	res_perpendicular_vec;
+	t_vec2D	current_ray;
+
+	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
+	res_perpendicular_vec = ft_get_perpendicular_vec(data->rc.dir_vec);
+	printf("Perpendicular vector -> y: %f - x : %f\n", res_perpendicular_vec.y, res_perpendicular_vec.x);
+	i = 0;
+	while (i <= data->win_x)
+	{
+		current_ray = scalar_mult(res_perpendicular_vec, tan(data->rc.fov / 2) - (data->rc.ray_dist * i));
+		printf("current_ray x %f -- y %f\n", current_ray.x, current_ray.y);
+		i++;
+	}
+}
+
 int	lauch_raycasting(t_cub3D *data)
 {
-	ft_initialize_raycasting(data);
 	if (setup_mlx_env(data))
 		return (ft_exit_and_free(data, 1, NULL, MLX_ERROR), 1);
+	ft_initialize_raycasting(data);
+	init_dda(data);
 	setup_controls_hooks(data);
 	render(data);
 	mlx_loop(data->mlx);

@@ -144,7 +144,7 @@ typedef	struct	s_rc
 	t_vec2D		dir_vec;
 	t_vec2D		plane_vec;
 	int			angle_direction;
-	double ray_dist;
+	double 		ray_dist;
 	double		scale;
 	double		fov;
 	double		fov_radians;

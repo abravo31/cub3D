@@ -93,6 +93,8 @@ void init_dda(t_cub3D *data)
 {
 	int		i;
 	t_vec2D	res_perpendicular_vec;
+	t_vec2D	current_pos_perpendicular;
+	t_vec2D	current_ray_dir;
 	t_vec2D	current_ray;
 
 	printf("Direction vector -> y: %f - x : %f\n", data->rc.dir_vec.y, data->rc.dir_vec.x);
@@ -101,7 +103,11 @@ void init_dda(t_cub3D *data)
 	i = 0;
 	while (i <= data->win_x)
 	{
-		current_ray = scalar_mult(res_perpendicular_vec, tan(data->rc.fov / 2) - (data->rc.ray_dist * i));
+		current_pos_perpendicular = scalar_mult(res_perpendicular_vec, tan(data->rc.fov / 2) - (data->rc.ray_dist * i));
+		current_ray_dir = add_2D_vec(current_pos_perpendicular, data->rc.dir_vec);
+		printf("current_ray_dir x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
+		printf("pos player x %f -- y %f\n", data->rc.player.d_coords.x, data->rc.player.d_coords.y);
+		current_ray = add_2D_vec(current_ray_dir, data->rc.player.d_coords);
 		printf("current_ray x %f -- y %f\n", current_ray.x, current_ray.y);
 		i++;
 	}

@@ -1,1208 +1,3611 @@
 fov : 1.047198
 tan : 1.154701
 ray_dist : 0.000962
+Direction vector -> y: -1.000000 - x : -0.000000
 perpendicular x -1.000000 - y 0.000000
-
-current_ray x -0.577350 -- y 0.000000
-current_ray x -0.576388 -- y 0.000000
-current_ray x -0.575426 -- y 0.000000
-current_ray x -0.574464 -- y 0.000000
-current_ray x -0.573501 -- y 0.000000
-current_ray x -0.572539 -- y 0.000000
-current_ray x -0.571577 -- y 0.000000
-current_ray x -0.570615 -- y 0.000000
-current_ray x -0.569652 -- y 0.000000
-current_ray x -0.568690 -- y 0.000000
-current_ray x -0.567728 -- y 0.000000
-current_ray x -0.566766 -- y 0.000000
-current_ray x -0.565803 -- y 0.000000
-current_ray x -0.564841 -- y 0.000000
-current_ray x -0.563879 -- y 0.000000
-current_ray x -0.562917 -- y 0.000000
-current_ray x -0.561954 -- y 0.000000
-current_ray x -0.560992 -- y 0.000000
-current_ray x -0.560030 -- y 0.000000
-current_ray x -0.559068 -- y 0.000000
-current_ray x -0.558105 -- y 0.000000
-current_ray x -0.557143 -- y 0.000000
-current_ray x -0.556181 -- y 0.000000
-current_ray x -0.555219 -- y 0.000000
-current_ray x -0.554256 -- y 0.000000
-current_ray x -0.553294 -- y 0.000000
-current_ray x -0.552332 -- y 0.000000
-current_ray x -0.551370 -- y 0.000000
-current_ray x -0.550407 -- y 0.000000
-current_ray x -0.549445 -- y 0.000000
-current_ray x -0.548483 -- y 0.000000
-current_ray x -0.547521 -- y 0.000000
-current_ray x -0.546558 -- y 0.000000
-current_ray x -0.545596 -- y 0.000000
-current_ray x -0.544634 -- y 0.000000
-current_ray x -0.543672 -- y 0.000000
-current_ray x -0.542709 -- y 0.000000
-current_ray x -0.541747 -- y 0.000000
-current_ray x -0.540785 -- y 0.000000
-current_ray x -0.539823 -- y 0.000000
-current_ray x -0.538860 -- y 0.000000
-current_ray x -0.537898 -- y 0.000000
-current_ray x -0.536936 -- y 0.000000
-current_ray x -0.535973 -- y 0.000000
-current_ray x -0.535011 -- y 0.000000
-current_ray x -0.534049 -- y 0.000000
-current_ray x -0.533087 -- y 0.000000
-current_ray x -0.532124 -- y 0.000000
-current_ray x -0.531162 -- y 0.000000
-current_ray x -0.530200 -- y 0.000000
-current_ray x -0.529238 -- y 0.000000
-current_ray x -0.528275 -- y 0.000000
-current_ray x -0.527313 -- y 0.000000
-current_ray x -0.526351 -- y 0.000000
-current_ray x -0.525389 -- y 0.000000
-current_ray x -0.524426 -- y 0.000000
-current_ray x -0.523464 -- y 0.000000
-current_ray x -0.522502 -- y 0.000000
-current_ray x -0.521540 -- y 0.000000
-current_ray x -0.520577 -- y 0.000000
-current_ray x -0.519615 -- y 0.000000
-current_ray x -0.518653 -- y 0.000000
-current_ray x -0.517691 -- y 0.000000
-current_ray x -0.516728 -- y 0.000000
-current_ray x -0.515766 -- y 0.000000
-current_ray x -0.514804 -- y 0.000000
-current_ray x -0.513842 -- y 0.000000
-current_ray x -0.512879 -- y 0.000000
-current_ray x -0.511917 -- y 0.000000
-current_ray x -0.510955 -- y 0.000000
-current_ray x -0.509993 -- y 0.000000
-current_ray x -0.509030 -- y 0.000000
-current_ray x -0.508068 -- y 0.000000
-current_ray x -0.507106 -- y 0.000000
-current_ray x -0.506144 -- y 0.000000
-current_ray x -0.505181 -- y 0.000000
-current_ray x -0.504219 -- y 0.000000
-current_ray x -0.503257 -- y 0.000000
-current_ray x -0.502295 -- y 0.000000
-current_ray x -0.501332 -- y 0.000000
-current_ray x -0.500370 -- y 0.000000
-current_ray x -0.499408 -- y 0.000000
-current_ray x -0.498446 -- y 0.000000
-current_ray x -0.497483 -- y 0.000000
-current_ray x -0.496521 -- y 0.000000
-current_ray x -0.495559 -- y 0.000000
-current_ray x -0.494597 -- y 0.000000
-current_ray x -0.493634 -- y 0.000000
-current_ray x -0.492672 -- y 0.000000
-current_ray x -0.491710 -- y 0.000000
-current_ray x -0.490748 -- y 0.000000
-current_ray x -0.489785 -- y 0.000000
-current_ray x -0.488823 -- y 0.000000
-current_ray x -0.487861 -- y 0.000000
-current_ray x -0.486899 -- y 0.000000
-current_ray x -0.485936 -- y 0.000000
-current_ray x -0.484974 -- y 0.000000
-current_ray x -0.484012 -- y 0.000000
-current_ray x -0.483050 -- y 0.000000
-current_ray x -0.482087 -- y 0.000000
-current_ray x -0.481125 -- y 0.000000
-current_ray x -0.480163 -- y 0.000000
-current_ray x -0.479201 -- y 0.000000
-current_ray x -0.478238 -- y 0.000000
-current_ray x -0.477276 -- y 0.000000
-current_ray x -0.476314 -- y 0.000000
-current_ray x -0.475352 -- y 0.000000
-current_ray x -0.474389 -- y 0.000000
-current_ray x -0.473427 -- y 0.000000
-current_ray x -0.472465 -- y 0.000000
-current_ray x -0.471503 -- y 0.000000
-current_ray x -0.470540 -- y 0.000000
-current_ray x -0.469578 -- y 0.000000
-current_ray x -0.468616 -- y 0.000000
-current_ray x -0.467654 -- y 0.000000
-current_ray x -0.466691 -- y 0.000000
-current_ray x -0.465729 -- y 0.000000
-current_ray x -0.464767 -- y 0.000000
-current_ray x -0.463805 -- y 0.000000
-current_ray x -0.462842 -- y 0.000000
-current_ray x -0.461880 -- y 0.000000
-current_ray x -0.460918 -- y 0.000000
-current_ray x -0.459956 -- y 0.000000
-current_ray x -0.458993 -- y 0.000000
-current_ray x -0.458031 -- y 0.000000
-current_ray x -0.457069 -- y 0.000000
-current_ray x -0.456107 -- y 0.000000
-current_ray x -0.455144 -- y 0.000000
-current_ray x -0.454182 -- y 0.000000
-current_ray x -0.453220 -- y 0.000000
-current_ray x -0.452258 -- y 0.000000
-current_ray x -0.451295 -- y 0.000000
-current_ray x -0.450333 -- y 0.000000
-current_ray x -0.449371 -- y 0.000000
-current_ray x -0.448409 -- y 0.000000
-current_ray x -0.447446 -- y 0.000000
-current_ray x -0.446484 -- y 0.000000
-current_ray x -0.445522 -- y 0.000000
-current_ray x -0.444560 -- y 0.000000
-current_ray x -0.443597 -- y 0.000000
-current_ray x -0.442635 -- y 0.000000
-current_ray x -0.441673 -- y 0.000000
-current_ray x -0.440711 -- y 0.000000
-current_ray x -0.439748 -- y 0.000000
-current_ray x -0.438786 -- y 0.000000
-current_ray x -0.437824 -- y 0.000000
-current_ray x -0.436862 -- y 0.000000
-current_ray x -0.435899 -- y 0.000000
-current_ray x -0.434937 -- y 0.000000
-current_ray x -0.433975 -- y 0.000000
-current_ray x -0.433013 -- y 0.000000
-current_ray x -0.432050 -- y 0.000000
-current_ray x -0.431088 -- y 0.000000
-current_ray x -0.430126 -- y 0.000000
-current_ray x -0.429164 -- y 0.000000
-current_ray x -0.428201 -- y 0.000000
-current_ray x -0.427239 -- y 0.000000
-current_ray x -0.426277 -- y 0.000000
-current_ray x -0.425315 -- y 0.000000
-current_ray x -0.424352 -- y 0.000000
-current_ray x -0.423390 -- y 0.000000
-current_ray x -0.422428 -- y 0.000000
-current_ray x -0.421466 -- y 0.000000
-current_ray x -0.420503 -- y 0.000000
-current_ray x -0.419541 -- y 0.000000
-current_ray x -0.418579 -- y 0.000000
-current_ray x -0.417617 -- y 0.000000
-current_ray x -0.416654 -- y 0.000000
-current_ray x -0.415692 -- y 0.000000
-current_ray x -0.414730 -- y 0.000000
-current_ray x -0.413768 -- y 0.000000
-current_ray x -0.412805 -- y 0.000000
-current_ray x -0.411843 -- y 0.000000
-current_ray x -0.410881 -- y 0.000000
-current_ray x -0.409919 -- y 0.000000
-current_ray x -0.408956 -- y 0.000000
-current_ray x -0.407994 -- y 0.000000
-current_ray x -0.407032 -- y 0.000000
-current_ray x -0.406070 -- y 0.000000
-current_ray x -0.405107 -- y 0.000000
-current_ray x -0.404145 -- y 0.000000
-current_ray x -0.403183 -- y 0.000000
-current_ray x -0.402221 -- y 0.000000
-current_ray x -0.401258 -- y 0.000000
-current_ray x -0.400296 -- y 0.000000
-current_ray x -0.399334 -- y 0.000000
-current_ray x -0.398372 -- y 0.000000
-current_ray x -0.397409 -- y 0.000000
-current_ray x -0.396447 -- y 0.000000
-current_ray x -0.395485 -- y 0.000000
-current_ray x -0.394523 -- y 0.000000
-current_ray x -0.393560 -- y 0.000000
-current_ray x -0.392598 -- y 0.000000
-current_ray x -0.391636 -- y 0.000000
-current_ray x -0.390674 -- y 0.000000
-current_ray x -0.389711 -- y 0.000000
-current_ray x -0.388749 -- y 0.000000
-current_ray x -0.387787 -- y 0.000000
-current_ray x -0.386825 -- y 0.000000
-current_ray x -0.385862 -- y 0.000000
-current_ray x -0.384900 -- y 0.000000
-current_ray x -0.383938 -- y 0.000000
-current_ray x -0.382976 -- y 0.000000
-current_ray x -0.382013 -- y 0.000000
-current_ray x -0.381051 -- y 0.000000
-current_ray x -0.380089 -- y 0.000000
-current_ray x -0.379127 -- y 0.000000
-current_ray x -0.378164 -- y 0.000000
-current_ray x -0.377202 -- y 0.000000
-current_ray x -0.376240 -- y 0.000000
-current_ray x -0.375278 -- y 0.000000
-current_ray x -0.374315 -- y 0.000000
-current_ray x -0.373353 -- y 0.000000
-current_ray x -0.372391 -- y 0.000000
-current_ray x -0.371429 -- y 0.000000
-current_ray x -0.370466 -- y 0.000000
-current_ray x -0.369504 -- y 0.000000
-current_ray x -0.368542 -- y 0.000000
-current_ray x -0.367580 -- y 0.000000
-current_ray x -0.366617 -- y 0.000000
-current_ray x -0.365655 -- y 0.000000
-current_ray x -0.364693 -- y 0.000000
-current_ray x -0.363731 -- y 0.000000
-current_ray x -0.362768 -- y 0.000000
-current_ray x -0.361806 -- y 0.000000
-current_ray x -0.360844 -- y 0.000000
-current_ray x -0.359882 -- y 0.000000
-current_ray x -0.358919 -- y 0.000000
-current_ray x -0.357957 -- y 0.000000
-current_ray x -0.356995 -- y 0.000000
-current_ray x -0.356033 -- y 0.000000
-current_ray x -0.355070 -- y 0.000000
-current_ray x -0.354108 -- y 0.000000
-current_ray x -0.353146 -- y 0.000000
-current_ray x -0.352184 -- y 0.000000
-current_ray x -0.351221 -- y 0.000000
-current_ray x -0.350259 -- y 0.000000
-current_ray x -0.349297 -- y 0.000000
-current_ray x -0.348335 -- y 0.000000
-current_ray x -0.347372 -- y 0.000000
-current_ray x -0.346410 -- y 0.000000
-current_ray x -0.345448 -- y 0.000000
-current_ray x -0.344486 -- y 0.000000
-current_ray x -0.343523 -- y 0.000000
-current_ray x -0.342561 -- y 0.000000
-current_ray x -0.341599 -- y 0.000000
-current_ray x -0.340637 -- y 0.000000
-current_ray x -0.339674 -- y 0.000000
-current_ray x -0.338712 -- y 0.000000
-current_ray x -0.337750 -- y 0.000000
-current_ray x -0.336788 -- y 0.000000
-current_ray x -0.335825 -- y 0.000000
-current_ray x -0.334863 -- y 0.000000
-current_ray x -0.333901 -- y 0.000000
-current_ray x -0.332939 -- y 0.000000
-current_ray x -0.331976 -- y 0.000000
-current_ray x -0.331014 -- y 0.000000
-current_ray x -0.330052 -- y 0.000000
-current_ray x -0.329090 -- y 0.000000
-current_ray x -0.328127 -- y 0.000000
-current_ray x -0.327165 -- y 0.000000
-current_ray x -0.326203 -- y 0.000000
-current_ray x -0.325241 -- y 0.000000
-current_ray x -0.324278 -- y 0.000000
-current_ray x -0.323316 -- y 0.000000
-current_ray x -0.322354 -- y 0.000000
-current_ray x -0.321392 -- y 0.000000
-current_ray x -0.320429 -- y 0.000000
-current_ray x -0.319467 -- y 0.000000
-current_ray x -0.318505 -- y 0.000000
-current_ray x -0.317543 -- y 0.000000
-current_ray x -0.316580 -- y 0.000000
-current_ray x -0.315618 -- y 0.000000
-current_ray x -0.314656 -- y 0.000000
-current_ray x -0.313694 -- y 0.000000
-current_ray x -0.312731 -- y 0.000000
-current_ray x -0.311769 -- y 0.000000
-current_ray x -0.310807 -- y 0.000000
-current_ray x -0.309845 -- y 0.000000
-current_ray x -0.308882 -- y 0.000000
-current_ray x -0.307920 -- y 0.000000
-current_ray x -0.306958 -- y 0.000000
-current_ray x -0.305996 -- y 0.000000
-current_ray x -0.305033 -- y 0.000000
-current_ray x -0.304071 -- y 0.000000
-current_ray x -0.303109 -- y 0.000000
-current_ray x -0.302147 -- y 0.000000
-current_ray x -0.301184 -- y 0.000000
-current_ray x -0.300222 -- y 0.000000
-current_ray x -0.299260 -- y 0.000000
-current_ray x -0.298298 -- y 0.000000
-current_ray x -0.297335 -- y 0.000000
-current_ray x -0.296373 -- y 0.000000
-current_ray x -0.295411 -- y 0.000000
-current_ray x -0.294449 -- y 0.000000
-current_ray x -0.293486 -- y 0.000000
-current_ray x -0.292524 -- y 0.000000
-current_ray x -0.291562 -- y 0.000000
-current_ray x -0.290600 -- y 0.000000
-current_ray x -0.289637 -- y 0.000000
-current_ray x -0.288675 -- y 0.000000
-current_ray x -0.287713 -- y 0.000000
-current_ray x -0.286751 -- y 0.000000
-current_ray x -0.285788 -- y 0.000000
-current_ray x -0.284826 -- y 0.000000
-current_ray x -0.283864 -- y 0.000000
-current_ray x -0.282902 -- y 0.000000
-current_ray x -0.281939 -- y 0.000000
-current_ray x -0.280977 -- y 0.000000
-current_ray x -0.280015 -- y 0.000000
-current_ray x -0.279053 -- y 0.000000
-current_ray x -0.278090 -- y 0.000000
-current_ray x -0.277128 -- y 0.000000
-current_ray x -0.276166 -- y 0.000000
-current_ray x -0.275204 -- y 0.000000
-current_ray x -0.274241 -- y 0.000000
-current_ray x -0.273279 -- y 0.000000
-current_ray x -0.272317 -- y 0.000000
-current_ray x -0.271355 -- y 0.000000
-current_ray x -0.270392 -- y 0.000000
-current_ray x -0.269430 -- y 0.000000
-current_ray x -0.268468 -- y 0.000000
-current_ray x -0.267506 -- y 0.000000
-current_ray x -0.266543 -- y 0.000000
-current_ray x -0.265581 -- y 0.000000
-current_ray x -0.264619 -- y 0.000000
-current_ray x -0.263657 -- y 0.000000
-current_ray x -0.262694 -- y 0.000000
-current_ray x -0.261732 -- y 0.000000
-current_ray x -0.260770 -- y 0.000000
-current_ray x -0.259808 -- y 0.000000
-current_ray x -0.258845 -- y 0.000000
-current_ray x -0.257883 -- y 0.000000
-current_ray x -0.256921 -- y 0.000000
-current_ray x -0.255959 -- y 0.000000
-current_ray x -0.254996 -- y 0.000000
-current_ray x -0.254034 -- y 0.000000
-current_ray x -0.253072 -- y 0.000000
-current_ray x -0.252110 -- y 0.000000
-current_ray x -0.251147 -- y 0.000000
-current_ray x -0.250185 -- y 0.000000
-current_ray x -0.249223 -- y 0.000000
-current_ray x -0.248261 -- y 0.000000
-current_ray x -0.247298 -- y 0.000000
-current_ray x -0.246336 -- y 0.000000
-current_ray x -0.245374 -- y 0.000000
-current_ray x -0.244412 -- y 0.000000
-current_ray x -0.243449 -- y 0.000000
-current_ray x -0.242487 -- y 0.000000
-current_ray x -0.241525 -- y 0.000000
-current_ray x -0.240563 -- y 0.000000
-current_ray x -0.239600 -- y 0.000000
-current_ray x -0.238638 -- y 0.000000
-current_ray x -0.237676 -- y 0.000000
-current_ray x -0.236714 -- y 0.000000
-current_ray x -0.235751 -- y 0.000000
-current_ray x -0.234789 -- y 0.000000
-current_ray x -0.233827 -- y 0.000000
-current_ray x -0.232865 -- y 0.000000
-current_ray x -0.231902 -- y 0.000000
-current_ray x -0.230940 -- y 0.000000
-current_ray x -0.229978 -- y 0.000000
-current_ray x -0.229016 -- y 0.000000
-current_ray x -0.228053 -- y 0.000000
-current_ray x -0.227091 -- y 0.000000
-current_ray x -0.226129 -- y 0.000000
-current_ray x -0.225167 -- y 0.000000
-current_ray x -0.224204 -- y 0.000000
-current_ray x -0.223242 -- y 0.000000
-current_ray x -0.222280 -- y 0.000000
-current_ray x -0.221318 -- y 0.000000
-current_ray x -0.220355 -- y 0.000000
-current_ray x -0.219393 -- y 0.000000
-current_ray x -0.218431 -- y 0.000000
-current_ray x -0.217469 -- y 0.000000
-current_ray x -0.216506 -- y 0.000000
-current_ray x -0.215544 -- y 0.000000
-current_ray x -0.214582 -- y 0.000000
-current_ray x -0.213620 -- y 0.000000
-current_ray x -0.212657 -- y 0.000000
-current_ray x -0.211695 -- y 0.000000
-current_ray x -0.210733 -- y 0.000000
-current_ray x -0.209771 -- y 0.000000
-current_ray x -0.208808 -- y 0.000000
-current_ray x -0.207846 -- y 0.000000
-current_ray x -0.206884 -- y 0.000000
-current_ray x -0.205922 -- y 0.000000
-current_ray x -0.204959 -- y 0.000000
-current_ray x -0.203997 -- y 0.000000
-current_ray x -0.203035 -- y 0.000000
-current_ray x -0.202073 -- y 0.000000
-current_ray x -0.201110 -- y 0.000000
-current_ray x -0.200148 -- y 0.000000
-current_ray x -0.199186 -- y 0.000000
-current_ray x -0.198224 -- y 0.000000
-current_ray x -0.197261 -- y 0.000000
-current_ray x -0.196299 -- y 0.000000
-current_ray x -0.195337 -- y 0.000000
-current_ray x -0.194375 -- y 0.000000
-current_ray x -0.193412 -- y 0.000000
-current_ray x -0.192450 -- y 0.000000
-current_ray x -0.191488 -- y 0.000000
-current_ray x -0.190526 -- y 0.000000
-current_ray x -0.189563 -- y 0.000000
-current_ray x -0.188601 -- y 0.000000
-current_ray x -0.187639 -- y 0.000000
-current_ray x -0.186677 -- y 0.000000
-current_ray x -0.185714 -- y 0.000000
-current_ray x -0.184752 -- y 0.000000
-current_ray x -0.183790 -- y 0.000000
-current_ray x -0.182828 -- y 0.000000
-current_ray x -0.181865 -- y 0.000000
-current_ray x -0.180903 -- y 0.000000
-current_ray x -0.179941 -- y 0.000000
-current_ray x -0.178979 -- y 0.000000
-current_ray x -0.178016 -- y 0.000000
-current_ray x -0.177054 -- y 0.000000
-current_ray x -0.176092 -- y 0.000000
-current_ray x -0.175130 -- y 0.000000
-current_ray x -0.174167 -- y 0.000000
-current_ray x -0.173205 -- y 0.000000
-current_ray x -0.172243 -- y 0.000000
-current_ray x -0.171281 -- y 0.000000
-current_ray x -0.170318 -- y 0.000000
-current_ray x -0.169356 -- y 0.000000
-current_ray x -0.168394 -- y 0.000000
-current_ray x -0.167432 -- y 0.000000
-current_ray x -0.166469 -- y 0.000000
-current_ray x -0.165507 -- y 0.000000
-current_ray x -0.164545 -- y 0.000000
-current_ray x -0.163583 -- y 0.000000
-current_ray x -0.162620 -- y 0.000000
-current_ray x -0.161658 -- y 0.000000
-current_ray x -0.160696 -- y 0.000000
-current_ray x -0.159734 -- y 0.000000
-current_ray x -0.158771 -- y 0.000000
-current_ray x -0.157809 -- y 0.000000
-current_ray x -0.156847 -- y 0.000000
-current_ray x -0.155885 -- y 0.000000
-current_ray x -0.154922 -- y 0.000000
-current_ray x -0.153960 -- y 0.000000
-current_ray x -0.152998 -- y 0.000000
-current_ray x -0.152036 -- y 0.000000
-current_ray x -0.151073 -- y 0.000000
-current_ray x -0.150111 -- y 0.000000
-current_ray x -0.149149 -- y 0.000000
-current_ray x -0.148187 -- y 0.000000
-current_ray x -0.147224 -- y 0.000000
-current_ray x -0.146262 -- y 0.000000
-current_ray x -0.145300 -- y 0.000000
-current_ray x -0.144338 -- y 0.000000
-current_ray x -0.143375 -- y 0.000000
-current_ray x -0.142413 -- y 0.000000
-current_ray x -0.141451 -- y 0.000000
-current_ray x -0.140489 -- y 0.000000
-current_ray x -0.139526 -- y 0.000000
-current_ray x -0.138564 -- y 0.000000
-current_ray x -0.137602 -- y 0.000000
-current_ray x -0.136640 -- y 0.000000
-current_ray x -0.135677 -- y 0.000000
-current_ray x -0.134715 -- y 0.000000
-current_ray x -0.133753 -- y 0.000000
-current_ray x -0.132791 -- y 0.000000
-current_ray x -0.131828 -- y 0.000000
-current_ray x -0.130866 -- y 0.000000
-current_ray x -0.129904 -- y 0.000000
-current_ray x -0.128942 -- y 0.000000
-current_ray x -0.127979 -- y 0.000000
-current_ray x -0.127017 -- y 0.000000
-current_ray x -0.126055 -- y 0.000000
-current_ray x -0.125093 -- y 0.000000
-current_ray x -0.124130 -- y 0.000000
-current_ray x -0.123168 -- y 0.000000
-current_ray x -0.122206 -- y 0.000000
-current_ray x -0.121244 -- y 0.000000
-current_ray x -0.120281 -- y 0.000000
-current_ray x -0.119319 -- y 0.000000
-current_ray x -0.118357 -- y 0.000000
-current_ray x -0.117395 -- y 0.000000
-current_ray x -0.116432 -- y 0.000000
-current_ray x -0.115470 -- y 0.000000
-current_ray x -0.114508 -- y 0.000000
-current_ray x -0.113546 -- y 0.000000
-current_ray x -0.112583 -- y 0.000000
-current_ray x -0.111621 -- y 0.000000
-current_ray x -0.110659 -- y 0.000000
-current_ray x -0.109697 -- y 0.000000
-current_ray x -0.108734 -- y 0.000000
-current_ray x -0.107772 -- y 0.000000
-current_ray x -0.106810 -- y 0.000000
-current_ray x -0.105848 -- y 0.000000
-current_ray x -0.104885 -- y 0.000000
-current_ray x -0.103923 -- y 0.000000
-current_ray x -0.102961 -- y 0.000000
-current_ray x -0.101999 -- y 0.000000
-current_ray x -0.101036 -- y 0.000000
-current_ray x -0.100074 -- y 0.000000
-current_ray x -0.099112 -- y 0.000000
-current_ray x -0.098150 -- y 0.000000
-current_ray x -0.097187 -- y 0.000000
-current_ray x -0.096225 -- y 0.000000
-current_ray x -0.095263 -- y 0.000000
-current_ray x -0.094301 -- y 0.000000
-current_ray x -0.093338 -- y 0.000000
-current_ray x -0.092376 -- y 0.000000
-current_ray x -0.091414 -- y 0.000000
-current_ray x -0.090452 -- y 0.000000
-current_ray x -0.089489 -- y 0.000000
-current_ray x -0.088527 -- y 0.000000
-current_ray x -0.087565 -- y 0.000000
-current_ray x -0.086603 -- y 0.000000
-current_ray x -0.085640 -- y 0.000000
-current_ray x -0.084678 -- y 0.000000
-current_ray x -0.083716 -- y 0.000000
-current_ray x -0.082754 -- y 0.000000
-current_ray x -0.081791 -- y 0.000000
-current_ray x -0.080829 -- y 0.000000
-current_ray x -0.079867 -- y 0.000000
-current_ray x -0.078905 -- y 0.000000
-current_ray x -0.077942 -- y 0.000000
-current_ray x -0.076980 -- y 0.000000
-current_ray x -0.076018 -- y 0.000000
-current_ray x -0.075056 -- y 0.000000
-current_ray x -0.074093 -- y 0.000000
-current_ray x -0.073131 -- y 0.000000
-current_ray x -0.072169 -- y 0.000000
-current_ray x -0.071207 -- y 0.000000
-current_ray x -0.070244 -- y 0.000000
-current_ray x -0.069282 -- y 0.000000
-current_ray x -0.068320 -- y 0.000000
-current_ray x -0.067358 -- y 0.000000
-current_ray x -0.066395 -- y 0.000000
-current_ray x -0.065433 -- y 0.000000
-current_ray x -0.064471 -- y 0.000000
-current_ray x -0.063509 -- y 0.000000
-current_ray x -0.062546 -- y 0.000000
-current_ray x -0.061584 -- y 0.000000
-current_ray x -0.060622 -- y 0.000000
-current_ray x -0.059660 -- y 0.000000
-current_ray x -0.058697 -- y 0.000000
-current_ray x -0.057735 -- y 0.000000
-current_ray x -0.056773 -- y 0.000000
-current_ray x -0.055811 -- y 0.000000
-current_ray x -0.054848 -- y 0.000000
-current_ray x -0.053886 -- y 0.000000
-current_ray x -0.052924 -- y 0.000000
-current_ray x -0.051962 -- y 0.000000
-current_ray x -0.050999 -- y 0.000000
-current_ray x -0.050037 -- y 0.000000
-current_ray x -0.049075 -- y 0.000000
-current_ray x -0.048113 -- y 0.000000
-current_ray x -0.047150 -- y 0.000000
-current_ray x -0.046188 -- y 0.000000
-current_ray x -0.045226 -- y 0.000000
-current_ray x -0.044264 -- y 0.000000
-current_ray x -0.043301 -- y 0.000000
-current_ray x -0.042339 -- y 0.000000
-current_ray x -0.041377 -- y 0.000000
-current_ray x -0.040415 -- y 0.000000
-current_ray x -0.039452 -- y 0.000000
-current_ray x -0.038490 -- y 0.000000
-current_ray x -0.037528 -- y 0.000000
-current_ray x -0.036566 -- y 0.000000
-current_ray x -0.035603 -- y 0.000000
-current_ray x -0.034641 -- y 0.000000
-current_ray x -0.033679 -- y 0.000000
-current_ray x -0.032717 -- y 0.000000
-current_ray x -0.031754 -- y 0.000000
-current_ray x -0.030792 -- y 0.000000
-current_ray x -0.029830 -- y 0.000000
-current_ray x -0.028868 -- y 0.000000
-current_ray x -0.027905 -- y 0.000000
-current_ray x -0.026943 -- y 0.000000
-current_ray x -0.025981 -- y 0.000000
-current_ray x -0.025019 -- y 0.000000
-current_ray x -0.024056 -- y 0.000000
-current_ray x -0.023094 -- y 0.000000
-current_ray x -0.022132 -- y 0.000000
-current_ray x -0.021170 -- y 0.000000
-current_ray x -0.020207 -- y 0.000000
-current_ray x -0.019245 -- y 0.000000
-current_ray x -0.018283 -- y 0.000000
-current_ray x -0.017321 -- y 0.000000
-current_ray x -0.016358 -- y 0.000000
-current_ray x -0.015396 -- y 0.000000
-current_ray x -0.014434 -- y 0.000000
-current_ray x -0.013472 -- y 0.000000
-current_ray x -0.012509 -- y 0.000000
-current_ray x -0.011547 -- y 0.000000
-current_ray x -0.010585 -- y 0.000000
-current_ray x -0.009623 -- y 0.000000
-current_ray x -0.008660 -- y 0.000000
-current_ray x -0.007698 -- y 0.000000
-current_ray x -0.006736 -- y 0.000000
-current_ray x -0.005774 -- y 0.000000
-current_ray x -0.004811 -- y 0.000000
-current_ray x -0.003849 -- y 0.000000
-current_ray x -0.002887 -- y 0.000000
-current_ray x -0.001925 -- y 0.000000
-current_ray x -0.000962 -- y 0.000000
-current_ray x -0.000000 -- y 0.000000
-current_ray x 0.000962 -- y -0.000000
-current_ray x 0.001925 -- y -0.000000
-current_ray x 0.002887 -- y -0.000000
-current_ray x 0.003849 -- y -0.000000
-current_ray x 0.004811 -- y -0.000000
-current_ray x 0.005774 -- y -0.000000
-current_ray x 0.006736 -- y -0.000000
-current_ray x 0.007698 -- y -0.000000
-current_ray x 0.008660 -- y -0.000000
-current_ray x 0.009623 -- y -0.000000
-current_ray x 0.010585 -- y -0.000000
-current_ray x 0.011547 -- y -0.000000
-current_ray x 0.012509 -- y -0.000000
-current_ray x 0.013472 -- y -0.000000
-current_ray x 0.014434 -- y -0.000000
-current_ray x 0.015396 -- y -0.000000
-current_ray x 0.016358 -- y -0.000000
-current_ray x 0.017321 -- y -0.000000
-current_ray x 0.018283 -- y -0.000000
-current_ray x 0.019245 -- y -0.000000
-current_ray x 0.020207 -- y -0.000000
-current_ray x 0.021170 -- y -0.000000
-current_ray x 0.022132 -- y -0.000000
-current_ray x 0.023094 -- y -0.000000
-current_ray x 0.024056 -- y -0.000000
-current_ray x 0.025019 -- y -0.000000
-current_ray x 0.025981 -- y -0.000000
-current_ray x 0.026943 -- y -0.000000
-current_ray x 0.027905 -- y -0.000000
-current_ray x 0.028868 -- y -0.000000
-current_ray x 0.029830 -- y -0.000000
-current_ray x 0.030792 -- y -0.000000
-current_ray x 0.031754 -- y -0.000000
-current_ray x 0.032717 -- y -0.000000
-current_ray x 0.033679 -- y -0.000000
-current_ray x 0.034641 -- y -0.000000
-current_ray x 0.035603 -- y -0.000000
-current_ray x 0.036566 -- y -0.000000
-current_ray x 0.037528 -- y -0.000000
-current_ray x 0.038490 -- y -0.000000
-current_ray x 0.039452 -- y -0.000000
-current_ray x 0.040415 -- y -0.000000
-current_ray x 0.041377 -- y -0.000000
-current_ray x 0.042339 -- y -0.000000
-current_ray x 0.043301 -- y -0.000000
-current_ray x 0.044264 -- y -0.000000
-current_ray x 0.045226 -- y -0.000000
-current_ray x 0.046188 -- y -0.000000
-current_ray x 0.047150 -- y -0.000000
-current_ray x 0.048113 -- y -0.000000
-current_ray x 0.049075 -- y -0.000000
-current_ray x 0.050037 -- y -0.000000
-current_ray x 0.050999 -- y -0.000000
-current_ray x 0.051962 -- y -0.000000
-current_ray x 0.052924 -- y -0.000000
-current_ray x 0.053886 -- y -0.000000
-current_ray x 0.054848 -- y -0.000000
-current_ray x 0.055811 -- y -0.000000
-current_ray x 0.056773 -- y -0.000000
-current_ray x 0.057735 -- y -0.000000
-current_ray x 0.058697 -- y -0.000000
-current_ray x 0.059660 -- y -0.000000
-current_ray x 0.060622 -- y -0.000000
-current_ray x 0.061584 -- y -0.000000
-current_ray x 0.062546 -- y -0.000000
-current_ray x 0.063509 -- y -0.000000
-current_ray x 0.064471 -- y -0.000000
-current_ray x 0.065433 -- y -0.000000
-current_ray x 0.066395 -- y -0.000000
-current_ray x 0.067358 -- y -0.000000
-current_ray x 0.068320 -- y -0.000000
-current_ray x 0.069282 -- y -0.000000
-current_ray x 0.070244 -- y -0.000000
-current_ray x 0.071207 -- y -0.000000
-current_ray x 0.072169 -- y -0.000000
-current_ray x 0.073131 -- y -0.000000
-current_ray x 0.074093 -- y -0.000000
-current_ray x 0.075056 -- y -0.000000
-current_ray x 0.076018 -- y -0.000000
-current_ray x 0.076980 -- y -0.000000
-current_ray x 0.077942 -- y -0.000000
-current_ray x 0.078905 -- y -0.000000
-current_ray x 0.079867 -- y -0.000000
-current_ray x 0.080829 -- y -0.000000
-current_ray x 0.081791 -- y -0.000000
-current_ray x 0.082754 -- y -0.000000
-current_ray x 0.083716 -- y -0.000000
-current_ray x 0.084678 -- y -0.000000
-current_ray x 0.085640 -- y -0.000000
-current_ray x 0.086603 -- y -0.000000
-current_ray x 0.087565 -- y -0.000000
-current_ray x 0.088527 -- y -0.000000
-current_ray x 0.089489 -- y -0.000000
-current_ray x 0.090452 -- y -0.000000
-current_ray x 0.091414 -- y -0.000000
-current_ray x 0.092376 -- y -0.000000
-current_ray x 0.093338 -- y -0.000000
-current_ray x 0.094301 -- y -0.000000
-current_ray x 0.095263 -- y -0.000000
-current_ray x 0.096225 -- y -0.000000
-current_ray x 0.097187 -- y -0.000000
-current_ray x 0.098150 -- y -0.000000
-current_ray x 0.099112 -- y -0.000000
-current_ray x 0.100074 -- y -0.000000
-current_ray x 0.101036 -- y -0.000000
-current_ray x 0.101999 -- y -0.000000
-current_ray x 0.102961 -- y -0.000000
-current_ray x 0.103923 -- y -0.000000
-current_ray x 0.104885 -- y -0.000000
-current_ray x 0.105848 -- y -0.000000
-current_ray x 0.106810 -- y -0.000000
-current_ray x 0.107772 -- y -0.000000
-current_ray x 0.108734 -- y -0.000000
-current_ray x 0.109697 -- y -0.000000
-current_ray x 0.110659 -- y -0.000000
-current_ray x 0.111621 -- y -0.000000
-current_ray x 0.112583 -- y -0.000000
-current_ray x 0.113546 -- y -0.000000
-current_ray x 0.114508 -- y -0.000000
-current_ray x 0.115470 -- y -0.000000
-current_ray x 0.116432 -- y -0.000000
-current_ray x 0.117395 -- y -0.000000
-current_ray x 0.118357 -- y -0.000000
-current_ray x 0.119319 -- y -0.000000
-current_ray x 0.120281 -- y -0.000000
-current_ray x 0.121244 -- y -0.000000
-current_ray x 0.122206 -- y -0.000000
-current_ray x 0.123168 -- y -0.000000
-current_ray x 0.124130 -- y -0.000000
-current_ray x 0.125093 -- y -0.000000
-current_ray x 0.126055 -- y -0.000000
-current_ray x 0.127017 -- y -0.000000
-current_ray x 0.127979 -- y -0.000000
-current_ray x 0.128942 -- y -0.000000
-current_ray x 0.129904 -- y -0.000000
-current_ray x 0.130866 -- y -0.000000
-current_ray x 0.131828 -- y -0.000000
-current_ray x 0.132791 -- y -0.000000
-current_ray x 0.133753 -- y -0.000000
-current_ray x 0.134715 -- y -0.000000
-current_ray x 0.135677 -- y -0.000000
-current_ray x 0.136640 -- y -0.000000
-current_ray x 0.137602 -- y -0.000000
-current_ray x 0.138564 -- y -0.000000
-current_ray x 0.139526 -- y -0.000000
-current_ray x 0.140489 -- y -0.000000
-current_ray x 0.141451 -- y -0.000000
-current_ray x 0.142413 -- y -0.000000
-current_ray x 0.143375 -- y -0.000000
-current_ray x 0.144338 -- y -0.000000
-current_ray x 0.145300 -- y -0.000000
-current_ray x 0.146262 -- y -0.000000
-current_ray x 0.147224 -- y -0.000000
-current_ray x 0.148187 -- y -0.000000
-current_ray x 0.149149 -- y -0.000000
-current_ray x 0.150111 -- y -0.000000
-current_ray x 0.151073 -- y -0.000000
-current_ray x 0.152036 -- y -0.000000
-current_ray x 0.152998 -- y -0.000000
-current_ray x 0.153960 -- y -0.000000
-current_ray x 0.154922 -- y -0.000000
-current_ray x 0.155885 -- y -0.000000
-current_ray x 0.156847 -- y -0.000000
-current_ray x 0.157809 -- y -0.000000
-current_ray x 0.158771 -- y -0.000000
-current_ray x 0.159734 -- y -0.000000
-current_ray x 0.160696 -- y -0.000000
-current_ray x 0.161658 -- y -0.000000
-current_ray x 0.162620 -- y -0.000000
-current_ray x 0.163583 -- y -0.000000
-current_ray x 0.164545 -- y -0.000000
-current_ray x 0.165507 -- y -0.000000
-current_ray x 0.166469 -- y -0.000000
-current_ray x 0.167432 -- y -0.000000
-current_ray x 0.168394 -- y -0.000000
-current_ray x 0.169356 -- y -0.000000
-current_ray x 0.170318 -- y -0.000000
-current_ray x 0.171281 -- y -0.000000
-current_ray x 0.172243 -- y -0.000000
-current_ray x 0.173205 -- y -0.000000
-current_ray x 0.174167 -- y -0.000000
-current_ray x 0.175130 -- y -0.000000
-current_ray x 0.176092 -- y -0.000000
-current_ray x 0.177054 -- y -0.000000
-current_ray x 0.178016 -- y -0.000000
-current_ray x 0.178979 -- y -0.000000
-current_ray x 0.179941 -- y -0.000000
-current_ray x 0.180903 -- y -0.000000
-current_ray x 0.181865 -- y -0.000000
-current_ray x 0.182828 -- y -0.000000
-current_ray x 0.183790 -- y -0.000000
-current_ray x 0.184752 -- y -0.000000
-current_ray x 0.185714 -- y -0.000000
-current_ray x 0.186677 -- y -0.000000
-current_ray x 0.187639 -- y -0.000000
-current_ray x 0.188601 -- y -0.000000
-current_ray x 0.189563 -- y -0.000000
-current_ray x 0.190526 -- y -0.000000
-current_ray x 0.191488 -- y -0.000000
-current_ray x 0.192450 -- y -0.000000
-current_ray x 0.193412 -- y -0.000000
-current_ray x 0.194375 -- y -0.000000
-current_ray x 0.195337 -- y -0.000000
-current_ray x 0.196299 -- y -0.000000
-current_ray x 0.197261 -- y -0.000000
-current_ray x 0.198224 -- y -0.000000
-current_ray x 0.199186 -- y -0.000000
-current_ray x 0.200148 -- y -0.000000
-current_ray x 0.201110 -- y -0.000000
-current_ray x 0.202073 -- y -0.000000
-current_ray x 0.203035 -- y -0.000000
-current_ray x 0.203997 -- y -0.000000
-current_ray x 0.204959 -- y -0.000000
-current_ray x 0.205922 -- y -0.000000
-current_ray x 0.206884 -- y -0.000000
-current_ray x 0.207846 -- y -0.000000
-current_ray x 0.208808 -- y -0.000000
-current_ray x 0.209771 -- y -0.000000
-current_ray x 0.210733 -- y -0.000000
-current_ray x 0.211695 -- y -0.000000
-current_ray x 0.212657 -- y -0.000000
-current_ray x 0.213620 -- y -0.000000
-current_ray x 0.214582 -- y -0.000000
-current_ray x 0.215544 -- y -0.000000
-current_ray x 0.216506 -- y -0.000000
-current_ray x 0.217469 -- y -0.000000
-current_ray x 0.218431 -- y -0.000000
-current_ray x 0.219393 -- y -0.000000
-current_ray x 0.220355 -- y -0.000000
-current_ray x 0.221318 -- y -0.000000
-current_ray x 0.222280 -- y -0.000000
-current_ray x 0.223242 -- y -0.000000
-current_ray x 0.224204 -- y -0.000000
-current_ray x 0.225167 -- y -0.000000
-current_ray x 0.226129 -- y -0.000000
-current_ray x 0.227091 -- y -0.000000
-current_ray x 0.228053 -- y -0.000000
-current_ray x 0.229016 -- y -0.000000
-current_ray x 0.229978 -- y -0.000000
-current_ray x 0.230940 -- y -0.000000
-current_ray x 0.231902 -- y -0.000000
-current_ray x 0.232865 -- y -0.000000
-current_ray x 0.233827 -- y -0.000000
-current_ray x 0.234789 -- y -0.000000
-current_ray x 0.235751 -- y -0.000000
-current_ray x 0.236714 -- y -0.000000
-current_ray x 0.237676 -- y -0.000000
-current_ray x 0.238638 -- y -0.000000
-current_ray x 0.239600 -- y -0.000000
-current_ray x 0.240563 -- y -0.000000
-current_ray x 0.241525 -- y -0.000000
-current_ray x 0.242487 -- y -0.000000
-current_ray x 0.243449 -- y -0.000000
-current_ray x 0.244412 -- y -0.000000
-current_ray x 0.245374 -- y -0.000000
-current_ray x 0.246336 -- y -0.000000
-current_ray x 0.247298 -- y -0.000000
-current_ray x 0.248261 -- y -0.000000
-current_ray x 0.249223 -- y -0.000000
-current_ray x 0.250185 -- y -0.000000
-current_ray x 0.251147 -- y -0.000000
-current_ray x 0.252110 -- y -0.000000
-current_ray x 0.253072 -- y -0.000000
-current_ray x 0.254034 -- y -0.000000
-current_ray x 0.254996 -- y -0.000000
-current_ray x 0.255959 -- y -0.000000
-current_ray x 0.256921 -- y -0.000000
-current_ray x 0.257883 -- y -0.000000
-current_ray x 0.258845 -- y -0.000000
-current_ray x 0.259808 -- y -0.000000
-current_ray x 0.260770 -- y -0.000000
-current_ray x 0.261732 -- y -0.000000
-current_ray x 0.262694 -- y -0.000000
-current_ray x 0.263657 -- y -0.000000
-current_ray x 0.264619 -- y -0.000000
-current_ray x 0.265581 -- y -0.000000
-current_ray x 0.266543 -- y -0.000000
-current_ray x 0.267506 -- y -0.000000
-current_ray x 0.268468 -- y -0.000000
-current_ray x 0.269430 -- y -0.000000
-current_ray x 0.270392 -- y -0.000000
-current_ray x 0.271355 -- y -0.000000
-current_ray x 0.272317 -- y -0.000000
-current_ray x 0.273279 -- y -0.000000
-current_ray x 0.274241 -- y -0.000000
-current_ray x 0.275204 -- y -0.000000
-current_ray x 0.276166 -- y -0.000000
-current_ray x 0.277128 -- y -0.000000
-current_ray x 0.278090 -- y -0.000000
-current_ray x 0.279053 -- y -0.000000
-current_ray x 0.280015 -- y -0.000000
-current_ray x 0.280977 -- y -0.000000
-current_ray x 0.281939 -- y -0.000000
-current_ray x 0.282902 -- y -0.000000
-current_ray x 0.283864 -- y -0.000000
-current_ray x 0.284826 -- y -0.000000
-current_ray x 0.285788 -- y -0.000000
-current_ray x 0.286751 -- y -0.000000
-current_ray x 0.287713 -- y -0.000000
-current_ray x 0.288675 -- y -0.000000
-current_ray x 0.289637 -- y -0.000000
-current_ray x 0.290600 -- y -0.000000
-current_ray x 0.291562 -- y -0.000000
-current_ray x 0.292524 -- y -0.000000
-current_ray x 0.293486 -- y -0.000000
-current_ray x 0.294449 -- y -0.000000
-current_ray x 0.295411 -- y -0.000000
-current_ray x 0.296373 -- y -0.000000
-current_ray x 0.297335 -- y -0.000000
-current_ray x 0.298298 -- y -0.000000
-current_ray x 0.299260 -- y -0.000000
-current_ray x 0.300222 -- y -0.000000
-current_ray x 0.301184 -- y -0.000000
-current_ray x 0.302147 -- y -0.000000
-current_ray x 0.303109 -- y -0.000000
-current_ray x 0.304071 -- y -0.000000
-current_ray x 0.305033 -- y -0.000000
-current_ray x 0.305996 -- y -0.000000
-current_ray x 0.306958 -- y -0.000000
-current_ray x 0.307920 -- y -0.000000
-current_ray x 0.308882 -- y -0.000000
-current_ray x 0.309845 -- y -0.000000
-current_ray x 0.310807 -- y -0.000000
-current_ray x 0.311769 -- y -0.000000
-current_ray x 0.312731 -- y -0.000000
-current_ray x 0.313694 -- y -0.000000
-current_ray x 0.314656 -- y -0.000000
-current_ray x 0.315618 -- y -0.000000
-current_ray x 0.316580 -- y -0.000000
-current_ray x 0.317543 -- y -0.000000
-current_ray x 0.318505 -- y -0.000000
-current_ray x 0.319467 -- y -0.000000
-current_ray x 0.320429 -- y -0.000000
-current_ray x 0.321392 -- y -0.000000
-current_ray x 0.322354 -- y -0.000000
-current_ray x 0.323316 -- y -0.000000
-current_ray x 0.324278 -- y -0.000000
-current_ray x 0.325241 -- y -0.000000
-current_ray x 0.326203 -- y -0.000000
-current_ray x 0.327165 -- y -0.000000
-current_ray x 0.328127 -- y -0.000000
-current_ray x 0.329090 -- y -0.000000
-current_ray x 0.330052 -- y -0.000000
-current_ray x 0.331014 -- y -0.000000
-current_ray x 0.331976 -- y -0.000000
-current_ray x 0.332939 -- y -0.000000
-current_ray x 0.333901 -- y -0.000000
-current_ray x 0.334863 -- y -0.000000
-current_ray x 0.335825 -- y -0.000000
-current_ray x 0.336788 -- y -0.000000
-current_ray x 0.337750 -- y -0.000000
-current_ray x 0.338712 -- y -0.000000
-current_ray x 0.339674 -- y -0.000000
-current_ray x 0.340637 -- y -0.000000
-current_ray x 0.341599 -- y -0.000000
-current_ray x 0.342561 -- y -0.000000
-current_ray x 0.343523 -- y -0.000000
-current_ray x 0.344486 -- y -0.000000
-current_ray x 0.345448 -- y -0.000000
-current_ray x 0.346410 -- y -0.000000
-current_ray x 0.347372 -- y -0.000000
-current_ray x 0.348335 -- y -0.000000
-current_ray x 0.349297 -- y -0.000000
-current_ray x 0.350259 -- y -0.000000
-current_ray x 0.351221 -- y -0.000000
-current_ray x 0.352184 -- y -0.000000
-current_ray x 0.353146 -- y -0.000000
-current_ray x 0.354108 -- y -0.000000
-current_ray x 0.355070 -- y -0.000000
-current_ray x 0.356033 -- y -0.000000
-current_ray x 0.356995 -- y -0.000000
-current_ray x 0.357957 -- y -0.000000
-current_ray x 0.358919 -- y -0.000000
-current_ray x 0.359882 -- y -0.000000
-current_ray x 0.360844 -- y -0.000000
-current_ray x 0.361806 -- y -0.000000
-current_ray x 0.362768 -- y -0.000000
-current_ray x 0.363731 -- y -0.000000
-current_ray x 0.364693 -- y -0.000000
-current_ray x 0.365655 -- y -0.000000
-current_ray x 0.366617 -- y -0.000000
-current_ray x 0.367580 -- y -0.000000
-current_ray x 0.368542 -- y -0.000000
-current_ray x 0.369504 -- y -0.000000
-current_ray x 0.370466 -- y -0.000000
-current_ray x 0.371429 -- y -0.000000
-current_ray x 0.372391 -- y -0.000000
-current_ray x 0.373353 -- y -0.000000
-current_ray x 0.374315 -- y -0.000000
-current_ray x 0.375278 -- y -0.000000
-current_ray x 0.376240 -- y -0.000000
-current_ray x 0.377202 -- y -0.000000
-current_ray x 0.378164 -- y -0.000000
-current_ray x 0.379127 -- y -0.000000
-current_ray x 0.380089 -- y -0.000000
-current_ray x 0.381051 -- y -0.000000
-current_ray x 0.382013 -- y -0.000000
-current_ray x 0.382976 -- y -0.000000
-current_ray x 0.383938 -- y -0.000000
-current_ray x 0.384900 -- y -0.000000
-current_ray x 0.385862 -- y -0.000000
-current_ray x 0.386825 -- y -0.000000
-current_ray x 0.387787 -- y -0.000000
-current_ray x 0.388749 -- y -0.000000
-current_ray x 0.389711 -- y -0.000000
-current_ray x 0.390674 -- y -0.000000
-current_ray x 0.391636 -- y -0.000000
-current_ray x 0.392598 -- y -0.000000
-current_ray x 0.393560 -- y -0.000000
-current_ray x 0.394523 -- y -0.000000
-current_ray x 0.395485 -- y -0.000000
-current_ray x 0.396447 -- y -0.000000
-current_ray x 0.397409 -- y -0.000000
-current_ray x 0.398372 -- y -0.000000
-current_ray x 0.399334 -- y -0.000000
-current_ray x 0.400296 -- y -0.000000
-current_ray x 0.401258 -- y -0.000000
-current_ray x 0.402221 -- y -0.000000
-current_ray x 0.403183 -- y -0.000000
-current_ray x 0.404145 -- y -0.000000
-current_ray x 0.405107 -- y -0.000000
-current_ray x 0.406070 -- y -0.000000
-current_ray x 0.407032 -- y -0.000000
-current_ray x 0.407994 -- y -0.000000
-current_ray x 0.408956 -- y -0.000000
-current_ray x 0.409919 -- y -0.000000
-current_ray x 0.410881 -- y -0.000000
-current_ray x 0.411843 -- y -0.000000
-current_ray x 0.412805 -- y -0.000000
-current_ray x 0.413768 -- y -0.000000
-current_ray x 0.414730 -- y -0.000000
-current_ray x 0.415692 -- y -0.000000
-current_ray x 0.416654 -- y -0.000000
-current_ray x 0.417617 -- y -0.000000
-current_ray x 0.418579 -- y -0.000000
-current_ray x 0.419541 -- y -0.000000
-current_ray x 0.420503 -- y -0.000000
-current_ray x 0.421466 -- y -0.000000
-current_ray x 0.422428 -- y -0.000000
-current_ray x 0.423390 -- y -0.000000
-current_ray x 0.424352 -- y -0.000000
-current_ray x 0.425315 -- y -0.000000
-current_ray x 0.426277 -- y -0.000000
-current_ray x 0.427239 -- y -0.000000
-current_ray x 0.428201 -- y -0.000000
-current_ray x 0.429164 -- y -0.000000
-current_ray x 0.430126 -- y -0.000000
-current_ray x 0.431088 -- y -0.000000
-current_ray x 0.432050 -- y -0.000000
-current_ray x 0.433013 -- y -0.000000
-current_ray x 0.433975 -- y -0.000000
-current_ray x 0.434937 -- y -0.000000
-current_ray x 0.435899 -- y -0.000000
-current_ray x 0.436862 -- y -0.000000
-current_ray x 0.437824 -- y -0.000000
-current_ray x 0.438786 -- y -0.000000
-current_ray x 0.439748 -- y -0.000000
-current_ray x 0.440711 -- y -0.000000
-current_ray x 0.441673 -- y -0.000000
-current_ray x 0.442635 -- y -0.000000
-current_ray x 0.443597 -- y -0.000000
-current_ray x 0.444560 -- y -0.000000
-current_ray x 0.445522 -- y -0.000000
-current_ray x 0.446484 -- y -0.000000
-current_ray x 0.447446 -- y -0.000000
-current_ray x 0.448409 -- y -0.000000
-current_ray x 0.449371 -- y -0.000000
-current_ray x 0.450333 -- y -0.000000
-current_ray x 0.451295 -- y -0.000000
-current_ray x 0.452258 -- y -0.000000
-current_ray x 0.453220 -- y -0.000000
-current_ray x 0.454182 -- y -0.000000
-current_ray x 0.455144 -- y -0.000000
-current_ray x 0.456107 -- y -0.000000
-current_ray x 0.457069 -- y -0.000000
-current_ray x 0.458031 -- y -0.000000
-current_ray x 0.458993 -- y -0.000000
-current_ray x 0.459956 -- y -0.000000
-current_ray x 0.460918 -- y -0.000000
-current_ray x 0.461880 -- y -0.000000
-current_ray x 0.462842 -- y -0.000000
-current_ray x 0.463805 -- y -0.000000
-current_ray x 0.464767 -- y -0.000000
-current_ray x 0.465729 -- y -0.000000
-current_ray x 0.466691 -- y -0.000000
-current_ray x 0.467654 -- y -0.000000
-current_ray x 0.468616 -- y -0.000000
-current_ray x 0.469578 -- y -0.000000
-current_ray x 0.470540 -- y -0.000000
-current_ray x 0.471503 -- y -0.000000
-current_ray x 0.472465 -- y -0.000000
-current_ray x 0.473427 -- y -0.000000
-current_ray x 0.474389 -- y -0.000000
-current_ray x 0.475352 -- y -0.000000
-current_ray x 0.476314 -- y -0.000000
-current_ray x 0.477276 -- y -0.000000
-current_ray x 0.478238 -- y -0.000000
-current_ray x 0.479201 -- y -0.000000
-current_ray x 0.480163 -- y -0.000000
-current_ray x 0.481125 -- y -0.000000
-current_ray x 0.482087 -- y -0.000000
-current_ray x 0.483050 -- y -0.000000
-current_ray x 0.484012 -- y -0.000000
-current_ray x 0.484974 -- y -0.000000
-current_ray x 0.485936 -- y -0.000000
-current_ray x 0.486899 -- y -0.000000
-current_ray x 0.487861 -- y -0.000000
-current_ray x 0.488823 -- y -0.000000
-current_ray x 0.489785 -- y -0.000000
-current_ray x 0.490748 -- y -0.000000
-current_ray x 0.491710 -- y -0.000000
-current_ray x 0.492672 -- y -0.000000
-current_ray x 0.493634 -- y -0.000000
-current_ray x 0.494597 -- y -0.000000
-current_ray x 0.495559 -- y -0.000000
-current_ray x 0.496521 -- y -0.000000
-current_ray x 0.497483 -- y -0.000000
-current_ray x 0.498446 -- y -0.000000
-current_ray x 0.499408 -- y -0.000000
-current_ray x 0.500370 -- y -0.000000
-current_ray x 0.501332 -- y -0.000000
-current_ray x 0.502295 -- y -0.000000
-current_ray x 0.503257 -- y -0.000000
-current_ray x 0.504219 -- y -0.000000
-current_ray x 0.505181 -- y -0.000000
-current_ray x 0.506144 -- y -0.000000
-current_ray x 0.507106 -- y -0.000000
-current_ray x 0.508068 -- y -0.000000
-current_ray x 0.509030 -- y -0.000000
-current_ray x 0.509993 -- y -0.000000
-current_ray x 0.510955 -- y -0.000000
-current_ray x 0.511917 -- y -0.000000
-current_ray x 0.512879 -- y -0.000000
-current_ray x 0.513842 -- y -0.000000
-current_ray x 0.514804 -- y -0.000000
-current_ray x 0.515766 -- y -0.000000
-current_ray x 0.516728 -- y -0.000000
-current_ray x 0.517691 -- y -0.000000
-current_ray x 0.518653 -- y -0.000000
-current_ray x 0.519615 -- y -0.000000
-current_ray x 0.520577 -- y -0.000000
-current_ray x 0.521540 -- y -0.000000
-current_ray x 0.522502 -- y -0.000000
-current_ray x 0.523464 -- y -0.000000
-current_ray x 0.524426 -- y -0.000000
-current_ray x 0.525389 -- y -0.000000
-current_ray x 0.526351 -- y -0.000000
-current_ray x 0.527313 -- y -0.000000
-current_ray x 0.528275 -- y -0.000000
-current_ray x 0.529238 -- y -0.000000
-current_ray x 0.530200 -- y -0.000000
-current_ray x 0.531162 -- y -0.000000
-current_ray x 0.532124 -- y -0.000000
-current_ray x 0.533087 -- y -0.000000
-current_ray x 0.534049 -- y -0.000000
-current_ray x 0.535011 -- y -0.000000
-current_ray x 0.535973 -- y -0.000000
-current_ray x 0.536936 -- y -0.000000
-current_ray x 0.537898 -- y -0.000000
-current_ray x 0.538860 -- y -0.000000
-current_ray x 0.539823 -- y -0.000000
-current_ray x 0.540785 -- y -0.000000
-current_ray x 0.541747 -- y -0.000000
-current_ray x 0.542709 -- y -0.000000
-current_ray x 0.543672 -- y -0.000000
-current_ray x 0.544634 -- y -0.000000
-current_ray x 0.545596 -- y -0.000000
-current_ray x 0.546558 -- y -0.000000
-current_ray x 0.547521 -- y -0.000000
-current_ray x 0.548483 -- y -0.000000
-current_ray x 0.549445 -- y -0.000000
-current_ray x 0.550407 -- y -0.000000
-current_ray x 0.551370 -- y -0.000000
-current_ray x 0.552332 -- y -0.000000
-current_ray x 0.553294 -- y -0.000000
-current_ray x 0.554256 -- y -0.000000
-current_ray x 0.555219 -- y -0.000000
-current_ray x 0.556181 -- y -0.000000
-current_ray x 0.557143 -- y -0.000000
-current_ray x 0.558105 -- y -0.000000
-current_ray x 0.559068 -- y -0.000000
-current_ray x 0.560030 -- y -0.000000
-current_ray x 0.560992 -- y -0.000000
-current_ray x 0.561954 -- y -0.000000
-current_ray x 0.562917 -- y -0.000000
-current_ray x 0.563879 -- y -0.000000
-current_ray x 0.564841 -- y -0.000000
-current_ray x 0.565803 -- y -0.000000
-current_ray x 0.566766 -- y -0.000000
-current_ray x 0.567728 -- y -0.000000
-current_ray x 0.568690 -- y -0.000000
-current_ray x 0.569652 -- y -0.000000
-current_ray x 0.570615 -- y -0.000000
-current_ray x 0.571577 -- y -0.000000
-current_ray x 0.572539 -- y -0.000000
-current_ray x 0.573501 -- y -0.000000
-current_ray x 0.574464 -- y -0.000000
-current_ray x 0.575426 -- y -0.000000
-current_ray x 0.576388 -- y -0.000000
-current_ray x 0.577350 -- y -0.000000
+Perpendicular vector -> y: 0.000000 - x : -1.000000
+current_ray_dir x -0.577350 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.922650 -- y 3.500000
+current_ray_dir x -0.576388 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.923612 -- y 3.500000
+current_ray_dir x -0.575426 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.924574 -- y 3.500000
+current_ray_dir x -0.574464 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.925536 -- y 3.500000
+current_ray_dir x -0.573501 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.926499 -- y 3.500000
+current_ray_dir x -0.572539 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.927461 -- y 3.500000
+current_ray_dir x -0.571577 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.928423 -- y 3.500000
+current_ray_dir x -0.570615 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.929385 -- y 3.500000
+current_ray_dir x -0.569652 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.930348 -- y 3.500000
+current_ray_dir x -0.568690 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.931310 -- y 3.500000
+current_ray_dir x -0.567728 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.932272 -- y 3.500000
+current_ray_dir x -0.566766 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.933234 -- y 3.500000
+current_ray_dir x -0.565803 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.934197 -- y 3.500000
+current_ray_dir x -0.564841 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.935159 -- y 3.500000
+current_ray_dir x -0.563879 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.936121 -- y 3.500000
+current_ray_dir x -0.562917 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.937083 -- y 3.500000
+current_ray_dir x -0.561954 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.938046 -- y 3.500000
+current_ray_dir x -0.560992 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.939008 -- y 3.500000
+current_ray_dir x -0.560030 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.939970 -- y 3.500000
+current_ray_dir x -0.559068 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.940932 -- y 3.500000
+current_ray_dir x -0.558105 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.941895 -- y 3.500000
+current_ray_dir x -0.557143 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.942857 -- y 3.500000
+current_ray_dir x -0.556181 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.943819 -- y 3.500000
+current_ray_dir x -0.555219 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.944781 -- y 3.500000
+current_ray_dir x -0.554256 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.945744 -- y 3.500000
+current_ray_dir x -0.553294 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.946706 -- y 3.500000
+current_ray_dir x -0.552332 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.947668 -- y 3.500000
+current_ray_dir x -0.551370 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.948630 -- y 3.500000
+current_ray_dir x -0.550407 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.949593 -- y 3.500000
+current_ray_dir x -0.549445 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.950555 -- y 3.500000
+current_ray_dir x -0.548483 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.951517 -- y 3.500000
+current_ray_dir x -0.547521 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.952479 -- y 3.500000
+current_ray_dir x -0.546558 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.953442 -- y 3.500000
+current_ray_dir x -0.545596 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.954404 -- y 3.500000
+current_ray_dir x -0.544634 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.955366 -- y 3.500000
+current_ray_dir x -0.543672 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.956328 -- y 3.500000
+current_ray_dir x -0.542709 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.957291 -- y 3.500000
+current_ray_dir x -0.541747 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.958253 -- y 3.500000
+current_ray_dir x -0.540785 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.959215 -- y 3.500000
+current_ray_dir x -0.539823 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.960177 -- y 3.500000
+current_ray_dir x -0.538860 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.961140 -- y 3.500000
+current_ray_dir x -0.537898 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.962102 -- y 3.500000
+current_ray_dir x -0.536936 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.963064 -- y 3.500000
+current_ray_dir x -0.535973 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.964027 -- y 3.500000
+current_ray_dir x -0.535011 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.964989 -- y 3.500000
+current_ray_dir x -0.534049 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.965951 -- y 3.500000
+current_ray_dir x -0.533087 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.966913 -- y 3.500000
+current_ray_dir x -0.532124 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.967876 -- y 3.500000
+current_ray_dir x -0.531162 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.968838 -- y 3.500000
+current_ray_dir x -0.530200 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.969800 -- y 3.500000
+current_ray_dir x -0.529238 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.970762 -- y 3.500000
+current_ray_dir x -0.528275 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.971725 -- y 3.500000
+current_ray_dir x -0.527313 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.972687 -- y 3.500000
+current_ray_dir x -0.526351 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.973649 -- y 3.500000
+current_ray_dir x -0.525389 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.974611 -- y 3.500000
+current_ray_dir x -0.524426 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.975574 -- y 3.500000
+current_ray_dir x -0.523464 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.976536 -- y 3.500000
+current_ray_dir x -0.522502 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.977498 -- y 3.500000
+current_ray_dir x -0.521540 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.978460 -- y 3.500000
+current_ray_dir x -0.520577 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.979423 -- y 3.500000
+current_ray_dir x -0.519615 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.980385 -- y 3.500000
+current_ray_dir x -0.518653 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.981347 -- y 3.500000
+current_ray_dir x -0.517691 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.982309 -- y 3.500000
+current_ray_dir x -0.516728 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.983272 -- y 3.500000
+current_ray_dir x -0.515766 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.984234 -- y 3.500000
+current_ray_dir x -0.514804 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.985196 -- y 3.500000
+current_ray_dir x -0.513842 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.986158 -- y 3.500000
+current_ray_dir x -0.512879 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.987121 -- y 3.500000
+current_ray_dir x -0.511917 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.988083 -- y 3.500000
+current_ray_dir x -0.510955 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.989045 -- y 3.500000
+current_ray_dir x -0.509993 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.990007 -- y 3.500000
+current_ray_dir x -0.509030 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.990970 -- y 3.500000
+current_ray_dir x -0.508068 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.991932 -- y 3.500000
+current_ray_dir x -0.507106 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.992894 -- y 3.500000
+current_ray_dir x -0.506144 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.993856 -- y 3.500000
+current_ray_dir x -0.505181 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.994819 -- y 3.500000
+current_ray_dir x -0.504219 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.995781 -- y 3.500000
+current_ray_dir x -0.503257 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.996743 -- y 3.500000
+current_ray_dir x -0.502295 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.997705 -- y 3.500000
+current_ray_dir x -0.501332 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.998668 -- y 3.500000
+current_ray_dir x -0.500370 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 4.999630 -- y 3.500000
+current_ray_dir x -0.499408 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.000592 -- y 3.500000
+current_ray_dir x -0.498446 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.001554 -- y 3.500000
+current_ray_dir x -0.497483 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.002517 -- y 3.500000
+current_ray_dir x -0.496521 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.003479 -- y 3.500000
+current_ray_dir x -0.495559 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.004441 -- y 3.500000
+current_ray_dir x -0.494597 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.005403 -- y 3.500000
+current_ray_dir x -0.493634 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.006366 -- y 3.500000
+current_ray_dir x -0.492672 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.007328 -- y 3.500000
+current_ray_dir x -0.491710 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.008290 -- y 3.500000
+current_ray_dir x -0.490748 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.009252 -- y 3.500000
+current_ray_dir x -0.489785 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.010215 -- y 3.500000
+current_ray_dir x -0.488823 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.011177 -- y 3.500000
+current_ray_dir x -0.487861 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.012139 -- y 3.500000
+current_ray_dir x -0.486899 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.013101 -- y 3.500000
+current_ray_dir x -0.485936 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.014064 -- y 3.500000
+current_ray_dir x -0.484974 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.015026 -- y 3.500000
+current_ray_dir x -0.484012 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.015988 -- y 3.500000
+current_ray_dir x -0.483050 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.016950 -- y 3.500000
+current_ray_dir x -0.482087 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.017913 -- y 3.500000
+current_ray_dir x -0.481125 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.018875 -- y 3.500000
+current_ray_dir x -0.480163 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.019837 -- y 3.500000
+current_ray_dir x -0.479201 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.020799 -- y 3.500000
+current_ray_dir x -0.478238 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.021762 -- y 3.500000
+current_ray_dir x -0.477276 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.022724 -- y 3.500000
+current_ray_dir x -0.476314 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.023686 -- y 3.500000
+current_ray_dir x -0.475352 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.024648 -- y 3.500000
+current_ray_dir x -0.474389 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.025611 -- y 3.500000
+current_ray_dir x -0.473427 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.026573 -- y 3.500000
+current_ray_dir x -0.472465 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.027535 -- y 3.500000
+current_ray_dir x -0.471503 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.028497 -- y 3.500000
+current_ray_dir x -0.470540 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.029460 -- y 3.500000
+current_ray_dir x -0.469578 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.030422 -- y 3.500000
+current_ray_dir x -0.468616 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.031384 -- y 3.500000
+current_ray_dir x -0.467654 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.032346 -- y 3.500000
+current_ray_dir x -0.466691 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.033309 -- y 3.500000
+current_ray_dir x -0.465729 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.034271 -- y 3.500000
+current_ray_dir x -0.464767 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.035233 -- y 3.500000
+current_ray_dir x -0.463805 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.036195 -- y 3.500000
+current_ray_dir x -0.462842 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.037158 -- y 3.500000
+current_ray_dir x -0.461880 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.038120 -- y 3.500000
+current_ray_dir x -0.460918 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.039082 -- y 3.500000
+current_ray_dir x -0.459956 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.040044 -- y 3.500000
+current_ray_dir x -0.458993 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.041007 -- y 3.500000
+current_ray_dir x -0.458031 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.041969 -- y 3.500000
+current_ray_dir x -0.457069 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.042931 -- y 3.500000
+current_ray_dir x -0.456107 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.043893 -- y 3.500000
+current_ray_dir x -0.455144 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.044856 -- y 3.500000
+current_ray_dir x -0.454182 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.045818 -- y 3.500000
+current_ray_dir x -0.453220 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.046780 -- y 3.500000
+current_ray_dir x -0.452258 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.047742 -- y 3.500000
+current_ray_dir x -0.451295 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.048705 -- y 3.500000
+current_ray_dir x -0.450333 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.049667 -- y 3.500000
+current_ray_dir x -0.449371 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.050629 -- y 3.500000
+current_ray_dir x -0.448409 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.051591 -- y 3.500000
+current_ray_dir x -0.447446 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.052554 -- y 3.500000
+current_ray_dir x -0.446484 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.053516 -- y 3.500000
+current_ray_dir x -0.445522 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.054478 -- y 3.500000
+current_ray_dir x -0.444560 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.055440 -- y 3.500000
+current_ray_dir x -0.443597 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.056403 -- y 3.500000
+current_ray_dir x -0.442635 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.057365 -- y 3.500000
+current_ray_dir x -0.441673 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.058327 -- y 3.500000
+current_ray_dir x -0.440711 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.059289 -- y 3.500000
+current_ray_dir x -0.439748 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.060252 -- y 3.500000
+current_ray_dir x -0.438786 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.061214 -- y 3.500000
+current_ray_dir x -0.437824 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.062176 -- y 3.500000
+current_ray_dir x -0.436862 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.063138 -- y 3.500000
+current_ray_dir x -0.435899 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.064101 -- y 3.500000
+current_ray_dir x -0.434937 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.065063 -- y 3.500000
+current_ray_dir x -0.433975 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.066025 -- y 3.500000
+current_ray_dir x -0.433013 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.066987 -- y 3.500000
+current_ray_dir x -0.432050 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.067950 -- y 3.500000
+current_ray_dir x -0.431088 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.068912 -- y 3.500000
+current_ray_dir x -0.430126 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.069874 -- y 3.500000
+current_ray_dir x -0.429164 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.070836 -- y 3.500000
+current_ray_dir x -0.428201 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.071799 -- y 3.500000
+current_ray_dir x -0.427239 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.072761 -- y 3.500000
+current_ray_dir x -0.426277 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.073723 -- y 3.500000
+current_ray_dir x -0.425315 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.074685 -- y 3.500000
+current_ray_dir x -0.424352 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.075648 -- y 3.500000
+current_ray_dir x -0.423390 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.076610 -- y 3.500000
+current_ray_dir x -0.422428 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.077572 -- y 3.500000
+current_ray_dir x -0.421466 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.078534 -- y 3.500000
+current_ray_dir x -0.420503 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.079497 -- y 3.500000
+current_ray_dir x -0.419541 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.080459 -- y 3.500000
+current_ray_dir x -0.418579 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.081421 -- y 3.500000
+current_ray_dir x -0.417617 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.082383 -- y 3.500000
+current_ray_dir x -0.416654 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.083346 -- y 3.500000
+current_ray_dir x -0.415692 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.084308 -- y 3.500000
+current_ray_dir x -0.414730 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.085270 -- y 3.500000
+current_ray_dir x -0.413768 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.086232 -- y 3.500000
+current_ray_dir x -0.412805 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.087195 -- y 3.500000
+current_ray_dir x -0.411843 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.088157 -- y 3.500000
+current_ray_dir x -0.410881 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.089119 -- y 3.500000
+current_ray_dir x -0.409919 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.090081 -- y 3.500000
+current_ray_dir x -0.408956 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.091044 -- y 3.500000
+current_ray_dir x -0.407994 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.092006 -- y 3.500000
+current_ray_dir x -0.407032 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.092968 -- y 3.500000
+current_ray_dir x -0.406070 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.093930 -- y 3.500000
+current_ray_dir x -0.405107 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.094893 -- y 3.500000
+current_ray_dir x -0.404145 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.095855 -- y 3.500000
+current_ray_dir x -0.403183 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.096817 -- y 3.500000
+current_ray_dir x -0.402221 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.097779 -- y 3.500000
+current_ray_dir x -0.401258 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.098742 -- y 3.500000
+current_ray_dir x -0.400296 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.099704 -- y 3.500000
+current_ray_dir x -0.399334 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.100666 -- y 3.500000
+current_ray_dir x -0.398372 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.101628 -- y 3.500000
+current_ray_dir x -0.397409 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.102591 -- y 3.500000
+current_ray_dir x -0.396447 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.103553 -- y 3.500000
+current_ray_dir x -0.395485 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.104515 -- y 3.500000
+current_ray_dir x -0.394523 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.105477 -- y 3.500000
+current_ray_dir x -0.393560 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.106440 -- y 3.500000
+current_ray_dir x -0.392598 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.107402 -- y 3.500000
+current_ray_dir x -0.391636 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.108364 -- y 3.500000
+current_ray_dir x -0.390674 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.109326 -- y 3.500000
+current_ray_dir x -0.389711 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.110289 -- y 3.500000
+current_ray_dir x -0.388749 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.111251 -- y 3.500000
+current_ray_dir x -0.387787 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.112213 -- y 3.500000
+current_ray_dir x -0.386825 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.113175 -- y 3.500000
+current_ray_dir x -0.385862 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.114138 -- y 3.500000
+current_ray_dir x -0.384900 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.115100 -- y 3.500000
+current_ray_dir x -0.383938 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.116062 -- y 3.500000
+current_ray_dir x -0.382976 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.117024 -- y 3.500000
+current_ray_dir x -0.382013 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.117987 -- y 3.500000
+current_ray_dir x -0.381051 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.118949 -- y 3.500000
+current_ray_dir x -0.380089 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.119911 -- y 3.500000
+current_ray_dir x -0.379127 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.120873 -- y 3.500000
+current_ray_dir x -0.378164 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.121836 -- y 3.500000
+current_ray_dir x -0.377202 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.122798 -- y 3.500000
+current_ray_dir x -0.376240 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.123760 -- y 3.500000
+current_ray_dir x -0.375278 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.124722 -- y 3.500000
+current_ray_dir x -0.374315 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.125685 -- y 3.500000
+current_ray_dir x -0.373353 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.126647 -- y 3.500000
+current_ray_dir x -0.372391 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.127609 -- y 3.500000
+current_ray_dir x -0.371429 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.128571 -- y 3.500000
+current_ray_dir x -0.370466 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.129534 -- y 3.500000
+current_ray_dir x -0.369504 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.130496 -- y 3.500000
+current_ray_dir x -0.368542 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.131458 -- y 3.500000
+current_ray_dir x -0.367580 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.132420 -- y 3.500000
+current_ray_dir x -0.366617 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.133383 -- y 3.500000
+current_ray_dir x -0.365655 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.134345 -- y 3.500000
+current_ray_dir x -0.364693 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.135307 -- y 3.500000
+current_ray_dir x -0.363731 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.136269 -- y 3.500000
+current_ray_dir x -0.362768 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.137232 -- y 3.500000
+current_ray_dir x -0.361806 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.138194 -- y 3.500000
+current_ray_dir x -0.360844 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.139156 -- y 3.500000
+current_ray_dir x -0.359882 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.140118 -- y 3.500000
+current_ray_dir x -0.358919 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.141081 -- y 3.500000
+current_ray_dir x -0.357957 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.142043 -- y 3.500000
+current_ray_dir x -0.356995 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.143005 -- y 3.500000
+current_ray_dir x -0.356033 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.143967 -- y 3.500000
+current_ray_dir x -0.355070 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.144930 -- y 3.500000
+current_ray_dir x -0.354108 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.145892 -- y 3.500000
+current_ray_dir x -0.353146 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.146854 -- y 3.500000
+current_ray_dir x -0.352184 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.147816 -- y 3.500000
+current_ray_dir x -0.351221 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.148779 -- y 3.500000
+current_ray_dir x -0.350259 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.149741 -- y 3.500000
+current_ray_dir x -0.349297 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.150703 -- y 3.500000
+current_ray_dir x -0.348335 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.151665 -- y 3.500000
+current_ray_dir x -0.347372 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.152628 -- y 3.500000
+current_ray_dir x -0.346410 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.153590 -- y 3.500000
+current_ray_dir x -0.345448 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.154552 -- y 3.500000
+current_ray_dir x -0.344486 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.155514 -- y 3.500000
+current_ray_dir x -0.343523 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.156477 -- y 3.500000
+current_ray_dir x -0.342561 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.157439 -- y 3.500000
+current_ray_dir x -0.341599 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.158401 -- y 3.500000
+current_ray_dir x -0.340637 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.159363 -- y 3.500000
+current_ray_dir x -0.339674 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.160326 -- y 3.500000
+current_ray_dir x -0.338712 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.161288 -- y 3.500000
+current_ray_dir x -0.337750 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.162250 -- y 3.500000
+current_ray_dir x -0.336788 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.163212 -- y 3.500000
+current_ray_dir x -0.335825 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.164175 -- y 3.500000
+current_ray_dir x -0.334863 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.165137 -- y 3.500000
+current_ray_dir x -0.333901 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.166099 -- y 3.500000
+current_ray_dir x -0.332939 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.167061 -- y 3.500000
+current_ray_dir x -0.331976 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.168024 -- y 3.500000
+current_ray_dir x -0.331014 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.168986 -- y 3.500000
+current_ray_dir x -0.330052 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.169948 -- y 3.500000
+current_ray_dir x -0.329090 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.170910 -- y 3.500000
+current_ray_dir x -0.328127 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.171873 -- y 3.500000
+current_ray_dir x -0.327165 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.172835 -- y 3.500000
+current_ray_dir x -0.326203 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.173797 -- y 3.500000
+current_ray_dir x -0.325241 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.174759 -- y 3.500000
+current_ray_dir x -0.324278 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.175722 -- y 3.500000
+current_ray_dir x -0.323316 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.176684 -- y 3.500000
+current_ray_dir x -0.322354 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.177646 -- y 3.500000
+current_ray_dir x -0.321392 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.178608 -- y 3.500000
+current_ray_dir x -0.320429 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.179571 -- y 3.500000
+current_ray_dir x -0.319467 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.180533 -- y 3.500000
+current_ray_dir x -0.318505 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.181495 -- y 3.500000
+current_ray_dir x -0.317543 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.182457 -- y 3.500000
+current_ray_dir x -0.316580 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.183420 -- y 3.500000
+current_ray_dir x -0.315618 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.184382 -- y 3.500000
+current_ray_dir x -0.314656 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.185344 -- y 3.500000
+current_ray_dir x -0.313694 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.186306 -- y 3.500000
+current_ray_dir x -0.312731 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.187269 -- y 3.500000
+current_ray_dir x -0.311769 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.188231 -- y 3.500000
+current_ray_dir x -0.310807 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.189193 -- y 3.500000
+current_ray_dir x -0.309845 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.190155 -- y 3.500000
+current_ray_dir x -0.308882 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.191118 -- y 3.500000
+current_ray_dir x -0.307920 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.192080 -- y 3.500000
+current_ray_dir x -0.306958 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.193042 -- y 3.500000
+current_ray_dir x -0.305996 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.194004 -- y 3.500000
+current_ray_dir x -0.305033 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.194967 -- y 3.500000
+current_ray_dir x -0.304071 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.195929 -- y 3.500000
+current_ray_dir x -0.303109 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.196891 -- y 3.500000
+current_ray_dir x -0.302147 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.197853 -- y 3.500000
+current_ray_dir x -0.301184 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.198816 -- y 3.500000
+current_ray_dir x -0.300222 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.199778 -- y 3.500000
+current_ray_dir x -0.299260 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.200740 -- y 3.500000
+current_ray_dir x -0.298298 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.201702 -- y 3.500000
+current_ray_dir x -0.297335 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.202665 -- y 3.500000
+current_ray_dir x -0.296373 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.203627 -- y 3.500000
+current_ray_dir x -0.295411 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.204589 -- y 3.500000
+current_ray_dir x -0.294449 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.205551 -- y 3.500000
+current_ray_dir x -0.293486 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.206514 -- y 3.500000
+current_ray_dir x -0.292524 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.207476 -- y 3.500000
+current_ray_dir x -0.291562 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.208438 -- y 3.500000
+current_ray_dir x -0.290600 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.209400 -- y 3.500000
+current_ray_dir x -0.289637 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.210363 -- y 3.500000
+current_ray_dir x -0.288675 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.211325 -- y 3.500000
+current_ray_dir x -0.287713 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.212287 -- y 3.500000
+current_ray_dir x -0.286751 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.213249 -- y 3.500000
+current_ray_dir x -0.285788 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.214212 -- y 3.500000
+current_ray_dir x -0.284826 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.215174 -- y 3.500000
+current_ray_dir x -0.283864 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.216136 -- y 3.500000
+current_ray_dir x -0.282902 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.217098 -- y 3.500000
+current_ray_dir x -0.281939 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.218061 -- y 3.500000
+current_ray_dir x -0.280977 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.219023 -- y 3.500000
+current_ray_dir x -0.280015 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.219985 -- y 3.500000
+current_ray_dir x -0.279053 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.220947 -- y 3.500000
+current_ray_dir x -0.278090 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.221910 -- y 3.500000
+current_ray_dir x -0.277128 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.222872 -- y 3.500000
+current_ray_dir x -0.276166 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.223834 -- y 3.500000
+current_ray_dir x -0.275204 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.224796 -- y 3.500000
+current_ray_dir x -0.274241 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.225759 -- y 3.500000
+current_ray_dir x -0.273279 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.226721 -- y 3.500000
+current_ray_dir x -0.272317 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.227683 -- y 3.500000
+current_ray_dir x -0.271355 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.228645 -- y 3.500000
+current_ray_dir x -0.270392 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.229608 -- y 3.500000
+current_ray_dir x -0.269430 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.230570 -- y 3.500000
+current_ray_dir x -0.268468 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.231532 -- y 3.500000
+current_ray_dir x -0.267506 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.232494 -- y 3.500000
+current_ray_dir x -0.266543 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.233457 -- y 3.500000
+current_ray_dir x -0.265581 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.234419 -- y 3.500000
+current_ray_dir x -0.264619 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.235381 -- y 3.500000
+current_ray_dir x -0.263657 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.236343 -- y 3.500000
+current_ray_dir x -0.262694 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.237306 -- y 3.500000
+current_ray_dir x -0.261732 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.238268 -- y 3.500000
+current_ray_dir x -0.260770 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.239230 -- y 3.500000
+current_ray_dir x -0.259808 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.240192 -- y 3.500000
+current_ray_dir x -0.258845 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.241155 -- y 3.500000
+current_ray_dir x -0.257883 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.242117 -- y 3.500000
+current_ray_dir x -0.256921 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.243079 -- y 3.500000
+current_ray_dir x -0.255959 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.244041 -- y 3.500000
+current_ray_dir x -0.254996 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.245004 -- y 3.500000
+current_ray_dir x -0.254034 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.245966 -- y 3.500000
+current_ray_dir x -0.253072 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.246928 -- y 3.500000
+current_ray_dir x -0.252110 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.247890 -- y 3.500000
+current_ray_dir x -0.251147 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.248853 -- y 3.500000
+current_ray_dir x -0.250185 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.249815 -- y 3.500000
+current_ray_dir x -0.249223 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.250777 -- y 3.500000
+current_ray_dir x -0.248261 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.251739 -- y 3.500000
+current_ray_dir x -0.247298 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.252702 -- y 3.500000
+current_ray_dir x -0.246336 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.253664 -- y 3.500000
+current_ray_dir x -0.245374 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.254626 -- y 3.500000
+current_ray_dir x -0.244412 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.255588 -- y 3.500000
+current_ray_dir x -0.243449 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.256551 -- y 3.500000
+current_ray_dir x -0.242487 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.257513 -- y 3.500000
+current_ray_dir x -0.241525 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.258475 -- y 3.500000
+current_ray_dir x -0.240563 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.259437 -- y 3.500000
+current_ray_dir x -0.239600 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.260400 -- y 3.500000
+current_ray_dir x -0.238638 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.261362 -- y 3.500000
+current_ray_dir x -0.237676 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.262324 -- y 3.500000
+current_ray_dir x -0.236714 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.263286 -- y 3.500000
+current_ray_dir x -0.235751 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.264249 -- y 3.500000
+current_ray_dir x -0.234789 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.265211 -- y 3.500000
+current_ray_dir x -0.233827 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.266173 -- y 3.500000
+current_ray_dir x -0.232865 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.267135 -- y 3.500000
+current_ray_dir x -0.231902 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.268098 -- y 3.500000
+current_ray_dir x -0.230940 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.269060 -- y 3.500000
+current_ray_dir x -0.229978 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.270022 -- y 3.500000
+current_ray_dir x -0.229016 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.270984 -- y 3.500000
+current_ray_dir x -0.228053 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.271947 -- y 3.500000
+current_ray_dir x -0.227091 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.272909 -- y 3.500000
+current_ray_dir x -0.226129 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.273871 -- y 3.500000
+current_ray_dir x -0.225167 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.274833 -- y 3.500000
+current_ray_dir x -0.224204 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.275796 -- y 3.500000
+current_ray_dir x -0.223242 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.276758 -- y 3.500000
+current_ray_dir x -0.222280 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.277720 -- y 3.500000
+current_ray_dir x -0.221318 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.278682 -- y 3.500000
+current_ray_dir x -0.220355 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.279645 -- y 3.500000
+current_ray_dir x -0.219393 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.280607 -- y 3.500000
+current_ray_dir x -0.218431 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.281569 -- y 3.500000
+current_ray_dir x -0.217469 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.282531 -- y 3.500000
+current_ray_dir x -0.216506 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.283494 -- y 3.500000
+current_ray_dir x -0.215544 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.284456 -- y 3.500000
+current_ray_dir x -0.214582 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.285418 -- y 3.500000
+current_ray_dir x -0.213620 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.286380 -- y 3.500000
+current_ray_dir x -0.212657 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.287343 -- y 3.500000
+current_ray_dir x -0.211695 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.288305 -- y 3.500000
+current_ray_dir x -0.210733 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.289267 -- y 3.500000
+current_ray_dir x -0.209771 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.290229 -- y 3.500000
+current_ray_dir x -0.208808 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.291192 -- y 3.500000
+current_ray_dir x -0.207846 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.292154 -- y 3.500000
+current_ray_dir x -0.206884 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.293116 -- y 3.500000
+current_ray_dir x -0.205922 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.294078 -- y 3.500000
+current_ray_dir x -0.204959 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.295041 -- y 3.500000
+current_ray_dir x -0.203997 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.296003 -- y 3.500000
+current_ray_dir x -0.203035 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.296965 -- y 3.500000
+current_ray_dir x -0.202073 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.297927 -- y 3.500000
+current_ray_dir x -0.201110 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.298890 -- y 3.500000
+current_ray_dir x -0.200148 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.299852 -- y 3.500000
+current_ray_dir x -0.199186 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.300814 -- y 3.500000
+current_ray_dir x -0.198224 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.301776 -- y 3.500000
+current_ray_dir x -0.197261 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.302739 -- y 3.500000
+current_ray_dir x -0.196299 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.303701 -- y 3.500000
+current_ray_dir x -0.195337 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.304663 -- y 3.500000
+current_ray_dir x -0.194375 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.305625 -- y 3.500000
+current_ray_dir x -0.193412 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.306588 -- y 3.500000
+current_ray_dir x -0.192450 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.307550 -- y 3.500000
+current_ray_dir x -0.191488 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.308512 -- y 3.500000
+current_ray_dir x -0.190526 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.309474 -- y 3.500000
+current_ray_dir x -0.189563 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.310437 -- y 3.500000
+current_ray_dir x -0.188601 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.311399 -- y 3.500000
+current_ray_dir x -0.187639 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.312361 -- y 3.500000
+current_ray_dir x -0.186677 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.313323 -- y 3.500000
+current_ray_dir x -0.185714 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.314286 -- y 3.500000
+current_ray_dir x -0.184752 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.315248 -- y 3.500000
+current_ray_dir x -0.183790 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.316210 -- y 3.500000
+current_ray_dir x -0.182828 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.317172 -- y 3.500000
+current_ray_dir x -0.181865 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.318135 -- y 3.500000
+current_ray_dir x -0.180903 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.319097 -- y 3.500000
+current_ray_dir x -0.179941 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.320059 -- y 3.500000
+current_ray_dir x -0.178979 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.321021 -- y 3.500000
+current_ray_dir x -0.178016 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.321984 -- y 3.500000
+current_ray_dir x -0.177054 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.322946 -- y 3.500000
+current_ray_dir x -0.176092 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.323908 -- y 3.500000
+current_ray_dir x -0.175130 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.324870 -- y 3.500000
+current_ray_dir x -0.174167 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.325833 -- y 3.500000
+current_ray_dir x -0.173205 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.326795 -- y 3.500000
+current_ray_dir x -0.172243 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.327757 -- y 3.500000
+current_ray_dir x -0.171281 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.328719 -- y 3.500000
+current_ray_dir x -0.170318 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.329682 -- y 3.500000
+current_ray_dir x -0.169356 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.330644 -- y 3.500000
+current_ray_dir x -0.168394 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.331606 -- y 3.500000
+current_ray_dir x -0.167432 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.332568 -- y 3.500000
+current_ray_dir x -0.166469 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.333531 -- y 3.500000
+current_ray_dir x -0.165507 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.334493 -- y 3.500000
+current_ray_dir x -0.164545 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.335455 -- y 3.500000
+current_ray_dir x -0.163583 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.336417 -- y 3.500000
+current_ray_dir x -0.162620 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.337380 -- y 3.500000
+current_ray_dir x -0.161658 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.338342 -- y 3.500000
+current_ray_dir x -0.160696 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.339304 -- y 3.500000
+current_ray_dir x -0.159734 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.340266 -- y 3.500000
+current_ray_dir x -0.158771 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.341229 -- y 3.500000
+current_ray_dir x -0.157809 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.342191 -- y 3.500000
+current_ray_dir x -0.156847 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.343153 -- y 3.500000
+current_ray_dir x -0.155885 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.344115 -- y 3.500000
+current_ray_dir x -0.154922 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.345078 -- y 3.500000
+current_ray_dir x -0.153960 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.346040 -- y 3.500000
+current_ray_dir x -0.152998 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.347002 -- y 3.500000
+current_ray_dir x -0.152036 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.347964 -- y 3.500000
+current_ray_dir x -0.151073 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.348927 -- y 3.500000
+current_ray_dir x -0.150111 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.349889 -- y 3.500000
+current_ray_dir x -0.149149 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.350851 -- y 3.500000
+current_ray_dir x -0.148187 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.351813 -- y 3.500000
+current_ray_dir x -0.147224 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.352776 -- y 3.500000
+current_ray_dir x -0.146262 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.353738 -- y 3.500000
+current_ray_dir x -0.145300 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.354700 -- y 3.500000
+current_ray_dir x -0.144338 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.355662 -- y 3.500000
+current_ray_dir x -0.143375 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.356625 -- y 3.500000
+current_ray_dir x -0.142413 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.357587 -- y 3.500000
+current_ray_dir x -0.141451 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.358549 -- y 3.500000
+current_ray_dir x -0.140489 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.359511 -- y 3.500000
+current_ray_dir x -0.139526 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.360474 -- y 3.500000
+current_ray_dir x -0.138564 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.361436 -- y 3.500000
+current_ray_dir x -0.137602 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.362398 -- y 3.500000
+current_ray_dir x -0.136640 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.363360 -- y 3.500000
+current_ray_dir x -0.135677 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.364323 -- y 3.500000
+current_ray_dir x -0.134715 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.365285 -- y 3.500000
+current_ray_dir x -0.133753 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.366247 -- y 3.500000
+current_ray_dir x -0.132791 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.367209 -- y 3.500000
+current_ray_dir x -0.131828 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.368172 -- y 3.500000
+current_ray_dir x -0.130866 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.369134 -- y 3.500000
+current_ray_dir x -0.129904 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.370096 -- y 3.500000
+current_ray_dir x -0.128942 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.371058 -- y 3.500000
+current_ray_dir x -0.127979 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.372021 -- y 3.500000
+current_ray_dir x -0.127017 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.372983 -- y 3.500000
+current_ray_dir x -0.126055 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.373945 -- y 3.500000
+current_ray_dir x -0.125093 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.374907 -- y 3.500000
+current_ray_dir x -0.124130 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.375870 -- y 3.500000
+current_ray_dir x -0.123168 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.376832 -- y 3.500000
+current_ray_dir x -0.122206 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.377794 -- y 3.500000
+current_ray_dir x -0.121244 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.378756 -- y 3.500000
+current_ray_dir x -0.120281 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.379719 -- y 3.500000
+current_ray_dir x -0.119319 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.380681 -- y 3.500000
+current_ray_dir x -0.118357 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.381643 -- y 3.500000
+current_ray_dir x -0.117395 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.382605 -- y 3.500000
+current_ray_dir x -0.116432 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.383568 -- y 3.500000
+current_ray_dir x -0.115470 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.384530 -- y 3.500000
+current_ray_dir x -0.114508 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.385492 -- y 3.500000
+current_ray_dir x -0.113546 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.386454 -- y 3.500000
+current_ray_dir x -0.112583 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.387417 -- y 3.500000
+current_ray_dir x -0.111621 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.388379 -- y 3.500000
+current_ray_dir x -0.110659 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.389341 -- y 3.500000
+current_ray_dir x -0.109697 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.390303 -- y 3.500000
+current_ray_dir x -0.108734 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.391266 -- y 3.500000
+current_ray_dir x -0.107772 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.392228 -- y 3.500000
+current_ray_dir x -0.106810 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.393190 -- y 3.500000
+current_ray_dir x -0.105848 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.394152 -- y 3.500000
+current_ray_dir x -0.104885 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.395115 -- y 3.500000
+current_ray_dir x -0.103923 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.396077 -- y 3.500000
+current_ray_dir x -0.102961 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.397039 -- y 3.500000
+current_ray_dir x -0.101999 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.398001 -- y 3.500000
+current_ray_dir x -0.101036 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.398964 -- y 3.500000
+current_ray_dir x -0.100074 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.399926 -- y 3.500000
+current_ray_dir x -0.099112 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.400888 -- y 3.500000
+current_ray_dir x -0.098150 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.401850 -- y 3.500000
+current_ray_dir x -0.097187 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.402813 -- y 3.500000
+current_ray_dir x -0.096225 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.403775 -- y 3.500000
+current_ray_dir x -0.095263 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.404737 -- y 3.500000
+current_ray_dir x -0.094301 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.405699 -- y 3.500000
+current_ray_dir x -0.093338 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.406662 -- y 3.500000
+current_ray_dir x -0.092376 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.407624 -- y 3.500000
+current_ray_dir x -0.091414 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.408586 -- y 3.500000
+current_ray_dir x -0.090452 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.409548 -- y 3.500000
+current_ray_dir x -0.089489 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.410511 -- y 3.500000
+current_ray_dir x -0.088527 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.411473 -- y 3.500000
+current_ray_dir x -0.087565 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.412435 -- y 3.500000
+current_ray_dir x -0.086603 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.413397 -- y 3.500000
+current_ray_dir x -0.085640 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.414360 -- y 3.500000
+current_ray_dir x -0.084678 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.415322 -- y 3.500000
+current_ray_dir x -0.083716 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.416284 -- y 3.500000
+current_ray_dir x -0.082754 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.417246 -- y 3.500000
+current_ray_dir x -0.081791 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.418209 -- y 3.500000
+current_ray_dir x -0.080829 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.419171 -- y 3.500000
+current_ray_dir x -0.079867 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.420133 -- y 3.500000
+current_ray_dir x -0.078905 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.421095 -- y 3.500000
+current_ray_dir x -0.077942 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.422058 -- y 3.500000
+current_ray_dir x -0.076980 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.423020 -- y 3.500000
+current_ray_dir x -0.076018 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.423982 -- y 3.500000
+current_ray_dir x -0.075056 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.424944 -- y 3.500000
+current_ray_dir x -0.074093 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.425907 -- y 3.500000
+current_ray_dir x -0.073131 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.426869 -- y 3.500000
+current_ray_dir x -0.072169 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.427831 -- y 3.500000
+current_ray_dir x -0.071207 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.428793 -- y 3.500000
+current_ray_dir x -0.070244 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.429756 -- y 3.500000
+current_ray_dir x -0.069282 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.430718 -- y 3.500000
+current_ray_dir x -0.068320 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.431680 -- y 3.500000
+current_ray_dir x -0.067358 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.432642 -- y 3.500000
+current_ray_dir x -0.066395 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.433605 -- y 3.500000
+current_ray_dir x -0.065433 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.434567 -- y 3.500000
+current_ray_dir x -0.064471 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.435529 -- y 3.500000
+current_ray_dir x -0.063509 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.436491 -- y 3.500000
+current_ray_dir x -0.062546 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.437454 -- y 3.500000
+current_ray_dir x -0.061584 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.438416 -- y 3.500000
+current_ray_dir x -0.060622 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.439378 -- y 3.500000
+current_ray_dir x -0.059660 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.440340 -- y 3.500000
+current_ray_dir x -0.058697 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.441303 -- y 3.500000
+current_ray_dir x -0.057735 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.442265 -- y 3.500000
+current_ray_dir x -0.056773 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.443227 -- y 3.500000
+current_ray_dir x -0.055811 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.444189 -- y 3.500000
+current_ray_dir x -0.054848 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.445152 -- y 3.500000
+current_ray_dir x -0.053886 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.446114 -- y 3.500000
+current_ray_dir x -0.052924 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.447076 -- y 3.500000
+current_ray_dir x -0.051962 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.448038 -- y 3.500000
+current_ray_dir x -0.050999 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.449001 -- y 3.500000
+current_ray_dir x -0.050037 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.449963 -- y 3.500000
+current_ray_dir x -0.049075 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.450925 -- y 3.500000
+current_ray_dir x -0.048113 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.451887 -- y 3.500000
+current_ray_dir x -0.047150 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.452850 -- y 3.500000
+current_ray_dir x -0.046188 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.453812 -- y 3.500000
+current_ray_dir x -0.045226 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.454774 -- y 3.500000
+current_ray_dir x -0.044264 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.455736 -- y 3.500000
+current_ray_dir x -0.043301 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.456699 -- y 3.500000
+current_ray_dir x -0.042339 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.457661 -- y 3.500000
+current_ray_dir x -0.041377 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.458623 -- y 3.500000
+current_ray_dir x -0.040415 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.459585 -- y 3.500000
+current_ray_dir x -0.039452 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.460548 -- y 3.500000
+current_ray_dir x -0.038490 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.461510 -- y 3.500000
+current_ray_dir x -0.037528 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.462472 -- y 3.500000
+current_ray_dir x -0.036566 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.463434 -- y 3.500000
+current_ray_dir x -0.035603 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.464397 -- y 3.500000
+current_ray_dir x -0.034641 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.465359 -- y 3.500000
+current_ray_dir x -0.033679 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.466321 -- y 3.500000
+current_ray_dir x -0.032717 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.467283 -- y 3.500000
+current_ray_dir x -0.031754 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.468246 -- y 3.500000
+current_ray_dir x -0.030792 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.469208 -- y 3.500000
+current_ray_dir x -0.029830 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.470170 -- y 3.500000
+current_ray_dir x -0.028868 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.471132 -- y 3.500000
+current_ray_dir x -0.027905 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.472095 -- y 3.500000
+current_ray_dir x -0.026943 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.473057 -- y 3.500000
+current_ray_dir x -0.025981 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.474019 -- y 3.500000
+current_ray_dir x -0.025019 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.474981 -- y 3.500000
+current_ray_dir x -0.024056 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.475944 -- y 3.500000
+current_ray_dir x -0.023094 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.476906 -- y 3.500000
+current_ray_dir x -0.022132 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.477868 -- y 3.500000
+current_ray_dir x -0.021170 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.478830 -- y 3.500000
+current_ray_dir x -0.020207 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.479793 -- y 3.500000
+current_ray_dir x -0.019245 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.480755 -- y 3.500000
+current_ray_dir x -0.018283 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.481717 -- y 3.500000
+current_ray_dir x -0.017321 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.482679 -- y 3.500000
+current_ray_dir x -0.016358 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.483642 -- y 3.500000
+current_ray_dir x -0.015396 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.484604 -- y 3.500000
+current_ray_dir x -0.014434 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.485566 -- y 3.500000
+current_ray_dir x -0.013472 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.486528 -- y 3.500000
+current_ray_dir x -0.012509 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.487491 -- y 3.500000
+current_ray_dir x -0.011547 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.488453 -- y 3.500000
+current_ray_dir x -0.010585 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.489415 -- y 3.500000
+current_ray_dir x -0.009623 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.490377 -- y 3.500000
+current_ray_dir x -0.008660 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.491340 -- y 3.500000
+current_ray_dir x -0.007698 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.492302 -- y 3.500000
+current_ray_dir x -0.006736 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.493264 -- y 3.500000
+current_ray_dir x -0.005774 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.494226 -- y 3.500000
+current_ray_dir x -0.004811 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.495189 -- y 3.500000
+current_ray_dir x -0.003849 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.496151 -- y 3.500000
+current_ray_dir x -0.002887 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.497113 -- y 3.500000
+current_ray_dir x -0.001925 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.498075 -- y 3.500000
+current_ray_dir x -0.000962 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.499038 -- y 3.500000
+current_ray_dir x -0.000000 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.500000 -- y 3.500000
+current_ray_dir x 0.000962 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.500962 -- y 3.500000
+current_ray_dir x 0.001925 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.501925 -- y 3.500000
+current_ray_dir x 0.002887 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.502887 -- y 3.500000
+current_ray_dir x 0.003849 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.503849 -- y 3.500000
+current_ray_dir x 0.004811 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.504811 -- y 3.500000
+current_ray_dir x 0.005774 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.505774 -- y 3.500000
+current_ray_dir x 0.006736 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.506736 -- y 3.500000
+current_ray_dir x 0.007698 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.507698 -- y 3.500000
+current_ray_dir x 0.008660 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.508660 -- y 3.500000
+current_ray_dir x 0.009623 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.509623 -- y 3.500000
+current_ray_dir x 0.010585 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.510585 -- y 3.500000
+current_ray_dir x 0.011547 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.511547 -- y 3.500000
+current_ray_dir x 0.012509 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.512509 -- y 3.500000
+current_ray_dir x 0.013472 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.513472 -- y 3.500000
+current_ray_dir x 0.014434 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.514434 -- y 3.500000
+current_ray_dir x 0.015396 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.515396 -- y 3.500000
+current_ray_dir x 0.016358 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.516358 -- y 3.500000
+current_ray_dir x 0.017321 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.517321 -- y 3.500000
+current_ray_dir x 0.018283 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.518283 -- y 3.500000
+current_ray_dir x 0.019245 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.519245 -- y 3.500000
+current_ray_dir x 0.020207 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.520207 -- y 3.500000
+current_ray_dir x 0.021170 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.521170 -- y 3.500000
+current_ray_dir x 0.022132 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.522132 -- y 3.500000
+current_ray_dir x 0.023094 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.523094 -- y 3.500000
+current_ray_dir x 0.024056 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.524056 -- y 3.500000
+current_ray_dir x 0.025019 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.525019 -- y 3.500000
+current_ray_dir x 0.025981 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.525981 -- y 3.500000
+current_ray_dir x 0.026943 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.526943 -- y 3.500000
+current_ray_dir x 0.027905 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.527905 -- y 3.500000
+current_ray_dir x 0.028868 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.528868 -- y 3.500000
+current_ray_dir x 0.029830 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.529830 -- y 3.500000
+current_ray_dir x 0.030792 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.530792 -- y 3.500000
+current_ray_dir x 0.031754 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.531754 -- y 3.500000
+current_ray_dir x 0.032717 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.532717 -- y 3.500000
+current_ray_dir x 0.033679 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.533679 -- y 3.500000
+current_ray_dir x 0.034641 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.534641 -- y 3.500000
+current_ray_dir x 0.035603 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.535603 -- y 3.500000
+current_ray_dir x 0.036566 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.536566 -- y 3.500000
+current_ray_dir x 0.037528 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.537528 -- y 3.500000
+current_ray_dir x 0.038490 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.538490 -- y 3.500000
+current_ray_dir x 0.039452 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.539452 -- y 3.500000
+current_ray_dir x 0.040415 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.540415 -- y 3.500000
+current_ray_dir x 0.041377 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.541377 -- y 3.500000
+current_ray_dir x 0.042339 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.542339 -- y 3.500000
+current_ray_dir x 0.043301 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.543301 -- y 3.500000
+current_ray_dir x 0.044264 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.544264 -- y 3.500000
+current_ray_dir x 0.045226 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.545226 -- y 3.500000
+current_ray_dir x 0.046188 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.546188 -- y 3.500000
+current_ray_dir x 0.047150 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.547150 -- y 3.500000
+current_ray_dir x 0.048113 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.548113 -- y 3.500000
+current_ray_dir x 0.049075 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.549075 -- y 3.500000
+current_ray_dir x 0.050037 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.550037 -- y 3.500000
+current_ray_dir x 0.050999 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.550999 -- y 3.500000
+current_ray_dir x 0.051962 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.551962 -- y 3.500000
+current_ray_dir x 0.052924 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.552924 -- y 3.500000
+current_ray_dir x 0.053886 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.553886 -- y 3.500000
+current_ray_dir x 0.054848 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.554848 -- y 3.500000
+current_ray_dir x 0.055811 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.555811 -- y 3.500000
+current_ray_dir x 0.056773 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.556773 -- y 3.500000
+current_ray_dir x 0.057735 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.557735 -- y 3.500000
+current_ray_dir x 0.058697 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.558697 -- y 3.500000
+current_ray_dir x 0.059660 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.559660 -- y 3.500000
+current_ray_dir x 0.060622 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.560622 -- y 3.500000
+current_ray_dir x 0.061584 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.561584 -- y 3.500000
+current_ray_dir x 0.062546 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.562546 -- y 3.500000
+current_ray_dir x 0.063509 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.563509 -- y 3.500000
+current_ray_dir x 0.064471 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.564471 -- y 3.500000
+current_ray_dir x 0.065433 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.565433 -- y 3.500000
+current_ray_dir x 0.066395 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.566395 -- y 3.500000
+current_ray_dir x 0.067358 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.567358 -- y 3.500000
+current_ray_dir x 0.068320 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.568320 -- y 3.500000
+current_ray_dir x 0.069282 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.569282 -- y 3.500000
+current_ray_dir x 0.070244 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.570244 -- y 3.500000
+current_ray_dir x 0.071207 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.571207 -- y 3.500000
+current_ray_dir x 0.072169 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.572169 -- y 3.500000
+current_ray_dir x 0.073131 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.573131 -- y 3.500000
+current_ray_dir x 0.074093 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.574093 -- y 3.500000
+current_ray_dir x 0.075056 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.575056 -- y 3.500000
+current_ray_dir x 0.076018 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.576018 -- y 3.500000
+current_ray_dir x 0.076980 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.576980 -- y 3.500000
+current_ray_dir x 0.077942 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.577942 -- y 3.500000
+current_ray_dir x 0.078905 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.578905 -- y 3.500000
+current_ray_dir x 0.079867 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.579867 -- y 3.500000
+current_ray_dir x 0.080829 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.580829 -- y 3.500000
+current_ray_dir x 0.081791 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.581791 -- y 3.500000
+current_ray_dir x 0.082754 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.582754 -- y 3.500000
+current_ray_dir x 0.083716 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.583716 -- y 3.500000
+current_ray_dir x 0.084678 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.584678 -- y 3.500000
+current_ray_dir x 0.085640 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.585640 -- y 3.500000
+current_ray_dir x 0.086603 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.586603 -- y 3.500000
+current_ray_dir x 0.087565 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.587565 -- y 3.500000
+current_ray_dir x 0.088527 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.588527 -- y 3.500000
+current_ray_dir x 0.089489 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.589489 -- y 3.500000
+current_ray_dir x 0.090452 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.590452 -- y 3.500000
+current_ray_dir x 0.091414 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.591414 -- y 3.500000
+current_ray_dir x 0.092376 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.592376 -- y 3.500000
+current_ray_dir x 0.093338 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.593338 -- y 3.500000
+current_ray_dir x 0.094301 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.594301 -- y 3.500000
+current_ray_dir x 0.095263 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.595263 -- y 3.500000
+current_ray_dir x 0.096225 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.596225 -- y 3.500000
+current_ray_dir x 0.097187 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.597187 -- y 3.500000
+current_ray_dir x 0.098150 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.598150 -- y 3.500000
+current_ray_dir x 0.099112 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.599112 -- y 3.500000
+current_ray_dir x 0.100074 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.600074 -- y 3.500000
+current_ray_dir x 0.101036 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.601036 -- y 3.500000
+current_ray_dir x 0.101999 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.601999 -- y 3.500000
+current_ray_dir x 0.102961 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.602961 -- y 3.500000
+current_ray_dir x 0.103923 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.603923 -- y 3.500000
+current_ray_dir x 0.104885 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.604885 -- y 3.500000
+current_ray_dir x 0.105848 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.605848 -- y 3.500000
+current_ray_dir x 0.106810 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.606810 -- y 3.500000
+current_ray_dir x 0.107772 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.607772 -- y 3.500000
+current_ray_dir x 0.108734 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.608734 -- y 3.500000
+current_ray_dir x 0.109697 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.609697 -- y 3.500000
+current_ray_dir x 0.110659 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.610659 -- y 3.500000
+current_ray_dir x 0.111621 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.611621 -- y 3.500000
+current_ray_dir x 0.112583 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.612583 -- y 3.500000
+current_ray_dir x 0.113546 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.613546 -- y 3.500000
+current_ray_dir x 0.114508 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.614508 -- y 3.500000
+current_ray_dir x 0.115470 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.615470 -- y 3.500000
+current_ray_dir x 0.116432 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.616432 -- y 3.500000
+current_ray_dir x 0.117395 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.617395 -- y 3.500000
+current_ray_dir x 0.118357 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.618357 -- y 3.500000
+current_ray_dir x 0.119319 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.619319 -- y 3.500000
+current_ray_dir x 0.120281 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.620281 -- y 3.500000
+current_ray_dir x 0.121244 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.621244 -- y 3.500000
+current_ray_dir x 0.122206 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.622206 -- y 3.500000
+current_ray_dir x 0.123168 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.623168 -- y 3.500000
+current_ray_dir x 0.124130 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.624130 -- y 3.500000
+current_ray_dir x 0.125093 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.625093 -- y 3.500000
+current_ray_dir x 0.126055 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.626055 -- y 3.500000
+current_ray_dir x 0.127017 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.627017 -- y 3.500000
+current_ray_dir x 0.127979 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.627979 -- y 3.500000
+current_ray_dir x 0.128942 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.628942 -- y 3.500000
+current_ray_dir x 0.129904 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.629904 -- y 3.500000
+current_ray_dir x 0.130866 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.630866 -- y 3.500000
+current_ray_dir x 0.131828 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.631828 -- y 3.500000
+current_ray_dir x 0.132791 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.632791 -- y 3.500000
+current_ray_dir x 0.133753 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.633753 -- y 3.500000
+current_ray_dir x 0.134715 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.634715 -- y 3.500000
+current_ray_dir x 0.135677 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.635677 -- y 3.500000
+current_ray_dir x 0.136640 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.636640 -- y 3.500000
+current_ray_dir x 0.137602 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.637602 -- y 3.500000
+current_ray_dir x 0.138564 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.638564 -- y 3.500000
+current_ray_dir x 0.139526 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.639526 -- y 3.500000
+current_ray_dir x 0.140489 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.640489 -- y 3.500000
+current_ray_dir x 0.141451 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.641451 -- y 3.500000
+current_ray_dir x 0.142413 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.642413 -- y 3.500000
+current_ray_dir x 0.143375 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.643375 -- y 3.500000
+current_ray_dir x 0.144338 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.644338 -- y 3.500000
+current_ray_dir x 0.145300 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.645300 -- y 3.500000
+current_ray_dir x 0.146262 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.646262 -- y 3.500000
+current_ray_dir x 0.147224 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.647224 -- y 3.500000
+current_ray_dir x 0.148187 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.648187 -- y 3.500000
+current_ray_dir x 0.149149 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.649149 -- y 3.500000
+current_ray_dir x 0.150111 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.650111 -- y 3.500000
+current_ray_dir x 0.151073 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.651073 -- y 3.500000
+current_ray_dir x 0.152036 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.652036 -- y 3.500000
+current_ray_dir x 0.152998 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.652998 -- y 3.500000
+current_ray_dir x 0.153960 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.653960 -- y 3.500000
+current_ray_dir x 0.154922 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.654922 -- y 3.500000
+current_ray_dir x 0.155885 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.655885 -- y 3.500000
+current_ray_dir x 0.156847 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.656847 -- y 3.500000
+current_ray_dir x 0.157809 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.657809 -- y 3.500000
+current_ray_dir x 0.158771 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.658771 -- y 3.500000
+current_ray_dir x 0.159734 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.659734 -- y 3.500000
+current_ray_dir x 0.160696 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.660696 -- y 3.500000
+current_ray_dir x 0.161658 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.661658 -- y 3.500000
+current_ray_dir x 0.162620 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.662620 -- y 3.500000
+current_ray_dir x 0.163583 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.663583 -- y 3.500000
+current_ray_dir x 0.164545 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.664545 -- y 3.500000
+current_ray_dir x 0.165507 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.665507 -- y 3.500000
+current_ray_dir x 0.166469 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.666469 -- y 3.500000
+current_ray_dir x 0.167432 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.667432 -- y 3.500000
+current_ray_dir x 0.168394 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.668394 -- y 3.500000
+current_ray_dir x 0.169356 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.669356 -- y 3.500000
+current_ray_dir x 0.170318 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.670318 -- y 3.500000
+current_ray_dir x 0.171281 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.671281 -- y 3.500000
+current_ray_dir x 0.172243 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.672243 -- y 3.500000
+current_ray_dir x 0.173205 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.673205 -- y 3.500000
+current_ray_dir x 0.174167 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.674167 -- y 3.500000
+current_ray_dir x 0.175130 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.675130 -- y 3.500000
+current_ray_dir x 0.176092 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.676092 -- y 3.500000
+current_ray_dir x 0.177054 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.677054 -- y 3.500000
+current_ray_dir x 0.178016 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.678016 -- y 3.500000
+current_ray_dir x 0.178979 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.678979 -- y 3.500000
+current_ray_dir x 0.179941 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.679941 -- y 3.500000
+current_ray_dir x 0.180903 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.680903 -- y 3.500000
+current_ray_dir x 0.181865 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.681865 -- y 3.500000
+current_ray_dir x 0.182828 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.682828 -- y 3.500000
+current_ray_dir x 0.183790 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.683790 -- y 3.500000
+current_ray_dir x 0.184752 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.684752 -- y 3.500000
+current_ray_dir x 0.185714 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.685714 -- y 3.500000
+current_ray_dir x 0.186677 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.686677 -- y 3.500000
+current_ray_dir x 0.187639 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.687639 -- y 3.500000
+current_ray_dir x 0.188601 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.688601 -- y 3.500000
+current_ray_dir x 0.189563 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.689563 -- y 3.500000
+current_ray_dir x 0.190526 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.690526 -- y 3.500000
+current_ray_dir x 0.191488 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.691488 -- y 3.500000
+current_ray_dir x 0.192450 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.692450 -- y 3.500000
+current_ray_dir x 0.193412 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.693412 -- y 3.500000
+current_ray_dir x 0.194375 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.694375 -- y 3.500000
+current_ray_dir x 0.195337 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.695337 -- y 3.500000
+current_ray_dir x 0.196299 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.696299 -- y 3.500000
+current_ray_dir x 0.197261 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.697261 -- y 3.500000
+current_ray_dir x 0.198224 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.698224 -- y 3.500000
+current_ray_dir x 0.199186 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.699186 -- y 3.500000
+current_ray_dir x 0.200148 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.700148 -- y 3.500000
+current_ray_dir x 0.201110 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.701110 -- y 3.500000
+current_ray_dir x 0.202073 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.702073 -- y 3.500000
+current_ray_dir x 0.203035 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.703035 -- y 3.500000
+current_ray_dir x 0.203997 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.703997 -- y 3.500000
+current_ray_dir x 0.204959 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.704959 -- y 3.500000
+current_ray_dir x 0.205922 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.705922 -- y 3.500000
+current_ray_dir x 0.206884 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.706884 -- y 3.500000
+current_ray_dir x 0.207846 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.707846 -- y 3.500000
+current_ray_dir x 0.208808 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.708808 -- y 3.500000
+current_ray_dir x 0.209771 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.709771 -- y 3.500000
+current_ray_dir x 0.210733 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.710733 -- y 3.500000
+current_ray_dir x 0.211695 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.711695 -- y 3.500000
+current_ray_dir x 0.212657 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.712657 -- y 3.500000
+current_ray_dir x 0.213620 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.713620 -- y 3.500000
+current_ray_dir x 0.214582 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.714582 -- y 3.500000
+current_ray_dir x 0.215544 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.715544 -- y 3.500000
+current_ray_dir x 0.216506 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.716506 -- y 3.500000
+current_ray_dir x 0.217469 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.717469 -- y 3.500000
+current_ray_dir x 0.218431 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.718431 -- y 3.500000
+current_ray_dir x 0.219393 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.719393 -- y 3.500000
+current_ray_dir x 0.220355 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.720355 -- y 3.500000
+current_ray_dir x 0.221318 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.721318 -- y 3.500000
+current_ray_dir x 0.222280 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.722280 -- y 3.500000
+current_ray_dir x 0.223242 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.723242 -- y 3.500000
+current_ray_dir x 0.224204 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.724204 -- y 3.500000
+current_ray_dir x 0.225167 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.725167 -- y 3.500000
+current_ray_dir x 0.226129 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.726129 -- y 3.500000
+current_ray_dir x 0.227091 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.727091 -- y 3.500000
+current_ray_dir x 0.228053 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.728053 -- y 3.500000
+current_ray_dir x 0.229016 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.729016 -- y 3.500000
+current_ray_dir x 0.229978 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.729978 -- y 3.500000
+current_ray_dir x 0.230940 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.730940 -- y 3.500000
+current_ray_dir x 0.231902 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.731902 -- y 3.500000
+current_ray_dir x 0.232865 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.732865 -- y 3.500000
+current_ray_dir x 0.233827 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.733827 -- y 3.500000
+current_ray_dir x 0.234789 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.734789 -- y 3.500000
+current_ray_dir x 0.235751 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.735751 -- y 3.500000
+current_ray_dir x 0.236714 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.736714 -- y 3.500000
+current_ray_dir x 0.237676 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.737676 -- y 3.500000
+current_ray_dir x 0.238638 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.738638 -- y 3.500000
+current_ray_dir x 0.239600 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.739600 -- y 3.500000
+current_ray_dir x 0.240563 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.740563 -- y 3.500000
+current_ray_dir x 0.241525 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.741525 -- y 3.500000
+current_ray_dir x 0.242487 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.742487 -- y 3.500000
+current_ray_dir x 0.243449 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.743449 -- y 3.500000
+current_ray_dir x 0.244412 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.744412 -- y 3.500000
+current_ray_dir x 0.245374 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.745374 -- y 3.500000
+current_ray_dir x 0.246336 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.746336 -- y 3.500000
+current_ray_dir x 0.247298 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.747298 -- y 3.500000
+current_ray_dir x 0.248261 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.748261 -- y 3.500000
+current_ray_dir x 0.249223 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.749223 -- y 3.500000
+current_ray_dir x 0.250185 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.750185 -- y 3.500000
+current_ray_dir x 0.251147 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.751147 -- y 3.500000
+current_ray_dir x 0.252110 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.752110 -- y 3.500000
+current_ray_dir x 0.253072 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.753072 -- y 3.500000
+current_ray_dir x 0.254034 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.754034 -- y 3.500000
+current_ray_dir x 0.254996 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.754996 -- y 3.500000
+current_ray_dir x 0.255959 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.755959 -- y 3.500000
+current_ray_dir x 0.256921 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.756921 -- y 3.500000
+current_ray_dir x 0.257883 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.757883 -- y 3.500000
+current_ray_dir x 0.258845 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.758845 -- y 3.500000
+current_ray_dir x 0.259808 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.759808 -- y 3.500000
+current_ray_dir x 0.260770 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.760770 -- y 3.500000
+current_ray_dir x 0.261732 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.761732 -- y 3.500000
+current_ray_dir x 0.262694 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.762694 -- y 3.500000
+current_ray_dir x 0.263657 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.763657 -- y 3.500000
+current_ray_dir x 0.264619 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.764619 -- y 3.500000
+current_ray_dir x 0.265581 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.765581 -- y 3.500000
+current_ray_dir x 0.266543 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.766543 -- y 3.500000
+current_ray_dir x 0.267506 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.767506 -- y 3.500000
+current_ray_dir x 0.268468 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.768468 -- y 3.500000
+current_ray_dir x 0.269430 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.769430 -- y 3.500000
+current_ray_dir x 0.270392 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.770392 -- y 3.500000
+current_ray_dir x 0.271355 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.771355 -- y 3.500000
+current_ray_dir x 0.272317 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.772317 -- y 3.500000
+current_ray_dir x 0.273279 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.773279 -- y 3.500000
+current_ray_dir x 0.274241 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.774241 -- y 3.500000
+current_ray_dir x 0.275204 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.775204 -- y 3.500000
+current_ray_dir x 0.276166 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.776166 -- y 3.500000
+current_ray_dir x 0.277128 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.777128 -- y 3.500000
+current_ray_dir x 0.278090 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.778090 -- y 3.500000
+current_ray_dir x 0.279053 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.779053 -- y 3.500000
+current_ray_dir x 0.280015 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.780015 -- y 3.500000
+current_ray_dir x 0.280977 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.780977 -- y 3.500000
+current_ray_dir x 0.281939 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.781939 -- y 3.500000
+current_ray_dir x 0.282902 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.782902 -- y 3.500000
+current_ray_dir x 0.283864 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.783864 -- y 3.500000
+current_ray_dir x 0.284826 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.784826 -- y 3.500000
+current_ray_dir x 0.285788 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.785788 -- y 3.500000
+current_ray_dir x 0.286751 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.786751 -- y 3.500000
+current_ray_dir x 0.287713 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.787713 -- y 3.500000
+current_ray_dir x 0.288675 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.788675 -- y 3.500000
+current_ray_dir x 0.289637 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.789637 -- y 3.500000
+current_ray_dir x 0.290600 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.790600 -- y 3.500000
+current_ray_dir x 0.291562 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.791562 -- y 3.500000
+current_ray_dir x 0.292524 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.792524 -- y 3.500000
+current_ray_dir x 0.293486 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.793486 -- y 3.500000
+current_ray_dir x 0.294449 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.794449 -- y 3.500000
+current_ray_dir x 0.295411 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.795411 -- y 3.500000
+current_ray_dir x 0.296373 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.796373 -- y 3.500000
+current_ray_dir x 0.297335 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.797335 -- y 3.500000
+current_ray_dir x 0.298298 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.798298 -- y 3.500000
+current_ray_dir x 0.299260 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.799260 -- y 3.500000
+current_ray_dir x 0.300222 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.800222 -- y 3.500000
+current_ray_dir x 0.301184 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.801184 -- y 3.500000
+current_ray_dir x 0.302147 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.802147 -- y 3.500000
+current_ray_dir x 0.303109 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.803109 -- y 3.500000
+current_ray_dir x 0.304071 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.804071 -- y 3.500000
+current_ray_dir x 0.305033 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.805033 -- y 3.500000
+current_ray_dir x 0.305996 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.805996 -- y 3.500000
+current_ray_dir x 0.306958 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.806958 -- y 3.500000
+current_ray_dir x 0.307920 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.807920 -- y 3.500000
+current_ray_dir x 0.308882 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.808882 -- y 3.500000
+current_ray_dir x 0.309845 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.809845 -- y 3.500000
+current_ray_dir x 0.310807 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.810807 -- y 3.500000
+current_ray_dir x 0.311769 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.811769 -- y 3.500000
+current_ray_dir x 0.312731 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.812731 -- y 3.500000
+current_ray_dir x 0.313694 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.813694 -- y 3.500000
+current_ray_dir x 0.314656 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.814656 -- y 3.500000
+current_ray_dir x 0.315618 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.815618 -- y 3.500000
+current_ray_dir x 0.316580 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.816580 -- y 3.500000
+current_ray_dir x 0.317543 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.817543 -- y 3.500000
+current_ray_dir x 0.318505 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.818505 -- y 3.500000
+current_ray_dir x 0.319467 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.819467 -- y 3.500000
+current_ray_dir x 0.320429 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.820429 -- y 3.500000
+current_ray_dir x 0.321392 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.821392 -- y 3.500000
+current_ray_dir x 0.322354 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.822354 -- y 3.500000
+current_ray_dir x 0.323316 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.823316 -- y 3.500000
+current_ray_dir x 0.324278 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.824278 -- y 3.500000
+current_ray_dir x 0.325241 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.825241 -- y 3.500000
+current_ray_dir x 0.326203 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.826203 -- y 3.500000
+current_ray_dir x 0.327165 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.827165 -- y 3.500000
+current_ray_dir x 0.328127 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.828127 -- y 3.500000
+current_ray_dir x 0.329090 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.829090 -- y 3.500000
+current_ray_dir x 0.330052 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.830052 -- y 3.500000
+current_ray_dir x 0.331014 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.831014 -- y 3.500000
+current_ray_dir x 0.331976 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.831976 -- y 3.500000
+current_ray_dir x 0.332939 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.832939 -- y 3.500000
+current_ray_dir x 0.333901 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.833901 -- y 3.500000
+current_ray_dir x 0.334863 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.834863 -- y 3.500000
+current_ray_dir x 0.335825 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.835825 -- y 3.500000
+current_ray_dir x 0.336788 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.836788 -- y 3.500000
+current_ray_dir x 0.337750 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.837750 -- y 3.500000
+current_ray_dir x 0.338712 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.838712 -- y 3.500000
+current_ray_dir x 0.339674 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.839674 -- y 3.500000
+current_ray_dir x 0.340637 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.840637 -- y 3.500000
+current_ray_dir x 0.341599 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.841599 -- y 3.500000
+current_ray_dir x 0.342561 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.842561 -- y 3.500000
+current_ray_dir x 0.343523 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.843523 -- y 3.500000
+current_ray_dir x 0.344486 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.844486 -- y 3.500000
+current_ray_dir x 0.345448 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.845448 -- y 3.500000
+current_ray_dir x 0.346410 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.846410 -- y 3.500000
+current_ray_dir x 0.347372 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.847372 -- y 3.500000
+current_ray_dir x 0.348335 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.848335 -- y 3.500000
+current_ray_dir x 0.349297 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.849297 -- y 3.500000
+current_ray_dir x 0.350259 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.850259 -- y 3.500000
+current_ray_dir x 0.351221 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.851221 -- y 3.500000
+current_ray_dir x 0.352184 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.852184 -- y 3.500000
+current_ray_dir x 0.353146 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.853146 -- y 3.500000
+current_ray_dir x 0.354108 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.854108 -- y 3.500000
+current_ray_dir x 0.355070 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.855070 -- y 3.500000
+current_ray_dir x 0.356033 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.856033 -- y 3.500000
+current_ray_dir x 0.356995 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.856995 -- y 3.500000
+current_ray_dir x 0.357957 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.857957 -- y 3.500000
+current_ray_dir x 0.358919 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.858919 -- y 3.500000
+current_ray_dir x 0.359882 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.859882 -- y 3.500000
+current_ray_dir x 0.360844 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.860844 -- y 3.500000
+current_ray_dir x 0.361806 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.861806 -- y 3.500000
+current_ray_dir x 0.362768 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.862768 -- y 3.500000
+current_ray_dir x 0.363731 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.863731 -- y 3.500000
+current_ray_dir x 0.364693 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.864693 -- y 3.500000
+current_ray_dir x 0.365655 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.865655 -- y 3.500000
+current_ray_dir x 0.366617 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.866617 -- y 3.500000
+current_ray_dir x 0.367580 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.867580 -- y 3.500000
+current_ray_dir x 0.368542 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.868542 -- y 3.500000
+current_ray_dir x 0.369504 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.869504 -- y 3.500000
+current_ray_dir x 0.370466 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.870466 -- y 3.500000
+current_ray_dir x 0.371429 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.871429 -- y 3.500000
+current_ray_dir x 0.372391 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.872391 -- y 3.500000
+current_ray_dir x 0.373353 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.873353 -- y 3.500000
+current_ray_dir x 0.374315 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.874315 -- y 3.500000
+current_ray_dir x 0.375278 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.875278 -- y 3.500000
+current_ray_dir x 0.376240 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.876240 -- y 3.500000
+current_ray_dir x 0.377202 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.877202 -- y 3.500000
+current_ray_dir x 0.378164 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.878164 -- y 3.500000
+current_ray_dir x 0.379127 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.879127 -- y 3.500000
+current_ray_dir x 0.380089 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.880089 -- y 3.500000
+current_ray_dir x 0.381051 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.881051 -- y 3.500000
+current_ray_dir x 0.382013 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.882013 -- y 3.500000
+current_ray_dir x 0.382976 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.882976 -- y 3.500000
+current_ray_dir x 0.383938 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.883938 -- y 3.500000
+current_ray_dir x 0.384900 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.884900 -- y 3.500000
+current_ray_dir x 0.385862 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.885862 -- y 3.500000
+current_ray_dir x 0.386825 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.886825 -- y 3.500000
+current_ray_dir x 0.387787 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.887787 -- y 3.500000
+current_ray_dir x 0.388749 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.888749 -- y 3.500000
+current_ray_dir x 0.389711 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.889711 -- y 3.500000
+current_ray_dir x 0.390674 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.890674 -- y 3.500000
+current_ray_dir x 0.391636 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.891636 -- y 3.500000
+current_ray_dir x 0.392598 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.892598 -- y 3.500000
+current_ray_dir x 0.393560 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.893560 -- y 3.500000
+current_ray_dir x 0.394523 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.894523 -- y 3.500000
+current_ray_dir x 0.395485 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.895485 -- y 3.500000
+current_ray_dir x 0.396447 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.896447 -- y 3.500000
+current_ray_dir x 0.397409 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.897409 -- y 3.500000
+current_ray_dir x 0.398372 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.898372 -- y 3.500000
+current_ray_dir x 0.399334 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.899334 -- y 3.500000
+current_ray_dir x 0.400296 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.900296 -- y 3.500000
+current_ray_dir x 0.401258 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.901258 -- y 3.500000
+current_ray_dir x 0.402221 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.902221 -- y 3.500000
+current_ray_dir x 0.403183 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.903183 -- y 3.500000
+current_ray_dir x 0.404145 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.904145 -- y 3.500000
+current_ray_dir x 0.405107 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.905107 -- y 3.500000
+current_ray_dir x 0.406070 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.906070 -- y 3.500000
+current_ray_dir x 0.407032 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.907032 -- y 3.500000
+current_ray_dir x 0.407994 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.907994 -- y 3.500000
+current_ray_dir x 0.408956 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.908956 -- y 3.500000
+current_ray_dir x 0.409919 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.909919 -- y 3.500000
+current_ray_dir x 0.410881 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.910881 -- y 3.500000
+current_ray_dir x 0.411843 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.911843 -- y 3.500000
+current_ray_dir x 0.412805 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.912805 -- y 3.500000
+current_ray_dir x 0.413768 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.913768 -- y 3.500000
+current_ray_dir x 0.414730 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.914730 -- y 3.500000
+current_ray_dir x 0.415692 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.915692 -- y 3.500000
+current_ray_dir x 0.416654 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.916654 -- y 3.500000
+current_ray_dir x 0.417617 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.917617 -- y 3.500000
+current_ray_dir x 0.418579 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.918579 -- y 3.500000
+current_ray_dir x 0.419541 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.919541 -- y 3.500000
+current_ray_dir x 0.420503 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.920503 -- y 3.500000
+current_ray_dir x 0.421466 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.921466 -- y 3.500000
+current_ray_dir x 0.422428 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.922428 -- y 3.500000
+current_ray_dir x 0.423390 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.923390 -- y 3.500000
+current_ray_dir x 0.424352 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.924352 -- y 3.500000
+current_ray_dir x 0.425315 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.925315 -- y 3.500000
+current_ray_dir x 0.426277 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.926277 -- y 3.500000
+current_ray_dir x 0.427239 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.927239 -- y 3.500000
+current_ray_dir x 0.428201 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.928201 -- y 3.500000
+current_ray_dir x 0.429164 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.929164 -- y 3.500000
+current_ray_dir x 0.430126 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.930126 -- y 3.500000
+current_ray_dir x 0.431088 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.931088 -- y 3.500000
+current_ray_dir x 0.432050 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.932050 -- y 3.500000
+current_ray_dir x 0.433013 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.933013 -- y 3.500000
+current_ray_dir x 0.433975 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.933975 -- y 3.500000
+current_ray_dir x 0.434937 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.934937 -- y 3.500000
+current_ray_dir x 0.435899 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.935899 -- y 3.500000
+current_ray_dir x 0.436862 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.936862 -- y 3.500000
+current_ray_dir x 0.437824 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.937824 -- y 3.500000
+current_ray_dir x 0.438786 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.938786 -- y 3.500000
+current_ray_dir x 0.439748 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.939748 -- y 3.500000
+current_ray_dir x 0.440711 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.940711 -- y 3.500000
+current_ray_dir x 0.441673 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.941673 -- y 3.500000
+current_ray_dir x 0.442635 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.942635 -- y 3.500000
+current_ray_dir x 0.443597 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.943597 -- y 3.500000
+current_ray_dir x 0.444560 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.944560 -- y 3.500000
+current_ray_dir x 0.445522 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.945522 -- y 3.500000
+current_ray_dir x 0.446484 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.946484 -- y 3.500000
+current_ray_dir x 0.447446 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.947446 -- y 3.500000
+current_ray_dir x 0.448409 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.948409 -- y 3.500000
+current_ray_dir x 0.449371 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.949371 -- y 3.500000
+current_ray_dir x 0.450333 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.950333 -- y 3.500000
+current_ray_dir x 0.451295 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.951295 -- y 3.500000
+current_ray_dir x 0.452258 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.952258 -- y 3.500000
+current_ray_dir x 0.453220 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.953220 -- y 3.500000
+current_ray_dir x 0.454182 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.954182 -- y 3.500000
+current_ray_dir x 0.455144 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.955144 -- y 3.500000
+current_ray_dir x 0.456107 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.956107 -- y 3.500000
+current_ray_dir x 0.457069 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.957069 -- y 3.500000
+current_ray_dir x 0.458031 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.958031 -- y 3.500000
+current_ray_dir x 0.458993 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.958993 -- y 3.500000
+current_ray_dir x 0.459956 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.959956 -- y 3.500000
+current_ray_dir x 0.460918 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.960918 -- y 3.500000
+current_ray_dir x 0.461880 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.961880 -- y 3.500000
+current_ray_dir x 0.462842 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.962842 -- y 3.500000
+current_ray_dir x 0.463805 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.963805 -- y 3.500000
+current_ray_dir x 0.464767 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.964767 -- y 3.500000
+current_ray_dir x 0.465729 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.965729 -- y 3.500000
+current_ray_dir x 0.466691 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.966691 -- y 3.500000
+current_ray_dir x 0.467654 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.967654 -- y 3.500000
+current_ray_dir x 0.468616 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.968616 -- y 3.500000
+current_ray_dir x 0.469578 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.969578 -- y 3.500000
+current_ray_dir x 0.470540 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.970540 -- y 3.500000
+current_ray_dir x 0.471503 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.971503 -- y 3.500000
+current_ray_dir x 0.472465 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.972465 -- y 3.500000
+current_ray_dir x 0.473427 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.973427 -- y 3.500000
+current_ray_dir x 0.474389 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.974389 -- y 3.500000
+current_ray_dir x 0.475352 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.975352 -- y 3.500000
+current_ray_dir x 0.476314 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.976314 -- y 3.500000
+current_ray_dir x 0.477276 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.977276 -- y 3.500000
+current_ray_dir x 0.478238 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.978238 -- y 3.500000
+current_ray_dir x 0.479201 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.979201 -- y 3.500000
+current_ray_dir x 0.480163 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.980163 -- y 3.500000
+current_ray_dir x 0.481125 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.981125 -- y 3.500000
+current_ray_dir x 0.482087 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.982087 -- y 3.500000
+current_ray_dir x 0.483050 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.983050 -- y 3.500000
+current_ray_dir x 0.484012 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.984012 -- y 3.500000
+current_ray_dir x 0.484974 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.984974 -- y 3.500000
+current_ray_dir x 0.485936 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.985936 -- y 3.500000
+current_ray_dir x 0.486899 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.986899 -- y 3.500000
+current_ray_dir x 0.487861 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.987861 -- y 3.500000
+current_ray_dir x 0.488823 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.988823 -- y 3.500000
+current_ray_dir x 0.489785 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.989785 -- y 3.500000
+current_ray_dir x 0.490748 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.990748 -- y 3.500000
+current_ray_dir x 0.491710 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.991710 -- y 3.500000
+current_ray_dir x 0.492672 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.992672 -- y 3.500000
+current_ray_dir x 0.493634 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.993634 -- y 3.500000
+current_ray_dir x 0.494597 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.994597 -- y 3.500000
+current_ray_dir x 0.495559 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.995559 -- y 3.500000
+current_ray_dir x 0.496521 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.996521 -- y 3.500000
+current_ray_dir x 0.497483 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.997483 -- y 3.500000
+current_ray_dir x 0.498446 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.998446 -- y 3.500000
+current_ray_dir x 0.499408 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 5.999408 -- y 3.500000
+current_ray_dir x 0.500370 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.000370 -- y 3.500000
+current_ray_dir x 0.501332 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.001332 -- y 3.500000
+current_ray_dir x 0.502295 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.002295 -- y 3.500000
+current_ray_dir x 0.503257 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.003257 -- y 3.500000
+current_ray_dir x 0.504219 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.004219 -- y 3.500000
+current_ray_dir x 0.505181 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.005181 -- y 3.500000
+current_ray_dir x 0.506144 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.006144 -- y 3.500000
+current_ray_dir x 0.507106 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.007106 -- y 3.500000
+current_ray_dir x 0.508068 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.008068 -- y 3.500000
+current_ray_dir x 0.509030 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.009030 -- y 3.500000
+current_ray_dir x 0.509993 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.009993 -- y 3.500000
+current_ray_dir x 0.510955 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.010955 -- y 3.500000
+current_ray_dir x 0.511917 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.011917 -- y 3.500000
+current_ray_dir x 0.512879 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.012879 -- y 3.500000
+current_ray_dir x 0.513842 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.013842 -- y 3.500000
+current_ray_dir x 0.514804 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.014804 -- y 3.500000
+current_ray_dir x 0.515766 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.015766 -- y 3.500000
+current_ray_dir x 0.516728 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.016728 -- y 3.500000
+current_ray_dir x 0.517691 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.017691 -- y 3.500000
+current_ray_dir x 0.518653 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.018653 -- y 3.500000
+current_ray_dir x 0.519615 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.019615 -- y 3.500000
+current_ray_dir x 0.520577 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.020577 -- y 3.500000
+current_ray_dir x 0.521540 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.021540 -- y 3.500000
+current_ray_dir x 0.522502 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.022502 -- y 3.500000
+current_ray_dir x 0.523464 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.023464 -- y 3.500000
+current_ray_dir x 0.524426 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.024426 -- y 3.500000
+current_ray_dir x 0.525389 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.025389 -- y 3.500000
+current_ray_dir x 0.526351 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.026351 -- y 3.500000
+current_ray_dir x 0.527313 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.027313 -- y 3.500000
+current_ray_dir x 0.528275 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.028275 -- y 3.500000
+current_ray_dir x 0.529238 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.029238 -- y 3.500000
+current_ray_dir x 0.530200 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.030200 -- y 3.500000
+current_ray_dir x 0.531162 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.031162 -- y 3.500000
+current_ray_dir x 0.532124 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.032124 -- y 3.500000
+current_ray_dir x 0.533087 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.033087 -- y 3.500000
+current_ray_dir x 0.534049 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.034049 -- y 3.500000
+current_ray_dir x 0.535011 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.035011 -- y 3.500000
+current_ray_dir x 0.535973 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.035973 -- y 3.500000
+current_ray_dir x 0.536936 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.036936 -- y 3.500000
+current_ray_dir x 0.537898 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.037898 -- y 3.500000
+current_ray_dir x 0.538860 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.038860 -- y 3.500000
+current_ray_dir x 0.539823 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.039823 -- y 3.500000
+current_ray_dir x 0.540785 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.040785 -- y 3.500000
+current_ray_dir x 0.541747 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.041747 -- y 3.500000
+current_ray_dir x 0.542709 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.042709 -- y 3.500000
+current_ray_dir x 0.543672 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.043672 -- y 3.500000
+current_ray_dir x 0.544634 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.044634 -- y 3.500000
+current_ray_dir x 0.545596 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.045596 -- y 3.500000
+current_ray_dir x 0.546558 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.046558 -- y 3.500000
+current_ray_dir x 0.547521 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.047521 -- y 3.500000
+current_ray_dir x 0.548483 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.048483 -- y 3.500000
+current_ray_dir x 0.549445 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.049445 -- y 3.500000
+current_ray_dir x 0.550407 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.050407 -- y 3.500000
+current_ray_dir x 0.551370 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.051370 -- y 3.500000
+current_ray_dir x 0.552332 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.052332 -- y 3.500000
+current_ray_dir x 0.553294 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.053294 -- y 3.500000
+current_ray_dir x 0.554256 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.054256 -- y 3.500000
+current_ray_dir x 0.555219 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.055219 -- y 3.500000
+current_ray_dir x 0.556181 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.056181 -- y 3.500000
+current_ray_dir x 0.557143 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.057143 -- y 3.500000
+current_ray_dir x 0.558105 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.058105 -- y 3.500000
+current_ray_dir x 0.559068 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.059068 -- y 3.500000
+current_ray_dir x 0.560030 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.060030 -- y 3.500000
+current_ray_dir x 0.560992 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.060992 -- y 3.500000
+current_ray_dir x 0.561954 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.061954 -- y 3.500000
+current_ray_dir x 0.562917 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.062917 -- y 3.500000
+current_ray_dir x 0.563879 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.063879 -- y 3.500000
+current_ray_dir x 0.564841 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.064841 -- y 3.500000
+current_ray_dir x 0.565803 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.065803 -- y 3.500000
+current_ray_dir x 0.566766 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.066766 -- y 3.500000
+current_ray_dir x 0.567728 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.067728 -- y 3.500000
+current_ray_dir x 0.568690 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.068690 -- y 3.500000
+current_ray_dir x 0.569652 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.069652 -- y 3.500000
+current_ray_dir x 0.570615 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.070615 -- y 3.500000
+current_ray_dir x 0.571577 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.071577 -- y 3.500000
+current_ray_dir x 0.572539 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.072539 -- y 3.500000
+current_ray_dir x 0.573501 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.073501 -- y 3.500000
+current_ray_dir x 0.574464 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.074464 -- y 3.500000
+current_ray_dir x 0.575426 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.075426 -- y 3.500000
+current_ray_dir x 0.576388 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.076388 -- y 3.500000
+current_ray_dir x 0.577350 -- y -1.000000
+pos player x 5.500000 -- y 4.500000
+current_ray x 6.077350 -- y 3.500000
 Direction vector -> y: -1.000000 - x : -0.000000
 Direction vector -> y: -1.000000 - x : -0.000000

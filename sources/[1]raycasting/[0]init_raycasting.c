@@ -42,12 +42,12 @@ static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 
 static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 {
-	rc->initial_dir_vec.x = 1;
+	rc->initial_dir_vec.x = -1;
 	rc->initial_dir_vec.y = 0;
 	if (rc->player.direction == 0)
-		rc->angle_direction = 270;
-	else if (rc->player.direction == 1)
 		rc->angle_direction = 90;
+	else if (rc->player.direction == 1)
+		rc->angle_direction = 270;
 	else if (rc->player.direction == 2)
 		rc->angle_direction = 0;
 	else if (rc->player.direction == 3)

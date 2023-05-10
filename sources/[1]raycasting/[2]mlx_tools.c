@@ -33,3 +33,39 @@ void	my_mlx_pixel_put(t_cub3D *data, t_point point)
 		*(int *)(img->addr + (int)(index)) = point.color;
 	}
 }
+
+void	ft_bresenham(t_cub3D *data, t_line *line)
+{
+	double	t;
+	double	current_x;
+	double	current_y;
+	int		i;
+
+	i = 0;
+	while (i <= line->length)
+	{
+		t = (double)i / line->length;
+		current_x = line->x1 + (t * (line->x2 - line->x1));
+		current_y = line->y1 + (t * (line->y2 - line->y1));
+		my_mlx_pixel_put(data, (t_point){current_x, current_y, line->color});
+		i++;
+	}
+}
+
+void	ft_draw_line(t_cub3D *data, t_vec2D vec_1, t_vec2D vec_2, int color)
+{
+	t_line	line;
+
+	line.x1 = (int)vec_1.x;
+	line.y1 = (int)vec_1.y;
+	line.x2 = (int)vec_2.x;
+	line.y2 = (int)vec_2.y;
+	line.dx = ft_abs_2_values(line.x2, line.x1);
+	line.dy = ft_abs_2_values(line.y2, line.y1);
+	line.color = color;
+	if (line.dx > line.dy)
+		line.length = line.dx;
+	else
+		line.length = line.dy;
+	ft_bresenham(data, &line);
+}

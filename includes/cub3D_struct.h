@@ -107,6 +107,7 @@ typedef struct line
 	int		y1;
 	int		x2;
 	int		y2;
+	int		color;
 }			t_line;
 
 typedef struct map
@@ -140,9 +141,10 @@ typedef struct s_cam
 typedef	struct	s_rc
 {
 	t_player	player;
-	t_vec2D		initial_dir_vec;	
+	t_vec2D		initial_dir_vec;
 	t_vec2D		dir_vec;
 	t_vec2D		plane_vec;
+	t_vec2D		player_dir_vec;
 	int			angle_direction;
 	double 		ray_dist;
 	double		scale;
@@ -223,24 +225,31 @@ void    ft_initialize_raycasting(t_cub3D *data);
 /*Init minilibx*/
 int		ft_exit(t_cub3D *data);
 int		setup_mlx_env(t_cub3D *data);
+/*Minilibx utils*/
+void	my_mlx_pixel_put(t_cub3D *data, t_point point);
+void	ft_bresenham(t_cub3D *data, t_line *line);
+void	ft_draw_line(t_cub3D *data, t_vec2D vec_1, t_vec2D vec_2, int color);
 /*Hooks*/
 void	setup_controls_hooks(t_cub3D *data);
+/************* Raycasting main functions**************/
+int		lauch_raycasting(t_cub3D *data);
+/*DDA*/
+t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
+void	dda(t_cub3D *data);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
-t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 void	draw_scene(t_cub3D *data);
-/*Raycasting main function*/
-int		lauch_raycasting(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
+t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);
 t_vec2D	get_perpendicular_vec(t_vec2D vec);
 t_vec2D	scalar_mult(t_vec2D vec, double scalar);
 double	ft_abs_double(double n);
+t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 /*Execution*/
-void	my_mlx_pixel_put(t_cub3D *data, t_point point);
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);
 #endif

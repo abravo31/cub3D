@@ -23,11 +23,8 @@ PARSE		=	[0]check_map_lst.c [0]get_map.c \
 				[2]parsing_map.c [2]parsing_map_player.c
 
 EXEC_DIR	=	[1]raycasting/
-EXEC		=	[0]init_raycasting.c [1]init_mlx.c [2]mlx_tools.c [3]hooks.c [4]mini_map.c [5]draw_scene.c raycasting.c
-
-# BUILTIN_DIR	=	builtin/
-# BUILTIN		=	echo.c export.c export_utils.c unset.c cd.c cd_path_case.c export_unset_utils.c \
-# 				pwd.c exit.c
+EXEC		=	[0]init_raycasting.c [1]init_mlx.c [2]mlx_tools.c [3]hooks.c [4]mini_map.c [4]player.c \
+				[5]ray_generation.c [6]draw_scene.c raycasting.c
 
 UTILS_DIR	=	utils/
 UTILS		=	lst_new_generic.c debuging_list_of_structs.c math_utils.c
@@ -35,7 +32,6 @@ UTILS		=	lst_new_generic.c debuging_list_of_structs.c math_utils.c
 SOURCES		+=	$(addprefix	$(COR_DIR),$(CORS))
 SOURCES		+=	$(addprefix	$(EXEC_DIR),$(EXEC))
 SOURCES		+=	$(addprefix	$(PARSE_DIR),$(PARSE))
-# SOURCES		+=	$(addprefix	$(BUILTIN_DIR),$(BUILTIN))
 SOURCES		+=	$(addprefix	$(UTILS_DIR),$(UTILS))
 
 ### Objects ###
@@ -63,7 +59,6 @@ tmp:
 	@mkdir -p $(OBJ_PATH)$(COR_DIR)
 	@mkdir -p $(OBJ_PATH)$(PARSE_DIR)
 	@mkdir -p $(OBJ_PATH)$(EXEC_DIR)
-	@mkdir -p $(OBJ_PATH)$(BUILTIN_DIR)
 	@mkdir -p $(OBJ_PATH)$(UTILS_DIR)
 
 $(NAME): $(OBJS)

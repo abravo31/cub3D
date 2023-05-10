@@ -17,6 +17,15 @@ t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2)
 	return (product_vector);
 }
 
+t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2)
+{
+    t_vec2D result_vector;
+
+    result_vector.x = v1.x - v2.x;
+    result_vector.y = v1.y - v2.y;
+    return result_vector;
+}
+
 t_vec2D	get_perpendicular_vec(t_vec2D vec)
 {
 	t_vec2D	perpendicular_vec;

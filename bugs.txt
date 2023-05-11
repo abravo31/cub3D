@@ -5,4 +5,4 @@ The error message is printed, but the program continues
 10000001
 10000001
 10000N01
-11111111111111111111111111
+1111

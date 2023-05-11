@@ -141,16 +141,28 @@ typedef struct s_cam
 typedef	struct	s_rc
 {
 	t_player	player;
-	t_vec2D		initial_dir_vec;
 	t_vec2D		dir_vec;
-	t_vec2D		plane_vec;
-	t_vec2D		player_dir_vec;
-	int			angle_direction;
+	t_vec2D		per_vec;
+	t_vec2D		center_screen;
+	double		angle_direction;
 	double 		ray_dist;
-	double		scale;
+	double		scale_map;
 	double		fov;
 	double		fov_radians;
 }				t_rc;
+
+// typedef	struct	s_ray
+// {
+// 	double	ray_angle;
+// 	int		hit_wallX;
+// 	int		hit_wallY;
+// 	double	distance;
+// 	int		hit_vectical;
+// 	int		is_facing_down;
+// 	int		is_facing_up;
+// 	int		is_facing_rigth;
+// 	int		is_facing_left;
+// }			t_ray;
 
 typedef struct cub3D
 {
@@ -242,6 +254,7 @@ void	render(t_cub3D *data);
 void	draw_scene(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
+double	normalize_angle(double angle);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);

@@ -6,14 +6,14 @@
 #    By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:26:55 by gamoreno          #+#    #+#              #
-#    Updated: 2023/05/03 17:22:36 by dnieto-c         ###   ########.fr        #
+#    Updated: 2023/05/11 11:47:30 by dnieto-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Compilation ###
 
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror -I -g3
+CFLAGS	= -Wall -Wextra -Werror -I
 
 ### Executable ###
 

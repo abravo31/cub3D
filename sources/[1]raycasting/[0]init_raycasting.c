@@ -42,8 +42,36 @@ static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 
 static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 {
-	rc->initial_dir_vec.x = -1;
-	rc->initial_dir_vec.y = 0;
+	// rc->dir_vec.x = 1;
+	// rc->dir_vec.y = 0;
+	// if (rc->player.direction == 0)
+	// {
+	// 	// rc->dir_vec.x = 0;
+	// 	// rc->dir_vec.y = -1;
+	// 	rc->angle_direction = ft_deg_to_rad(90.0);
+	// }
+	// else if (rc->player.direction == 1)
+	// {
+	// 	// rc->dir_vec.x = 0;
+	// 	// rc->dir_vec.y = 1;
+	// 	rc->angle_direction = ft_deg_to_rad(270.0);
+	// }
+	// else if (rc->player.direction == 2)
+	// {
+	// 	// rc->dir_vec.x = 1;
+	// 	// rc->dir_vec.y = 0;
+	// 	rc->angle_direction = ft_deg_to_rad(0.0);
+	// }
+	// else if (rc->player.direction == 3)
+	// {
+	// 	// rc->dir_vec.x = -1;
+	// 	// rc->dir_vec.y = 0;
+	// 	rc->angle_direction = ft_deg_to_rad(180.0);
+	// }
+	// rc->dir_vec = rotate_2D_vector(rc->dir_vec, rc->angle_direction);
+	// printf("Dir vector		-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
+	rc->dir_vec.x = 1;
+	rc->dir_vec.y = 0;
 	if (rc->player.direction == 0)
 		rc->angle_direction = 90;
 	else if (rc->player.direction == 1)
@@ -52,8 +80,9 @@ static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 		rc->angle_direction = 0;
 	else if (rc->player.direction == 3)
 		rc->angle_direction = 180;
-	rc->dir_vec = rotate_2D_vector(rc->initial_dir_vec, rc->angle_direction);
-	rc->scale = 32;
+	rc->dir_vec = rotate_2D_vector(rc->dir_vec, rc->angle_direction);
+	printf("Dir vector		-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
+	rc->scale_map = 32;
     rc->fov = ft_deg_to_rad((double)60);
 	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
 	printf("fov : %f\n", rc->fov);

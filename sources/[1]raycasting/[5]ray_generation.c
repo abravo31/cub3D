@@ -38,30 +38,14 @@ t_vec2D ft_get_perpendicular_vec(t_vec2D dir_vec)
     return res_perpendicular_vec;
 }
 
-// norm = sqrt(1 + ((dir_vec.y * dir_vec.y) / (dir_vec.x * dir_vec.x)));
-// res_perpendicular_vec.x = -(dir_vec.y / dir_vec.x) / norm;
-// res_perpendicular_vec.y = 1 / norm;
-
-// t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec)
-// {
-// 	t_vec2D	res_perpendicular_vec;
-// 	double	norm;
-
-// 	norm = sqrt(1 + (((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y))));
-// 	res_perpendicular_vec.x = -1 / norm;
-// 	res_perpendicular_vec.y = ((dir_vec.x) / dir_vec.y) / norm;
-// 	printf("perpendicular x %f - y %f\n", res_perpendicular_vec.x, res_perpendicular_vec.y);
-// 	return (res_perpendicular_vec);
-// }
-
 static void	draw_ray(t_cub3D *data, t_rc *rc, t_vec2D ray)
 {
 	t_vec2D		ray_screen;
 	t_vec2D		player_screen;
 
 	player_screen = rc->player.d_coords;
-	ray_screen = scalar_mult(ray, rc->scale);
-	player_screen = scalar_mult(player_screen, rc->scale);
+	ray_screen = scalar_mult(ray, rc->scale_map);
+	player_screen = scalar_mult(player_screen, rc->scale_map);
 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 }
 
@@ -80,39 +64,84 @@ static void	draw_ray(t_cub3D *data, t_rc *rc, t_vec2D ray)
 
 static void get_vectors(t_rc *rc)
 {
-    rc->dir_vec = rotate_2D_vector(rc->initial_dir_vec, rc->angle_direction);
-	rc->plane_vec = ft_get_perpendicular_vec(rc->dir_vec);
-	rc->player_dir_vec = add_2D_vec(rc->player.d_coords, rc->dir_vec);
+	rc->dir_vec = rotate_2D_vector(rc->dir_vec, rc->angle_direction);
+	// Perpendicular con respecto al vector direccion
+	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
+	// Vector resultante entre la suma del vector del jugador y el vector direccion
+	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);
 }
+
+// static void	ft_ray(double ray_angle, int columnXaxis)
+// {
+// 	t_ray	ray;
+
+// 	// Normalize angle
+// 	ray.ray_angle = normalize_angle(ray_angle);
+// 	if (ray.ray_angle > 0 && ray.ray_angle < M_PI)
+// 		ray.is_facing_up = 1;
+// 	else
+// 		ray.is_facing_down = 1;
+// 	if (ray.ray_angle < (0.5 * M_PI) || ray.ray_angle < (1.5 * M_PI))
+// 		ray.is_facing_rigth = 1;
+// 	else
+// 		ray.is_facing_left = 1;
+	
+// }
+
+// static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
+// {
+// 	(void)data;
+// 	(void)rc;
+// 	if (ray_vec.x > 0)
+//     {
+//         printf("El rayo está mirando hacia la derecha.\n");
+//         // Realizar acciones específicas para la dirección hacia la derecha
+//     }
+//     else if (ray_vec.x < 0)
+//     {
+//         printf("El rayo está mirando hacia la izquierda.\n");
+//         // Realizar acciones específicas para la dirección hacia la izquierda
+//     }
+
+//     if (ray_vec.y > 0)
+//     {
+//         printf("El rayo está mirando hacia abajo.\n");
+//         // Realizar acciones específicas para la dirección hacia abajo
+//     }
+//     else if (ray_vec.y < 0)
+//     {
+//         printf("El rayo está mirando hacia arriba.\n");
+//         // Realizar acciones específicas para la dirección hacia arriba
+//     }
+
+// }
 
 static void	lauch_rays(t_cub3D *data, t_rc *rc)
 {
-	t_vec2D	pos_plane_vec;
+	t_vec2D	cur_pix_pos;
+	// t_vec2D	ray_dir;
 	t_vec2D	current_ray_dir;
-	// t_vec2D	current_ray;
 	int		i;
 
-	printf("Player vector 	-> y: %f - x : %f\n", rc->player.d_coords.y, rc->player.d_coords.x);
-	printf("Dir vector		-> y: %f - x : %f\n", rc->dir_vec.y, rc->dir_vec.x);
-	printf("Plane_vec 		-> y: %f - x : %f\n", rc->plane_vec.y, rc->plane_vec.x);
+	printf("**************************************************\n");
+	printf("angle_redir : %f\n", rc->angle_direction);
+	printf("Player vector 	-> x: %f - y : %f\n", rc->player.d_coords.x, rc->player.d_coords.y);
+	printf("Dir vector		-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
+	printf("Per_vec 		-> x: %f - y : %f\n", rc->per_vec.x, rc->per_vec.y);
 	i = 0;
 	while (i <= data->win_x)
 	{
-		pos_plane_vec = scalar_mult(rc->plane_vec, tan(rc->fov / 2) - (rc->ray_dist * i));
-		// printf("pos_plane_vec x %f -- y %f\n", pos_plane_vec.x, pos_plane_vec.y);
-		current_ray_dir = add_2D_vec(pos_plane_vec, rc->player_dir_vec);
-		// current_ray = add_2D_vec(current_ray_dir, rc->player.d_coords);
-		// printf("current_ray_dir x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
-		// printf("pos player x %f -- y %f\n", rc->player.d_coords.x, rc->player.d_coords.y);
-		// draw_ray(data, rc, current_ray_dir);
-		if (i % 100 == 0)
+		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov / 2) - (rc->ray_dist * i));
+		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
+		// current_ray_dir = add_2D_vec(current_ray_dir, rc->player.d_coords);
+		// ray_dir = subtract_2D_vec(current_ray_dir, rc->player.d_coords);
+		if (i == 0 || i == 1200)
 		{
 			printf("current_ray x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
-			// double deltaDistX = (current_ray_dir.x == 0) ? 1e30 : fabs(1 / current_ray_dir.x);
-      		// double deltaDistY = (current_ray_dir.y == 0) ? 1e30 : fabs(1 / current_ray_dir.y);
-			// printf("deltaDistX %f -- deltaDistY %f\n", deltaDistX, deltaDistY);
-			draw_ray(data, rc, current_ray_dir);
-			// printf("%d\n", i);
+			// printf("cur_pix_pos x %f -- y %f\n", cur_pix_pos.x, cur_pix_pos.y);
+			// printf("ray_dir x %f -- y %f\n", ray_dir.x, ray_dir.y);
+			// cast_ray(data, rc, current_ray_dir)
+			// draw_ray(data, rc, current_ray_dir);
 		}
 		i++;
 	}

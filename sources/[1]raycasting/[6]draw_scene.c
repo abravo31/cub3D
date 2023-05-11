@@ -9,8 +9,8 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 	int j;
 
 	player = rc->player;
-	y = (int)(player.d_coords.y * rc->scale);
-	x = (int)(player.d_coords.x * rc->scale);
+	y = (int)(player.d_coords.y * rc->scale_map);
+	x = (int)(player.d_coords.x * rc->scale_map);
 	i = 0;
 	while (i < 5)
 	{
@@ -36,23 +36,23 @@ static void	draw_vectors(t_cub3D *data, t_rc *rc)
 	player_ptr = &rc->player;
 	player_screen = player_ptr->d_coords;
 	vector_dir_screen = add_2D_vec(player_screen, rc->dir_vec);
-	vec_plane_screen_1 = add_2D_vec(vector_dir_screen, rc->plane_vec);
+	vec_plane_screen_1 = add_2D_vec(vector_dir_screen, rc->per_vec);
 	// vec_aux_plane = scalar_mult(vec_plane_screen_1, 2);
-	vec_plane_screen_2 = subtract_2D_vec(vector_dir_screen, rc->plane_vec);
+	vec_plane_screen_2 = subtract_2D_vec(vector_dir_screen, rc->per_vec);
 	// printf("*******************************************************\n");
 	// printf("Player vector 		-> y: %f - x : %f\n", player_ptr->d_coords.y, player_ptr->d_coords.x);
 	// printf("Direction vector 	-> y: %f - x : %f\n", rc->dir_vec.y, rc->dir_vec.x);
-	// printf("Plane vector 		-> y: %f - x : %f\n", rc->plane_vec.y, rc->plane_vec.x);
+	// printf("Plane vector 		-> y: %f - x : %f\n", rc->per_vec.y, rc->per_vec.x);
 	// printf("/////////////////////////////////////////////////////////\n");
 	// printf("Direction vector + player_ptr -> y: %f - x : %f\n", vector_dir_screen.y, vector_dir_screen.x);
 	// printf("Direction vector + player_ptr + plane vector y: %f - x : %f\n", vec_plane_screen_1.y, vec_plane_screen_1.x);
 	// printf("Direction vector + player_ptr + plane vector y: %f - x : %f\n", vec_plane_screen_2.y, vec_plane_screen_2.x);
 	// printf("\n\n");
-	vector_dir_screen = scalar_mult(vector_dir_screen, rc->scale);
-	vec_plane_screen_1 = scalar_mult(vec_plane_screen_1, rc->scale);
-	vec_plane_screen_2 = scalar_mult(vec_plane_screen_2, rc->scale);
-	player_screen = scalar_mult(player_screen, rc->scale);
-	// ft_draw_line(data, player_screen, vector_dir_screen, 0xFF0000);
+	vector_dir_screen = scalar_mult(vector_dir_screen, rc->scale_map);
+	vec_plane_screen_1 = scalar_mult(vec_plane_screen_1, rc->scale_map);
+	vec_plane_screen_2 = scalar_mult(vec_plane_screen_2, rc->scale_map);
+	player_screen = scalar_mult(player_screen, rc->scale_map);
+	ft_draw_line(data, player_screen, vector_dir_screen, 0xFF0000);
 	// ft_draw_line(data, player_screen, vec_plane_screen_1, 0xFF0000);
 	// ft_draw_line(data, vec_plane_screen_1, vector_dir_screen, 0xFF0000);
 	// ft_draw_line(data, vec_plane_screen_2, vector_dir_screen, 0xFF0000);
@@ -101,7 +101,7 @@ static void	draw_minimap_grid(t_cub3D *data)
 	int		y;
 	int		scale_map;
 
-	scale_map = data->rc.scale;
+	scale_map = data->rc.scale_map;
 	y = 0;
 	while (y < data->map.max_h)
 	{

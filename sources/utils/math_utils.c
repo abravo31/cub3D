@@ -8,6 +8,17 @@ double	ft_deg_to_rad(double angle)
 	return (radians);
 }
 
+// double normalize_angle(double angle)
+// {
+//     double	normalized_angle;
+
+// 	normalized_angle = angle % (2 * M_PI);
+//     if (normalized_angle < 0) {
+//         normalized_angle = (2 * M_PI) + angle;
+//     }
+//     return normalized_angle;
+// }
+
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2)
 {
 	t_vec2D	product_vector;

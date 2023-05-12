@@ -17,7 +17,7 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 		j = 0;
 		while (j < 5)
 		{
-			my_mlx_pixel_put(data, (t_point){x + j, y + i, player.i_coords.color});
+			my_mlx_pixel_put(data, (t_point){x + j, y + i, 0x00FF00});
 			j++;
 		}
 		i++;

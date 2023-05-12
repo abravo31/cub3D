@@ -45,5 +45,7 @@ Make sure the camera plane is perpendicular to the direction, but you can change
 The ratio between the length of the direction and the camera plane determinates the FOV
 
 
-
-
+For draw the textures, we need :
+1. Coordinates of hit
+2. Orientation of wall
+3. Distance between player and this intersection (hit)

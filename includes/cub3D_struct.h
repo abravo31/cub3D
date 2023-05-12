@@ -75,6 +75,12 @@ typedef struct s_point
 	int	color;
 }		t_point;
 
+typedef struct s_int_vec
+{
+	int	x;
+	int	y;
+}		t_int_vec;
+
 typedef struct vector_2D
 {
 	double	x;
@@ -84,9 +90,9 @@ typedef struct vector_2D
 
 typedef struct player
 {
-	t_point	i_coords;
-	t_vec2D	d_coords;
-	int		direction;
+	t_int_vec	i_coords;
+	t_vec2D		d_coords;
+	int			direction;
 }			t_player;
 
 
@@ -155,10 +161,9 @@ typedef	struct	s_rc
 typedef	struct	s_ray
 {
 	t_vec2D	ray_vector;
+	t_vec2D	hit_point;
 	double	distance;
-	int		hit_wallX;
-	int		hit_wallY;
-	int		hit_vectical;
+	int		orientation_wall_hit;
 	int		is_facing_down;
 	int		is_facing_up;
 	int		is_facing_rigth;
@@ -242,6 +247,7 @@ int		setup_mlx_env(t_cub3D *data);
 void	my_mlx_pixel_put(t_cub3D *data, t_point point);
 void	ft_bresenham(t_cub3D *data, t_line *line);
 void	ft_draw_line(t_cub3D *data, t_vec2D vec_1, t_vec2D vec_2, int color);
+void	draw_square_point(t_cub3D *data, t_vec2D point);
 /*Hooks*/
 void	setup_controls_hooks(t_cub3D *data);
 /************* Raycasting main functions**************/
@@ -257,6 +263,7 @@ void	draw_scene(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 void	normalizeVector(t_vec2D *vector);
+double	ft_abs_double(double n);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);

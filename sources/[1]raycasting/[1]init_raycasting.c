@@ -25,7 +25,6 @@ static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 {
 	rc->player.i_coords.y = data->map.player._y;
 	rc->player.i_coords.x = data->map.player._x;
-	rc->player.i_coords.color = 0x00FF00;
 	rc->player.d_coords.y = (double)rc->player.i_coords.y + 0.5;
 	rc->player.d_coords.x = (double)rc->player.i_coords.x + 0.5;
 	rc->player.direction = data->map.player._direction;

@@ -15,6 +15,13 @@ void normalizeVector(t_vec2D *vector)
     vector->y /= length;
 }
 
+double ft_abs_double(double n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
 double vec_cross_product(t_vec2D v1, t_vec2D v2)
 {
     return v1.x * v2.y - v1.y * v2.x;
@@ -64,13 +71,6 @@ int	ft_abs_2_values(int a, int b)
 		return (b - a);
 	else
 		return (a - b);
-}
-
-double	ft_abs_double(double n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
 }
 
 t_vec2D rotate_2D_vector(t_vec2D vec, int angle)

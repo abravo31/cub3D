@@ -163,6 +163,7 @@ typedef	struct	s_ray
 	t_vec2D	ray_vector;
 	t_vec2D	hit_point;
 	double	distance;
+	int		hit;
 	int		orientation_wall_hit;
 	int		is_facing_down;
 	int		is_facing_up;

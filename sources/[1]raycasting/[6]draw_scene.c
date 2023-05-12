@@ -24,39 +24,35 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 	}
 }
 
+static void	print_vec_info(t_vec2D vec, char *msg)
+{
+	printf("%s ", msg);
+	printf("x -> %f | y -> %f\n", vec.x, vec.y);
+}
+
 static void	draw_vectors(t_cub3D *data, t_rc *rc)
 {
 	t_player	*player_ptr;
-	t_vec2D		vector_dir_screen;
-	t_vec2D		vec_plane_screen_1;
-	t_vec2D		vec_plane_screen_2;
+	t_vec2D		vector_center_screen;
+	t_vec2D		vector_per_screen;
+	t_vec2D		vector_per_screen_opposite;
 	t_vec2D		player_screen;
 
-	(void)data;
 	player_ptr = &rc->player;
 	player_screen = player_ptr->d_coords;
-	vector_dir_screen = add_2D_vec(player_screen, rc->dir_vec);
-	vec_plane_screen_1 = add_2D_vec(vector_dir_screen, rc->per_vec);
-	// vec_aux_plane = scalar_mult(vec_plane_screen_1, 2);
-	vec_plane_screen_2 = subtract_2D_vec(vector_dir_screen, rc->per_vec);
-	// printf("*******************************************************\n");
-	// printf("Player vector 		-> y: %f - x : %f\n", player_ptr->d_coords.y, player_ptr->d_coords.x);
-	// printf("Direction vector 	-> y: %f - x : %f\n", rc->dir_vec.y, rc->dir_vec.x);
-	// printf("Plane vector 		-> y: %f - x : %f\n", rc->per_vec.y, rc->per_vec.x);
-	// printf("/////////////////////////////////////////////////////////\n");
-	// printf("Direction vector + player_ptr -> y: %f - x : %f\n", vector_dir_screen.y, vector_dir_screen.x);
-	// printf("Direction vector + player_ptr + plane vector y: %f - x : %f\n", vec_plane_screen_1.y, vec_plane_screen_1.x);
-	// printf("Direction vector + player_ptr + plane vector y: %f - x : %f\n", vec_plane_screen_2.y, vec_plane_screen_2.x);
-	// printf("\n\n");
-	vector_dir_screen = scalar_mult(vector_dir_screen, rc->scale_map);
-	vec_plane_screen_1 = scalar_mult(vec_plane_screen_1, rc->scale_map);
-	vec_plane_screen_2 = scalar_mult(vec_plane_screen_2, rc->scale_map);
+	// Getting player position in the screen
 	player_screen = scalar_mult(player_screen, rc->scale_map);
-	ft_draw_line(data, player_screen, vector_dir_screen, 0xFF0000);
-	// ft_draw_line(data, player_screen, vec_plane_screen_1, 0xFF0000);
-	// ft_draw_line(data, vec_plane_screen_1, vector_dir_screen, 0xFF0000);
-	// ft_draw_line(data, vec_plane_screen_2, vector_dir_screen, 0xFF0000);
-	// ft_draw_line(data, player_screen, vec_plane_screen_2, 0xFF0000);
+	// Getting and drawing player + dir in the screen
+	vector_center_screen = scalar_mult(rc->center_screen, rc->scale_map);
+	ft_draw_line(data, player_screen, vector_center_screen, 0xFF0000);
+	// Getting perpendicular vector from the screen
+	vector_per_screen = add_2D_vec(rc->center_screen, rc->per_vec);
+	vector_per_screen = scalar_mult(vector_per_screen, rc->scale_map);
+	// ft_draw_line(data, player_screen, vector_per_screen, 0xFF0000);
+	// Getting perpendicular opposite from the screen
+	vector_per_screen_opposite = subtract_2D_vec(rc->center_screen, rc->per_vec);
+	vector_per_screen_opposite = scalar_mult(vector_per_screen_opposite, rc->scale_map);
+	// ft_draw_line(data, player_screen, vector_per_screen_opposite, 0xFF0000);
 }
 
 void	draw_player(t_cub3D *data)
@@ -68,7 +64,7 @@ void	draw_player(t_cub3D *data)
 	draw_vectors(data, rc);
 }
 
-static void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
+void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 {
 	int pixel_step_y;
 	int pixel_step_x;
@@ -86,6 +82,8 @@ static void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 				color = 0x0000FF;
 			else if (obj == 2)
 				color = 0x0FF000;
+			else if (obj == 3)
+				color = 0xFFA500;
 			else
 				color = 0xFFFFFF;
 			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});

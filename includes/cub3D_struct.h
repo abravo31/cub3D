@@ -144,7 +144,7 @@ typedef	struct	s_rc
 	t_vec2D		dir_vec;
 	t_vec2D		per_vec;
 	t_vec2D		center_screen;
-	double		angle_direction;
+	int			angle_direction;
 	double 		ray_dist;
 	double		scale_map;
 	double		fov;

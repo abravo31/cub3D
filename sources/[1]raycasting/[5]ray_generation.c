@@ -64,7 +64,10 @@ static void	draw_ray(t_cub3D *data, t_rc *rc, t_vec2D ray)
 
 static void get_vectors(t_rc *rc)
 {
+	printf("Valor antes de la rotacion vector	-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
+	printf("Valor del angulo de rotacion %d\n", rc->angle_direction);
 	rc->dir_vec = rotate_2D_vector(rc->dir_vec, rc->angle_direction);
+	printf("Valor despues de la rotacion vector	-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
 	// Perpendicular con respecto al vector direccion
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
 	// Vector resultante entre la suma del vector del jugador y el vector direccion
@@ -124,7 +127,7 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 	int		i;
 
 	printf("**************************************************\n");
-	printf("angle_redir : %f\n", rc->angle_direction);
+	printf("angle_redir : %d\n", rc->angle_direction);
 	printf("Player vector 	-> x: %f - y : %f\n", rc->player.d_coords.x, rc->player.d_coords.y);
 	printf("Dir vector		-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
 	printf("Per_vec 		-> x: %f - y : %f\n", rc->per_vec.x, rc->per_vec.y);
@@ -153,5 +156,5 @@ void    dda(t_cub3D *data)
 
 	rc = &data->rc;
     get_vectors(rc);
-	lauch_rays(data, rc);
+	// lauch_rays(data, rc);
 }

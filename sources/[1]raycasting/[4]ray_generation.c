@@ -6,6 +6,8 @@ static void	initialize_ray(t_ray *ray, t_vec2D ray_vec)
 	ray->hit_point.x = -1;
 	ray->hit_point.y = -1;
 	ray->distance = -1;
+	ray->distanceX = -1;
+	ray->distanceY = -1;
 	ray->orientation_wall_hit = -1;
 	ray->is_facing_down = 0;
 	ray->is_facing_up = 0;

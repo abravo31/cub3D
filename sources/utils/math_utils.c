@@ -8,7 +8,7 @@ double	ft_deg_to_rad(double angle)
 	return (radians);
 }
 
-void normalizeVector(t_vec2D *vector)
+void normalize_vector(t_vec2D *vector)
 {
     double length = sqrt(vector->x * vector->x + vector->y * vector->y);
     vector->x /= length;
@@ -82,4 +82,42 @@ t_vec2D rotate_2D_vector(t_vec2D vec, int angle)
 	rotate_vec.x = (vec.x * cos(angle_radians)) - (vec.y * sin(angle_radians));
 	rotate_vec.y = (vec.x * sin(angle_radians)) + (vec.y * cos(angle_radians));
 	return (rotate_vec);
+}
+
+t_vec2D ft_get_perpendicular_vec(t_vec2D dir_vec)
+{
+    t_vec2D res_perpendicular_vec;
+    double norm;
+
+	res_perpendicular_vec.x = 0;
+	res_perpendicular_vec.y = 0;
+    if (dir_vec.y != 0)
+    {
+		if (dir_vec.y < 0)
+		{
+			 norm = sqrt(1 + ((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y)));
+			res_perpendicular_vec.x = -1 / norm;
+			res_perpendicular_vec.y = (dir_vec.x / dir_vec.y) / norm;
+		}
+		else if (dir_vec.y > 0)
+		{
+			norm = sqrt(1 + ((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y)));
+        	res_perpendicular_vec.x = 1 / norm;
+        	res_perpendicular_vec.y = -(dir_vec.x / dir_vec.y) / norm;
+		}
+    }
+    else
+    {
+		if (dir_vec.x > 0)
+		{
+			res_perpendicular_vec.x = 0;
+        	res_perpendicular_vec.y = -1;
+		}
+		else if (dir_vec.x < 0)
+		{
+			res_perpendicular_vec.x = 0;
+        	res_perpendicular_vec.y = 1;
+		}
+    }
+    return res_perpendicular_vec;
 }

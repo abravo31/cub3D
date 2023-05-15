@@ -32,18 +32,17 @@ static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 
 static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 {
-	rc->origin_dir_vec.x = 1;
-	rc->origin_dir_vec.y = 0;
+	rc->dir_vec.x = 1;
+	rc->dir_vec.y = 0;
 	if (rc->player.direction == 0)
-		rc->angle_direction = 270;
+		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 270.0);
 	else if (rc->player.direction == 1)
-		rc->angle_direction = 90;
+		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 90.0);
 	else if (rc->player.direction == 2)
-		rc->angle_direction = 0;
+		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 0.0);
 	else if (rc->player.direction == 3)
-		rc->angle_direction = 180;
-	rc->dir_vec = rotate_2D_vector(rc->origin_dir_vec, rc->angle_direction);
-	rc->scale_map = 250;
+		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 180.0);
+	rc->scale_map = 100;
     rc->fov = ft_deg_to_rad((double)60);
 	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
 	// printf("fov : %f\n", rc->fov);

@@ -136,15 +136,12 @@ int	ft_check_map(t_cub3D *data)
 	j = 0;
 	if (ft_get_map(&data->map_list, &map))
 		return (1);
-	// ft_print_map(&map);
 	if (ft_scan_map(&map, i, j))
-	{
-		printf("Here\n");
 		return (ft_free_map(&map), 1);
-	}
+	if (!map.valide_map)
+		return (ft_free_map(&map), 1);
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
-    // ft_free_map(&map);
 	data->map = map;
 	return (0);
 }

@@ -75,5 +75,5 @@ void	draw_square_point(t_cub3D *data, t_vec2D point)
 	t_vec2D	point_screen;
 
 	point_screen = scalar_mult(point, data->rc.scale_map);
-	draw_square(data, (int)point_screen.y, (int)point_screen.x, 3, 5);
+	draw_square(data, (int)point_screen.y, (int)point_screen.x, 4, 5);
 }

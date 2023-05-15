@@ -24,11 +24,11 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 	}
 }
 
-static void	print_vec_info(t_vec2D vec, char *msg)
-{
-	printf("%s ", msg);
-	printf("x -> %f | y -> %f\n", vec.x, vec.y);
-}
+// static void	print_vec_info(t_vec2D vec, char *msg)
+// {
+// 	printf("%s ", msg);
+// 	printf("x -> %f | y -> %f\n", vec.x, vec.y);
+// }
 
 static void	draw_vectors(t_cub3D *data, t_rc *rc)
 {
@@ -59,6 +59,7 @@ void	draw_player(t_cub3D *data)
 {
 	t_rc	*rc;
 
+	
 	rc = &data->rc;
 	draw_square_player(data, rc);
 	draw_vectors(data, rc);
@@ -84,6 +85,8 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 				color = 0x0FF000;
 			else if (obj == 3)
 				color = 0xFFA500;
+			else if (obj == 4)
+				color = 0XC0EB34;
 			else
 				color = 0xFFFFFF;
 			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});

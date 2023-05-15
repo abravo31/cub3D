@@ -147,15 +147,12 @@ typedef struct s_cam
 typedef	struct	s_rc
 {
 	t_player	player;
-	t_vec2D		origin_dir_vec;
 	t_vec2D		dir_vec;
 	t_vec2D		per_vec;
 	t_vec2D		center_screen;
-	int			angle_direction;
 	double 		ray_dist;
 	double		scale_map;
 	double		fov;
-	double		fov_radians;
 }				t_rc;
 
 typedef	struct	s_ray
@@ -253,9 +250,11 @@ void	draw_square_point(t_cub3D *data, t_vec2D point);
 void	setup_controls_hooks(t_cub3D *data);
 /************* Raycasting main functions**************/
 int		lauch_raycasting(t_cub3D *data);
-/*DDA*/
+/*Raycasting*/
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
-void	dda(t_cub3D *data);
+void    raycasting(t_cub3D *data);
+/*DDA*/
+void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
@@ -263,7 +262,7 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
-void	normalizeVector(t_vec2D *vector);
+void	normalize_vector(t_vec2D *vector);
 double	ft_abs_double(double n);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);

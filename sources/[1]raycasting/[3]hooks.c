@@ -5,18 +5,12 @@ static void	ft_rotate_dir_vec(t_cub3D *data, int rotation_direction)
 	if (rotation_direction == 1)
 	{
 		// Rotation anticlockwise
-		data->rc.angle_direction -= 15;
-		if (data->rc.angle_direction < 0)
-			data->rc.angle_direction += 360;
-		data->rc.dir_vec = rotate_2D_vector(data->rc.origin_dir_vec, data->rc.angle_direction);
+		data->rc.dir_vec = rotate_2D_vector(data->rc.dir_vec, -15.0);
 	}
 	else if (rotation_direction == 2)
 	{
 		// Rotation clockwise
-		data->rc.angle_direction += 15;
-		if (data->rc.angle_direction > 360)
-			data->rc.angle_direction -= 360;
-		data->rc.dir_vec= rotate_2D_vector(data->rc.origin_dir_vec, data->rc.angle_direction);
+		data->rc.dir_vec= rotate_2D_vector(data->rc.dir_vec, 15.0);
 	}
 }
 
@@ -33,13 +27,9 @@ static int	key_hook_player(int key_code, t_cub3D *data)
 	else if (key_code == ROTATE_LEFT)
 		ft_rotate_dir_vec(data, 1);
 	else if (key_code == ROTATE_RIGTH)
-	{
 		ft_rotate_dir_vec(data, 2);
-	}
 	else if (key_code == ESCAPE)
 		ft_exit(data);
-	else
-		return (1); // bug
 	render(data);
 	return (0);
 }

@@ -68,15 +68,24 @@ static void	draw_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_hit_point)
 	ft_draw_line(data, player_screen, ray_hit_point_screen, 0xA020F0);
 }
 
-// static void	check_hit_X_axis()
-// {
+/******************************************************
+This function is only for draw the position checked by dda
+*******************************************************/
 
-// }
+static void	draw_square_checked(t_cub3D *data, t_vec2D *current_dda)
+{
+	int	y;
+	int	x;
+
+	y = (int)current_dda->y * (int)data->rc.scale_map;
+	x = (int)current_dda->x * (int)data->rc.scale_map;
+	// printf("y %d -- x %d\n", y, x);
+	draw_square(data, y, x, 5, data->rc.scale_map);
+}
 
 static void	check_hit_Y_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_dda)
 {
-	printf("ray_vector x : %f -- y : %f\n", ray->ray_vector.x, ray->ray_vector.y);
-	printf("current dda x : %f -- y : %f\n", current_dda->x, current_dda->y);
+	// printf("ray_vector x : %f -- y : %f\n", ray->ray_vector.x, ray->ray_vector.y);
 	if (ray->is_facing_up == 1 && ray->orientation_wall_hit == -1)
 	{
 		// Es para evitar que la division entre 0
@@ -84,7 +93,7 @@ static void	check_hit_Y_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 		if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
 		{
 			ray->distanceY = (current_dda->y - rc->player.d_coords.y) / ray->ray_vector.y;
-			printf("Hereee %f\n", ray->distanceY);
+			// printf("Hereee %f\n", ray->distanceY);
 			ray->hit_pointY.x = rc->player.d_coords.x + (ray->distanceY * ray->ray_vector.x);
 			ray->hit_pointY.y = current_dda->y;
 		}
@@ -157,7 +166,7 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 	current_dda.x = rc->player.i_coords.x;
 	current_dda.y = rc->player.i_coords.y;
 	printf("Pos int player at the beginning x %f - y %f\n", current_dda.x, current_dda.y);
-	// printf("current_dda x %f - y %f\n", current_dda.x, current_dda.y);
+	printf("At the beginning current_dda x %f - y %f\n", current_dda.x, current_dda.y);
 	// printf("up %d\n", ray->is_facing_up);
 	// printf("down %d\n", ray->is_facing_down);
 	// printf("rigth %d\n", ray->is_facing_rigth);
@@ -166,14 +175,15 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 	hit = 0;
 	while (!hit)
 	{
-		printf("Check %f - y %f\n", current_dda.x, current_dda.y);
 		check_hit_Y_axis(data, rc, ray, &current_dda);
 		check_hit_X_axis(data, rc, ray, &current_dda);
+		printf("ray distance X es %f y ray distance Y %f\n", ray->distanceX, ray->distanceY);
 		if (ray->distanceX < ray->distanceY)
 		{
 			// printf("Distance en X es %f menor que %f\n", ray->distanceX, ray->distanceY);
-			current_dda.y = current_dda.x + 1;
+			current_dda.x = current_dda.x + 1;
 			ray->orientation_wall_hit = -1;
+			printf("here\n");
 		}
 		else
 		{
@@ -181,10 +191,17 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 			current_dda.y = current_dda.y - 1;
 			ray->orientation_wall_hit = -1;
 		}
+		printf("current dda x : %f -- y : %f\n", current_dda.x, current_dda.y);
 		if (data->map.map[(int)current_dda.y][(int)current_dda.x] == 1)
+		{
 			hit = 1;
+			printf("hit : current dda x : %f -- y : %f\n", current_dda.x, current_dda.y);
+		}
+		// draw_square_checked(data, &current_dda);
 	}
 	printf("Here!\n");
+	sleep(3);
+	system("clear"); 
 	// if (ray->distanceX < ray->distanceY)
 	// {
 	// 	printf("Distance en X es %f menor que %f\n", ray->distanceX, ray->distanceY);

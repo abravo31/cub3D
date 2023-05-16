@@ -87,6 +87,8 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 				color = 0xFFA500;
 			else if (obj == 4)
 				color = 0XC0EB34;
+			else if (obj == 5)
+				color = 0xFF0000;
 			else
 				color = 0xFFFFFF;
 			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});

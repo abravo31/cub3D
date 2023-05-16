@@ -17,8 +17,8 @@ int	lauch_raycasting(t_cub3D *data)
 	if (setup_mlx_env(data))
 		return (ft_exit_and_free(data, 1, NULL, MLX_ERROR), 1);
 	ft_initialize_raycasting(data);
-	setup_controls_hooks(data);
 	render(data);
+	setup_controls_hooks(data);
 	mlx_loop(data->mlx);
 	return (0);
 }

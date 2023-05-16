@@ -10,7 +10,9 @@ double	ft_deg_to_rad(double angle)
 
 void normalize_vector(t_vec2D *vector)
 {
-    double length = sqrt(vector->x * vector->x + vector->y * vector->y);
+    double length;
+
+	length = sqrt(vector->x * vector->x + vector->y * vector->y);
     vector->x /= length;
     vector->y /= length;
 }
@@ -95,7 +97,7 @@ t_vec2D ft_get_perpendicular_vec(t_vec2D dir_vec)
     {
 		if (dir_vec.y < 0)
 		{
-			 norm = sqrt(1 + ((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y)));
+			norm = sqrt(1 + ((dir_vec.x * dir_vec.x) / (dir_vec.y * dir_vec.y)));
 			res_perpendicular_vec.x = -1 / norm;
 			res_perpendicular_vec.y = (dir_vec.x / dir_vec.y) / norm;
 		}

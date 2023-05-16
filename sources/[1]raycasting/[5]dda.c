@@ -89,31 +89,38 @@ static void	check_hit_Y_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 	if (ray->is_facing_up == 1 && ray->orientation_wall_hit == -1)
 	{
 		// Es para evitar que la division entre 0
-		printf("Up\n");
-		if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
-		{
-			ray->distanceY = (current_dda->y - rc->player.d_coords.y) / ray->ray_vector.y;
-			// printf("Hereee %f\n", ray->distanceY);
-			ray->hit_pointY.x = rc->player.d_coords.x + (ray->distanceY * ray->ray_vector.x);
-			ray->hit_pointY.y = current_dda->y;
-		}
+		// printf("Up\n");
+		// if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
+		// {
+			ray->distance = (current_dda->y - rc->player.d_coords.y) / ray->ray_vector.y;
+			// printf("Hereee %f\n", ray->distance);
+			ray->hit_point.x = rc->player.d_coords.x + (ray->distance * ray->ray_vector.x);
+			ray->hit_point.y = current_dda->y;
+			// printf("Hit point x %f - y %f\n", ray->hit_point.x, ray->hit_point.y);
+			if (ray->hit_point.x >= current_dda->x && ray->hit_point.x < (current_dda->x + 1))
+			{
+				// printf("Here\n");
+				ray->orientation_wall_hit = 1;
+			}
+		// }
 	}
 	else if (ray->is_facing_down == 1 && ray->orientation_wall_hit == -1)
 	{
-		printf("Down\n");
-		if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
-		{
-			ray->distanceY = ((current_dda->y + 1) - rc->player.d_coords.y) / ray->ray_vector.y;
-			ray->hit_pointY.x = rc->player.d_coords.x + (ray->distanceY * ray->ray_vector.x);
-			ray->hit_pointY.y = current_dda->y + 1;
-			// En este caso tocamos el muro en sentido sur yesta dentro del rango de nuestro jugador
-			if (ray->hit_pointY.x > current_dda->x && ray->hit_pointY.x < (current_dda->x + 1))
+		// printf("Down\n");
+		// if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
+		// {
+			ray->distance = ((current_dda->y + 1) - rc->player.d_coords.y) / ray->ray_vector.y;
+			ray->hit_point.x = rc->player.d_coords.x + (ray->distance * ray->ray_vector.x);
+			ray->hit_point.y = current_dda->y + 1;
+			// printf("Hit point x %f - y %f\n", ray->hit_point.x, ray->hit_point.y);
+			// En este caso tocamos el muro en sentido sur y esta dentro del rango de nuestro jugador
+			if (ray->hit_point.x >= current_dda->x && ray->hit_point.x < (current_dda->x + 1))
 			{
 				ray->orientation_wall_hit = 2;
 			}
-		}
+		// }
 	}
-	draw_square_point(data, ray->hit_pointY);
+	// draw_square_point(data, ray->hit_point);
 }
 
 static void	check_hit_X_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_dda)
@@ -122,101 +129,95 @@ static void	check_hit_X_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 	// printf("current dda x : %f -- y : %f\n", current_dda->x, current_dda->y);
 	if  (ray->is_facing_left == 1 && ray->orientation_wall_hit == -1)
 	{
-		printf("Left\n");
-		if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
-		{
-			ray->distanceX = ((current_dda->x) - rc->player.d_coords.x) / ray->ray_vector.x;
-			ray->hit_pointX.x = current_dda->x;
-			ray->hit_pointX.y = rc->player.d_coords.y + (ray->distanceX * ray->ray_vector.y);
-			ray->orientation_wall_hit = 4;
+		// printf("Left\n");
+		// if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
+		// {
+			ray->distance = ((current_dda->x) - rc->player.d_coords.x) / ray->ray_vector.x;
+			ray->hit_point.x = current_dda->x;
+			ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
 			// printf("Hit point x %f - y %f\n", ray->hit_point.x, ray->hit_point.y);
-			// printf("ray distance : %f\n", ray->distance);
-			// draw_square_point(data, ray->hit_point);
-			// hit = hit_wall(data->map.map, &current_dda, &ray->orientation_wall_hit);
-		}
+			if (ray->hit_point.y > current_dda->y && ray->hit_point.y <= (current_dda->y + 1))
+			{
+				ray->orientation_wall_hit = 4;
+			}
+		// }
 	}
 	else if (ray->is_facing_rigth == 1 && ray->orientation_wall_hit == -1)
 	{
-		printf("Rigth\n");
+		// printf("Rigth\n");
 		// // En este caso tocamos el muro en sentido este y no esta dentro del rango de nuestro jugador
-		if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
-		{
-			ray->distanceX = ((current_dda->x + 1) - rc->player.d_coords.x) / ray->ray_vector.x;
-			ray->hit_pointX.x = current_dda->x + 1;
-			ray->hit_pointX.y = rc->player.d_coords.y + (ray->distanceX * ray->ray_vector.y);
+		// if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
+		// {
+			ray->distance = ((current_dda->x + 1) - rc->player.d_coords.x) / ray->ray_vector.x;
+			ray->hit_point.x = current_dda->x + 1;
+			ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
 			ray->orientation_wall_hit = 3;
 			// printf("Hit point x %f - y %f\n", ray->hit_point.x, ray->hit_point.y);
+			if (ray->hit_point.y > current_dda->y && ray->hit_point.y <= (current_dda->y + 1))
+			{
+				ray->orientation_wall_hit = 3;
+			}
 			// printf("ray distance : %f\n", ray->distance);
 			// draw_square_point(data, ray->hit_point);
 			// hit = hit_wall(data->map.map, &current_dda, &ray->orientation_wall_hit);
 			// printf("Here Hit point x %f - y %f\n", ray->hit_point.x, ray->hit_point.y);
-		}
+		// }
 	}
-	draw_square_point(data, ray->hit_pointX);
+	// draw_square_point(data, ray->hit_point);
 }
 
+// static void	handle_horizontal_hit()
+// {
+
+// }
 
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 {
 	t_vec2D	current_dda;
 	int		hit;
+	int		i;
 
+
+	/*
+	Orientation wall
+	Haut 1
+	Bas 2
+	Droite 3
+	Gauche 4
+	*/
 
 	get_int_coords(&data->rc.player);
 	current_dda.x = rc->player.i_coords.x;
 	current_dda.y = rc->player.i_coords.y;
-	printf("Pos int player at the beginning x %f - y %f\n", current_dda.x, current_dda.y);
-	printf("At the beginning current_dda x %f - y %f\n", current_dda.x, current_dda.y);
-	// printf("up %d\n", ray->is_facing_up);
-	// printf("down %d\n", ray->is_facing_down);
-	// printf("rigth %d\n", ray->is_facing_rigth);
-	// printf("left %d\n", ray->is_facing_left);
-
+	// printf("\n***************************************************************************\n");
+	// printf("Pos int player at the beginning x %f - y %f\n", current_dda.x, current_dda.y);
+	// printf("At the beginning current_dda x %f - y %f\n", current_dda.x, current_dda.y);
 	hit = 0;
 	while (!hit)
 	{
 		check_hit_Y_axis(data, rc, ray, &current_dda);
+		// printf("orientation Y %d\n", ray->orientation_wall_hit);
 		check_hit_X_axis(data, rc, ray, &current_dda);
-		printf("ray distance X es %f y ray distance Y %f\n", ray->distanceX, ray->distanceY);
-		if (ray->distanceX < ray->distanceY)
-		{
-			// printf("Distance en X es %f menor que %f\n", ray->distanceX, ray->distanceY);
-			current_dda.x = current_dda.x + 1;
-			ray->orientation_wall_hit = -1;
-			printf("here\n");
-		}
-		else
-		{
-			// printf("else\n");
+		// printf("orientation X %d\n", ray->orientation_wall_hit);
+		if (ray->orientation_wall_hit == 1)
 			current_dda.y = current_dda.y - 1;
-			ray->orientation_wall_hit = -1;
-		}
-		printf("current dda x : %f -- y : %f\n", current_dda.x, current_dda.y);
+		if (ray->orientation_wall_hit == 2)
+			current_dda.y = current_dda.y + 1;
+		if (ray->orientation_wall_hit == 3)
+			current_dda.x = current_dda.x + 1;
+		if (ray->orientation_wall_hit == 4)
+			current_dda.x = current_dda.x - 1;
+		// printf("current_dda test x : %f -- y : %f\n", current_dda.x, current_dda.y);
 		if (data->map.map[(int)current_dda.y][(int)current_dda.x] == 1)
-		{
 			hit = 1;
-			printf("hit : current dda x : %f -- y : %f\n", current_dda.x, current_dda.y);
-		}
-		// draw_square_checked(data, &current_dda);
+		else
+			ray->orientation_wall_hit = -1;
 	}
-	printf("Here!\n");
-	sleep(3);
-	system("clear"); 
-	// if (ray->distanceX < ray->distanceY)
-	// {
-	// 	printf("Distance en X es %f menor que %f\n", ray->distanceX, ray->distanceY);
-	// 	current_dda.y = current_dda.x + 1;
-	// 	ray->orientation_wall_hit = -1;
-	// }
-	// else
-	// {
-	// 	printf("else\n");
-	// 	current_dda.y = current_dda.y - 1;
-	// 	ray->orientation_wall_hit = -1;
-	// }
+	// printf("current_dda in hit x : %f -- y : %f\n", current_dda.x, current_dda.y);
+	// draw_square_checked(data, &current_dda);
+	// draw_square_checked(data, &current_dda);
 	// printf("***************************************\n");
-	// check_hit_Y_axis(data, rc, ray, &current_dda);
-	// check_hit_X_axis(data, rc, ray, &current_dda);
+
 	// while (hit_wall(data->map.map, current_dda, &ray->orientation_wall_hit) == 0)
 	// while (!hit)
 	// {

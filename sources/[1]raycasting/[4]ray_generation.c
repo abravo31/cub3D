@@ -6,8 +6,8 @@ static void	initialize_ray(t_ray *ray, t_vec2D ray_vec)
 	ray->hit_point.x = -1;
 	ray->hit_point.y = -1;
 	ray->distance = -1;
-	ray->distanceX = -1;
-	ray->distanceY = -1;
+	ray->hit_vertical = -1;
+	ray->hit_horizontal = -1;
 	ray->orientation_wall_hit = -1;
 	ray->is_facing_down = 0;
 	ray->is_facing_up = 0;
@@ -15,29 +15,54 @@ static void	initialize_ray(t_ray *ray, t_vec2D ray_vec)
 	ray->is_facing_left = 0;
 }
 
+static void	print_ray_info(t_ray *ray)
+{
+	printf("Distance %f\n", ray->distance);
+	printf("HitPoint x %f -- y %f\n", ray->hit_point.x, ray->hit_point.y);
+	printf("Orientation wallhit %d\n", ray->orientation_wall_hit);
+}
+
 static void	get_quadrant(t_ray *ray)
 {
-	if (ray->ray_vector.y < 0)
+	// printf("Ray vector		-> x: %f - y : %f\n", ray->ray_vector.x, ray->ray_vector.y);
+	// printf("El rayo esta mirando ");
+	if (!(ft_abs_double(ray->ray_vector.y) < 0.00001))
 	{
-		ray->is_facing_up = 1;
-		printf("El rayo esta mirando para arriba");
+		if (ray->ray_vector.y < 0)
+		{
+			ray->is_facing_up = 1;
+			// printf("para arriba ");
+		}
+		else if (ray->ray_vector.y > 0)
+		{
+			ray->is_facing_down = 1;
+			// printf("para abajo ");
+		}
 	}
-	else if (ray->ray_vector.y > 0)
+	// else
+	// {
+	// 	ray->hit_horizontal = 1;
+	// 	printf("Horizontal ");
+	// }
+	if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
 	{
-		ray->is_facing_down = 1;
-		printf("El rayo esta mirando para abajo");
+		if (ray->ray_vector.x < 0)
+		{
+			ray->is_facing_left = 1;
+			// printf(" | para la izquierda");
+		}
+		else if (ray->ray_vector.x > 0)
+		{
+			ray->is_facing_rigth = 1;
+			// printf(" | para la derecha");
+		}
 	}
-    if (ray->ray_vector.x < 0)
-	{
-		ray->is_facing_left = 1;
-		printf(" y para la izquierda");
-	}
-    else if (ray->ray_vector.x > 0)
-	{
-		ray->is_facing_rigth = 1;
-		printf(" y para la derecha");
-	}
-	printf("\n");
+	// else
+	// {
+	// 	ray->hit_vertical = 1;
+	// 	printf("Vectical ");
+	// }
+	// printf("\n");
 }
 
 static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
@@ -47,7 +72,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
 	t_vec2D		player_screen;
 
 	player_screen = rc->player.d_coords;
-	/*This line is only for draw the rays in the screen*/
+	/*This line is only for draw the rays in the screen*****/
 	ray_screen = add_2D_vec(player_screen, ray_vec);
 	ray_screen = scalar_mult(ray_screen, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
@@ -55,7 +80,13 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
 	initialize_ray(&ray, ray_vec);
 	get_quadrant(&ray);
 	wall_finder(data, &ray, rc);
+	print_ray_info(&ray);
 	// // draw_square(data, (int)ray_screen.y, (int)ray_screen.x, 3, 5);
+	// ray_screen = add_2D_vec(player_screen, ray.hit_point);
+	// printf("ray_screen x %f | y %f\n", ray_screen.x, ray_screen.y);
+	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
+	// printf("ray_screen x %f | y %f\n", ray_screen.x, ray_screen.y);
+	// player_screen = scalar_mult(player_screen, rc->scale_map);
 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 }
 
@@ -77,11 +108,13 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		// printf("current_ray x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
 		normalize_vector(&current_ray_dir);
-		if (i == data->win_x)
-		{
+		// if (i % 60 == 0)
+		// {
+		// 	printf("ray %d\n", i);
+		// 	printf("***********************************\n");
 			// printf("current_ray normalized x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
 			cast_ray(data, rc, current_ray_dir);
-		}
+		// }
 		i++;
 	}
 }

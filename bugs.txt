@@ -1,1 +1,10 @@
-4. Advance in the dda
+ray_vector x : -0.866025 -- y : -0.500000
+current dda x : 1.000000 -- y : 2.000000
+Left
+Hit point x 1.000000 - y 2.269060
+
+ray_vector x : -0.707107 -- y : -0.707107
+current dda x : 1.000000 -- y : 2.000000
+Left
+Hit point x 1.000000 - y 2.000000
+ray_vector x : -0.707107 -- y : -0.707107

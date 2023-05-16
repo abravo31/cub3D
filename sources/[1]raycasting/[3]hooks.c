@@ -30,8 +30,9 @@ static int	key_hook_player(int key_code, t_cub3D *data)
 		ft_rotate_dir_vec(data, 2);
 	else if (key_code == ESCAPE)
 		ft_exit(data);
-	else
-		return (1);
+	// POR QUE ?
+	// else
+	// 	return (1);
 	render(data);
 	return (0);
 }

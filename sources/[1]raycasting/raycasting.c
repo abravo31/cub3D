@@ -7,7 +7,7 @@ static void	ft_clear_img(t_cub3D *data)
 
 void	render(t_cub3D *data)
 {
-	ft_clear_img(data);
+	// ft_clear_img(data);
 	raycasting(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 }

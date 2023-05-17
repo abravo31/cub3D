@@ -72,22 +72,16 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
 	t_vec2D		player_screen;
 
 	player_screen = rc->player.d_coords;
-	/*This line is only for draw the rays in the screen*****/
-	ray_screen = add_2D_vec(player_screen, ray_vec);
-	ray_screen = scalar_mult(ray_screen, rc->scale_map);
-	player_screen = scalar_mult(player_screen, rc->scale_map);
-	/*******************************************************/
 	initialize_ray(&ray, ray_vec);
 	get_quadrant(&ray);
 	wall_finder(data, &ray, rc);
 	// print_ray_info(&ray);
-	// draw_square(data, (int)ray_screen.y, (int)ray_screen.x, 3, 5);
-	// ray_screen = add_2D_vec(player_screen, ray.hit_point);
-	// printf("ray_screen x %f | y %f\n", ray_screen.x, ray_screen.y);
+	/****************************************************/
+	ray_screen = add_2D_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
-	// printf("ray_screen x %f | y %f\n", ray_screen.x, ray_screen.y);
-	// player_screen = scalar_mult(player_screen, rc->scale_map);
-	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	player_screen = scalar_mult(player_screen, rc->scale_map);
+	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	/****************************************************/
 }
 
 static void	lauch_rays(t_cub3D *data, t_rc *rc)
@@ -106,15 +100,12 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 	{
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov / 2) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
-		// printf("current_ray x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
 		normalize_vector(&current_ray_dir);
 		// if (i % 60 == 0)
 		// {
-		// 	printf("ray %d\n", i);
-		// 	printf("***********************************\n");
-			// printf("current_ray normalized x %f -- y %f\n", current_ray_dir.x, current_ray_dir.y);
-		cast_ray(data, rc, current_ray_dir);
+		// 	cast_ray(data, rc, current_ray_dir);
 		// }
+		cast_ray(data, rc, current_ray_dir);
 		i++;
 	}
 }

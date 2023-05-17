@@ -1,23 +1,23 @@
 #include "../../includes/cub3D_struct.h"
 
-// static void	ft_print_map(t_map *map)
-// {
-// 	int	i;
-// 	int j;
+static void	ft_print_map(t_map *map)
+{
+	int	i;
+	int j;
 
-// 	i = 0;
-// 	while (i < map->max_h)
-// 	{
-// 		j = 0;
-// 		while (j < map->max_w)
-// 		{
-// 			printf("%4d", map->map[i][j]);
-// 			j++;
-// 		}
-// 		printf("\n");
-// 		i++;
-// 	}
-// }
+	i = 0;
+	while (i < map->max_h)
+	{
+		j = 0;
+		while (j < map->max_w)
+		{
+			printf("%4d", map->map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
 
 void	ft_free_map(t_map *map)
 {
@@ -143,5 +143,6 @@ int	ft_check_map(t_cub3D *data)
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
 	data->map = map;
+	// ft_print_map(&map);
 	return (0);
 }

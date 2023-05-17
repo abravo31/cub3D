@@ -31,7 +31,7 @@ int	ft_exit(t_cub3D *data)
 
 int setup_mlx_env(t_cub3D *data)
 {
-    data->win_x = 2000;
+    data->win_x = 1600;
 	data->win_y = 1400;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;

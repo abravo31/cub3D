@@ -42,7 +42,7 @@ static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 0.0);
 	else if (rc->player.direction == 3)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 180.0);
-	rc->scale_map = 200;
+	rc->scale_map = 50;
     rc->fov = ft_deg_to_rad((double)60);
 	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
 	// printf("fov : %f\n", rc->fov);

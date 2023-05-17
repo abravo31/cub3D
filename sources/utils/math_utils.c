@@ -123,3 +123,8 @@ t_vec2D ft_get_perpendicular_vec(t_vec2D dir_vec)
     }
     return res_perpendicular_vec;
 }
+
+// int	hit_point_is_in_axe()
+// {
+
+// }

@@ -261,6 +261,7 @@ t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
 void    raycasting(t_cub3D *data);
 /*DDA*/
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
+void    dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/

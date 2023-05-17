@@ -219,7 +219,7 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 			current_dda.x = current_dda.x + 1;
 		if (ray->orientation_wall_hit == 4)
 			current_dda.x = current_dda.x - 1;
-		printf("current dda at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
+		// printf("current dda at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 		//printf("%c\n", (data->map.map[(int)current_dda.y][(int)current_dda.x]));
 		if (data->map.map[(int)current_dda.y][(int)current_dda.x] == 1)
 			hit = 1;
@@ -227,5 +227,5 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 			ray->orientation_wall_hit = -1;
 	}
 	//printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
-	draw_square_checked(data, &current_dda);
+	// draw_square_checked(data, &current_dda);
 }

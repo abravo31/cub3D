@@ -65,7 +65,7 @@ static void	get_quadrant(t_ray *ray)
 	// printf("\n");
 }
 
-static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
+static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 {
 	t_ray		ray;
 	t_vec2D		ray_screen;
@@ -80,6 +80,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec)
 	ray_screen = add_2D_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
+	draw_column(data, &ray, i);
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
 }
@@ -105,7 +106,7 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		// {
 		// 	cast_ray(data, rc, current_ray_dir);
 		// }
-		cast_ray(data, rc, current_ray_dir);
+		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 }

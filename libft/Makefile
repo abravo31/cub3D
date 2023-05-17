@@ -6,14 +6,14 @@
 #    By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:26:55 by gamoreno          #+#    #+#              #
-#    Updated: 2023/01/17 10:59:11 by dnieto-c         ###   ########.fr        #
+#    Updated: 2023/05/11 11:47:30 by dnieto-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Compilation ###
 
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror -I -g
+CFLAGS	= -Wall -Wextra -Werror -I
 
 ### Executable ###
 
@@ -27,7 +27,7 @@ SRC_PATH = sources
 
 ### Source Files ###
 
-SOURCES	= 	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
+SOURCES	= 	ft_abs.c ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 			ft_strlcat.c ft_strncmp.c ft_atoi.c ft_isalpha.c ft_substr.c \
 			ft_itoa.c ft_memcpy.c  ft_putendl_fd.c ft_strchr.c  ft_strlcpy.c \
 			ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memcpy.c \
@@ -38,7 +38,9 @@ SOURCES	= 	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 			ft_free_split.c ft_strlen_int.c ft_strjoin_secure.c \
 			ft_strnstr_int.c ft_strchr_int.c ft_length_split.c ft_concatenation.c\
 			ft_tabdup.c ft_get_index_char_str.c ft_strdup_i.c ft_idx_last_occur_char.c\
-			ft_swap_dp.c
+			ft_swap_dp.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+			get_next_line.c
 			
 
 ### Objects ###

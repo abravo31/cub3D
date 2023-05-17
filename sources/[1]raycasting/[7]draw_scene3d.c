@@ -50,39 +50,34 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	}
 }
 
-
-// //choose wall color
-// ColorRGB color;
-// switch(worldMap[mapX][mapY])
-// {
-//     case 1:  color = RGB_Red;  break; //red
-//     case 2:  color = RGB_Green;  break; //green
-//     case 3:  color = RGB_Blue;   break; //blue
-//     case 4:  color = RGB_White;  break; //white
-//     default: color = RGB_Yellow; break; //yellow
-// }
-
-//       //give x and y sides different brightness
-//       if (side == 1) {color = color / 2;}
-
-//       //draw the pixels of the stripe as a vertical line
-//       verLine(x, drawStart, drawEnd, color);
-// }
-
-void	draw_scene_3D(t_cub3D *data)
+unsigned int	find_color(t_list	*ident_fc, int type)
 {
-	int		x;
-	int		y;
-	int		scale_map;
+	while (ident_fc && ((t_fc*)(ident_fc->content))->id != type)
+		ident_fc = ident_fc->next;
+	// if (type == F)
+		// printf("type: %d, r: %d, g: %d, b: %d\n", type, ((t_fc*)(ident_fc->content))->r, ((t_fc*)(ident_fc->content))->g, ((t_fc*)(ident_fc->content))->b);
+	return (((t_fc*)(ident_fc->content))->r << 16 | ((t_fc*)(ident_fc->content))->g << 8 | ((t_fc*)(ident_fc->content))->b);
+}
 
-	scale_map = data->rc.scale_map;
+void	draw_scene(t_cub3D *data)
+{
+	int	x;
+	int	y;
+
 	y = 0;
-	while (y < data->map.max_h)
+	while (y < data->win_y)
 	{
 		x = 0;
-		while (x < data->map.max_w)
+		while (x < data->win_x)
 		{
-			draw_square(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
+			if (y < data->mid_y)
+			{
+				my_mlx_pixel_put(data, (t_point){x, y, find_color(data->ident_fc, C)});
+			}
+			else
+			{
+				my_mlx_pixel_put(data, (t_point){x, y, find_color(data->ident_fc, F)});
+			}
 			x++;
 		}
 		y++;

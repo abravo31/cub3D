@@ -150,11 +150,11 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 	get_int_coords(&data->rc.player);
 	current_dda.x = rc->player.i_coords.x;
 	current_dda.y = rc->player.i_coords.y;
-	printf("Begin position x %f | y %f\n", current_dda.x, current_dda.y);
+	// printf("Begin position x %f | y %f\n", current_dda.x, current_dda.y);
 	hit = 0;
 	while (!hit)
 	{
-		check_corners(data->map.map, rc, ray, &current_dda);
+		check_corners(data, rc, ray, &current_dda);
 		check_hit_Y_axis(data, rc, ray, &current_dda);
 		check_hit_X_axis(data, rc, ray, &current_dda);
 		if (ray->orientation_wall_hit == 1)

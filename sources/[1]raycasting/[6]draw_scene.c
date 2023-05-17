@@ -118,8 +118,8 @@ static void	draw_minimap_grid(t_cub3D *data)
 	}
 }
 
-void	draw_scene(t_cub3D *data)
-{
-	//draw_minimap_grid(data);
-	//draw_player(data);
-}
+// void	draw_scene(t_cub3D *data)
+// {
+// 	//draw_minimap_grid(data);
+// 	//draw_player(data);
+// }

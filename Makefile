@@ -1,7 +1,7 @@
 ### Compilation ###
 CC      = cc
 # FLAGS  = -Wall -Wextra -Werror -g
-FLAGS  = -g
+FLAGS  = -g -ofast -flto
 ### Executable ###
 NAME   = cub3D
 ### Includes ###

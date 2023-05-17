@@ -143,6 +143,6 @@ int	ft_check_map(t_cub3D *data)
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
 	data->map = map;
-	// ft_print_map(&map);
+	ft_print_map(&map);
 	return (0);
 }

@@ -34,6 +34,10 @@ check if it exists or permissions\n"
 # define MOVE_RIGTH 100
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGTH 65363
+# define N 1
+# define S 2
+# define E 3
+# define W 4
 
 
 typedef enum ident_type
@@ -278,4 +282,5 @@ t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 /*Execution*/
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);
+void	draw_column(t_cub3D *data, t_ray *ray, int x);
 #endif

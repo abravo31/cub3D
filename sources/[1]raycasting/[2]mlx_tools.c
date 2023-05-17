@@ -16,7 +16,7 @@
 // 	}
 // }
 
-static int	idx(int row, int col, int dim)
+static inline int	idx(int row, int col, int dim)
 {
 	return ((row * dim) + col);
 }

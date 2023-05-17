@@ -1,12 +1,24 @@
 #include "../../includes/cub3D_struct.h"
 
+double	vec_length(t_vec2D vec)
+{
+	return (sqrt(vec.x * vec.x + vec.y * vec.y));
+}
+
+double	dot_prod(t_vec2D vec1, t_vec2D vec2)
+{
+	return (vec1.x * vec2.x + vec1.y * vec2.y);
+}
+
 void	draw_column(t_cub3D *data, t_ray *ray, int x)
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	cosine;
 
-	line_height = (data->win_y / ray->distance);
+	cosine = dot_prod(ray->ray_vector, data->rc.dir_vec);
+	line_height = (data->win_y / (ray->distance * cosine));
 	draw_start = -line_height / 2 + data->mid_y;
 	if (draw_start < 0)
 		draw_start = 0;

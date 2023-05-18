@@ -54,16 +54,20 @@ unsigned int	find_color(t_list	*ident_fc, int type)
 {
 	while (ident_fc && ((t_fc*)(ident_fc->content))->id != type)
 		ident_fc = ident_fc->next;
-	// if (type == F)
-		// printf("type: %d, r: %d, g: %d, b: %d\n", type, ((t_fc*)(ident_fc->content))->r, ((t_fc*)(ident_fc->content))->g, ((t_fc*)(ident_fc->content))->b);
-	return (((t_fc*)(ident_fc->content))->r << 16 | ((t_fc*)(ident_fc->content))->g << 8 | ((t_fc*)(ident_fc->content))->b);
+	return (((t_fc*)(ident_fc->content))->r << 16 \
+	| ((t_fc*)(ident_fc->content))->g << 8 \
+	| ((t_fc*)(ident_fc->content))->b);
 }
 
 void	draw_scene(t_cub3D *data)
 {
 	int	x;
 	int	y;
+	unsigned int f;
+	unsigned int c;
 
+	f = find_color(data->ident_fc, F);
+	c = find_color(data->ident_fc, C);
 	y = 0;
 	while (y < data->win_y)
 	{
@@ -71,13 +75,9 @@ void	draw_scene(t_cub3D *data)
 		while (x < data->win_x)
 		{
 			if (y < data->mid_y)
-			{
-				my_mlx_pixel_put(data, (t_point){x, y, find_color(data->ident_fc, C)});
-			}
+				my_mlx_pixel_put(data, (t_point){x, y, c});
 			else
-			{
-				my_mlx_pixel_put(data, (t_point){x, y, find_color(data->ident_fc, F)});
-			}
+				my_mlx_pixel_put(data, (t_point){x, y, f});
 			x++;
 		}
 		y++;

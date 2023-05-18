@@ -10,14 +10,33 @@ double	dot_prod(t_vec2D vec1, t_vec2D vec2)
 	return (vec1.x * vec2.x + vec1.y * vec2.y);
 }
 
-// unsigned int color_from_texture( int direction)
+static inline int	idx(int row, int col, int dim)
+{
+	return ((row * dim) + col);
+}
+
+unsigned int color_from_texture(t_cub3D *data, int direction, double xpercent, double ypercent)
+{
+	t_texture	texture;
+	int			y;
+	int			x;
+
+	texture = data->wall_textures[direction];
+	y = data->win_y * ypercent;
+	x = data->win_x * xpercent;
+	// xpercent = (double)x / (double)texture.img_height
+	// x = xpercent * data->
+	return (*(int *)(texture.addr + idx(y, x, texture.img_width)));
+}
 
 void	draw_column(t_cub3D *data, t_ray *ray, int x)
 {
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	int		begin;
 	double	cosine;
+	t_point	point;
 
 	cosine = dot_prod(ray->ray_vector, data->rc.dir_vec);
 	line_height = (data->win_y / (ray->distance * cosine));
@@ -27,24 +46,13 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	draw_end = line_height / 2 + data->mid_y;
 	if (draw_end >= data->win_y)
 		draw_end = data->win_y - 1;
+	begin = draw_start;
 	while (draw_start <= draw_end)
 	{
-		// if (ray->orientation_wall_hit == N)
-		// {
-		my_mlx_pixel_put(data, (t_point){x, draw_start, 0xFFFFFF});//color_from_texture(ray->orientation_wall_hit)});
-		// }
-		// else if (ray->orientation_wall_hit == S)
-		// {
-			// my_mlx_pixel_put(data, (t_point){x, draw_start, 0x00FFFF});
-		// }
-		// else if (ray->orientation_wall_hit == E)
-		// {
-			// my_mlx_pixel_put(data, (t_point){x, draw_start, 0xFF00FF});
-		// }
-		// else if (ray->orientation_wall_hit == W)
-		// {
-			// my_mlx_pixel_put(data, (t_point){x, draw_start, 0xFFFF00});
-		// }
+		point = (t_point){x, draw_start, \
+		color_from_texture(data, ray->orientation_wall_hit - 1, \
+		0.253, (double)(draw_start - begin) / (double)(draw_end - begin))};
+		my_mlx_pixel_put(data, point);
 		draw_start++;
 	}
 }

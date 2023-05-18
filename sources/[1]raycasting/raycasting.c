@@ -1,9 +1,9 @@
 #include "../../includes/cub3D_struct.h"
 
-static void	ft_clear_img(t_cub3D *data)
-{
-	ft_bzero(data->img.addr, data->win_x * data->win_y * (data->img.bbp / 8));
-}
+// static void	ft_clear_img(t_cub3D *data)
+// {
+// 	ft_bzero(data->img.addr, data->win_x * data->win_y * (data->img.bbp / 8));
+// }
 
 void	render(t_cub3D *data)
 {

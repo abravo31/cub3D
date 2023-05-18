@@ -20,12 +20,12 @@ static t_vec2D	move_for_back_ward(t_rc rc, int flag)
 
 	if (flag == MOVE_FORWARD)
 	{
-		new_position_player = scalar_mult(rc.dir_vec, 0.1);
+		new_position_player = scalar_mult(rc.dir_vec, 0.5);
 		new_position_player = add_2D_vec(rc.player.d_coords, new_position_player);
 	}
 	else if (flag == MOVE_BACKWARD)
 	{
-		new_position_player = scalar_mult(rc.dir_vec, -0.1);
+		new_position_player = scalar_mult(rc.dir_vec, -0.5);
 		new_position_player = add_2D_vec(rc.player.d_coords, new_position_player);
 	}
 	return (new_position_player);
@@ -37,12 +37,12 @@ static t_vec2D	move_left_rigth(t_rc rc, int flag)
 
 	if (flag == MOVE_LEFT)
 	{
-		new_position_player = scalar_mult(rc.per_vec, 0.1);
+		new_position_player = scalar_mult(rc.per_vec, 0.5);
 		new_position_player = add_2D_vec(rc.player.d_coords, new_position_player);
 	}
 	else if (flag == MOVE_RIGTH)
 	{
-		new_position_player = scalar_mult(rc.per_vec, -0.1);
+		new_position_player = scalar_mult(rc.per_vec, -0.5);
 		new_position_player = add_2D_vec(rc.player.d_coords, new_position_player);
 	}
 	return (new_position_player);
@@ -51,8 +51,6 @@ static t_vec2D	move_left_rigth(t_rc rc, int flag)
 
 static int	key_hook_player(int key_code, t_cub3D *data)
 {
-	t_vec2D	new_vector;
-
 	if (key_code == MOVE_LEFT)
 		data->rc.player.d_coords = move_left_rigth(data->rc, MOVE_LEFT);
 	else if (key_code == MOVE_RIGTH)

@@ -50,9 +50,9 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	}
 }
 
-unsigned int	find_color(t_list	*ident_fc, int type)
+unsigned int	find_color(t_list	*ident_fc, int t)
 {
-	while (ident_fc && ((t_fc*)(ident_fc->content))->id != type)
+	while (ident_fc && ((t_fc*)(ident_fc->content))->id != t)
 		ident_fc = ident_fc->next;
 	// if (type == F)
 		// printf("type: %d, r: %d, g: %d, b: %d\n", type, ((t_fc*)(ident_fc->content))->r, ((t_fc*)(ident_fc->content))->g, ((t_fc*)(ident_fc->content))->b);

@@ -29,13 +29,13 @@ int	ft_exit(t_cub3D *data)
 	exit(1);
 }
 
-int setup_mlx_env(t_cub3D *data)
+int	setup_mlx_env(t_cub3D *data)
 {
-    data->win_x = 1600;
-	data->win_y = 1400;
+	data->win_x = 1200;
+	data->win_y = 700;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
-    data->mlx = mlx_init();
+	data->mlx = mlx_init();
 	if (data->mlx == NULL)
 		return (1);
 	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, "cub3D");
@@ -43,5 +43,5 @@ int setup_mlx_env(t_cub3D *data)
 		return (free(data->mlx), 1);
 	if (ft_init_img(data))
 		return (free(data->mlx), free(data->mlx_win), 1);
-    return (0);
+	return (0);
 }

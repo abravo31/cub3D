@@ -267,6 +267,9 @@ void	render(t_cub3D *data);
 /*Scene*/
 void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
+void	draw_scene_raycasting(t_cub3D *data);
+/*Doors*/
+void    handle_door_hit(t_cub3D *data, t_ray *ray, int x);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);

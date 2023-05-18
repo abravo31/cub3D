@@ -52,13 +52,9 @@ static void	ft_scan_point_area(t_map *map, int y, int x, int empty)
 		error_int = 0;
 	else
 		error_int = 32;
-	// Top
 	ft_scan_around(map, y + 1, x, error_int);
-	// Down
 	ft_scan_around(map, y - 1, x, error_int);
-	// Rigth
 	ft_scan_around(map, y, x + 1, error_int);
-	// Left
 	ft_scan_around(map, y, x - 1, error_int);
 }
 
@@ -71,7 +67,6 @@ static int	ft_check_empty_space(t_map *map, int y, int x, int empty)
 	ft_scan_point_area(map, y, x, empty);
 	return (0);
 }
-
 
 static int	ft_check_doors(t_map *map, int y, int x)
 {
@@ -143,6 +138,6 @@ int	ft_check_map(t_cub3D *data)
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
 	data->map = map;
-	ft_print_map(&map);
+	// ft_print_map(&map);
 	return (0);
 }

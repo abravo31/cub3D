@@ -137,10 +137,21 @@ typedef struct image
 	char	*addr;
 	int		offset_window_x;
 	int		offset_window_y;
-	int		bbp;
+	int		bpp;
 	int		line_len;
 	int		endian;
 }			t_image;
+
+typedef struct texture
+{
+	void	*img;
+	char	*addr;
+	int		img_width;
+	int		img_height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_texture;
 
 typedef struct s_cam
 {
@@ -188,6 +199,8 @@ typedef struct cub3D
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;
+	t_texture	wall_textures[4];
+	unsigned int background_colors[2];
 	int			no;
 	int			so;
 	int			we;
@@ -267,6 +280,9 @@ void	render(t_cub3D *data);
 /*Scene*/
 void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
+unsigned int	find_color(t_list	*ident_fc, int type);
+t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
+
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);

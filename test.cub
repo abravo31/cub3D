@@ -3,8 +3,8 @@ SO    ./textures/grass.xpm
 WE       ./textures/stone.xpm
 EA                    ./textures/tnt.xpm
 
-F                  100,255,255
-C 225,           30,30
+F         225,           30,30       
+C   100,255,255
 
 
 

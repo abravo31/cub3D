@@ -15,18 +15,23 @@ static inline int	idx(int row, int col, int dim)
 	return ((row * dim) + col);
 }
 
-unsigned int color_from_texture(t_cub3D *data, int direction, double xpercent, double ypercent)
+int color_from_texture(t_cub3D *data, int direction, double xpercent, double ypercent)
 {
 	t_texture	texture;
 	int			y;
 	int			x;
 
 	texture = data->wall_textures[direction];
-	y = data->win_y * ypercent;
-	x = data->win_x * xpercent;
+	y = texture.img_height * ypercent;
+	x = texture.img_width * xpercent;
+	// x = 200;
+	// if (xpercent > 0.5 && xpercent < 0.55)
+		// printf("x: %d, percent: %f\n", x, xpercent);
+	// x = 0;
 	// xpercent = (double)x / (double)texture.img_height
 	// x = xpercent * data->
-	return (*(int *)(texture.addr + idx(y, x, texture.img_width)));
+	// printf("xpercent: %f\n", xpercent);
+	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 
 void	draw_column(t_cub3D *data, t_ray *ray, int x)
@@ -34,6 +39,8 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	double	xpercent;
+	double	ypercent;
 	int		begin;
 	double	cosine;
 	t_point	point;
@@ -49,9 +56,13 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	begin = draw_start;
 	while (draw_start <= draw_end)
 	{
+		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
+		else
+			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
+		ypercent = (double)(draw_start - begin) / (double)(draw_end - begin);
 		point = (t_point){x, draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit - 1, \
-		0.253, (double)(draw_start - begin) / (double)(draw_end - begin))};
+		color_from_texture(data, ray->orientation_wall_hit - 1, xpercent, ypercent)};
 		my_mlx_pixel_put(data, point);
 		draw_start++;
 	}
@@ -83,7 +94,6 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 	if (texture.addr == NULL)
 		return (mlx_destroy_image(data->mlx, texture.img), \
 		printf(MLX_ERROR), ft_exit(data), texture);
-	// mlx_destroy_image(data->mlx, texture.img);
 	return (texture);
 }
 

@@ -298,5 +298,6 @@ t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 /*Execution*/
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);
+void	draw_minimap_grid(t_cub3D *data);
 void	draw_column(t_cub3D *data, t_ray *ray, int x);
 #endif

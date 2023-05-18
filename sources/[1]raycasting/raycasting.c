@@ -9,6 +9,7 @@ void	render(t_cub3D *data)
 {
 	// ft_clear_img(data);
 	raycasting(data);
+	draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 }
 

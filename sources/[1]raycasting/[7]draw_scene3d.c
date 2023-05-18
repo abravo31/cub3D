@@ -15,14 +15,14 @@ static inline int	idx(int row, int col, int dim)
 	return ((row * dim) + col);
 }
 
-int color_from_texture(t_cub3D *data, int direction, double xpercent, double ypercent)
+int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 {
 	t_texture	texture;
-	int			y;
 	int			x;
+	// int			y;
 
-	texture = data->wall_textures[direction];
-	y = texture.img_height * ypercent;
+	texture = data->wall_textures[direction - 1];
+	// y = texture.img_height * ypercent;
 	x = texture.img_width * xpercent;
 	// x = 200;
 	// if (xpercent > 0.5 && xpercent < 0.55)
@@ -39,6 +39,8 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	double	texpos;
+	double	step;
 	double	xpercent;
 	double	ypercent;
 	int		begin;
@@ -54,15 +56,21 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	if (draw_end >= data->win_y)
 		draw_end = data->win_y - 1;
 	begin = draw_start;
+	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+	texpos = (draw_start - data->mid_y + line_height / 2) * step;
 	while (draw_start <= draw_end)
 	{
 		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
 		else
 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
-		ypercent = (double)(draw_start - begin) / (double)(draw_end - begin);
+		// ypercent = (double)(draw_start - begin) / (double)(draw_end - begin);
+		// ypercent = 0.5 + (data->mid_y - draw_start) / (line_height / 2);
+		// if (draw_start == begin)
+		// 	printf("ypercent: %f\n", ypercent);
+		texpos += step;
 		point = (t_point){x, draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit - 1, xpercent, ypercent)};
+		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
 		my_mlx_pixel_put(data, point);
 		draw_start++;
 	}

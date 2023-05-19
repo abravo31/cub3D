@@ -64,24 +64,27 @@ static t_vec2D	move_left_rigth(t_cub3D *data, int flag)
 static int	key_hook_player(int key_code, t_cub3D *data)
 {
 	if (key_code == MOVE_LEFT)
-		data->rc.player.d_coords = move_left_rigth(data, MOVE_LEFT);
+		return (data->rc.player.d_coords = \
+		move_left_rigth(data, MOVE_LEFT), render(data), 0);
 	else if (key_code == MOVE_RIGTH)
-		data->rc.player.d_coords = move_left_rigth(data, MOVE_RIGTH);
+		return (data->rc.player.d_coords = \
+		move_left_rigth(data, MOVE_RIGTH), render(data), 0);
 	else if (key_code == MOVE_FORWARD)
-		data->rc.player.d_coords = move_for_back_ward(data, MOVE_FORWARD);
+		return (data->rc.player.d_coords = \
+		move_for_back_ward(data, MOVE_FORWARD), render(data), 0);
 	else if (key_code == MOVE_BACKWARD)
-		data->rc.player.d_coords = move_for_back_ward(data, MOVE_BACKWARD);
+		return (data->rc.player.d_coords = \
+		move_for_back_ward(data, MOVE_BACKWARD), render(data), 0);
 	else if (key_code == ROTATE_LEFT)
-		ft_rotate_dir_vec(data, 1);
+		return (ft_rotate_dir_vec(data, 1), render(data), 0);
 	else if (key_code == ROTATE_RIGTH)
-		ft_rotate_dir_vec(data, 2);
+		return (ft_rotate_dir_vec(data, 2), render(data), 0);
 	else if (key_code == ESCAPE)
-		ft_exit(data);
+		return (ft_exit(data), 0);
 		// ft_exit_and_free(data, 0, NULL, NULL);
 	// POR QUE ?
 	// else
 	// 	return (1);
-	render(data);
 	return (0);
 }
 

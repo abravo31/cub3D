@@ -21,19 +21,33 @@ int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 	int			x;
 	// int			y;
 
+	if (direction < 1 || direction > 4)
+	{
+		// printf("directionwrong\n");
+		direction = 1;
+	}
 	texture = data->wall_textures[direction - 1];
-	// y = texture.img_height * ypercent;
+	if (y > texture.img_height)
+	{
+		// printf("ybig: %d, height: %d\n", y, texture.img_height);
+		y = texture.img_height;
+	}
+	if (y < 0)
+	{
+		// printf("ysmall: %d, height: %d\n", y, texture.img_height);
+		y = 0;
+	}
 	x = texture.img_width * xpercent;
-	// x = 200;
-	// if (xpercent > 0.5 && xpercent < 0.55)
-		// printf("x: %d, percent: %f\n", x, xpercent);
-	// x = 0;
-	// xpercent = (double)x / (double)texture.img_height
-	// x = xpercent * data->
-	// printf("xpercent: %f\n", xpercent);
-	// printf("x %d\n", x);
-	// printf("y %d\n", y);
-	// printf("line %d\n", texture.line_len);
+	if (x > texture.img_width)
+	{
+		// printf("xbig: %d\n", x);
+		x = texture.img_width;
+	}
+	if (x < 0)
+	{
+		// printf("xsmall: %d\n", x);
+		x = 0;
+	}
 	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 
@@ -108,6 +122,24 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 	return (texture);
 }
 
+static inline int	idx(int row, int col, int dim)
+{
+	return ((row * dim) + col);
+}
+
+void	my_mlx_pixel_put(t_cub3D *data, t_point point)
+{
+	t_image	*img;
+	int		index;
+
+	img = &data->img;
+	if (point.x >= 0 && point.x <= data->win_x && point.y >= 0 && point.y <= data->win_y)
+	{
+		index = idx(point.y + img->offset_window_y, point.x + img->offset_window_x, data->win_x) * (img->bpp / 8);
+		*(int *)(img->addr + (int)(index)) = point.color;
+	}
+}
+
 void	draw_scene(t_cub3D *data)
 {
 	int	x;
@@ -121,8 +153,10 @@ void	draw_scene(t_cub3D *data)
 		{
 			if (y < data->mid_y)
 				my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[1]});
+				// (void)x;
 			else
 				my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[0]});
+				// (void)y;
 			x++;
 		}
 		y++;

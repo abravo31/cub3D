@@ -31,7 +31,7 @@ int	ft_exit(t_cub3D *data)
 	if (data->ident_fc)
 		ft_lstclear(&data->ident_fc, &ft_free_fc);
 	ft_free_map(&data->map);
-	exit(1);
+	exit(0);
 }
 
 int	setup_mlx_env(t_cub3D *data)

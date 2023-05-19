@@ -59,7 +59,6 @@ void	draw_player(t_cub3D *data)
 {
 	t_rc	*rc;
 
-	
 	rc = &data->rc;
 	draw_square_player(data, rc);
 	draw_vectors(data, rc);
@@ -98,7 +97,7 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 	}
 }
 
-static void	draw_minimap_grid(t_cub3D *data)
+void	draw_minimap_grid(t_cub3D *data)
 {
 	int		x;
 	int		y;
@@ -123,3 +122,9 @@ void	draw_scene_raycasting(t_cub3D *data)
 	draw_minimap_grid(data);
 	draw_player(data);
 }
+
+// void	draw_scene(t_cub3D *data)
+// {
+// 	draw_minimap_grid(data);
+// 	draw_player(data);
+// }

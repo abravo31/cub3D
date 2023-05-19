@@ -8,7 +8,7 @@ static int	ft_init_img(t_cub3D *data)
 	img->img = mlx_new_image(data->mlx, data->win_x, data->win_y);
 	if (img->img == NULL)
 		return (1);
-	img->addr = mlx_get_data_addr(img->img, &img->bbp, \
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, \
 									&img->line_len, &img->endian);
 	img->offset_window_x = 0;
 	img->offset_window_y = 0;
@@ -17,6 +17,11 @@ static int	ft_init_img(t_cub3D *data)
 
 int	ft_exit(t_cub3D *data)
 {
+	int	i;
+
+	i = 0;
+	while (i < 4 && data->wall_textures[i].img)
+		mlx_destroy_image(data->mlx, data->wall_textures[i++].img);
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_display(data->mlx);

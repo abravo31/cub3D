@@ -18,7 +18,7 @@ static void	cor_up_left(int **map, t_ray *ray, t_vec2D *current_dda, int *hit)
 	{
 		current_dda->y = current_dda->y - 1;
 		current_dda->x = current_dda->x - 1;
-		ray->orientation_wall_hit = 5;
+		ray->orientation_wall_hit = 1;
 		*hit = 1;
 	}
 	else
@@ -47,7 +47,7 @@ static void	cor_up_rigth(int **map, t_ray *ray, t_vec2D *current_dda, int *hit)
 	{
 		current_dda->y = current_dda->y - 1;
 		current_dda->x = current_dda->x + 1;
-		ray->orientation_wall_hit = 5;
+		ray->orientation_wall_hit = 3;
 		*hit = 1;
 	}
 	else
@@ -76,7 +76,7 @@ static void	cor_down_rigth(int **m, t_ray *ray, t_vec2D *current_dda, int *hit)
 	{
 		current_dda->y = current_dda->y + 1;
 		current_dda->x = current_dda->x + 1;
-		ray->orientation_wall_hit = 5;
+		ray->orientation_wall_hit = 2;
 		*hit = 1;
 	}
 	else
@@ -105,7 +105,7 @@ static void	cor_down_left(int **map, t_ray *ray, t_vec2D *current_dda, int *hit)
 	{
 		current_dda->y = current_dda->y + 1;
 		current_dda->x = current_dda->x - 1;
-		ray->orientation_wall_hit = 5;
+		ray->orientation_wall_hit = 4;
 		*hit = 1;
 	}
 	else

@@ -63,15 +63,16 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	ray_screen = add_2D_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
-	// draw_column(data, &ray, i);
-	(void)ray_screen;
-	if (ray.orientation_wall_hit < 5)
-		ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
-	else
-	{
-		ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
-		handle_door_hit(data, &ray, i);
-	}
+	draw_column(data, &ray, i);
+
+	// (void)ray_screen;
+	// if (ray.orientation_wall_hit < 5)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	// else
+	// {
+	// 	ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
+	// 	// handle_door_hit(data, &ray, i);
+	// }
 	
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
@@ -91,14 +92,14 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 	i = 0;
 	while (i <= data->win_x)
 	{
-		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov / 2) - (rc->ray_dist * i));
+		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		if (i % 70 == 0)
-		{
-			cast_ray(data, rc, current_ray_dir, i);
-		}
-		// cast_ray(data, rc, current_ray_dir, i);
+		// if (i % 70 == 0)
+		// {
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// }
+		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 }
@@ -112,7 +113,7 @@ void    raycasting(t_cub3D *data)
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
 	// Vector resultante entre la suma del vector del jugador y el vector direccion
 	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);
-	draw_scene_raycasting(data);
-	// draw_scene(data);
+	// draw_scene_raycasting(data);
+	draw_scene(data);
 	lauch_rays(data, rc);
 }

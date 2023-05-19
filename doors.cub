@@ -1,14 +1,14 @@
-NO ./path_to_the_north_texture.xpm
-SO    ./path_to_the_south_texture.xpm
-WE       ./path_to_the_west_texture.xpm
-EA                    ./path_to_the_east_texture.xpm
+NO ./textures/brickwall.xpm
+SO    ./textures/grass.xpm
+WE       ./textures/stone.xpm
+EA                    ./textures/tnt.xpm
 
 F                  100,255,255
 C 225,           30,30
 
 11111
 11001
- 1211
+ 1111
 1W001
  1011
   1

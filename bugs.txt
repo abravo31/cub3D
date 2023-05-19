@@ -1,35 +1,16 @@
-ray_vector x : -0.866025 -- y : -0.500000
-current dda x : 1.000000 -- y : 2.000000
-Left
-Hit point x 1.000000 - y 2.269060
+/******************************************/
+If the texture doesn't exists, the pogram must finish properly
+NO ./path_to_the_north_texture.xpm
+SO    ./path_to_the_south_texture.xpm
+WE       ./path_to_the_west_texture.xpm
+EA                    ./path_to_the_east_texture.xpm
 
-**********************************************************
-ray_vector x : -0.707107 -- y : -0.707107
-current dda x : 1.000000 -- y : 2.000000
-Left
-Hit point x 1.000000 - y 2.000000
-ray_vector x : -0.707107 -- y : -0.707107
+F                  100,255,255
+C 225,           30,30
 
-**********************************************************
-
-ray_vector x : -0.707107 -- y : 0.707107
-current dda x : 27.000000 -- y : 12.000000
-Left
-Hit point x 27.000000 - y 12.000000
-ray_vector x : -0.707107 -- y : 0.707107
-Down
-ray_vector x : -0.707107 -- y : 0.707107
-current dda x : 27.000000 -- y : 12.000000
-Left
-Hit point x 27.000000 - y 12.000000
-ray_vector x : -0.707107 -- y : 0.707107
-
-**********************************************************
-ray_vector x : -0.707107 -- y : 0.707107
-current dda x : 27.000000 -- y : 12.000000
-Left
-Hit point x 27.000000 - y 12.000000
-ray_vector x : -0.707107 -- y : 0.707107
-Down
-ray_vector x : -0.707107 -- y : 0.707107
-current dda x : 27.000000 -- y : 12.000000
+11111
+11001
+ 1211
+1W001
+ 1011
+  1

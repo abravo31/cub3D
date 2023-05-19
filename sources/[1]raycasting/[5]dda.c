@@ -1,6 +1,6 @@
 #include "../../includes/cub3D_struct.h"
 
-static void	get_int_coords(t_player *player)
+static void	get_int_coords(t_player *player, t_vec2D *current_dda)
 {
 	double		integer_value;
 	double		double_value;
@@ -10,8 +10,27 @@ static void	get_int_coords(t_player *player)
 	double_value = modf(player->d_coords.y, &integer_value);
 	player->i_coords.y = (int)integer_value;
     (void)double_value;
+	current_dda->x = player->i_coords.x;
+	current_dda->y = player->i_coords.y;
 }
 
+static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
+{
+	int		map_elem;
+
+	map_elem = -1;
+	if ((int)curr_dda->y >= 0 && (int)curr_dda->y < data->map.max_h
+		&& (int)curr_dda->x >= 0 && (int)curr_dda->x < data->map.max_w)
+	{
+		map_elem = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
+		if (map_elem > 0 && map_elem <= 2)
+			*hit = 1;
+		else
+			ray->orientation_wall_hit = -1;
+	}
+	if (map_elem == 2)
+		ray->orientation_wall_hit = 5;
+}
 // /******************************************************
 // This function is only for draw the rays in the screen
 // *******************************************************/
@@ -126,11 +145,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 {
 	t_vec2D	current_dda;
 	int		hit;
-	int		map_elem;
 
-	get_int_coords(&data->rc.player);
-	current_dda.x = rc->player.i_coords.x;
-	current_dda.y = rc->player.i_coords.y;
+	get_int_coords(&data->rc.player, &current_dda);
 	hit = 0;
 	while (!hit)
 	{
@@ -146,14 +162,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 		if (ray->orientation_wall_hit == 4)
 			current_dda.x = current_dda.x - 1;
 		dda_corners(data->map.map, ray, &current_dda, &hit);
-		map_elem = data->map.map[(int)current_dda.y][(int)current_dda.x];
-		if (map_elem > 0 && map_elem <= 2)
-			hit = 1;
-		else
-			ray->orientation_wall_hit = -1;
+		check_hit(data, ray, &current_dda, &hit);
 	}
-	if (map_elem == 2)
-		ray->orientation_wall_hit = 5;
 	// printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 	// draw_square_checked(data, &current_dda);
 }

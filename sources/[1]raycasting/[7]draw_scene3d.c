@@ -31,6 +31,9 @@ int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 	// xpercent = (double)x / (double)texture.img_height
 	// x = xpercent * data->
 	// printf("xpercent: %f\n", xpercent);
+	// printf("x %d\n", x);
+	// printf("y %d\n", y);
+	// printf("line %d\n", texture.line_len);
 	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 

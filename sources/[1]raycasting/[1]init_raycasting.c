@@ -58,4 +58,12 @@ void    ft_initialize_raycasting(t_cub3D *data)
     rc = &data->rc;
 	ft_initialize_player(data, rc);
 	ft_initialize_vectors(data, rc);
+	printf("%d\n", data->events.move_forward);
+	printf("%d\n", data->events.move_backward);
+	printf("%d\n", data->events.move_left);
+	printf("%d\n", data->events.move_rigth);
+	printf("%d\n", data->events.rotate_rigth);
+	printf("%d\n", data->events.rotate_left);
+	printf("%d\n", data->events.open_door);
+	printf("%d\n", data->events.close_door);
 }

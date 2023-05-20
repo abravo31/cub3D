@@ -212,7 +212,7 @@ typedef struct cub3D
 	t_list		*ident_coord;
 	t_list		*map_list;
 	t_texture	wall_textures[4];
-	t_event		event;
+	t_event		events;
 	unsigned int background_colors[2];
 	int			no;
 	int			so;

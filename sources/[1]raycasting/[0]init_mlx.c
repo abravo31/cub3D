@@ -44,6 +44,7 @@ int	setup_mlx_env(t_cub3D *data)
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();
+	ft_bzero(&data->events, sizeof(t_event));
 	if (data->mlx == NULL)
 		return (1);
 	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, "cub3D");

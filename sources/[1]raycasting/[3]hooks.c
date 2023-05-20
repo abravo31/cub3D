@@ -62,15 +62,14 @@ static t_vec2D	move_left_rigth(t_cub3D *data, int flag)
 
 static int	exec_hook(t_cub3D *data)
 {
-	// printf("Here exec\n");
 	if (data->events.move_left)
 		data->rc.player.d_coords = move_left_rigth(data, MOVE_LEFT);
 	if (data->events.move_rigth)
 		data->rc.player.d_coords = move_left_rigth(data, MOVE_RIGTH);
 	if (data->events.move_forward)
-		move_for_back_ward(data, MOVE_FORWARD);
+		data->rc.player.d_coords = move_for_back_ward(data, MOVE_FORWARD);
 	if (data->events.move_backward)
-		move_for_back_ward(data, MOVE_BACKWARD);
+		data->rc.player.d_coords = move_for_back_ward(data, MOVE_BACKWARD);
 	if (data->events.rotate_left)
 		ft_rotate_dir_vec(data, 1);
 	if (data->events.rotate_rigth)

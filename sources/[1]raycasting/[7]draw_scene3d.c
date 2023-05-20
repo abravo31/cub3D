@@ -63,7 +63,7 @@ void	draw_ceiling(int end, t_cub3D *data, int x)
 	start = 0;
 	while (start < end)
 	{
-		if (is_inter(x, start))
+		if (is_inter(data, x, start))
 		{
 			my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[0]});
 			start++;

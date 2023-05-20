@@ -112,11 +112,6 @@ int	ft_check_map_lst(t_list **lst, t_map *map)
 				break ;
 			return (1);
 		}
-		// if (map->b_idx != -1)
-		// {
-		// 	if (((t_map_list *)(aux->content))->_x > map->max_w)
-		// 		map->max_w = ((t_map_list *)(aux->content))->_x;
-		// }
 		i++;
 		aux = aux->next;
 	}

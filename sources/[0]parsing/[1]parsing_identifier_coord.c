@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   [1]parsing_identifier_coord.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanda <amanda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/01 21:43:55 by amanda           ###   ########.fr       */
+/*   Updated: 2023/05/20 17:31:13 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 int	check_path_format(char *path)
 {
-	if (!ft_strcmp(&path[ft_strlen_int(path) - 4], ".xpm"))
-		return (1);
-	return (0);
+	int	fd;
+
+	if (ft_strcmp(&path[ft_strlen_int(path) - 4], ".xpm"))
+		return (0);
+	// printf("\n\n\n\n\nKHFJLD:JFKL:DSJ FKL:DSJFLK:SDJFKLH\n\n");
+	fd = open(path, O_WRONLY);
+	// printf("fd: %d, path: %s\n", fd, path);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (1);
 }
 
 int	get_new_coord_path(char **path, char *line, int i)

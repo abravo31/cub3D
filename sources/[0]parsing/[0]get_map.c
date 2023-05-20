@@ -8,13 +8,13 @@ static int	ft_initialize_map(t_list **lst, t_map *map)
 		map->max_h = map->l_idx - map->b_idx;
 	map->valide_map = 1;
 	map->player._is_set = 0;
-	map->map = (int  **)malloc(sizeof(int *) * (map->max_h + 1));
+	map->map = (int **)malloc(sizeof(int *) * (map->max_h + 1));
 	if (!map->map)
 		return (1);
 	return (0);
 }
 
-static void ft_create_tab_from_line(int *map_l, char *l, int max_w, int full)
+static void	create_tab_ln(int *map_l, char *l, int max_w, int full)
 {
 	int	i;
 
@@ -56,9 +56,9 @@ static int	ft_create_map_from_list(t_list **lst, t_map *map)
 		if (!map->map[i - map->b_idx - 1])
 			return (ft_free_map(map), 1);
 		if (((t_map_list *)(aux->content))->_x < map->max_w)
-			ft_create_tab_from_line(map->map[i - map->b_idx - 1], line, map->max_w, 0);
+			create_tab_ln(map->map[i - map->b_idx - 1], line, map->max_w, 0);
 		else
-			ft_create_tab_from_line(map->map[i - map->b_idx - 1], line, map->max_w, 1);
+			create_tab_ln(map->map[i - map->b_idx - 1], line, map->max_w, 1);
 		if (i == map->l_idx)
 			break ;
 		aux = aux->next;
@@ -80,4 +80,3 @@ int	ft_get_map(t_list **lst, t_map *map)
 		return (1);
 	return (0);
 }
-

@@ -25,7 +25,7 @@ void	draw_minimap(t_cub3D *data)
 	int	y;
 	int	scale_map;
 
-	scale_map = data->rc.scale_map;
+	scale_map = 5;//data->rc.scale_map;
 	y = 0;
 	while (y < data->map.max_h)
 	{

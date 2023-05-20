@@ -164,6 +164,11 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 		dda_corners(data->map.map, ray, &current_dda, &hit);
 		check_hit(data, ray, &current_dda, &hit);
 	}
+	if (ray->orientation_wall_hit == -1)
+	{
+		printf("here %d\n", ray->orientation_wall_hit);
+		draw_square_point(data, ray->hit_point);
+	}
 	// printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 	// draw_square_checked(data, &current_dda);
 }

@@ -42,7 +42,8 @@ static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 0.0);
 	else if (rc->player.direction == 3)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 180.0);
-	rc->scale_map = 150;
+	// rc->scale_map = 150;
+	rc->scale_map = 40;
     rc->fov = ft_deg_to_rad((double)60);
 	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
 	// printf("fov : %f\n", rc->fov);
@@ -57,4 +58,12 @@ void    ft_initialize_raycasting(t_cub3D *data)
     rc = &data->rc;
 	ft_initialize_player(data, rc);
 	ft_initialize_vectors(data, rc);
+	printf("%d\n", data->events.move_forward);
+	printf("%d\n", data->events.move_backward);
+	printf("%d\n", data->events.move_left);
+	printf("%d\n", data->events.move_rigth);
+	printf("%d\n", data->events.rotate_rigth);
+	printf("%d\n", data->events.rotate_left);
+	printf("%d\n", data->events.open_door);
+	printf("%d\n", data->events.close_door);
 }

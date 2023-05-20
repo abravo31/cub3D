@@ -72,7 +72,7 @@ static void	cor_down_rigth(int **m, t_ray *ray, t_vec2D *current_dda, int *hit)
 		ray->orientation_wall_hit = 3;
 		*hit = 1;
 	}
-	else if (m[(int)current_dda->y - 1][(int)current_dda->x - 1] == 1)
+	else if (m[(int)current_dda->y + 1][(int)current_dda->x + 1] == 1)
 	{
 		current_dda->y = current_dda->y + 1;
 		current_dda->x = current_dda->x + 1;

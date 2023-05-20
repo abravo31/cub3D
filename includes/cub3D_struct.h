@@ -185,6 +185,18 @@ typedef	struct	s_ray
 	int		is_facing_left;
 }			t_ray;
 
+typedef struct s_event
+{
+	int		move_forward;
+	int		move_backward;
+	int		move_left;
+	int		move_rigth;
+	int		rotate_rigth;
+	int		rotate_left;
+	int		open_door;
+	int		close_door;
+}			t_event;
+
 typedef struct cub3D
 {
 	int			win_x;
@@ -200,6 +212,7 @@ typedef struct cub3D
 	t_list		*ident_coord;
 	t_list		*map_list;
 	t_texture	wall_textures[4];
+	t_event		event;
 	unsigned int background_colors[2];
 	int			no;
 	int			so;

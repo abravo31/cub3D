@@ -91,6 +91,8 @@ static int	key_hook_player(int key_code, t_cub3D *data)
 void	setup_controls_hooks(t_cub3D *data)
 {
 	// mlx_key_hook(data->mlx_win, &key_hook_player, data);
-	mlx_hook(data->mlx_win, 2, 1, &key_hook_player, data);
+	// mlx_hook(data->mlx_win, 2, 1, &key_hook_player, data);
+	// mlx_hook(data->mlx_win, 2, (1L<<0), &key_hook_player, data);
+	mlx_hook(data->mlx_win, 1, (1L<<1), &key_hook_player, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_exit, data);
 }

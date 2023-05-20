@@ -51,20 +51,52 @@ int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 
-void	draw_celing(int end, t_cub3D *data, int x)
+int	is_inter(t_cub3D *data, int x, int y)
 {
-	int start;
+	return (1);
+}
+
+void	draw_ceiling(int end, t_cub3D *data, int x)
+{
+	int	start;
 
 	start = 0;
 	while (start < end)
 	{
+		if (is_inter(x, start))
+		{
+			my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[0]});
+			start++;
+		}
 		my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[1]});
 		start++;
 	}
 }
 
+int	dist_from_point(t_cub3D *data, int x, int y)
+{
+	int	distance;
+
+
+	return (distance);
+}
+
+int	get_floor_color(t_cub3D *data, int x, int y)
+{
+	int	distance;
+	int	color;
+
+	color = 0;
+	distance = dist_from_point(data, x, y);
+	/*calcul de couleurs avec distance*/
+	return (color);
+}
+
 void draw_floor(int start, t_cub3D *data, int x)
 {
+	int	color;
+
+	color = get_floor_color(data, x, start);
 	while (start <= data->win_y)
 	{
 		my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[0]});
@@ -96,7 +128,7 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	begin = draw_start;
 	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
 	texpos = (draw_start - data->mid_y + line_height / 2) * step;
-	draw_celing(draw_start, data, x);
+	draw_ceiling(draw_start, data, x);
 	while (draw_start <= draw_end)
 	{
 		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)

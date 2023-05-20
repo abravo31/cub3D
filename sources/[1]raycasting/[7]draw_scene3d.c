@@ -23,7 +23,7 @@ int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 
 	if (direction < 1 || direction > 4)
 	{
-		// printf("directionwrong\n");
+		printf("directionwrong: %d\n", direction);
 		direction = 1;
 	}
 	texture = data->wall_textures[direction - 1];
@@ -122,24 +122,6 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 	return (texture);
 }
 
-static inline int	idx(int row, int col, int dim)
-{
-	return ((row * dim) + col);
-}
-
-void	my_mlx_pixel_put(t_cub3D *data, t_point point)
-{
-	t_image	*img;
-	int		index;
-
-	img = &data->img;
-	if (point.x >= 0 && point.x <= data->win_x && point.y >= 0 && point.y <= data->win_y)
-	{
-		index = idx(point.y + img->offset_window_y, point.x + img->offset_window_x, data->win_x) * (img->bpp / 8);
-		*(int *)(img->addr + (int)(index)) = point.color;
-	}
-}
-
 void	draw_scene(t_cub3D *data)
 {
 	int	x;
@@ -153,10 +135,8 @@ void	draw_scene(t_cub3D *data)
 		{
 			if (y < data->mid_y)
 				my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[1]});
-				// (void)x;
 			else
 				my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[0]});
-				// (void)y;
 			x++;
 		}
 		y++;

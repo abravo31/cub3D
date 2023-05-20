@@ -25,7 +25,7 @@ check if it exists or permissions\n"
 # define ERROR_RGB_FORMAT "Error format RGB\n"
 # define IDENT_MISSING "Identifier missing\n"
 # define IDENT_INVALID "Invalid identifier\n"
-# define MLX_ERROR "Minilibx error initializing"
+# define MLX_ERROR "Minilibx error initializing\n"
 
 # define ESCAPE 65307
 # define MOVE_FORWARD 119

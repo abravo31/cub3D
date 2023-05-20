@@ -24,10 +24,13 @@ void	ft_free_map(t_map *map)
 	int	i;
 
 	i = 0;
-	while (i < map->max_h)
+	while (map->map && i < map->max_h)
 		free(map->map[i++]);
-	free(map->map);
-	map->map = NULL;
+	if (map->map)
+	{
+		free(map->map);
+		map->map = NULL;
+	}
 }
 
 /**************************************************************/

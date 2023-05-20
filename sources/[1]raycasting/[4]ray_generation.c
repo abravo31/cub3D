@@ -64,6 +64,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	draw_column(data, &ray, i);
+	//draw_scene(data);
 
 	// (void)ray_screen;
 	// if (ray.orientation_wall_hit < 5)
@@ -102,6 +103,7 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
+	draw_scene(data);
 }
 
 void    raycasting(t_cub3D *data)

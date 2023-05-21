@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   [1]parsing_identifier_map.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/03 17:37:46 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:35:40 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 t_map_list	*new_map_list(char *line, int y)
 {
 	t_map_list	*elem;
+	int			i;
 
+	i = 0;
 	elem = malloc(sizeof(t_map_list));
 	if (!elem)
 		return (NULL);
+	// while (line && line[i] && line[i] == ' ')
+	// 	i++;
+	// if (!line[i])
+	// 	return ;
 	elem->line = ft_strdup(line);
 	if (!elem->line)
 	{

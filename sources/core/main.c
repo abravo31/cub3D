@@ -8,6 +8,8 @@ void	data_init(t_cub3D *data)
 	data->ea = 0;
 	data->f = 0;
 	data->c = 0;
+	data->ft = 0;
+	data->ct = 0;
 	data->y = -1;
 	data->ident_coord = NULL;
 	data->ident_fc = NULL;
@@ -18,6 +20,7 @@ int	gnl_loop(t_cub3D *data, char *file_name)
 {
 	char	*line;
 	int		fd;
+	char	*str;
 
 	data_init(data);
 	fd = open(file_name, O_RDONLY);
@@ -26,7 +29,8 @@ int	gnl_loop(t_cub3D *data, char *file_name)
 		return (ft_putstr_fd("Failed to open file!\n", 1), 1);
 	while (line)
 	{
-		get_list(data, line);
+		str = NULL;
+		iter_line(data, &str, -1, line);
 		free(line);
 		line = get_next_line(fd);
 	}

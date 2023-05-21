@@ -9,15 +9,18 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 	int j;
 
 	player = rc->player;
-	y = (int)(player.d_coords.y * rc->scale_map);
-	x = (int)(player.d_coords.x * rc->scale_map);
+	y = (int)(player.d_coords.y * 10);
+	x = (int)(player.d_coords.x * 10);
 	i = 0;
 	while (i < 5)
 	{
 		j = 0;
 		while (j < 5)
 		{
-			my_mlx_pixel_put(data, (t_point){x + j, y + i, 0x00FF00});
+			my_mlx_pixel_put(data, (t_point){x - j / 2, y - i / 2, 0x00FF00});
+			my_mlx_pixel_put(data, (t_point){x + j / 2, y - i / 2, 0x00FF00});
+			my_mlx_pixel_put(data, (t_point){x + j / 2, y + i / 2, 0x00FF00});
+			my_mlx_pixel_put(data, (t_point){x - j / 2, y + i / 2, 0x00FF00});
 			j++;
 		}
 		i++;
@@ -61,7 +64,7 @@ void	draw_player(t_cub3D *data)
 
 	rc = &data->rc;
 	draw_square_player(data, rc);
-	draw_vectors(data, rc);
+	//draw_vectors(data, rc);
 }
 
 void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
@@ -125,6 +128,6 @@ void	draw_minimap_grid(t_cub3D *data)
 
 void	draw_scene(t_cub3D *data)
 {
-	draw_minimap_grid(data);
+	// draw_minimap_grid(data);
 	draw_player(data);
 }

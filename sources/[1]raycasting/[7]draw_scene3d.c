@@ -15,11 +15,10 @@ static inline int	idx(int row, int col, int dim)
 	return ((row * dim) + col);
 }
 
-int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
+int	color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 {
 	t_texture	texture;
 	int			x;
-	// int			y;
 
 	if (direction < 1 || direction > 4)
 	{
@@ -51,60 +50,102 @@ int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 
-int	is_inter(t_cub3D *data, int x, int y)
+int color_from_texture_back(t_cub3D *data, double xpercent, double ypercent)
 {
-	return (1);
+	t_texture	texture;
+	int			x;
+	int			y;
+
+	texture = data->wall_textures[0];
+	y = texture.img_height * ypercent;
+	x = texture.img_width * xpercent;
+	return (((int *)texture.addr)[idx(y, x, texture.line_len / sizeof(int))]);
 }
 
-void	draw_ceiling(int end, t_cub3D *data, int x)
+// int	is_inter(int x, int y, double cosine, t_cub3D *data, t_ray *ray)
+// {
+// 	double distance;
+// 	t_vec2D curr_coord;
+
+// 	distance = data->win_y / (2 * cosine * (data->mid_y - y));
+
+// 	curr_coord = add_2D_vec(data->rc.player.d_coords, scalar_mult(ray->ray_vector, distance));
+// 	if (ft_abs_double(curr_coord.x - (float)((int)curr_coord.x)) < 0.01 &&
+// 		ft_abs_double(curr_coord.y - (float)((int)curr_coord.y)) < 0.01)
+// 		return (0);
+// 	return (1);
+// }
+
+void	draw_ceiling(int end, t_cub3D *data, int x, double cosine, t_ray *ray)
 {
 	int	start;
+	double distance;
+ 	t_vec2D curr_coord;
+	double xpercent;
+	double ypercent;
 
 	start = 0;
 	while (start < end)
 	{
-		if (is_inter(data, x, start))
-		{
-			my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[0]});
-			start++;
-		}
-		my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[1]});
+		distance = data->win_y / (2 * cosine * (data->mid_y - start));
+		curr_coord = add_2D_vec(data->rc.player.d_coords, scalar_mult(ray->ray_vector, distance));
+		xpercent = curr_coord.x - (float)((int)curr_coord.x);
+		ypercent = curr_coord.y - (float)((int)curr_coord.y);
+		my_mlx_pixel_put(data, (t_point){x, start, color_from_texture_back(data, xpercent, ypercent)});
 		start++;
 	}
 }
 
-int	dist_from_point(t_cub3D *data, int x, int y)
+void draw_floor(int start, t_cub3D *data, int x, double cosine, t_ray *ray)
 {
-	int	distance;
+	double distance;
+	t_vec2D curr_coord;
+	double xpercent;
+	double ypercent;
 
-
-	return (distance);
-}
-
-int	get_floor_color(t_cub3D *data, int x, int y)
-{
-	int	distance;
-	int	color;
-
-	color = 0;
-	distance = dist_from_point(data, x, y);
-	/*calcul de couleurs avec distance*/
-	return (color);
-}
-
-void draw_floor(int start, t_cub3D *data, int x)
-{
-	int	color;
-
-	color = get_floor_color(data, x, start);
 	while (start <= data->win_y)
 	{
-		my_mlx_pixel_put(data, (t_point){x, start, data->background_colors[0]});
+		distance = data->win_y / (2 * cosine * (start - data->mid_y));
+		curr_coord = add_2D_vec(data->rc.player.d_coords, scalar_mult(ray->ray_vector, distance));
+		xpercent = curr_coord.x - (float)((int)curr_coord.x);
+		ypercent = curr_coord.y - (float)((int)curr_coord.y);
+		my_mlx_pixel_put(data, (t_point){x, start, color_from_texture_back(data, xpercent, ypercent)});
 		start++;
 	}
 }
 
-void	draw_column(t_cub3D *data, t_ray *ray, int x)
+// void loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
+// {
+// 	int		draw_start;
+// 	int		draw_end;
+// 	double	texpos;
+// 	double	step;
+// 	double	xpercent;
+// 	t_point	point;
+
+// 	draw_start = -line_height / 2 + data->mid_y;
+// 	if (draw_start < 0)
+// 		draw_start = 0;
+// 	draw_end = line_height / 2 + data->mid_y;
+// 	if (draw_end >= data->win_y)
+// 		draw_end = data->win_y - 1;
+// 	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+// 	texpos = (draw_start - data->mid_y + line_height / 2) * step;
+// 	while (draw_start <= draw_end)
+// 	{
+// 		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+// 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
+// 		else
+// 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
+// 		texpos += step;
+// 		point = (t_point){x, draw_start, \
+// 		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
+// 		my_mlx_pixel_put(data, point);
+// 		draw_start++;
+// 	}
+// }
+
+void	draw_column(t_cub3D *data, t_ray *ray, int x, int dir)
 {
 	int		line_height;
 	int		draw_start;
@@ -112,8 +153,6 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	double	texpos;
 	double	step;
 	double	xpercent;
-	double	ypercent;
-	int		begin;
 	double	cosine;
 	t_point	point;
 
@@ -125,23 +164,21 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	draw_end = line_height / 2 + data->mid_y;
 	if (draw_end >= data->win_y)
 		draw_end = data->win_y - 1;
-	begin = draw_start;
-	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+	step = 1.0 * data->wall_textures[dir - 1].img_height / line_height;
 	texpos = (draw_start - data->mid_y + line_height / 2) * step;
-	draw_ceiling(draw_start, data, x);
+	draw_ceiling(draw_start, data, x, cosine, ray);
 	while (draw_start <= draw_end)
 	{
-		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+		if (dir == 1 || dir == 2)
 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
 		else
 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
 		texpos += step;
-		point = (t_point){x, draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
+		point = (t_point){x, draw_start, color_from_texture(data, dir, xpercent, texpos)};
 		my_mlx_pixel_put(data, point);
 		draw_start++;
 	}
-	draw_floor(draw_start, data, x);
+	draw_floor(draw_start, data, x, cosine, ray);
 }
 
 unsigned int	find_color(t_list *ident_fc, int t)
@@ -173,23 +210,23 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 	return (texture);
 }
 
-void	draw_scene(t_cub3D *data)
-{
-	// int	x;
-	// int	y;
+// void	draw_scene(t_cub3D *data)
+// {
+// 	// int	x;
+// 	// int	y;
 
-	// y = 0;
-	// while (y < data->win_y)
-	// {
-	// 	x = 0;
-	// 	while (x < data->win_x)
-	// 	{
-	// 		if (y < data->mid_y)
-	// 			my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[1]});
-	// 		else
-	// 			my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[0]});
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
-}
+// 	// y = 0;
+// 	// while (y < data->win_y)
+// 	// {
+// 	// 	x = 0;
+// 	// 	while (x < data->win_x)
+// 	// 	{
+// 	// 		if (y < data->mid_y)
+// 	// 			my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[1]});
+// 	// 		else
+// 	// 			my_mlx_pixel_put(data, (t_point){x, y, data->background_colors[0]});
+// 	// 		x++;
+// 	// 	}
+// 	// 	y++;
+// 	// }
+// }

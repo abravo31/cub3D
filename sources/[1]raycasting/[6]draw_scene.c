@@ -103,7 +103,7 @@ void	draw_minimap_grid(t_cub3D *data)
 	int		y;
 	int		scale_map;
 
-	scale_map = data->rc.scale_map;
+	scale_map = 10;
 	y = 0;
 	while (y < data->map.max_h)
 	{
@@ -117,14 +117,14 @@ void	draw_minimap_grid(t_cub3D *data)
 	}
 }
 
-void	draw_scene_raycasting(t_cub3D *data)
-{
-	draw_minimap_grid(data);
-	draw_player(data);
-}
-
-// void	draw_scene(t_cub3D *data)
+// void	draw_scene_raycasting(t_cub3D *data)
 // {
 // 	draw_minimap_grid(data);
 // 	draw_player(data);
 // }
+
+void	draw_scene(t_cub3D *data)
+{
+	draw_minimap_grid(data);
+	draw_player(data);
+}

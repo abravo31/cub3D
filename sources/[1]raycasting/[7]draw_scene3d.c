@@ -22,25 +22,6 @@ void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 	}
 }
 
-int	darken_color(double wall_distance, double floor_distance, int color)
-{
-	double	percent;
-	// int		r;
-	// int		g;
-	// int		b;
-
-	// r = color >> 16;
-	// g = color >> 8;
-	// b = color;
-	// percent = wall_distance - floor_distance;
-	// percent -= (int)percent;
-	percent = 1;
-	// r *= percent;
-	// g *= percent;
-	// b *= percent;
-	return (color * percent);
-}
-
 void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 {
 	double	distance;
@@ -50,6 +31,8 @@ void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 	int		start;
 
 	start = data->draw_end;
+	if (start == data->mid_y)
+		start++;
 	while (start < data->win_y)
 	{
 		distance = data->win_y / (2 * cosine * (start - data->mid_y));
@@ -58,8 +41,7 @@ void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
 		my_mlx_pixel_put(data, (t_point){x, start, \
-		darken_color(ray->distance, distance, \
-		ceiling_floor_color(data, xpercent, ypercent, 4))});
+		ceiling_floor_color(data, xpercent, ypercent, 4)});
 		start++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/21 23:16:41 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/21 23:53:58 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,13 @@ int	handle_new_fc(t_cub3D *data, t_type tmp, char *line, int i)
 	return (0);
 }
 
-
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_type	tmp;
 	int		res;
 
 	tmp = eval_ident(*str, data);
-	if (tmp > 0 && tmp < F)
+	if (tmp > 0 && (tmp < F || tmp == FT || tmp == CT))
 	{
 		res = handle_new_coord(data, tmp, line, i);
 		if (res == 1)
@@ -91,14 +90,6 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			free_line_end_exit(line, data, str, MALLOC_FAIL);
 		else if (res == 2)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
-	}
-	else if (tmp > 0 && tmp >= FT && tmp <= CT)
-	{
-		res = handle_new_coord(data, tmp, line, i);
-		if (res == 1)
-			free_line_end_exit(line, data, str, MALLOC_FAIL);
-		else if (res == 2)
-			free_line_end_exit (line, data, str, INVALID_PATH_TEXTURE);
 	}
 	else if (tmp == -1)
 		free_line_end_exit (line, data, str, IDENT_INVALID);
@@ -127,7 +118,6 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 	{
 		if (check_map_start(line))
 			ft_exit_and_free(data, 1, &line, IDENT_INVALID);
-		// printf("line: %s\n", line);
 		while (line[++i])
 		{
 			if (line[i] == ' ' && line[i] != '\n' && line[i])
@@ -150,16 +140,16 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 }
 
 // Function to parse the file map in a liked list
-int	get_list(t_cub3D *data, char *line)
-{
-	int		i;
-	char	*str;	
+// int	get_list(t_cub3D *data, char *line)
+// {
+// 	int		i;
+// 	char	*str;	
 
-	i = -1;
-	str = NULL;
-	iter_line(data, &str, i, line);
-	return (0);
-}
+// 	i = -1;
+// 	str = NULL;
+// 	iter_line(data, &str, i, line);
+// 	return (0);
+// }
 
 // //Function to check if the likeds list are created
 // void __debug_parsing(t_cub3D *data)

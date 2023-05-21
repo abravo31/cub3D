@@ -328,6 +328,6 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x);
 double	vec_length(t_vec2D vec);
 double	dot_prod(t_vec2D vec1, t_vec2D vec2);
 int		color_from_texture(t_cub3D *data, int dir, double xper, int y);
-int		color_from_texture_back(t_cub3D *data, double xper, double yper);
+int		ceiling_floor_color(t_cub3D *data, double xper, double yper, int type);
 
 #endif

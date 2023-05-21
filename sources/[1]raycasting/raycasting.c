@@ -15,12 +15,12 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 	char		*path;
 	t_texture	texture;
 
+	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	while (ident_coord && ((t_coord *)(ident_coord->content))->id != type)
 		ident_coord = ident_coord->next;
 	if (ident_coord == NULL)
 		return (texture);
 	path = ((t_coord *)(ident_coord->content))->path;
-	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	texture.img = mlx_xpm_file_to_image(data->mlx, path, \
 	&texture.img_width, &texture.img_height);
 	if (texture.img == NULL)
@@ -52,10 +52,8 @@ int	lauch_raycasting(t_cub3D *data)
 	data->wall_textures[1] = find_texture(data, data->ident_coord, SO);
 	data->wall_textures[2] = find_texture(data, data->ident_coord, WE);
 	data->wall_textures[3] = find_texture(data, data->ident_coord, EA);
-	if (data->ft)
-		data->wall_textures[4] = find_texture(data, data->ident_coord, FT);
-	if (data->ct)
-		data->wall_textures[5] = find_texture(data, data->ident_coord, CT);
+	data->wall_textures[4] = find_texture(data, data->ident_coord, FT);
+	data->wall_textures[5] = find_texture(data, data->ident_coord, CT);
 	render(data);
 	setup_controls_hooks(data);
 	mlx_loop(data->mlx);

@@ -1,3 +1,6 @@
+
+
+For testing:
 /******************************************/
 If the texture doesn't exists, the pogram must finish properly
 NO ./path_to_the_north_texture.xpm
@@ -14,3 +17,12 @@ C 225,           30,30
 1W001
  1011
   1
+
+
+1. Control hooks with flag.
+2. Render according size of screen.
+3. Map change dinamically with the hooks.
+4. Improve dda 
+5. Loop for iterations in the hooks of doors (open/close)
+   Rays must continue if doesn't hit door (double comparaison)!
+6. Get distance and orientation_wall_hit

@@ -8,6 +8,8 @@ void	data_init(t_cub3D *data)
 	data->ea = 0;
 	data->f = 0;
 	data->c = 0;
+	data->ft = 0;
+	data->ct = 0;
 	data->y = -1;
 	data->ident_coord = NULL;
 	data->ident_fc = NULL;

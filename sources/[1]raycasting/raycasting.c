@@ -1,9 +1,37 @@
 #include "../../includes/cub3D_struct.h"
 
-// static void	ft_clear_img(t_cub3D *data)
-// {
-// 	ft_bzero(data->img.addr, data->win_x * data->win_y * (data->img.bbp / 8));
-// }
+unsigned int	find_color(t_list *ident_fc, int t)
+{
+	while (ident_fc && ((t_fc *)(ident_fc->content)) && \
+	((t_fc *)(ident_fc->content))->id != t)
+		ident_fc = ident_fc->next;
+	return (((t_fc *)(ident_fc->content))->r << 16 \
+	| ((t_fc *)(ident_fc->content))->g << 8 \
+	| ((t_fc *)(ident_fc->content))->b);
+}
+
+t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
+{
+	char		*path;
+	t_texture	texture;
+
+	while (ident_coord && ((t_coord *)(ident_coord->content))->id != type)
+		ident_coord = ident_coord->next;
+	if (ident_coord == NULL)
+		return (texture);
+	path = ((t_coord *)(ident_coord->content))->path;
+	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
+	texture.img = mlx_xpm_file_to_image(data->mlx, path, \
+	&texture.img_width, &texture.img_height);
+	if (texture.img == NULL)
+		return (printf(MLX_ERROR), ft_exit(data), texture);
+	texture.addr = mlx_get_data_addr(texture.img, \
+	&texture.bpp, &texture.line_len, &texture.endian);
+	if (texture.addr == NULL)
+		return (mlx_destroy_image(data->mlx, texture.img), \
+		printf(MLX_ERROR), ft_exit(data), texture);
+	return (texture);
+}
 
 void	render(t_cub3D *data)
 {
@@ -24,6 +52,10 @@ int	lauch_raycasting(t_cub3D *data)
 	data->wall_textures[1] = find_texture(data, data->ident_coord, SO);
 	data->wall_textures[2] = find_texture(data, data->ident_coord, WE);
 	data->wall_textures[3] = find_texture(data, data->ident_coord, EA);
+	if (data->ft)
+		data->wall_textures[4] = find_texture(data, data->ident_coord, FT);
+	if (data->ct)
+		data->wall_textures[5] = find_texture(data, data->ident_coord, CT);
 	render(data);
 	setup_controls_hooks(data);
 	mlx_loop(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/01 00:50:08 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/21 21:13:23 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,14 @@ int	handle_new_fc(t_cub3D *data, t_type tmp, char *line, int i)
 	return (0);
 }
 
+
 void	delimitor(char **str, t_cub3D *data, char *line, int i)
 {
 	t_type	tmp;
 	int		res;
 
 	tmp = eval_ident(*str, data);
-	if (tmp != 0 && tmp < 5)
+	if (tmp > 0 && tmp < F)
 	{
 		res = handle_new_coord(data, tmp, line, i);
 		if (res == 1)
@@ -83,7 +84,7 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		else if (res == 2)
 			free_line_end_exit (line, data, str, INVALID_PATH_TEXTURE);
 	}
-	else if (tmp != 0 && tmp > 4 && tmp < 7)
+	else if (tmp > 0 && tmp >= F && tmp <= C)
 	{
 		res = handle_new_fc(data, tmp, line, i);
 		if (res == 1)
@@ -91,7 +92,15 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		else if (res == 2)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
 	}
-	else if (tmp == 7)
+	else if (tmp > 0 && tmp >= FT && tmp <= CT)
+	{
+		res = handle_new_coord(data, tmp, line, i);
+		if (res == 1)
+			free_line_end_exit(line, data, str, MALLOC_FAIL);
+		else if (res == 2)
+			free_line_end_exit (line, data, str, INVALID_PATH_TEXTURE);
+	}
+	else if (tmp == -1)
 		free_line_end_exit (line, data, str, IDENT_INVALID);
 	free(*str);
 	*str = NULL;
@@ -134,32 +143,32 @@ int	get_list(t_cub3D *data, char *line)
 	return (0);
 }
 
-//Function to check if the likeds list are created
-void __debug_parsing(t_cub3D *data)
-{
-    t_list *iter = data->ident_coord;
-    t_coord  *current = NULL;
-    while (iter)
-    {
-        current = (t_coord*) iter->content;
-        printf("{%d}[%s]\n", current->id, current->path);
-        iter = iter->next;
-    }
+// //Function to check if the likeds list are created
+// void __debug_parsing(t_cub3D *data)
+// {
+//     t_list *iter = data->ident_coord;
+//     t_coord  *current = NULL;
+//     while (iter)
+//     {
+//         current = (t_coord*) iter->content;
+//         printf("{%d}[%s]\n", current->id, current->path);
+//         iter = iter->next;
+//     }
 
-	t_list *iter2 = data->ident_fc;
-    t_fc  *cur = NULL;
-    while (iter2)
-    {
-        cur = (t_fc*) iter2->content;
-        printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->r, cur->g, cur->b);
-        iter2 = iter2->next;
-    }
-	t_list *iter3 = data->map_list;
-    t_map_list  *current3 = NULL;
-    while (iter3)
-    {
-        current3 = (t_map_list*) iter3->content;
-        printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
-        iter3 = iter3->next;
-    }
-}
+// 	t_list *iter2 = data->ident_fc;
+//     t_fc  *cur = NULL;
+//     while (iter2)
+//     {
+//         cur = (t_fc*) iter2->content;
+//         printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->r, cur->g, cur->b);
+//         iter2 = iter2->next;
+//     }
+// 	t_list *iter3 = data->map_list;
+//     t_map_list  *current3 = NULL;
+//     while (iter3)
+//     {
+//         current3 = (t_map_list*) iter3->content;
+//         printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
+//         iter3 = iter3->next;
+//     }
+// }

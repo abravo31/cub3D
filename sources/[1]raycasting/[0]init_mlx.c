@@ -39,8 +39,8 @@ int	setup_mlx_env(t_cub3D *data)
 	int	i;
 
 	i = 0;
-	data->win_x = 1400;
-	data->win_y = 1200;
+	data->win_x = 1200;
+	data->win_y = 1000;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();
@@ -52,7 +52,7 @@ int	setup_mlx_env(t_cub3D *data)
 		return (free(data->mlx), 1);
 	if (ft_init_img(data))
 		return (free(data->mlx), free(data->mlx_win), 1);
-	while (i < 4)
+	while (i < 6)
 		data->wall_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	return (0);
 }

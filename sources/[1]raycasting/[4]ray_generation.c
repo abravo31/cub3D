@@ -35,6 +35,11 @@ static void	get_quadrant(t_ray *ray)
 			ray->is_facing_down = 1;
 		}
 	}
+	else
+	{
+		printf("no quadrant defined!\n");
+		ray->is_facing_up = 1;
+	}
 	if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
 	{
 		if (ray->ray_vector.x < 0)
@@ -45,6 +50,11 @@ static void	get_quadrant(t_ray *ray)
 		{
 			ray->is_facing_rigth = 1;
 		}
+	}
+	else
+	{
+		printf("no quadrant defined!\n");
+		ray->is_facing_rigth = 1;
 	}
 }
 
@@ -63,7 +73,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	ray_screen = add_2D_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
-	draw_column(data, &ray, i, ray.orientation_wall_hit);
+	draw_column(data, &ray, i);
 	//draw_scene(data);
 
 	// (void)ray_screen;

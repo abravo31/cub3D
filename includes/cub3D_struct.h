@@ -49,6 +49,8 @@ typedef enum ident_type
 	EA,
 	F,
 	C,
+	FT,
+	CT,
 }	t_type;
 
 typedef struct fc
@@ -205,13 +207,15 @@ typedef struct cub3D
 	int			mid_y;
 	void		*mlx;
 	void		*mlx_win;
+	int			draw_start;
+	int			draw_end;
 	t_image		img;
 	t_rc		rc;
 	t_map		map;
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;
-	t_texture	wall_textures[4];
+	t_texture	wall_textures[6];
 	t_event		events;
 	unsigned int background_colors[2];
 	int			no;
@@ -220,6 +224,8 @@ typedef struct cub3D
 	int			ea;
 	int			f;
 	int			c;
+	int			ft;
+	int			ct;
 	int			y;
 }	t_cub3D;
 
@@ -252,11 +258,14 @@ void	ft_free_map_list(void *content);
 int		get_new_coord_path(char **path, char *line, int i);
 t_coord	*new_coord(char *path, t_type id);
 t_type	eval_ident(char *ident, t_cub3D *data);
+t_type	eval_ident_coord_bis(char *ident, t_cub3D *data);
+t_type	eval_ident_coord(char *ident, t_cub3D *data);
 
 /*Identifier FC*/
 int		get_new_fc_colors(t_fc *temp, char *line, int i, char *color);
 t_fc	*new_fc(t_fc *temp, t_type id);
 t_type	eval_ident_fc(char *ident, t_cub3D *data);
+
 
 /*Identifier map*/
 int		handle_new_line_map(t_cub3D *data, char *line, int y);
@@ -315,5 +324,10 @@ t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);
 void	draw_minimap_grid(t_cub3D *data);
-void	draw_column(t_cub3D *data, t_ray *ray, int x, int dir);
+void	draw_column(t_cub3D *data, t_ray *ray, int x);
+double	vec_length(t_vec2D vec);
+double	dot_prod(t_vec2D vec1, t_vec2D vec2);
+int		color_from_texture(t_cub3D *data, int dir, double xper, int y);
+int		color_from_texture_back(t_cub3D *data, double xper, double yper);
+
 #endif

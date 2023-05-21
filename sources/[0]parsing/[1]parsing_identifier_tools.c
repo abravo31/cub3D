@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/04/30 21:56:13 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/21 21:11:40 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,49 @@ int	is_identical(char *s1, char *s2)
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return (s1[i] == '\0');
+}
+
+t_type	eval_ident_fct(char *ident, t_cub3D *data)
+{
+	if (is_identical("FT", ident))
+	{
+		if (data->ft == 0)
+		{
+			data->ft = 1;
+			return (FT);
+		}
+		return (-1);
+	}
+	else if (is_identical("CT", ident))
+	{
+		if (data->ct == 0)
+		{
+			data->ct = 1;
+			return (CT);
+		}
+		return (-1);
+	}
+	return (UNASSIGNED);
+}
+
+// Function to return corresponding token from string
+t_type	eval_ident(char *ident, t_cub3D *data)
+{
+	if (is_identical("NO", ident))
+		return (eval_ident_coord(ident, data));
+	else if (is_identical("SO", ident))
+		return (eval_ident_coord(ident, data));
+	else if (is_identical("WE", ident))
+		return (eval_ident_coord_bis(ident, data));
+	else if (is_identical("EA", ident))
+		return (eval_ident_coord_bis(ident, data));
+	else if (is_identical("F", ident))
+		return (eval_ident_fc(ident, data));
+	else if (is_identical("C", ident))
+		return (eval_ident_fc(ident, data));
+	else if (is_identical("FT", ident))
+		return (eval_ident_fct(ident, data));
+	else if (is_identical("CT", ident))
+		return (eval_ident_fct(ident, data));
+	return (UNASSIGNED);
 }

@@ -15,11 +15,10 @@ static inline int	idx(int row, int col, int dim)
 	return ((row * dim) + col);
 }
 
-int color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
+int	color_from_texture(t_cub3D *data, int direction, double xpercent, int y)
 {
 	t_texture	texture;
 	int			x;
-	// int			y;
 
 	if (direction < 1 || direction > 4)
 	{
@@ -85,10 +84,7 @@ void	draw_ceiling(int end, t_cub3D *data, int x, double cosine, t_ray *ray)
 	double xpercent;
 	double ypercent;
 
-	
 	start = 0;
-	xpercent = 0.0;
-	ypercent = 0.0;
 	while (start < end)
 	{
 		distance = data->win_y / (2 * cosine * (data->mid_y - start));
@@ -99,23 +95,6 @@ void	draw_ceiling(int end, t_cub3D *data, int x, double cosine, t_ray *ray)
 		start++;
 	}
 }
-// int	dist_from_point(t_cub3D *data, int x, int y)
-// {
-// 	int	distance;
-
-// 	return (distance);
-// }
-
-// int	get_floor_color(t_cub3D *data, int x, int y)
-// {
-// 	int	distance;
-// 	int	color;
-
-// 	color = 0;
-// 	distance = dist_from_point(data, x, y);
-// 	/*calcul de couleurs avec distance*/
-// 	return (color);
-// }
 
 void draw_floor(int start, t_cub3D *data, int x, double cosine, t_ray *ray)
 {
@@ -135,7 +114,38 @@ void draw_floor(int start, t_cub3D *data, int x, double cosine, t_ray *ray)
 	}
 }
 
-void	draw_column(t_cub3D *data, t_ray *ray, int x)
+// void loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
+// {
+// 	int		draw_start;
+// 	int		draw_end;
+// 	double	texpos;
+// 	double	step;
+// 	double	xpercent;
+// 	t_point	point;
+
+// 	draw_start = -line_height / 2 + data->mid_y;
+// 	if (draw_start < 0)
+// 		draw_start = 0;
+// 	draw_end = line_height / 2 + data->mid_y;
+// 	if (draw_end >= data->win_y)
+// 		draw_end = data->win_y - 1;
+// 	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+// 	texpos = (draw_start - data->mid_y + line_height / 2) * step;
+// 	while (draw_start <= draw_end)
+// 	{
+// 		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+// 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
+// 		else
+// 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
+// 		texpos += step;
+// 		point = (t_point){x, draw_start, \
+// 		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
+// 		my_mlx_pixel_put(data, point);
+// 		draw_start++;
+// 	}
+// }
+
+void	draw_column(t_cub3D *data, t_ray *ray, int x, int dir)
 {
 	int		line_height;
 	int		draw_start;
@@ -143,8 +153,6 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	double	texpos;
 	double	step;
 	double	xpercent;
-	double	ypercent;
-	int		begin;
 	double	cosine;
 	t_point	point;
 
@@ -156,19 +164,17 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	draw_end = line_height / 2 + data->mid_y;
 	if (draw_end >= data->win_y)
 		draw_end = data->win_y - 1;
-	begin = draw_start;
-	step = 1.0 * data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+	step = 1.0 * data->wall_textures[dir - 1].img_height / line_height;
 	texpos = (draw_start - data->mid_y + line_height / 2) * step;
 	draw_ceiling(draw_start, data, x, cosine, ray);
 	while (draw_start <= draw_end)
 	{
-		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+		if (dir == 1 || dir == 2)
 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
 		else
 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
 		texpos += step;
-		point = (t_point){x, draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
+		point = (t_point){x, draw_start, color_from_texture(data, dir, xpercent, texpos)};
 		my_mlx_pixel_put(data, point);
 		draw_start++;
 	}

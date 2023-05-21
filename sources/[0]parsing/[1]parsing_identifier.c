@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/21 21:13:23 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/21 23:16:41 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,28 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 	*str = NULL;
 }
 
+int	check_map_start(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] == ' ')
+		i++;
+	if (line[i] == '\n' || !line[i])
+		return (0);
+	if (line[i] != 'N' && line[i] != 'S' && line[i] != 'E' \
+	&& line[i] != 'W' && line[i] != 'F' && line[i] != 'C')
+		return (1);
+	return (0);
+}
+
 void	iter_line(t_cub3D *data, char **str, int i, char *line)
 {
 	if (check_full_identifier(data) < 6)
 	{
+		if (check_map_start(line))
+			ft_exit_and_free(data, 1, &line, IDENT_INVALID);
+		// printf("line: %s\n", line);
 		while (line[++i])
 		{
 			if (line[i] == ' ' && line[i] != '\n' && line[i])

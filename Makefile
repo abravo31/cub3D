@@ -1,6 +1,6 @@
 ### Compilation ###
 CC      = cc
-# FLAGS  = -Wall -Wextra -Werror -g
+FLAGS  = -Wall -Wextra -Werror -g
 FLAGS	= -g
 # FLAGS	+= -Ofast -flto
 # FLAGS	+= -pg

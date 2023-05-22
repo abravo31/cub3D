@@ -65,7 +65,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	draw_column(data, &ray, i);
 
-	// (void)ray_screen;
+	(void)ray_screen;
 	// if (ray.orientation_wall_hit < 5)
 	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	// else

@@ -81,6 +81,19 @@ static void	check_hit_Y_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 	(void)data;
 }
 
+static void	check_horizontal_hit(t_ray *ray, t_vec2D ray_hit_point, t_vec2D *current_dda, int ray_orientation)
+{
+	if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
+	{
+		ray->orientation_wall_hit = ray_orientation;
+	}
+	else if ((ft_abs_double(ray->hit_point.y - (current_dda->y)) < 0.000001)
+		&& ray->hit_point.y < (current_dda->y + 1))
+	{
+		ray->orientation_wall_hit = ray_orientation;
+	}
+}
+
 static void	check_hit_X_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_dda)
 {
 	if  (ray->is_facing_left == 1 && ray->orientation_wall_hit == -1)
@@ -88,19 +101,44 @@ static void	check_hit_X_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 		ray->distance = ((current_dda->x) - rc->player.d_coords.x) / ray->ray_vector.x;
 		ray->hit_point.x = current_dda->x;
 		ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
-		if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
-			ray->orientation_wall_hit = 4;
+		// printf("Left\n");
+		// printf("hit point vector left x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+		// printf("current_dda left x %f | y %f\n", current_dda->x, current_dda->y);
+		// printf("First condition %d\n", ray->hit_point.y > current_dda->y);
+		// printf("Second condition %d\n", ray->hit_point.y < (current_dda->y + 1));\
+		// printf("First solution %d\n",  ft_diff_epsilon(ray->hit_point.y, current_dda->y));
+		// printf("Second solution with abs_value %d\n", (ft_abs_double(ray->hit_point.y - (current_dda->y + 1)) < 0.00001));
+		// if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
+		// 	ray->orientation_wall_hit = 4;
+		check_horizontal_hit(ray, ray->hit_point, current_dda, 4);
 	}
 	else if (ray->is_facing_rigth == 1 && ray->orientation_wall_hit == -1)
 	{
 		ray->distance = ((current_dda->x + 1) - rc->player.d_coords.x) / ray->ray_vector.x;
 		ray->hit_point.x = current_dda->x + 1;
 		ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
-		if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
-		{
-			ray->orientation_wall_hit = 3;
-			// printf("Aucun problem in the rigth\n", ray->orientation_wall_hit);
-		}
+		// printf("Rigth\n");
+		// printf("hit point vector rigth x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+		// printf("current_dda left rigth %f | y %f\n", current_dda->x, current_dda->y);
+		// printf("First condition %d\n", ray->hit_point.y > current_dda->y);
+		// printf("Second condition %d\n", ray->hit_point.y < (current_dda->y + 1));
+		// printf("abs_double %f\n", ft_abs_double(ray->hit_point.y - (current_dda->y)));
+		// printf("abs_double + 1 %f\n", ft_abs_double(ray->hit_point.y - (current_dda->y + 1)));
+		// printf("abs_double solution %d\n", (ft_abs_double(ray->hit_point.y - (current_dda->y))) < 0.000001);
+		// printf("abs_double solution + 1 %d\n", (ft_abs_double(ray->hit_point.y - (current_dda->y + 1))) < 0.000001);
+		// printf("First solution %d\n",  ft_diff_epsilon(ray->hit_point.y, current_dda->y));
+		// printf("Second solution with abs_value %d\n", (ft_abs_double(ray->hit_point.y - (current_dda->y + 1)) < 0.00001));
+		check_horizontal_hit(ray, ray->hit_point, current_dda, 3);
+		// if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
+		// {
+		// 	ray->orientation_wall_hit = 3;
+		// 	// printf("Aucun problem in the rigth\n", ray->orientation_wall_hit);
+		// }
+		// if ((ft_abs_double(ray->hit_point.y - (current_dda->y))) < 0.000001 && (ft_abs_double(ray->hit_point.y - (current_dda->y + 1))) < 0.000001)
+		// {
+		// 	ray->orientation_wall_hit = 3;
+		// 	// printf("Aucun problem in the rigth\n", ray->orientation_wall_hit);
+		// }
 	}
 	// draw_square_point(data, ray->hit_point);
 	(void)data;
@@ -193,7 +231,7 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 			current_dda.x = current_dda.x - 1;
 		dda_corners(data->map.map, ray, &current_dda, &hit);
 		check_hit(data, ray, &current_dda, &hit);
-		draw_square_checked(data, &current_dda);
+		// draw_square_checked(data, &current_dda);
 	}
 	if (ray->orientation_wall_hit == -1)
 		printf("Hereee\n");

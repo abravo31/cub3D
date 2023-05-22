@@ -313,6 +313,7 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);
 double	ft_abs_double(double n);
+int		ft_diff_epsilon(double n1, double n2);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);

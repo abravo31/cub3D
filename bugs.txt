@@ -1,3 +1,6 @@
+
+
+For testing:
 /******************************************/
 If the texture doesn't exists, the pogram must finish properly
 NO ./path_to_the_north_texture.xpm
@@ -5,8 +8,8 @@ SO    ./path_to_the_south_texture.xpm
 WE       ./path_to_the_west_texture.xpm
 EA                    ./path_to_the_east_texture.xpm
 
-F                  100,255,255
-C 225,           30,30
+F 211, 151, 138                 100,255,255
+C 99, 51, 40
 
 11111
 11001
@@ -14,3 +17,22 @@ C 225,           30,30
 1W001
  1011
   1
+
+It's the ray number 1400
+ray->is_facing_down :0
+ray->is_facing_up :1
+ray->is_facing_rigth :0
+ray->is_facing_left :1
+ray vector x -1.000000 | y 0.000000
+hit point vector x 12.000000 | y 4.000000
+current dda x 12.000000 | y 3.000000
+hit point vector in corners x 12.000000 | y 4.000000
+Pero se ve esto
+
+1. Control hooks with flag.
+2. Render according size of screen.
+3. Map change dinamically with the hooks.
+4. Improve dda 
+5. Loop for iterations in the hooks of doors (open/close)
+   Rays must continue if doesn't hit door (double comparaison)!
+6. Get distance and orientation_wall_hit

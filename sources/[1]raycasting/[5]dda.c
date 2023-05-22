@@ -49,15 +49,15 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 // This function is only for draw the position checked by dda
 // *******************************************************/
 
-// static void	draw_square_checked(t_cub3D *data, t_vec2D *current_dda)
-// {
-// 	int	y;
-// 	int	x;
+static void	draw_square_checked(t_cub3D *data, t_vec2D *current_dda)
+{
+	int	y;
+	int	x;
 
-// 	y = (int)current_dda->y * (int)data->rc.scale_map;
-// 	x = (int)current_dda->x * (int)data->rc.scale_map;
-// 	draw_square(data, y, x, 5, data->rc.scale_map);
-// }
+	y = (int)current_dda->y * (int)data->rc.scale_map;
+	x = (int)current_dda->x * (int)data->rc.scale_map;
+	draw_square(data, y, x, 5, data->rc.scale_map);
+}
 
 static void	check_hit_Y_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_dda)
 {
@@ -97,7 +97,10 @@ static void	check_hit_X_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curre
 		ray->hit_point.x = current_dda->x + 1;
 		ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
 		if (ray->hit_point.y > current_dda->y && ray->hit_point.y < (current_dda->y + 1))
+		{
 			ray->orientation_wall_hit = 3;
+			// printf("Aucun problem in the rigth\n", ray->orientation_wall_hit);
+		}
 	}
 	// draw_square_point(data, ray->hit_point);
 	(void)data;
@@ -110,6 +113,9 @@ static void	check_corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_
 		ray->distance = ((current_dda->x + 1) - rc->player.d_coords.x) / ray->ray_vector.x;
 		ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
 		ray->hit_point.x = current_dda->x + 1;
+		// printf("hit point vector in corners x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+		// printf("current dda in y %f\n", current_dda->y);
+		// printf("here abs_double %d\n", ft_abs_double(ray->hit_point.y - current_dda->y));
 		if (ft_abs_double(ray->hit_point.y - current_dda->y) < 0.00001)
 			ray->orientation_wall_hit = 5;
 	}
@@ -118,8 +124,18 @@ static void	check_corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_
 		ray->distance = ((current_dda->x) - rc->player.d_coords.x) / ray->ray_vector.x;
 		ray->hit_point.y = rc->player.d_coords.y + (ray->distance * ray->ray_vector.y);
 		ray->hit_point.x = current_dda->x;
+		// printf("hit point vector in corners x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+		// printf("current dda in y %f\n", current_dda->y);
+		// printf("abs_double %d\n", ft_abs_double(ray->hit_point.y - current_dda->y));
 		if (ft_abs_double(ray->hit_point.y - current_dda->y) < 0.00001)
+		{
 			ray->orientation_wall_hit = 6;
+			// printf("Deberia verse esto\n");
+		}
+		else
+		{
+			// printf("Pero se ve esto\n");
+		}
 	}
 	else if (ray->is_facing_down && ray->is_facing_rigth)
 	{
@@ -141,7 +157,19 @@ static void	check_corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_
 	(void)data;
 }
 
-void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
+static void	print_ray_info_debug(t_ray *ray, int i)
+{
+	printf("It's the ray number %d\n", i);
+	printf("ray->is_facing_down :%d\n", ray->is_facing_down);
+	printf("ray->is_facing_up :%d\n", ray->is_facing_up);
+	printf("ray->is_facing_rigth :%d\n", ray->is_facing_rigth);
+	printf("ray->is_facing_left :%d\n", ray->is_facing_left);
+	printf("ray vector x %f | y %f\n", ray->ray_vector.x, ray->ray_vector.y);
+	printf("hit point vector x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+}
+
+// void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
+void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 {
 	t_vec2D	current_dda;
 	int		hit;
@@ -153,6 +181,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 		check_corners(data, rc, ray, &current_dda);
 		check_hit_Y_axis(data, rc, ray, &current_dda);
 		check_hit_X_axis(data, rc, ray, &current_dda);
+		// print_ray_info_debug(ray, i);
+		// printf("orientation wall hit %d\n", ray->orientation_wall_hit);
 		if (ray->orientation_wall_hit == 1)
 			current_dda.y = current_dda.y - 1;
 		if (ray->orientation_wall_hit == 2)
@@ -163,6 +193,7 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 			current_dda.x = current_dda.x - 1;
 		dda_corners(data->map.map, ray, &current_dda, &hit);
 		check_hit(data, ray, &current_dda, &hit);
+		draw_square_checked(data, &current_dda);
 	}
 	if (ray->orientation_wall_hit == -1)
 		printf("Hereee\n");

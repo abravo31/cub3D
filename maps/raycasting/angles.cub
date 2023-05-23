@@ -1,3 +1,13 @@
+NO ./textures/brickwall.xpm
+SO    ./textures/grass.xpm
+WE       ./textures/stone.xpm
+EA                    ./textures/tnt.xpm
+
+F         225,           30,30       
+FT ./textures/grass_brick.xpm
+CT ./textures/sky_soft.xpm
+     C   100,255,255
+
 111
  101
 1W001

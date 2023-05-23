@@ -172,6 +172,7 @@ typedef	struct	s_rc
 	double 		ray_dist;
 	double		scale_map;
 	double		fov;
+	int			doors;
 }				t_rc;
 
 typedef	struct	s_ray

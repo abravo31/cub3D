@@ -96,7 +96,14 @@ static int	desactive_hook(int key_code, t_cub3D *data)
 }
 
 static int	active_hook(int key_code, t_cub3D *data)
-{	
+{
+	if (key_code == 32)
+	{
+		if (data->rc.doors == 1)
+			data->rc.doors = 0;
+		else
+			data->rc.doors = 1;
+	}
 	if (key_code == MOVE_LEFT)
 		data->events.move_left = 1;
 	else if (key_code == MOVE_RIGTH)
@@ -119,6 +126,7 @@ void	setup_controls_hooks(t_cub3D *data)
 {
 	mlx_hook(data->mlx_win, 2, (1L<<0), active_hook, data);
 	mlx_hook(data->mlx_win, 3, (1L<<1), desactive_hook, data);
+	// mlx_hook(data->mlx_win, 4, (1L<<0), doors, data);
 	// mlx_hook(data->mlx_win, 2, (1L<<0), exec_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_exit, data);
 }

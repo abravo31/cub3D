@@ -29,9 +29,9 @@ current dda x 12.000000 | y 3.000000
 hit point vector in corners x 12.000000 | y 4.000000
 Pero se ve esto
 
-1. Control hooks with flag.
+1. Control hooks with flag. 
 2. Render according size of screen.
-3. Map change dinamically with the hooks.
+3. Map change dinamically with the hooks. 
 4. Improve dda 
 5. Loop for iterations in the hooks of doors (open/close)
    Rays must continue if doesn't hit door (double comparaison)!

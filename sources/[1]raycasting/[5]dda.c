@@ -39,13 +39,42 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 		&& (int)curr_dda->x >= 0 && (int)curr_dda->x < data->map.max_w)
 	{
 		map_elem = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
-		if (map_elem > 0 && map_elem <= 2)
+		if (map_elem >= 1 && map_elem <= 2)
+		{
 			*hit = 1;
+			if (ray->distance < 0.6)
+			{
+				if (map_elem == 2)
+				{
+					if (!data->rc.doors)
+						ray->orientation_wall_hit = 5;
+					else
+					{
+						data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 3;
+						// printf("Ahora es un tres!\n");
+					}
+				}
+			}
+		}
+		else if (map_elem == 3)
+		{
+			if (ray->distance < 0.6)
+			{
+				if (!data->rc.doors)
+				{
+					data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 2;
+					ray->orientation_wall_hit = 5;
+				}
+				else
+					ray->orientation_wall_hit = -1;
+			}
+			else
+				ray->orientation_wall_hit = -1;
+		}
 		else
 			ray->orientation_wall_hit = -1;
 	}
-	if (map_elem == 2)
-		ray->orientation_wall_hit = 5;
+	
 }
 // /******************************************************
 // This function is only for draw the rays in the screen
@@ -223,7 +252,7 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 		check_hit_Y_axis(data, rc, ray, &current_dda);
 		// check_hit_X_axis(data, rc, ray, &current_dda);
 		// print_ray_info_debug(ray, i);
-		// printf("orientation wall hit %d\n", ray->orientation_wall_hit);
+		printf("orientation wall hit %d\n", ray->orientation_wall_hit);
 		if (ray->orientation_wall_hit == 1)
 			current_dda.y = current_dda.y - 1;
 		if (ray->orientation_wall_hit == 2)

@@ -35,6 +35,11 @@ static void	get_quadrant(t_ray *ray)
 			ray->is_facing_down = 1;
 		}
 	}
+	// else
+	// {
+	// 	// printf("no quadrant defined in up down!\n");
+	// 	// ray->is_facing_up = 1;
+	// }
 	if (!(ft_abs_double(ray->ray_vector.x) < 0.00001))
 	{
 		if (ray->ray_vector.x < 0)
@@ -46,6 +51,12 @@ static void	get_quadrant(t_ray *ray)
 			ray->is_facing_rigth = 1;
 		}
 	}
+	// else
+	// {
+	// 	// printf("no quadrant defined rigth left!\n");
+	// 	// ray->is_facing_rigth = 1;
+	// }
+	// printf("\n\n");
 }
 
 static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
@@ -57,13 +68,14 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	player_screen = rc->player.d_coords;
 	initialize_ray(&ray, ray_vec);
 	get_quadrant(&ray);
-	wall_finder(data, &ray, rc);
+	wall_finder(data, &ray, rc, i);
 	// print_ray_info(&ray);
 	/****************************************************/
 	ray_screen = add_2D_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	draw_column(data, &ray, i);
+	//draw_scene(data);
 
 	(void)ray_screen;
 	// if (ray.orientation_wall_hit < 5)
@@ -95,6 +107,10 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
+		// if (i == 0 || i == data->win_x)
+		// {
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// }
 		// if (i % 70 == 0)
 		// {
 		// 	cast_ray(data, rc, current_ray_dir, i);
@@ -102,6 +118,7 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
+	// draw_scene(data);
 }
 
 void    raycasting(t_cub3D *data)
@@ -113,7 +130,7 @@ void    raycasting(t_cub3D *data)
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
 	// Vector resultante entre la suma del vector del jugador y el vector direccion
 	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);
-	// draw_scene_raycasting(data);
-	draw_scene(data);
+	// _raycasting(data);
+	// draw_scene(data);
 	lauch_rays(data, rc);
 }

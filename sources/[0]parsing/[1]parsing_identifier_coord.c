@@ -6,7 +6,7 @@
 /*   By: abravo <abravo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 19:20:31 by abravo            #+#    #+#             */
-/*   Updated: 2023/05/20 17:31:13 by abravo           ###   ########.fr       */
+/*   Updated: 2023/05/21 21:03:55 by abravo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 			data->we = 1;
 			return (WE);
 		}
-		return (7);
+		return (-1);
 	}
 	else if (is_identical("EA", ident))
 	{
@@ -81,7 +81,7 @@ t_type	eval_ident_coord_bis(char *ident, t_cub3D *data)
 			data->ea = 1;
 			return (EA);
 		}
-		return (7);
+		return (-1);
 	}
 	return (UNASSIGNED);
 }
@@ -95,7 +95,7 @@ t_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->no = 1;
 			return (NO);
 		}
-		return (7);
+		return (-1);
 	}
 	else if (is_identical("SO", ident))
 	{
@@ -104,25 +104,8 @@ t_type	eval_ident_coord(char *ident, t_cub3D *data)
 			data->so = 1;
 			return (SO);
 		}
-		return (7);
+		return (-1);
 	}
 	return (UNASSIGNED);
 }
 
-// Function to return corresponding token from string
-t_type	eval_ident(char *ident, t_cub3D *data)
-{
-	if (is_identical("NO", ident))
-		return (eval_ident_coord(ident, data));
-	else if (is_identical("SO", ident))
-		return (eval_ident_coord(ident, data));
-	else if (is_identical("WE", ident))
-		return (eval_ident_coord_bis(ident, data));
-	else if (is_identical("EA", ident))
-		return (eval_ident_coord_bis(ident, data));
-	else if (is_identical("F", ident))
-		return (eval_ident_fc(ident, data));
-	else if (is_identical("C", ident))
-		return (eval_ident_fc(ident, data));
-	return (UNASSIGNED);
-}

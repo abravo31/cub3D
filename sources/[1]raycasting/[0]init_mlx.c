@@ -20,7 +20,7 @@ int	ft_exit(t_cub3D *data)
 	int	i;
 
 	i = 0;
-	while (i < 4 && data && data->wall_textures[i].img)
+	while (i < 6 && data && data->wall_textures[i].img)
 		mlx_destroy_image(data->mlx, data->wall_textures[i++].img);
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->mlx_win);
@@ -54,7 +54,7 @@ int	setup_mlx_env(t_cub3D *data)
 		return (free(data->mlx), 1);
 	if (ft_init_img(data))
 		return (free(data->mlx), free(data->mlx_win), 1);
-	while (i < 4)
+	while (i < 6)
 		data->wall_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	return (0);
 }

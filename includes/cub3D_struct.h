@@ -49,6 +49,8 @@ typedef enum ident_type
 	EA,
 	F,
 	C,
+	FT,
+	CT,
 }	t_type;
 
 typedef struct fc
@@ -205,13 +207,15 @@ typedef struct cub3D
 	int			mid_y;
 	void		*mlx;
 	void		*mlx_win;
+	int			draw_start;
+	int			draw_end;
 	t_image		img;
 	t_rc		rc;
 	t_map		map;
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;
-	t_texture	wall_textures[4];
+	t_texture	wall_textures[6];
 	t_event		events;
 	unsigned int background_colors[2];
 	int			no;
@@ -220,10 +224,12 @@ typedef struct cub3D
 	int			ea;
 	int			f;
 	int			c;
+	int			ft;
+	int			ct;
 	int			y;
 }	t_cub3D;
 
-int		get_list(t_cub3D *data, char *line);
+void	iter_line(t_cub3D *data, char **str, int i, char *line);
 void	__debug_parsing(t_cub3D *data);
 void	ft_exit_and_free(t_cub3D *data, int ret, char **str, char *error_msg);
 int		check_full_identifier(t_cub3D *data);
@@ -252,11 +258,14 @@ void	ft_free_map_list(void *content);
 int		get_new_coord_path(char **path, char *line, int i);
 t_coord	*new_coord(char *path, t_type id);
 t_type	eval_ident(char *ident, t_cub3D *data);
+t_type	eval_ident_coord_bis(char *ident, t_cub3D *data);
+t_type	eval_ident_coord(char *ident, t_cub3D *data);
 
 /*Identifier FC*/
 int		get_new_fc_colors(t_fc *temp, char *line, int i, char *color);
 t_fc	*new_fc(t_fc *temp, t_type id);
 t_type	eval_ident_fc(char *ident, t_cub3D *data);
+
 
 /*Identifier map*/
 int		handle_new_line_map(t_cub3D *data, char *line, int y);
@@ -286,7 +295,8 @@ int		lauch_raycasting(t_cub3D *data);
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
 void    raycasting(t_cub3D *data);
 /*DDA*/
-void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
+// void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
+void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);
 void    dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
 /*Render*/
 void	render(t_cub3D *data);
@@ -303,6 +313,7 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);
 double	ft_abs_double(double n);
+int		ft_diff_epsilon(double n1, double n2);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
 t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
 t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);
@@ -316,4 +327,9 @@ void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);
 void	draw_minimap_grid(t_cub3D *data);
 void	draw_column(t_cub3D *data, t_ray *ray, int x);
+double	vec_length(t_vec2D vec);
+double	dot_prod(t_vec2D vec1, t_vec2D vec2);
+int		color_from_texture(t_cub3D *data, int dir, double xper, int y);
+int		ceiling_floor_color(t_cub3D *data, double xper, double yper, int type);
+
 #endif

@@ -38,6 +38,8 @@ check if it exists or permissions\n"
 # define S 2
 # define E 3
 # define W 4
+# define VERTICAL 1
+# define HORIZONTAL 2
 
 
 typedef enum ident_type

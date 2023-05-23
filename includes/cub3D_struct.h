@@ -294,6 +294,7 @@ int		lauch_raycasting(t_cub3D *data);
 /*Raycasting*/
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
 void    raycasting(t_cub3D *data);
+void	_raycasting(t_cub3D *data);
 /*DDA*/
 // void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);

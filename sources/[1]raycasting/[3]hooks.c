@@ -33,7 +33,7 @@ static t_vec2D	move_for_back_ward(t_cub3D *data, int flag)
 	}
 	square_value = data->map.map[(int)new_position_player.y][(int)new_position_player.x];
 	// printf("x %f | y %f\n", new_position_player.x, new_position_player.y);
-	if (square_value >= 1 && square_value <= 2 || (square_value == 32))
+	if (square_value >= 1 && square_value <= 3 || (square_value == 32))
 		return (data->rc.player.d_coords);
 	return (new_position_player);
 }

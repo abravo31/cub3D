@@ -18,16 +18,6 @@ C 99, 51, 40
  1011
   1
 
-It's the ray number 1400
-ray->is_facing_down :0
-ray->is_facing_up :1
-ray->is_facing_rigth :0
-ray->is_facing_left :1
-ray vector x -1.000000 | y 0.000000
-hit point vector x 12.000000 | y 4.000000
-current dda x 12.000000 | y 3.000000
-hit point vector in corners x 12.000000 | y 4.000000
-Pero se ve esto
 
 1. Control hooks with flag. 
 2. Render according size of screen.
@@ -36,3 +26,38 @@ Pero se ve esto
 5. Loop for iterations in the hooks of doors (open/close)
    Rays must continue if doesn't hit door (double comparaison)!
 6. Get distance and orientation_wall_hit
+
+  static void	next_point_hit(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
+{
+	// ray->distance = ((door->initial_dda->x + 0.5) - rc->player.d_coords.x) / ray->ray_vector.x; 
+	equation_straight_line(rc, ray, (door->initial_dda->x + 0.5), dir);
+	printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+	
+	// draw_square_point(data, ray->hit_point);
+}
+
+static void	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
+{
+	printf("initial dda x %f | y %f\n", door->initial_dda->x, door->initial_dda->y);
+	if (door->type_door == HORIZONTAL_DOOR)
+	{
+		printf("Debo buscar el siguiente punto en x\n");
+	}
+	else if (door->type_door == VERTICAL_DOOR)
+	{
+		// printf("Debo buscar el siguiente punto en y\n");
+		if (ray->is_facing_rigth)
+		{
+			door->next_dda.x = door->initial_dda->x + 0.5;
+		}
+		else if (ray->is_facing_left)
+		{
+			// Esto no lo he testeado
+			door->next_dda.x = door->initial_dda->x - 0.5;
+		}
+		next_point_hit(data, &data->rc, ray, door, HORIZONTAL);
+		// if (ray->hit_point.x > (door->initial_dda->x + 0.5))
+		// 	printf("Debe pegar en la puerta\n");
+		// if (hit_point.y > (next_dda.y))
+	}
+}

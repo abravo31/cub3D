@@ -19,20 +19,6 @@ static void	ft_print_map(t_map *map)
 	}
 }
 
-void	ft_free_map(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (map->map && i < map->max_h)
-		free(map->map[i++]);
-	if (map->map)
-	{
-		free(map->map);
-		map->map = NULL;
-	}
-}
-
 /**************************************************************/
 
 static void	ft_scan_around(t_map *map, int y, int x, int error_int)
@@ -134,6 +120,8 @@ int	ft_check_map(t_cub3D *data)
 	int		i;
 	int		j;
 
+	map.door_state_map = NULL;
+	map.timer_map = NULL;
 	i = 0;
 	j = 0;
 	if (ft_get_map(&data->map_list, &map))
@@ -144,7 +132,10 @@ int	ft_check_map(t_cub3D *data)
 		return (ft_free_map(&map), 1);
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
+	if (doors_map(&map))
+		return (ft_free_map(&map), 1);
 	data->map = map;
-	ft_print_map(&map);
+	// ft_print_map(&map);
+	// ft_free_map(&map);
 	return (0);
 }

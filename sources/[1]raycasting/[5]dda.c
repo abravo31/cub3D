@@ -14,7 +14,7 @@ static void	get_int_coords(t_player *player, t_vec2D *current_dda)
 	current_dda->y = player->i_coords.y;
 }
 
-static void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir)
+void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir)
 {
 	if (dir == VERTICAL)
 	{
@@ -39,47 +39,18 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 		&& (int)curr_dda->x >= 0 && (int)curr_dda->x < data->map.max_w)
 	{
 		map_elem = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
-		if (map_elem >= 1 && map_elem <= 3)
+		if (map_elem == 1)
+			*hit = 1;
+		else if (map_elem >= 2 && map_elem <= 3)
 		{
 			*hit = 1;
-			if (ray->distance < 1.0)
-			{
-				if (map_elem == 2 || map_elem == 3)
-				{
-					if (!data->rc.doors)
-						ray->orientation_wall_hit = 5;
-					else
-					{
-						if (map_elem == 2)
-							data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 4;
-						else if (map_elem == 3)
-							data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 5;
-					}
-				}
-			}
-		}
-		else if (map_elem == 4 || map_elem == 5)
-		{
-			if (ray->distance < 1.0)
-			{
-				if (!data->rc.doors)
-				{
-					if (map_elem == 4)
-						data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 2;
-					else if (map_elem == 5)
-						data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 3;
-					ray->orientation_wall_hit = 5;
-				}
-				else
-					ray->orientation_wall_hit = -1;
-			}
-			else
-				ray->orientation_wall_hit = -1;
+			handle_door_hit(data, ray, curr_dda);
 		}
 		else
 			ray->orientation_wall_hit = -1;
 	}
 }
+
 // /******************************************************
 // This function is only for draw the rays in the screen
 // *******************************************************/

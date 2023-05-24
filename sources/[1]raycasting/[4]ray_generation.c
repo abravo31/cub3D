@@ -78,12 +78,12 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	// draw_scene(data);
 
 	// (void)ray_screen;
-	if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
-		ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
-	else if (ray.orientation_wall_hit == 5)
-		ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
-	else if (ray.orientation_wall_hit == 6)
-		ft_draw_line(data, player_screen, ray_screen, 0x606060);
+	// if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	// else if (ray.orientation_wall_hit == 5)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
+	// else if (ray.orientation_wall_hit == 6)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0x606060);
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
 }
@@ -105,14 +105,14 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		// if (i == 0 || i == data->win_x)
+		// if (i == (data->win_x / 2))
 		// {
 		// 	cast_ray(data, rc, current_ray_dir, i);
 		// }
-		// if (i % 50 == 0)
-		// {
-		// 	cast_ray(data, rc, current_ray_dir, i);
-		// }
+		// // if (i % 50 == 0)
+		// // {
+		// // 	cast_ray(data, rc, current_ray_dir, i);
+		// // }
 		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}

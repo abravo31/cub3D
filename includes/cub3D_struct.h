@@ -42,7 +42,10 @@ check if it exists or permissions\n"
 # define HORIZONTAL 2
 # define HORIZONTAL_DOOR 2
 # define VERTICAL_DOOR 3
-
+# define CLOSED 0
+# define OPENING 1
+# define OPEN 2
+# define CLOSING 3
 
 typedef enum ident_type
 {
@@ -135,6 +138,8 @@ typedef struct map
 	int			l_idx;
 	t_p_pos		player;
 	int			**map;
+	int			**door_state_map;
+	float		**timer_map;
 }				t_map;
 
 typedef struct image
@@ -191,6 +196,15 @@ typedef	struct	s_ray
 	int		is_facing_rigth;
 	int		is_facing_left;
 }			t_ray;
+
+typedef struct	s_door
+{
+	int		type_door;
+	int		*status;
+	float	*timer;
+	t_vec2D	*initial_dda;
+	t_vec2D	next_dda;
+}			t_door;
 
 typedef struct s_event
 {
@@ -281,7 +295,7 @@ void	ft_free_map(t_map *map);
 int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 int		ft_check_player(t_map *map, int c_player, int y, int x);
-
+int		doors_map(t_map *map);
 /*Init raycasting*/
 void    ft_initialize_raycasting(t_cub3D *data);
 /*Init minilibx*/
@@ -304,6 +318,7 @@ void	_raycasting(t_cub3D *data);
 // void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);
 void    dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
+void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
@@ -311,7 +326,8 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
 void	draw_scene_raycasting(t_cub3D *data);
 /*Doors*/
-void    handle_door_hit(t_cub3D *data, t_ray *ray, int x);
+void    handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
+/*Textures*/
 unsigned int	find_color(t_list	*ident_fc, int type);
 t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
 

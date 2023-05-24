@@ -84,6 +84,10 @@ static int	ft_check_doors(t_map *map, int y, int x)
 		{
 			return (1);
 		}
+		else
+		{
+			map->map[y][x] = VERTICAL_DOOR;
+		}
 	}
 	else if (map->map[y][x - 1] == 1 || map->map[y][x + 1] == 1)
 	{
@@ -141,6 +145,6 @@ int	ft_check_map(t_cub3D *data)
 	if (!map.player._is_set)
 		return (printf (PLAYER_NONE), ft_free_map(&map), 1);
 	data->map = map;
-	// ft_print_map(&map);
+	ft_print_map(&map);
 	return (0);
 }

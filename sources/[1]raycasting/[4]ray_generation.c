@@ -109,11 +109,11 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		// {
 		// 	cast_ray(data, rc, current_ray_dir, i);
 		// }
-		if (i % 50 == 0)
-		{
-			cast_ray(data, rc, current_ray_dir, i);
-		}
-		// cast_ray(data, rc, current_ray_dir, i);
+		// if (i % 50 == 0)
+		// {
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// }
+		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 	// draw_scene(data);

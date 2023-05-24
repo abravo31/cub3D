@@ -40,6 +40,8 @@ check if it exists or permissions\n"
 # define W 4
 # define VERTICAL 1
 # define HORIZONTAL 2
+# define HORIZONTAL_DOOR 2
+# define VERTICAL_DOOR 3
 
 
 typedef enum ident_type

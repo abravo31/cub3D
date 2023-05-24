@@ -147,39 +147,3 @@ void    handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 	}
 	get_next_hit(data, ray, &door);
 }
-
-	// if (ray->distance < 1.0)
-	// 		{
-	// 			if (map_elem == 2 || map_elem == 3)
-	// 			{
-	// 				if (!data->rc.doors)
-	// 					ray->orientation_wall_hit = 5;
-	// 				else
-	// 				{
-	// 					if (map_elem == 2)
-	// 						data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 4;
-	// 					else if (map_elem == 3)
-	// 						data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 5;
-	// 				}
-	// 			}
-	// 		}
-
-
-    //         		else if (map_elem == 4 || map_elem == 5)
-	// 	{
-	// 		if (ray->distance < 1.0)
-	// 		{
-	// 			if (!data->rc.doors)
-	// 			{
-	// 				if (map_elem == 4)
-	// 					data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 2;
-	// 				else if (map_elem == 5)
-	// 					data->map.map[(int)curr_dda->y][(int)curr_dda->x] = 3;
-	// 				ray->orientation_wall_hit = 5;
-	// 			}
-	// 			else
-	// 				ray->orientation_wall_hit = -1;
-	// 		}
-	// 		else
-	// 			ray->orientation_wall_hit = -1;
-	// 	}

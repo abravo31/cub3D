@@ -199,9 +199,11 @@ typedef	struct	s_ray
 
 typedef struct	s_door
 {
+	int		orientation_hit;
 	int		type_door;
 	int		*status;
 	float	*timer;
+	float	timer_direction;
 	t_vec2D	*initial_dda;
 	t_vec2D	next_dda;
 }			t_door;
@@ -326,7 +328,7 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
 void	draw_scene_raycasting(t_cub3D *data);
 /*Doors*/
-void    handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
+int		handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
 /*Textures*/
 unsigned int	find_color(t_list	*ident_fc, int type);
 t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);

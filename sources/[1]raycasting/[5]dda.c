@@ -43,8 +43,7 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 			*hit = 1;
 		else if (map_elem >= 2 && map_elem <= 3)
 		{
-			*hit = 1;
-			handle_door_hit(data, ray, curr_dda);
+			*hit = handle_door_hit(data, ray, curr_dda);
 		}
 		else
 			ray->orientation_wall_hit = -1;

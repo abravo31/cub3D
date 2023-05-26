@@ -79,7 +79,9 @@ static int	exec_hook(t_cub3D *data)
 }
 
 static int	desactive_hook(int key_code, t_cub3D *data)
-{	
+{
+	if (key_code == 32)
+		data->rc.doors = 0;
 	if (key_code == MOVE_LEFT)
 		data->events.move_left = 0;
 	else if (key_code == MOVE_RIGTH)
@@ -99,10 +101,7 @@ static int	active_hook(int key_code, t_cub3D *data)
 {
 	if (key_code == 32)
 	{
-		if (data->rc.doors == 1)
-			data->rc.doors = 0;
-		else
-			data->rc.doors = 1;
+		data->rc.doors = 1;
 	}
 	if (key_code == MOVE_LEFT)
 		data->events.move_left = 1;

@@ -19,10 +19,8 @@ C 99, 51, 40
   1
 
 
-1. Control hooks with flag. 
-2. Render according size of screen.
-3. Map change dinamically with the hooks with the vector direction
-4. Improve dda 
-5. Loop for iterations in the hooks of doors (open/close)
-   Rays must continue if doesn't hit door (double comparaison)!
-6. Get distance and orientation_wall_hit
+1. Map change dinamically with the hooks with the vector direction
+2. Finish dda improve for get the sides and front of the port
+3. Make disappear and appear the doors allowing the rays continue if the door is open
+4. Get distance and orientation_wall_hit
+5. Render according size of screen

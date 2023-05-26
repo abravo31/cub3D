@@ -199,6 +199,7 @@ typedef	struct	s_ray
 
 typedef struct	s_door
 {
+	int		hook_active;
 	int		orientation_hit;
 	int		type_door;
 	int		*status;

@@ -246,6 +246,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 	}
 	if (ray->orientation_wall_hit == -1)
 		printf("Hereee\n");
+	else
+		printf("orientation wall hit %d\n", ray->orientation_wall_hit);
 	// printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 	// draw_square_checked(data, &current_dda);
 }

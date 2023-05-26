@@ -105,14 +105,14 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		if (i == (data->win_x / 2))
+		// if (i == (data->win_x / 2))
+		// {
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// }
+		if (i % 50 == 0)
 		{
 			cast_ray(data, rc, current_ray_dir, i);
 		}
-		// // if (i % 50 == 0)
-		// // {
-		// // 	cast_ray(data, rc, current_ray_dir, i);
-		// // }
 		// cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}

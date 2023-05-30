@@ -90,6 +90,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 
 static void	lauch_rays(t_cub3D *data, t_rc *rc)
 {
+	t_door	*door;
 	t_vec2D	cur_pix_pos;
 	t_vec2D	current_ray_dir;
 	int		i;
@@ -99,23 +100,27 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 	// printf("Player vector 	-> x: %f - y : %f\n", rc->player.d_coords.x, rc->player.d_coords.y);
 	// printf("Dir vector		-> x: %f - y : %f\n", rc->dir_vec.x, rc->dir_vec.y);
 	// printf("Per_vec 		-> x: %f - y : %f\n", rc->per_vec.x, rc->per_vec.y);
+	door = NULL;
+	rc->door = &door;
+	ft_bzero((*rc->door), sizeof(t_door));
 	i = 0;
 	while (i <= data->win_x)
 	{
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		// if (i == (data->win_x / 2))
-		// {
-		// 	cast_ray(data, rc, current_ray_dir, i);
-		// }
-		if (i % 50 == 0)
+		if (i == (data->win_x / 2))
 		{
 			cast_ray(data, rc, current_ray_dir, i);
 		}
+		// if (i % 50 == 0)
+		// {
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// }
 		// cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
+	printf("Hereeee %d\n", (*rc->door) == NULL);
 	// draw_scene(data);
 }
 

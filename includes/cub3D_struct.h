@@ -170,16 +170,31 @@ typedef struct s_cam
 	double		fov;
 }				t_cam;
 
+typedef struct	s_door
+{
+	int		hook_active;
+	int		orientation_hit;
+	int		type_door;
+	int		*status;
+	float	*timer;
+	float	timer_direction;
+	t_vec2D	*initial_dda;
+	t_vec2D	next_dda;
+}			t_door;
+
 typedef	struct	s_rc
 {
-	t_player	player;
-	t_vec2D		dir_vec;
-	t_vec2D		per_vec;
-	t_vec2D		center_screen;
-	double 		ray_dist;
-	double		scale_map;
-	double		fov;
-	int			doors;
+	t_player		player;
+	t_vec2D			dir_vec;
+	t_vec2D			per_vec;
+	t_vec2D			center_screen;
+	double 			ray_dist;
+	double			scale_map;
+	double			fov;
+	int				doors;
+	t_door			**door;
+	pthread_t		id_doors;
+	pthread_mutex_t	mutex_doors;
 }				t_rc;
 
 typedef	struct	s_ray
@@ -196,18 +211,6 @@ typedef	struct	s_ray
 	int		is_facing_rigth;
 	int		is_facing_left;
 }			t_ray;
-
-typedef struct	s_door
-{
-	int		hook_active;
-	int		orientation_hit;
-	int		type_door;
-	int		*status;
-	float	*timer;
-	float	timer_direction;
-	t_vec2D	*initial_dda;
-	t_vec2D	next_dda;
-}			t_door;
 
 typedef struct s_event
 {

@@ -30,6 +30,17 @@ void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir)
 	}
 }
 
+static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
+{
+	d->orientation_hit = -1;
+	d->type_door = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
+	d->status = &data->map.door_state_map[(int)curr_dda->y][(int)curr_dda->x];
+	d->timer = &data->map.timer_map[(int)curr_dda->y][(int)curr_dda->x];
+	d->initial_dda = curr_dda;
+	d->next_dda.x = -1;
+	d->next_dda.y = -1;
+}
+
 static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 {
 	int		map_elem;
@@ -43,7 +54,15 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 			*hit = 1;
 		else if (map_elem >= 2 && map_elem <= 3)
 		{
-			*hit = handle_door_hit(data, ray, curr_dda);
+			*hit = 1;
+			if ((*data->rc.door) == NULL)
+			{
+				printf("Esto si pasa\n");
+				init_door(data, (*data->rc.door), curr_dda);
+			}
+			else
+				printf("Here no es nul\n");
+			// *hit = handle_door_hit(data, ray, curr_dda);
 		}
 		else
 			ray->orientation_wall_hit = -1;

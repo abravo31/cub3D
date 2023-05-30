@@ -146,6 +146,8 @@ static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 	d->status = &data->map.door_state_map[(int)curr_dda->y][(int)curr_dda->x];
 	d->timer = &data->map.timer_map[(int)curr_dda->y][(int)curr_dda->x];
 	d->initial_dda = curr_dda;
+	d->next_dda.x = -1;
+	d->next_dda.y = -1;
 }
 
 static void	check_door_hook(t_rc *rc, t_door *door)

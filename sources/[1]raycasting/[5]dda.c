@@ -148,6 +148,8 @@ static void	check_corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *current_
 	double	curr_dda_vertical;
 	double	curr_dda_horizontal;
 
+	curr_dda_vertical = 0;
+	curr_dda_horizontal = 0;
 	if (ray->is_facing_rigth)
 		curr_dda_horizontal = (current_dda->x + 1);
 	else if (ray->is_facing_left)

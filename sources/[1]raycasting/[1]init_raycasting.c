@@ -21,6 +21,21 @@
 // 	printf("*******************************\n");
 // }
 
+static void	ft_initialize_door(t_cub3D *data)
+{
+	t_door	*door;
+
+	door = &data->door;
+	door->orientation_hit = -1;
+	door->type_door = -1;
+	door->status = NULL;
+	door->timer = NULL;
+	door->initial_dda.x = -1;
+	door->initial_dda.y = -1;
+	door->next_dda.x = -1;
+	door->next_dda.y = -1;
+}
+
 static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 {
 	rc->player.i_coords.y = data->map.player._y;
@@ -59,4 +74,5 @@ void    ft_initialize_raycasting(t_cub3D *data)
 	rc->doors = 0;
 	ft_initialize_player(data, rc);
 	ft_initialize_vectors(data, rc);
+	ft_initialize_door(data);
 }

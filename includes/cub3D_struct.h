@@ -178,7 +178,7 @@ typedef struct	s_door
 	int		*status;
 	float	*timer;
 	float	timer_direction;
-	t_vec2D	*initial_dda;
+	t_vec2D	initial_dda;
 	t_vec2D	next_dda;
 }			t_door;
 
@@ -192,13 +192,14 @@ typedef	struct	s_rc
 	double			scale_map;
 	double			fov;
 	int				doors;
-	t_door			**door;
+	// t_door			*door;
 	pthread_t		id_doors;
 	pthread_mutex_t	mutex_doors;
 }				t_rc;
 
 typedef	struct	s_ray
 {
+	int		ray_type;
 	t_vec2D	ray_vector;
 	double	distance;
 	t_vec2D	hit_point;
@@ -237,6 +238,7 @@ typedef struct cub3D
 	t_image		img;
 	t_rc		rc;
 	t_map		map;
+	t_door		door;
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;

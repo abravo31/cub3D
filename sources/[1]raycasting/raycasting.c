@@ -36,6 +36,8 @@ t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type)
 void	render(t_cub3D *data)
 {
 	raycasting(data);
+	// printf("type of door %d\n", data->door.type_door);
+	// printf("status of door %d\n", data->door.status);
 	// draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 }

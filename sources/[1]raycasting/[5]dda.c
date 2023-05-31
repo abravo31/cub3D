@@ -36,7 +36,8 @@ static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 	d->type_door = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
 	d->status = &data->map.door_state_map[(int)curr_dda->y][(int)curr_dda->x];
 	d->timer = &data->map.timer_map[(int)curr_dda->y][(int)curr_dda->x];
-	d->initial_dda = curr_dda;
+	d->initial_dda.x = curr_dda->x;
+	d->initial_dda.y = curr_dda->y;
 	d->next_dda.x = -1;
 	d->next_dda.y = -1;
 }
@@ -54,14 +55,16 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 			*hit = 1;
 		else if (map_elem >= 2 && map_elem <= 3)
 		{
-			*hit = 1;
-			if ((*data->rc.door) == NULL)
-			{
-				printf("Esto si pasa\n");
-				init_door(data, (*data->rc.door), curr_dda);
-			}
-			else
-				printf("Here no es nul\n");
+			// *hit = 1;
+			*hit = handle_door_hit(data, ray, curr_dda);
+			// printf("Here el vector direccion toco una puerta\n");
+			// if ((*data->rc.door) == NULL)
+			// {
+			// 	printf("Esto si pasa\n");
+			// 	init_door(data, (*data->rc.door), curr_dda);
+			// }
+			// else
+			// 	printf("Here no es nul\n");
 			// *hit = handle_door_hit(data, ray, curr_dda);
 		}
 		else
@@ -246,11 +249,9 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 	hit = 0;
 	while (!hit)
 	{
+		// print_ray_info_debug(ray, i);
 		check_corners(data, rc, ray, &current_dda);
 		check_hit_Y_axis(data, rc, ray, &current_dda);
-		// check_hit_X_axis(data, rc, ray, &current_dda);
-		// print_ray_info_debug(ray, i);
-		// printf("orientation wall hit %d\n", ray->orientation_wall_hit);
 		if (ray->orientation_wall_hit == 1)
 			current_dda.y = current_dda.y - 1;
 		if (ray->orientation_wall_hit == 2)
@@ -265,10 +266,10 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 		check_hit(data, ray, &current_dda, &hit);
 		// draw_square_checked(data, &current_dda);
 	}
-	if (ray->orientation_wall_hit == -1)
-		printf("Hereee\n");
-	else
-		printf("orientation wall hit %d\n", ray->orientation_wall_hit);
+	// if (ray->orientation_wall_hit == -1)
+	// 	printf("Hereee\n");
+	// else
+	printf("orientation wall hit %d\n", ray->orientation_wall_hit);
 	// printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 	// draw_square_checked(data, &current_dda);
 }

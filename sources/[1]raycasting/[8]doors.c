@@ -9,7 +9,7 @@ static void	next_point_hit_horizontal(t_cub3D *data, t_rc *rc, t_ray *ray, t_doo
 	if (ray->is_facing_up || ray->is_facing_down)
 	{
 		equation_straight_line(rc, ray, door->next_dda.y, VERTICAL);
-		if (!((ray->hit_point.x < door->initial_dda->x) || (ray->hit_point.x > (door->initial_dda->x + 1))))
+		if (!((ray->hit_point.x < door->initial_dda.x) || (ray->hit_point.x > (door->initial_dda.x + 1))))
 		{
 			// printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
 			draw_square_point(data, ray->hit_point);
@@ -21,7 +21,7 @@ static void	next_point_hit_horizontal(t_cub3D *data, t_rc *rc, t_ray *ray, t_doo
 		// printf("Entramos a este caso\n");
 		equation_straight_line(rc, ray, door->next_dda.x, HORIZONTAL);
 		// printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
-		if (!((ray->hit_point.y < door->initial_dda->y) || (ray->hit_point.x > (door->initial_dda->y + 1))))
+		if (!((ray->hit_point.y < door->initial_dda.y) || (ray->hit_point.x > (door->initial_dda.y + 1))))
 		{
 			// printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
 			draw_square_point(data, ray->hit_point);
@@ -35,7 +35,7 @@ static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, 
 	equation_straight_line(rc, ray, door->next_dda.x, HORIZONTAL);
 	// draw_square_point(data, ray->hit_point);
 	// printf("cuando buscamos en la mitad hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
-	if (ray->hit_point.y < door->initial_dda->y || ray->hit_point.y > (door->initial_dda->y + 1.0))
+	if (ray->hit_point.y < door->initial_dda.y || ray->hit_point.y > (door->initial_dda.y + 1.0))
 	{
 		equation_straight_line(rc, ray, door->next_dda.y, VERTICAL);
 		// draw_square_point(data, ray->hit_point);
@@ -44,7 +44,7 @@ static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, 
 	}
 	else
 		door->orientation_hit = 6;
-	// draw_square_point(data, ray->hit_point);
+	draw_square_point(data, ray->hit_point);
 }
 
 static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
@@ -53,7 +53,7 @@ static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_
 	printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
 	printf("next dda x %f | y %f \n", door->next_dda.x, door->next_dda.y);
 	// draw_square_point(data, ray->hit_point);
-	if ((ray->hit_point.x >= door->initial_dda->x) && (ray->hit_point.x <= door->next_dda.x))
+	if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= door->next_dda.x))
 	{
 		door->orientation_hit = 6;
 		printf("Pego\n");
@@ -62,19 +62,62 @@ static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_
 		printf("debe seguir!\n");
 }
 
+static void	next_point_hit_vertical_opening(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
+{
+	float	current_timer;
+
+	current_timer = ((door->initial_dda.y + 1.0) - (*door->timer));
+	equation_straight_line(&data->rc, ray, door->next_dda.x, dir);
+	// printf("hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+	// printf("next dda x %f | y %f \n", door->next_dda.x, door->next_dda.y);
+	// draw_square_point(data, ray->hit_point);
+	printf("choque con puerta hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+	printf("comparando entre >= door->initial_dda.y %f && <= curren timer %f\n", door->initial_dda.y, current_timer);
+	if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= current_timer))
+	{
+		door->orientation_hit = 6;
+		printf("Pego\n");
+	}
+	else
+	{
+		printf("initial dda y %f\n", door->initial_dda.y);
+		if (ray->is_facing_up)
+		{
+			door->next_dda.y = door->initial_dda.y;
+		}
+		else if (ray->is_facing_down)
+		{
+			door->next_dda.y = door->initial_dda.y + 1.0;
+		}
+		equation_straight_line(&data->rc, ray, door->next_dda.y, VERTICAL);
+		printf("choque con lados hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+		printf("comparando entre >= door->initial_dda.x %f && <= (door->initial_dda.x + 1.0) %f\n", door->initial_dda.x, (door->initial_dda.x + 1.0));
+		if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.y <= (door->initial_dda.x + 1.0)))
+		{
+			door->orientation_hit = 7;
+			printf("Pego por un lado\n");
+			draw_square_point(data, ray->hit_point);
+		}
+		else
+		{
+			printf("Debe continuar\n");
+		}
+	}
+}
+
 static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
 {
 	/************Init line of door *****************/
 	if (ray->is_facing_up)
-		door->next_dda.y = door->initial_dda->y;
+		door->next_dda.y = door->initial_dda.y;
 	else if (ray->is_facing_down)
-		door->next_dda.y = door->initial_dda->y + 1;
+		door->next_dda.y = door->initial_dda.y + 1;
 	if ((*door->status) == CLOSED)
 	{
 		/*Como chequeamos la casilla conforme al mapa*/
 		if (ray->is_facing_rigth || ray->is_facing_left)
-			door->next_dda.x = door->initial_dda->x + 0.5;
-		printf("next dda x %f | y %f\n", door->next_dda.x, door->next_dda.y);
+			door->next_dda.x = door->initial_dda.x + 0.5;
+		// printf("next dda x %f | y %f\n", door->next_dda.x, door->next_dda.y);
 		next_point_hit_vertical_closed(data, &data->rc, ray, door, VERTICAL);
 		ray->orientation_wall_hit = door->orientation_hit;
 		*hit_d = 1;
@@ -91,7 +134,7 @@ static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *h
 			}
 			else
 			{
-				door->next_dda.x = door->initial_dda->x + 1.0;
+				door->next_dda.x = door->initial_dda.x + 1.0;
 				printf("Este es el caso que aun no he terminado de gestionar\n");
 			}
 		}
@@ -108,6 +151,43 @@ static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *h
 			}
 		}
 	}
+	if ((*door->status) == OPENING)
+	{
+		if (ray->is_facing_rigth || ray->is_facing_left)
+			door->next_dda.x = door->initial_dda.x + 0.5;
+		next_point_hit_vertical_opening(data, &data->rc, ray, door, HORIZONTAL);
+			// equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
+			// // printf("antes hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+			// // printf("initial %f | next %f\n", door->initial_dda.y, door->next_dda.y);
+			// draw_square_point(data, ray->hit_point);
+
+			// if (!ray->is_facing_up && !ray->is_facing_down)
+			// {
+			// 	// printf("El rayo esta mirando hacia la left\n");
+			// 	door->next_dda.x = door->initial_dda.x + 0.5;
+			// 	printf("antes hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+			// 	equation_straight_line(&data->rc, ray, door->next_dda.x, VERTICAL);
+			// 	printf("despues hit point x %f | y %f\n", ray->hit_point.x, ray->hit_point.y);
+			// 	draw_square_point(data, ray->hit_point);
+			// 	// printf("Hereee we found the next point\n");
+			// 	// next_point_hit_vertical_opening(data, &data->rc, ray, door, VERTICAL);
+			// }
+	}
+		// printf("Podemos mirar su timer %f\n", (*door->timer));
+		// printf("It's open!\n");
+		// if (ray->is_facing_rigth || ray->is_facing_left)
+		// {
+		// 	if (!ray->is_facing_up && !ray->is_facing_down)
+		// 	{
+		// 		printf("Esto pasa y ya!\n");
+		// 		*hit_d = 0;
+		// 	}
+		// 	else
+		// 	{
+		// 		door->next_dda.x = door->initial_dda.x + 1.0;
+		// 		printf("Este es el caso que aun no he terminado de gestionar\n");
+		// 	}
+		// }
 }
 
 static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
@@ -120,15 +200,15 @@ static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
 	{
 		if (ray->is_facing_up || ray->is_facing_down)
 		{
-			door->next_dda.y = door->initial_dda->y + 0.5;
+			door->next_dda.y = door->initial_dda.y + 0.5;
 		}
 		if (ray->is_facing_rigth)
 		{
-			door->next_dda.x = door->initial_dda->x + 1.0;
+			door->next_dda.x = door->initial_dda.x + 1.0;
 		}
 		else if (ray->is_facing_left)
 		{
-			door->next_dda.x = door->initial_dda->x;
+			door->next_dda.x = door->initial_dda.x;
 		}
 		next_point_hit_horizontal(data, &data->rc, ray, door, VERTICAL);
 	}
@@ -145,7 +225,8 @@ static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 	d->type_door = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
 	d->status = &data->map.door_state_map[(int)curr_dda->y][(int)curr_dda->x];
 	d->timer = &data->map.timer_map[(int)curr_dda->y][(int)curr_dda->x];
-	d->initial_dda = curr_dda;
+	d->initial_dda.x = curr_dda->x;
+	d->initial_dda.y = curr_dda->y;
 	d->next_dda.x = -1;
 	d->next_dda.y = -1;
 }
@@ -172,7 +253,7 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 	{
 		if (ray->is_facing_rigth)
 		{
-			if (rc->center_screen.x >= (door->initial_dda->x + 0.5))
+			if (rc->center_screen.x >= (door->initial_dda.x + 0.5))
 			{
 				printf("Here I can open the door in the rigth\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -181,7 +262,7 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		}
 		else if (ray->is_facing_left)
 		{
-			if (rc->center_screen.x <= (door->initial_dda->x + 0.5))
+			if (rc->center_screen.x <= (door->initial_dda.x + 0.5))
 			{
 				printf("Here I can open the door in the left\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -193,7 +274,7 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 	{
 		if (ray->is_facing_up)
 		{
-			if (rc->center_screen.y <= (door->initial_dda->y + 0.5))
+			if (rc->center_screen.y <= (door->initial_dda.y + 0.5))
 			{
 				printf("Here I can open the door in the up\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -202,7 +283,7 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		}
 		else if (ray->is_facing_down)
 		{
-			if (rc->center_screen.y >= (door->initial_dda->y + 0.5))
+			if (rc->center_screen.y >= (door->initial_dda.y + 0.5))
 			{
 				printf("Here I can open the door in the down\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -219,13 +300,20 @@ int	handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 	int		value;
 
 	rc = &data->rc;
-	printf("Value of hook for doors %d\n", rc->doors);
-	init_door(data, &door, curr_dda);
-	// printf("Center of the screen x %f | y %f\n", data->rc.center_screen.x, data->rc.center_screen.y);
-	draw_square_point(data, data->rc.center_screen);
-	check_distance_door(data, rc, ray, &door);
-	value = get_next_hit(data, ray, &door);
-	// printf("Si retornamos esto %d\n", value);
-	// return (value);
+	if (ray->ray_type == 1)
+	{
+		printf("Voy a init\n");
+		init_door(data, &data->door, curr_dda);
+		return (1);
+	}
+	else
+	{
+		if (data->door.status != NULL)
+		{
+			// printf("Soy rayo y el timer de la puerta es %f\n", (*data->door.timer));
+			// printf("init dda x %f | y %f \n", data->door.initial_dda.x, data->door.initial_dda.y);
+			value = get_next_hit(data, ray, &data->door);
+		}
+	}
 	return (value);
 }

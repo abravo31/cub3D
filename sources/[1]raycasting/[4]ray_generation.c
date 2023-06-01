@@ -95,13 +95,13 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		// if (i == 0 || i == (data->win_x / 2) || i == data->win_x)
-		// 	cast_ray(data, rc, current_ray_dir, i);
+		if (i == 0 || i == (data->win_x / 2) || i == data->win_x)
+			cast_ray(data, rc, current_ray_dir, i);
 		// if (i == 0)
 		// 	cast_ray(data, rc, current_ray_dir, i);
 		// if (i == data->win_x)
 		// 	cast_ray(data, rc, current_ray_dir, i);
-		cast_ray(data, rc, current_ray_dir, i);
+		// cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 }
@@ -180,6 +180,7 @@ static void	lauch_door_ray(t_cub3D *data, t_rc *rc)
 	// printf("hit point x %f | y %f\n", ray.hit_point.x, ray.hit_point.y);
 	draw_square_point(data, ray.hit_point);
 	// printf("orientation hit of dir vector %d\n", ray.orientation_wall_hit);
+	// printf("index of the elem %d %d \n", (int)ray.hit_point.y, (int)ray.hit_point.x);
 	if (data->door.status != NULL)
 	{
 		// printf("here is status %d\n", (*data->door.status));
@@ -219,7 +220,7 @@ void    raycasting(t_cub3D *data)
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
 	// Vector resultante entre la suma del vector del jugador y el vector direccion
 	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);	
-	// printf("Here\n");
+	// printf("status of door %d\n", (*data->door.status));
 	_raycasting(data);
 	draw_square_point(data, data->rc.center_screen);
 	// cast_ray(data, rc, rc->dir_vec, 0);

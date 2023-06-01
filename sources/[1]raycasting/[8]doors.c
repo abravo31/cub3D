@@ -192,18 +192,23 @@ int	handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 	rc = &data->rc;
 	if (data->door.status == NULL)
 	{
+		printf("current dda x %f | y %f\n", curr_dda->x, curr_dda->y);
 		init_door(data, &data->door, curr_dda);
 	}
-	if (ray->ray_type != 1)
+	else
 	{
-		// if ((*data->door.status) == CLOSED)
-		// 	printf("Door is closed\n");
-		// else if ((*data->door.status) == OPEN)
-		// 	printf("Door is open\n");
-		// //printf("orientation hit at the begin %d\n", ray->orientation_wall_hit);
-		value = get_next_hit(data, ray, &data->door);
-		// //printf("value to returned %d\n", value);
-		return (value);
+		if (data->door.status != NULL)
+		{
+			printf("initial dda %f\n", data->door.initial_dda.x);
+			if ((*data->door.status) == CLOSED)
+				printf("Door is closed\n");
+			else if ((*data->door.status) == OPEN)
+				printf("Door is open\n");
+			// //printf("orientation hit at the begin %d\n", ray->orientation_wall_hit);
+			value = get_next_hit(data, ray, &data->door);
+			// //printf("value to returned %d\n", value);
+			return (value);
+		}
 	}
 	return (1);
 }

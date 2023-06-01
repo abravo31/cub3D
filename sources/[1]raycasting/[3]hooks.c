@@ -9,7 +9,7 @@ static t_vec2D check_step(t_cub3D *data, int map_elem, t_vec2D new_pos)
 	else if (map_elem == 2 || map_elem == 3)
 	{
 		door_state = data->map.door_state_map[(int)new_pos.y][(int)new_pos.x];
-		printf("door state %d\n", door_state);
+		// printf("door state %d\n", door_state);
 		if (door_state == CLOSED)
 			return (data->rc.player.d_coords);
 		else if (door_state == OPEN)

@@ -306,6 +306,8 @@ int		ft_check_player(t_map *map, int c_player, int y, int x);
 int		doors_map(t_map *map);
 /*Init raycasting*/
 void    ft_initialize_raycasting(t_cub3D *data);
+/*Init doors*/
+void	ft_initialize_door(t_cub3D *data);
 /*Init minilibx*/
 int		ft_exit(t_cub3D *data);
 int		setup_mlx_env(t_cub3D *data);

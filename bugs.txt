@@ -19,8 +19,5 @@ C 99, 51, 40
   1
 
 
-1. Map change dinamically with the hooks with the vector direction
-2. Finish dda improve for get the sides and front of the port
-3. Make disappear and appear the doors allowing the rays continue if the door is open
-4. Get distance and orientation_wall_hit
+1. Cibling only one port at the time ):
 5. Render according size of screen

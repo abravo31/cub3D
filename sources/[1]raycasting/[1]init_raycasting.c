@@ -21,21 +21,6 @@
 // 	printf("*******************************\n");
 // }
 
-static void	ft_initialize_door(t_cub3D *data)
-{
-	t_door	*door;
-
-	door = &data->door;
-	door->orientation_hit = -1;
-	door->type_door = -1;
-	door->status = NULL;
-	door->timer = NULL;
-	door->initial_dda.x = -1;
-	door->initial_dda.y = -1;
-	door->next_dda.x = -1;
-	door->next_dda.y = -1;
-}
-
 static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 {
 	rc->player.i_coords.y = data->map.player._y;
@@ -64,6 +49,21 @@ static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 	// printf("fov : %f\n", rc->fov);
 	// printf("tan : %f\n", (2 * tan(rc->fov / 2)));
 	// printf("ray_dist : %f\n", rc->ray_dist);
+}
+
+void	ft_initialize_door(t_cub3D *data)
+{
+	t_door	*door;
+
+	door = &data->door;
+	door->orientation_hit = -1;
+	door->type_door = -1;
+	door->status = NULL;
+	door->timer = NULL;
+	door->initial_dda.x = -1;
+	door->initial_dda.y = -1;
+	door->next_dda.x = -1;
+	door->next_dda.y = -1;
 }
 
 void    ft_initialize_raycasting(t_cub3D *data)

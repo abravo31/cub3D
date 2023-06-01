@@ -52,10 +52,15 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 	{
 		map_elem = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
 		if (map_elem == 1)
+		{
 			*hit = 1;
+			// if (ray->ray_type == 1)
+			// 	ft_initialize_door(data);
+		}
 		else if (map_elem >= 2 && map_elem <= 3)
 		{
-			// *hit = 1;
+			if (ray->ray_type == 1)
+				printf("El rayo direccion toco la puerta\n");
 			*hit = handle_door_hit(data, ray, curr_dda);
 			// printf("Here el vector direccion toco una puerta\n");
 			// if ((*data->rc.door) == NULL)
@@ -266,8 +271,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 		check_hit(data, ray, &current_dda, &hit);
 		// draw_square_checked(data, &current_dda);
 	}
-	// if (ray->ray_type != 1)
-		// printf("here orientation wall hit %d\n", ray->orientation_wall_hit);
+	if (ray->ray_type != 1)
+		printf("here orientation wall hit %d\n", ray->orientation_wall_hit);
 	// printf("Hit in map at y %d | x %d!\n", (int)current_dda.y, (int)current_dda.x);
 	// draw_square_checked(data, &current_dda);
 }

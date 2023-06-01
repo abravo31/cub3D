@@ -95,15 +95,13 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		if (i == 0)
-		{
-			cast_ray(data, rc, current_ray_dir, i);
-		}
-		// if (i == 0)
-		// {
+		// if (i == 0 || i == (data->win_x / 2) || i == data->win_x)
 		// 	cast_ray(data, rc, current_ray_dir, i);
-		// }
-		// cast_ray(data, rc, current_ray_dir, i);
+		// if (i == 0)
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// if (i == data->win_x)
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 }
@@ -132,8 +130,8 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		{
 			if (rc->center_screen.x >= (door->initial_dda.x + 0.5))
 			{
-				printf("Here I can open the door in the rigth\n");
-				printf("Value of hook for doors %d\n", rc->doors);
+				// printf("Here I can open the door in the rigth\n");
+				// printf("Value of hook for doors %d\n", rc->doors);
 				check_door_hook(rc, door);
 			}
 		}
@@ -141,8 +139,8 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		{
 			if (rc->center_screen.x <= (door->initial_dda.x + 0.5))
 			{
-				printf("Here I can open the door in the left\n");
-				printf("Value of hook for doors %d\n", rc->doors);
+				// printf("Here I can open the door in the left\n");
+				// printf("Value of hook for doors %d\n", rc->doors);
 				check_door_hook(rc, door);
 			}
 		}
@@ -153,8 +151,8 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		{
 			if (rc->center_screen.y <= (door->initial_dda.y + 0.5))
 			{
-				printf("Here I can open the door in the up\n");
-				printf("Value of hook for doors %d\n", rc->doors);
+				// printf("Here I can open the door in the up\n");
+				// printf("Value of hook for doors %d\n", rc->doors);
 				// check_door_hook(rc, door);
 			}
 		}
@@ -162,8 +160,8 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 		{
 			if (rc->center_screen.y >= (door->initial_dda.y + 0.5))
 			{
-				printf("Here I can open the door in the down\n");
-				printf("Value of hook for doors %d\n", rc->doors);
+				// printf("Here I can open the door in the down\n");
+				// printf("Value of hook for doors %d\n", rc->doors);
 				// check_door_hook(rc, door);
 			}
 		}
@@ -174,8 +172,8 @@ static void	check_distance_door(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *doo
 static void	lauch_door_ray(t_cub3D *data, t_rc *rc)
 {
 	t_ray		ray;
+	int			i;
 
-	// printf("Soy dir\n");
 	initialize_ray(&ray, rc->dir_vec, 1);
 	get_quadrant(&ray);
 	wall_finder(data, &ray, rc, 0);
@@ -188,22 +186,28 @@ static void	lauch_door_ray(t_cub3D *data, t_rc *rc)
 		check_distance_door(data, rc, &ray, &data->door);
 		if ((*data->door.status) == OPENING)
 		{
-			printf("Suelta el timer\n");
+			// printf("Suelta el timer opening\n");
+			i = 0;
 			while ((*data->door.timer) < 1.0)
 			{
+				// printf("******** one iteration %d *******\n", i);
 				lauch_rays(data, rc);
 				(*data->door.timer) = (*data->door.timer) + 0.2;
+				i++;
 			}
+			(*data->door.status) = OPEN;
 		}
-		// printf("here is status %d\n", (*data->door.status));
+		else if ((*data->door.status) == CLOSING)
+		{
+			// printf("Suelta el timer closing\n");
+			while ((*data->door.timer) > 0.0)
+			{
+				lauch_rays(data, rc);
+				(*data->door.timer) = (*data->door.timer) - 0.2;
+			}
+			(*data->door.status) = CLOSED;
+		}
 	}
-	else
-	{
-		// printf("No toco una puerta\n");
-	}
-	// else
-	// 	printf("initial dda x %f | y %f\n", data->door.initial_dda.x, data->door.initial_dda.y);
-	// check_distance_door(data, rc, &ray, &data->door);
 }
 
 void    raycasting(t_cub3D *data)

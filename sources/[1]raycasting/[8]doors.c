@@ -102,44 +102,96 @@ static void	next_point_hit_vertical_closing(t_cub3D *data, t_rc *rc, t_ray *ray,
 	}
 }
 
-static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
+// static void	get_next_point_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
+// {
+// 	if ((*door->status) == CLOSED)
+// 	{
+// 		// next_point_hit_vertical_closed(data, &data->rc, ray, door, VERTICAL);
+// 	}
+// 	else if ((*door->status) == OPEN)
+// 	{
+// 		if (ray->is_facing_rigth || ray->is_facing_left)
+// 		{
+// 			door->next_dda.x = door->initial_dda.x + 1.0;
+// 			if (!ray->is_facing_up && !ray->is_facing_down)
+// 			{
+// 				*hit_d = 0;
+// 				// printf("Este no se analiza\n");
+// 				return ;
+// 			}
+// 		}
+// 		next_point_hit_vertical_open(data, &data->rc, ray, door, VERTICAL);
+// 	}
+// 	else if ((*door->status) == OPENING)
+// 		// next_point_hit_vertical_opening(data, &data->rc, ray, door, HORIZONTAL);
+// 	else if ((*door->status) == CLOSING)
+// 		// next_point_hit_vertical_closing(data, &data->rc, ray, door, HORIZONTAL);
+// }
+
+static void	handle_horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
 {
-	/************Init line of door *****************/
-	if (ray->is_facing_up)
-		door->next_dda.y = door->initial_dda.y;
-	else if (ray->is_facing_down)
-		door->next_dda.y = door->initial_dda.y + 1.0;
-	if (ray->is_facing_rigth || ray->is_facing_left)
-			door->next_dda.x = door->initial_dda.x + 0.5;
-	// printf("****** Este rayo toca la puerta ******\n");
-	// printf("Antes de %d\n", ray->orientation_wall_hit);
+	/************ Init line of door *****************/
+	if (ray->is_facing_rigth)
+		door->next_dda.x = door->initial_dda.x + 1.0;
+	else if (ray->is_facing_left)
+		door->next_dda.x = door->initial_dda.x;
+	if (ray->is_facing_up || ray->is_facing_down)
+		door->next_dda.y = door->initial_dda.y + 0.5;
 	ray->orientation_wall_hit = -1;
-	if ((*door->status) == CLOSED)
-	{
-		next_point_hit_vertical_closed(data, &data->rc, ray, door, VERTICAL);
-	}
-	else if ((*door->status) == OPEN)
+	// get_next_point_door();
+	if (ray->orientation_wall_hit != -1)
+		*hit_d = 1;
+	else
+		*hit_d = 0;
+}
+
+static int	init_new_points_vertical(t_cub3D *data, t_ray *ray, t_door *door)
+{
+	if ((*door->status) == OPEN)
 	{
 		if (ray->is_facing_rigth || ray->is_facing_left)
 		{
 			door->next_dda.x = door->initial_dda.x + 1.0;
 			if (!ray->is_facing_up && !ray->is_facing_down)
 			{
-				*hit_d = 0;
-				// printf("Este no se analiza\n");
-				return ;
+				ray->orientation_wall_hit = -1;
+				return (1);
 			}
 		}
+	}
+	else
+		door->next_dda.x = door->initial_dda.x + 0.5;
+	if (ray->is_facing_up)
+		door->next_dda.y = door->initial_dda.y;
+	else if (ray->is_facing_down)
+		door->next_dda.y = door->initial_dda.y + 1.0;
+	return (0);
+}
+
+static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
+{
+	
+	if ((*door->status) == CLOSED)
+	{
+		next_point_hit_vertical_closed(data, &data->rc, ray, door, VERTICAL);
+	}
+	else if ((*door->status) == OPEN)
+	{
+		// if (ray->is_facing_rigth || ray->is_facing_left)
+		// {
+		// 	door->next_dda.x = door->initial_dda.x + 1.0;
+		// 	if (!ray->is_facing_up && !ray->is_facing_down)
+		// 	{
+		// 		*hit_d = 0;
+		// 		return ;
+		// 	}
+		// }
 		next_point_hit_vertical_open(data, &data->rc, ray, door, VERTICAL);
 	}
 	else if ((*door->status) == OPENING)
 		next_point_hit_vertical_opening(data, &data->rc, ray, door, HORIZONTAL);
 	else if ((*door->status) == CLOSING)
 		next_point_hit_vertical_closing(data, &data->rc, ray, door, HORIZONTAL);
-	if (ray->orientation_wall_hit != -1)
-		*hit_d = 1;
-	else
-		*hit_d = 0;
 }
 
 static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
@@ -148,26 +200,30 @@ static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
 	int		hit_door;
 
 	hit_door = -1;
-	if (door->type_door == HORIZONTAL_DOOR)
+	ray->orientation_wall_hit = -1;
+	// if (door->type_door == HORIZONTAL_DOOR)
+	// {
+	// 	if (ray->is_facing_rigth)
+	// 		door->next_dda.x = door->initial_dda.x + 1.0;
+	// 	else if (ray->is_facing_left)
+	// 		door->next_dda.x = door->initial_dda.x;
+	// 	if (ray->is_facing_up || ray->is_facing_down)
+	// 		door->next_dda.y = door->initial_dda.y + 0.5;
+	// 	next_point_hit_horizontal(data, &data->rc, ray, door, VERTICAL);
+	// }
+	// else 
+	if (door->type_door == VERTICAL_DOOR)
 	{
-		if (ray->is_facing_up || ray->is_facing_down)
+		if (!init_new_points_vertical(data, ray, door))
 		{
-			door->next_dda.y = door->initial_dda.y + 0.5;
+			// printf("Here\n");
+			handle_vertical_door(data, ray, door, &hit_door);
 		}
-		if (ray->is_facing_rigth)
-		{
-			door->next_dda.x = door->initial_dda.x + 1.0;
-		}
-		else if (ray->is_facing_left)
-		{
-			door->next_dda.x = door->initial_dda.x;
-		}
-		next_point_hit_horizontal(data, &data->rc, ray, door, VERTICAL);
 	}
-	else if (door->type_door == VERTICAL_DOOR)
-	{
-		handle_vertical_door(data, ray, door, &hit_door);
-	}
+	if (ray->orientation_wall_hit != -1)
+		hit_door = 1;
+	else
+		hit_door = 0;
 	return (hit_door);
 }
 
@@ -193,15 +249,18 @@ int	handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 	if (ray->ray_type != 1)
 	{
 		init_door(data, &data->door, curr_dda);
-		if ((*data->door.status) == CLOSED)
-			printf("Door is closed\n");
-		else if ((*data->door.status) == OPEN)
-		{
-			printf("Door is open\n");
-		}
-		// //printf("orientation hit at the begin %d\n", ray->orientation_wall_hit);
+		// if ((*data->door.status) == CLOSED)
+		// 	printf("Door is closed\n");
+		// else if ((*data->door.status) == OPEN)
+		// {
+		// 	printf("Door is open\n");
+		// }
+		// printf("orientation hit at the begin %d\n", ray->orientation_wall_hit);
 		value = get_next_hit(data, ray, &data->door);
-		// //printf("value to returned %d\n", value); 
+		// if ((*data->door.status) == OPEN)
+		// {
+		// 	printf("value to returned %d\n", value); 
+		// }
 		return (value);
 	}
 	return (1);

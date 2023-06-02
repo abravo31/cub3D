@@ -69,16 +69,16 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	// printf("orientation wall hit %d\n", ray.orientation_wall_hit);
-	draw_column(data, &ray, i);
+	// draw_column(data, &ray, i);
 	// draw_scene(data);
 
 	// // (void)ray_screen;
-	// if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
-	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
-	// else if (ray.orientation_wall_hit == 5)
-	// 	ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
-	// else if (ray.orientation_wall_hit == 6)
-	// 	ft_draw_line(data, player_screen, ray_screen, 0x606060);
+	if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
+		ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	else if (ray.orientation_wall_hit == 5)
+		ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
+	else if (ray.orientation_wall_hit == 6)
+		ft_draw_line(data, player_screen, ray_screen, 0x606060);
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
 }

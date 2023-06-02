@@ -18,6 +18,4 @@ C 99, 51, 40
  1011
   1
 
-
-1. Cibling only one port at the time ):
-5. Render according size of screen
+Change orientation_wall_hit of doors according to horizontal or vertical

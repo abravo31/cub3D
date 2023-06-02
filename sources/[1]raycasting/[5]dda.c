@@ -59,18 +59,8 @@ static void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit)
 		}
 		else if (map_elem >= 2 && map_elem <= 3)
 		{
-			// if (ray->ray_type == 1)
-				// printf("El rayo direccion toco la puerta\n");
-			*hit = handle_door_hit(data, ray, curr_dda);
-			// printf("Here el vector direccion toco una puerta\n");
-			// if ((*data->rc.door) == NULL)
-			// {
-			// 	printf("Esto si pasa\n");
-			// 	init_door(data, (*data->rc.door), curr_dda);
-			// }
-			// else
-			// 	printf("Here no es nul\n");
 			// *hit = handle_door_hit(data, ray, curr_dda);
+			*hit = 1;
 		}
 		else
 			ray->orientation_wall_hit = -1;

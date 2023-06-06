@@ -12,12 +12,11 @@ static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 	d->next_dda.y = -1;
 }
 
-static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
+static void	next_point_hit_closed(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
 {
 	if (dir == VERTICAL)
 	{
 		equation_straight_line(rc, ray, door->next_dda.x, HORIZONTAL);
-		// printf("initial dda y %f | %f | %f\n", door->initial_dda.y, door->initial_dda.y + 1.0, door->next_dda.y);
 		if (ray->hit_point.y < door->initial_dda.y || ray->hit_point.y > door->initial_dda.y + 1.0)
 		{
 			equation_straight_line(rc, ray, door->next_dda.y, VERTICAL);
@@ -32,15 +31,19 @@ static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, 
 		if (ray->hit_point.x < door->initial_dda.x || ray->hit_point.x > (door->initial_dda.x + 1.0))
 		{
 			equation_straight_line(rc, ray, door->next_dda.x, HORIZONTAL);
-			ray->orientation_wall_hit = 6;
+			ray->orientation_wall_hit = 8;
+			// ray->orientation_wall_hit = 6;
 		}
 		else
-			ray->orientation_wall_hit = 5;
+		{
+			ray->orientation_wall_hit = 7;
+			// ray->orientation_wall_hit = 5;
+		}
 	}
 	draw_square_point(data, ray->hit_point);
 }
 
-static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
+static void	next_point_hit_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_door *door, int dir)
 {
 	if (dir == VERTICAL)
 	{
@@ -52,7 +55,10 @@ static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= door->next_dda.y))
-			ray->orientation_wall_hit = 6;
+		{
+			ray->orientation_wall_hit = 8;
+			// ray->orientation_wall_hit = 6;
+		}
 	}
 }
 
@@ -81,13 +87,17 @@ static void	next_point_hit_horizontal_opening(t_cub3D *data, t_rc *rc, t_ray *ra
 	current_timer = ((door->initial_dda.x + 1.0) - (*door->timer));
 	equation_straight_line(&data->rc, ray, door->next_dda.y, dir);
 	if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= current_timer))
-		ray->orientation_wall_hit = 5;
+	{
+		ray->orientation_wall_hit = 7;
+		// ray->orientation_wall_hit = 5;
+	}
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= (door->initial_dda.y + 1.0)))
 		{
-			ray->orientation_wall_hit = 6;
+			ray->orientation_wall_hit = 8;
+			// ray->orientation_wall_hit = 6;
 		}
 	}
 }
@@ -115,12 +125,18 @@ static void	next_point_hit_horizontal_closing(t_cub3D *data, t_rc *rc, t_ray *ra
 	current_timer = ((door->initial_dda.x + 1.0) - (*door->timer));
 	equation_straight_line(&data->rc, ray, door->next_dda.y, dir);
 	if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= current_timer))
-		ray->orientation_wall_hit = 5;
+	{
+		ray->orientation_wall_hit = 7;
+		// ray->orientation_wall_hit = 5;
+	}
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= (door->initial_dda.y + 1.0)))
-			ray->orientation_wall_hit = 6;
+		{
+			ray->orientation_wall_hit = 8;
+			// ray->orientation_wall_hit = 6;
+		}
 	}
 }
 
@@ -151,9 +167,9 @@ static int	init_new_points_horizontal(t_cub3D *data, t_ray *ray, t_door *door)
 static void	handle_horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
 {
 	if ((*door->status) == CLOSED)
-		next_point_hit_vertical_closed(data, &data->rc, ray, door, HORIZONTAL);
+		next_point_hit_closed(data, &data->rc, ray, door, HORIZONTAL);
 	else if ((*door->status) == OPEN)
-		next_point_hit_vertical_open(data, &data->rc, ray, door, HORIZONTAL);
+		next_point_hit_open(data, &data->rc, ray, door, HORIZONTAL);
 	else if ((*door->status) == OPENING)
 		next_point_hit_horizontal_opening(data, &data->rc, ray, door, VERTICAL);
 	else if ((*door->status) == CLOSING)
@@ -186,9 +202,9 @@ static int	init_new_points_vertical(t_cub3D *data, t_ray *ray, t_door *door)
 static void	handle_vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
 {
 	if ((*door->status) == CLOSED)
-		next_point_hit_vertical_closed(data, &data->rc, ray, door, VERTICAL);
+		next_point_hit_closed(data, &data->rc, ray, door, VERTICAL);
 	else if ((*door->status) == OPEN)
-		next_point_hit_vertical_open(data, &data->rc, ray, door, VERTICAL);
+		next_point_hit_open(data, &data->rc, ray, door, VERTICAL);
 	else if ((*door->status) == OPENING)
 		next_point_hit_vertical_opening(data, &data->rc, ray, door, HORIZONTAL);
 	else if ((*door->status) == CLOSING)

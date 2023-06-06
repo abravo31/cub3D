@@ -10,8 +10,8 @@ static void	initialize_ray(t_ray *ray, t_vec2D ray_vec, int doors)
 	ray->hit_point.x = -1;
 	ray->hit_point.y = -1;
 	ray->distance = -1;
-	ray->hit_vertical = -1;
-	ray->hit_horizontal = -1;
+	ray->idx_tex = -1;
+	ray->xpercent = -1.0;
 	ray->orientation_wall_hit = -1;
 	ray->is_facing_down = 0;
 	ray->is_facing_up = 0;
@@ -19,12 +19,26 @@ static void	initialize_ray(t_ray *ray, t_vec2D ray_vec, int doors)
 	ray->is_facing_left = 0;
 }
 
-// static void	print_ray_info(t_ray *ray)
-// {
-// 	printf("Distance %f\n", ray->distance);
-// 	printf("HitPoint x %f -- y %f\n", ray->hit_point.x, ray->hit_point.y);
-// 	printf("Orientation wallhit %d\n", ray->orientation_wall_hit);
-// }
+static void	get_tex_xpercent(t_ray *ray)
+{
+	/*Texture*/
+	if (ray->orientation_wall_hit >= 1 && ray->orientation_wall_hit <= 4)
+		ray->idx_tex = ray->orientation_wall_hit - 1;
+	else if (ray->orientation_wall_hit == 5 || ray->orientation_wall_hit == 7)
+	{
+		ray->idx_tex = 4;
+		if (ray->orientation_wall_hit == 7)
+			printf("Le damos su textura %d\n", ray->idx_tex);
+	}
+	else if (ray->orientation_wall_hit == 6 || ray->orientation_wall_hit == 8)
+		ray->idx_tex = 5;
+	if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2
+		|| ray->orientation_wall_hit == 6 || ray->orientation_wall_hit == 7)
+		ray->xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
+	else if (ray->orientation_wall_hit == 3 || ray->orientation_wall_hit == 4
+		|| ray->orientation_wall_hit == 5 || ray->orientation_wall_hit == 8)
+		ray->xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
+}
 
 static void	get_quadrant(t_ray *ray)
 {
@@ -63,6 +77,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	get_quadrant(&ray);
 	// printf("Soy rayo\n");
 	wall_finder(data, &ray, rc, i);
+	get_tex_xpercent(&ray);
 	// print_ray_info(&ray);
 	/****************************************************/
 	ray_screen = add_2D_vec(player_screen, ray.hit_point);

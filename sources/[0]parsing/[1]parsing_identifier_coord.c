@@ -18,9 +18,7 @@ int	check_path_format(char *path)
 
 	if (ft_strcmp(&path[ft_strlen_int(path) - 4], ".xpm"))
 		return (0);
-	// printf("\n\n\n\n\nKHFJLD:JFKL:DSJ FKL:DSJFLK:SDJFKLH\n\n");
 	fd = open(path, O_WRONLY);
-	// printf("fd: %d, path: %s\n", fd, path);
 	if (fd == -1)
 		return (0);
 	close(fd);

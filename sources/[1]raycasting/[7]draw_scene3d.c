@@ -17,7 +17,7 @@ void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
 		my_mlx_pixel_put(data, (t_point){x, start, \
-		ceiling_floor_color(data, xpercent, ypercent, 5)});
+		ceiling_floor_color(data, xpercent, ypercent, 7)});
 		start++;
 	}
 }
@@ -41,7 +41,7 @@ void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
 		my_mlx_pixel_put(data, (t_point){x, start, \
-		ceiling_floor_color(data, xpercent, ypercent, 4)});
+		ceiling_floor_color(data, xpercent, ypercent, 6)});
 		start++;
 	}
 }
@@ -58,9 +58,9 @@ void	loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
 	texpos = (data->draw_start - data->mid_y + line_height / 2) * step;
 	while (data->draw_start <= data->draw_end)
 	{
-		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
+		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2 || ray->orientation_wall_hit == 6)
 			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
-		else
+		else if (ray->orientation_wall_hit == 3 || ray->orientation_wall_hit == 4 || ray->orientation_wall_hit == 5)
 			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
 		texpos += step;
 		point = (t_point){x, data->draw_start, \

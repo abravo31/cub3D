@@ -20,8 +20,11 @@ int	ft_exit(t_cub3D *data)
 	int	i;
 
 	i = 0;
-	while (i < 6 && data && data->wall_textures[i].img)
+	while (i < 8 && data && data->wall_textures[i].img)
 		mlx_destroy_image(data->mlx, data->wall_textures[i++].img);
+	// i = 0;
+	// while (i < 2 && data && data->door_textures[i].img)
+	// 	mlx_destroy_image(data->mlx, data->door_textures[i++].img);
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_display(data->mlx);
@@ -38,11 +41,12 @@ int	setup_mlx_env(t_cub3D *data)
 {
 	int	i;
 
-	i = 0;
-	data->win_x = 900;
-	data->win_y = 900;
+	// data->win_x = 900;
+	// data->win_y = 900;
 	// data->win_x = 1400;
 	// data->win_y = 1200;
+	data->win_x = 400;
+	data->win_y = 400;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();
@@ -54,7 +58,11 @@ int	setup_mlx_env(t_cub3D *data)
 		return (free(data->mlx), 1);
 	if (ft_init_img(data))
 		return (free(data->mlx), free(data->mlx_win), 1);
-	while (i < 6)
+	i = 0;
+	while (i < 8)
 		data->wall_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
+	// i = 0;
+	// while (i < 2)
+	// 	data->door_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	return (0);
 }

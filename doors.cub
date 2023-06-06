@@ -1,19 +1,19 @@
-NO ./textures/brickwall.xpm
-SO    ./textures/grass.xpm
-WE       ./textures/stone.xpm
+NO ./textures/swastika.xpm
+SO    ./textures/wall_wolfenstein_1.xpm
+WE       ./textures/wall_wolfenstein_3.xpm
 EA                    ./textures/tnt.xpm
 
-F         225,           30,30       
+F         225,           30,30  
 FT ./textures/grass_brick.xpm
 CT ./textures/sky_soft.xpm
-     C   100,255,255
+C   100,255,255     
 
 111
  101111
 10000011
 1001001
-1002001
-1001S0011
+1N02001
+100100011
 10010011
 10112101
 1000011

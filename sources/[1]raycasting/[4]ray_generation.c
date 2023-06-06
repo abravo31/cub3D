@@ -69,16 +69,16 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	// printf("orientation wall hit %d\n", ray.orientation_wall_hit);
-	// draw_column(data, &ray, i);
+	draw_column(data, &ray, i);
 	// draw_scene(data);
 
 	// // (void)ray_screen;
-	if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
-		ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
-	else if (ray.orientation_wall_hit == 5)
-		ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
-	else if (ray.orientation_wall_hit == 6)
-		ft_draw_line(data, player_screen, ray_screen, 0x606060);
+	// if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
+	// else if (ray.orientation_wall_hit == 5)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
+	// else if (ray.orientation_wall_hit == 6)
+	// 	ft_draw_line(data, player_screen, ray_screen, 0x606060);
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
 }
@@ -96,6 +96,8 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
 		// if (i == 0 || i == (data->win_x / 2) || i == data->win_x)
+		// 	cast_ray(data, rc, current_ray_dir, i);
+		// if (i == (data->win_x / 2))
 		// 	cast_ray(data, rc, current_ray_dir, i);
 		// if (i == 0)
 		// 	cast_ray(data, rc, current_ray_dir, i);
@@ -193,9 +195,10 @@ static void	lauch_door_ray(t_cub3D *data, t_rc *rc)
 			{
 				// printf("******** one iteration %d *******\n", i);
 				lauch_rays(data, rc);
-				(*data->door.timer) = (*data->door.timer) + 0.2;
+				(*data->door.timer) = (*data->door.timer) + 0.05;
 				i++;
 			}
+			printf("Para el timer opening\n");
 			(*data->door.status) = OPEN;
 		}
 		else if ((*data->door.status) == CLOSING)
@@ -204,7 +207,7 @@ static void	lauch_door_ray(t_cub3D *data, t_rc *rc)
 			while ((*data->door.timer) > 0.0)
 			{
 				lauch_rays(data, rc);
-				(*data->door.timer) = (*data->door.timer) - 0.2;
+				(*data->door.timer) = (*data->door.timer) - 0.05;
 			}
 			(*data->door.status) = CLOSED;
 		}
@@ -221,7 +224,7 @@ void    raycasting(t_cub3D *data)
 	// Vector resultante entre la suma del vector del jugador y el vector direccion
 	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);	
 	// printf("status of door %d\n", (*data->door.status));
-	_raycasting(data);
+	// _raycasting(data);
 	draw_square_point(data, data->rc.center_screen);
 	// cast_ray(data, rc, rc->dir_vec, 0);
 	lauch_door_ray(data, rc);

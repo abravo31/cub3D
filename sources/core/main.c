@@ -1,5 +1,35 @@
 #include "../../includes/cub3D_struct.h"
 
+//Function to check if the likeds list are created
+void __debug_parsing(t_cub3D *data)
+{
+    t_list *iter = data->ident_coord;
+    t_coord  *current = NULL;
+    while (iter)
+    {
+        current = (t_coord*) iter->content;
+        printf("{%d}[%s]\n", current->id, current->path);
+        iter = iter->next;
+    }
+
+	t_list *iter2 = data->ident_fc;
+    t_fc  *cur = NULL;
+    while (iter2)
+    {
+        cur = (t_fc*) iter2->content;
+        printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->r, cur->g, cur->b);
+        iter2 = iter2->next;
+    }
+	t_list *iter3 = data->map_list;
+    t_map_list  *current3 = NULL;
+    while (iter3)
+    {
+        current3 = (t_map_list*) iter3->content;
+        printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
+        iter3 = iter3->next;
+    }
+}
+
 void	data_init(t_cub3D *data)
 {
 	data->no = 0;

@@ -21,10 +21,10 @@ static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, 
 		if (ray->hit_point.y < door->initial_dda.y || ray->hit_point.y > door->initial_dda.y + 1.0)
 		{
 			equation_straight_line(rc, ray, door->next_dda.y, VERTICAL);
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 		}
 		else
-			ray->orientation_wall_hit = 6;
+			ray->orientation_wall_hit = 5;
 	}
 	else if (dir == HORIZONTAL)
 	{
@@ -32,10 +32,10 @@ static void	next_point_hit_vertical_closed(t_cub3D *data, t_rc *rc, t_ray *ray, 
 		if (ray->hit_point.x < door->initial_dda.x || ray->hit_point.x > (door->initial_dda.x + 1.0))
 		{
 			equation_straight_line(rc, ray, door->next_dda.x, HORIZONTAL);
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 		}
 		else
-			ray->orientation_wall_hit = 6;
+			ray->orientation_wall_hit = 5;
 	}
 	draw_square_point(data, ray->hit_point);
 }
@@ -46,13 +46,13 @@ static void	next_point_hit_vertical_open(t_cub3D *data, t_rc *rc, t_ray *ray, t_
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.y, VERTICAL);
 		if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= door->next_dda.x))
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 	}
 	else if (dir == HORIZONTAL)
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= door->next_dda.y))
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 	}
 }
 
@@ -63,13 +63,13 @@ static void	next_point_hit_vertical_opening(t_cub3D *data, t_rc *rc, t_ray *ray,
 	current_timer = ((door->initial_dda.y + 1.0) - (*door->timer));
 	equation_straight_line(&data->rc, ray, door->next_dda.x, dir);
 	if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= current_timer))
-		ray->orientation_wall_hit = 6;
+		ray->orientation_wall_hit = 5;
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.y, VERTICAL);
 		if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= (door->initial_dda.x + 1.0)))
 		{
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 		}
 	}
 }
@@ -79,15 +79,15 @@ static void	next_point_hit_horizontal_opening(t_cub3D *data, t_rc *rc, t_ray *ra
 	float	current_timer;
 
 	current_timer = ((door->initial_dda.x + 1.0) - (*door->timer));
-	equation_straight_line(&data->rc, ray, door->next_dda.x, dir);
+	equation_straight_line(&data->rc, ray, door->next_dda.y, dir);
 	if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= current_timer))
-		ray->orientation_wall_hit = 6;
+		ray->orientation_wall_hit = 5;
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= (door->initial_dda.y + 1.0)))
 		{
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 		}
 	}
 }
@@ -99,12 +99,12 @@ static void	next_point_hit_vertical_closing(t_cub3D *data, t_rc *rc, t_ray *ray,
 	current_timer = ((door->initial_dda.y + 1.0) - (*door->timer));
 	equation_straight_line(&data->rc, ray, door->next_dda.x, dir);
 	if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= current_timer))
-		ray->orientation_wall_hit = 6;
+		ray->orientation_wall_hit = 5;
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.y, VERTICAL);
 		if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= (door->initial_dda.x + 1.0)))
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 	}
 }
 
@@ -115,12 +115,12 @@ static void	next_point_hit_horizontal_closing(t_cub3D *data, t_rc *rc, t_ray *ra
 	current_timer = ((door->initial_dda.x + 1.0) - (*door->timer));
 	equation_straight_line(&data->rc, ray, door->next_dda.y, dir);
 	if ((ray->hit_point.x >= door->initial_dda.x) && (ray->hit_point.x <= current_timer))
-		ray->orientation_wall_hit = 6;
+		ray->orientation_wall_hit = 5;
 	else
 	{
 		equation_straight_line(&data->rc, ray, door->next_dda.x, HORIZONTAL);
 		if ((ray->hit_point.y >= door->initial_dda.y) && (ray->hit_point.y <= (door->initial_dda.y + 1.0)))
-			ray->orientation_wall_hit = 7;
+			ray->orientation_wall_hit = 6;
 	}
 }
 

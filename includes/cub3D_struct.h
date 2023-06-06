@@ -242,7 +242,8 @@ typedef struct cub3D
 	t_list		*ident_fc;
 	t_list		*ident_coord;
 	t_list		*map_list;
-	t_texture	wall_textures[6];
+	t_texture	wall_textures[8];
+	// t_texture	door_textures[2];
 	t_event		events;
 	unsigned int background_colors[2];
 	int			no;
@@ -253,6 +254,8 @@ typedef struct cub3D
 	int			c;
 	int			ft;
 	int			ct;
+	int			df;
+	int			dl;
 	int			y;
 }	t_cub3D;
 

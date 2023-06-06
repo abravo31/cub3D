@@ -92,7 +92,10 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
 	}
 	else if (tmp == -1)
+	{
+		printf("Here\n");
 		free_line_end_exit (line, data, str, IDENT_INVALID);
+	}
 	free(*str);
 	*str = NULL;
 }
@@ -151,7 +154,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 // 	return (0);
 // }
 
-// //Function to check if the likeds list are created
+//Function to check if the likeds list are created
 // void __debug_parsing(t_cub3D *data)
 // {
 //     t_list *iter = data->ident_coord;

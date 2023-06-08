@@ -53,6 +53,8 @@ void	loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
 	double	xpercent;
 	t_point	point;
 
+	// printf("RAY IDX TEX %d\n", ray->idx_tex);
+	// printf("%d\n", data->wall_textures[ray->idx_tex].img == NULL);
 	step = 1.0 * \
 	data->wall_textures[ray->idx_tex].img_height / line_height;
 	texpos = (data->draw_start - data->mid_y + line_height / 2) * step;
@@ -64,7 +66,7 @@ void	loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
 		// 	xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
 		texpos += step;
 		point = (t_point){x, data->draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit, ray->xpercent, texpos)};
+		color_from_texture(data, ray->idx_tex, ray->xpercent, texpos)};
 		my_mlx_pixel_put(data, point);
 		data->draw_start++;
 	}

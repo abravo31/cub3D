@@ -16,7 +16,7 @@ int	color_from_texture(t_cub3D *data, int dir, double xper, int y)
 	t_texture	texture;
 	int			x;
 
-	texture = data->wall_textures[dir - 1];
+	texture = data->wall_textures[dir];
 	if (y > texture.img_height)
 		y = texture.img_height;
 	if (y < 0)

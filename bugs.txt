@@ -20,3 +20,13 @@ C 99, 51, 40
 
 When player is in door element in the map, we can't find the correct orientation_wall_hit:
 (1). Give some flag to rc variable for check his own position
+
+Segfault:
+here orientation wall hit 8
+RAY IDX TEX 5
+0
+xper 0.112436
+texture img width 0
+x 0
+case : 0
+Segmentation fault (core dumped)

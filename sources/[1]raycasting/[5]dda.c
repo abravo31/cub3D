@@ -95,17 +95,26 @@ static void	check_corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curr_dda
 	}
 }
 
+static int	check_pos_player(t_cub3D *data, t_vec2D *curr_dda)
+{
+	int	pos_player;
+
+	pos_player = data->map.map[(int)curr_dda->y][(int)curr_dda->x];
+	printf("elem %d\n", pos_player);
+	if (pos_player == 2 || pos_player == 3)
+		return (1);
+	return (0);
+}
+
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 {
+	int		event;
 	t_vec2D	curr_dda;
 	int		hit;
 
 	get_int_coords(&data->rc.player, &curr_dda);
-	if (data->map.map[(int)curr_dda.y][(int)curr_dda.x] == 2
-		|| data->map.map[(int)curr_dda.y][(int)curr_dda.x] == 3)
-	{
-		printf("here! fucccccckkkk\n");
-	}
+	if (check_pos_player(data, &curr_dda))
+		printf("Estamos pasando por una puerta y no se que es lo mejor );\n");
 	hit = 0;
 	while (!hit)
 	{
@@ -122,6 +131,6 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 		dda_corners(data->map.map, ray, &curr_dda, &hit);
 		check_hit(data, ray, &curr_dda, &hit);
 	}
-	if (ray->ray_type != 1)
-		printf("here orientation wall hit %d\n", ray->orientation_wall_hit);
+	// if (ray->ray_type != 1)
+	// 	printf("here orientation wall hit %d\n", ray->orientation_wall_hit);
 }

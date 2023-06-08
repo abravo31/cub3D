@@ -28,7 +28,7 @@ EXEC_DIR	=	[1]raycasting/
 EXEC		=	[0]init_mlx.c [1]init_raycasting.c [2]mlx_tools.c [3]hooks.c [4]mini_map.c \
 				[4]ray_generation.c [5]dda.c [5]dda_utils.c [6]dda_corners.c [6]draw_scene.c raycasting.c \
 				[7]draw_scene3d_utils.c [7]draw_scene3d.c \
-				[8]doors.c
+				[8]doors.c [8]doors_event.c
 
 UTILS_DIR	=	utils/
 UTILS		=	lst_new_generic.c debuging_list_of_structs.c math_utils.c

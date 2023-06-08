@@ -241,11 +241,9 @@ static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
 
 int	handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 {
-	t_rc	*rc;
-	t_door	door;
+	t_vec2D	pos_player;
 	int		value;
 
-	rc = &data->rc;
 	if (ray->ray_type != 1)
 	{
 		init_door(data, &data->door, curr_dda);

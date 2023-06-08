@@ -151,7 +151,7 @@ void	iter_line(t_cub3D *data, char **str, int i, char *line)
 // 	return (0);
 // }
 
-// //Function to check if the likeds list are created
+//Function to check if the likeds list are created
 // void __debug_parsing(t_cub3D *data)
 // {
 //     t_list *iter = data->ident_coord;

@@ -1,3 +1,6 @@
+
+
+For testing:
 /******************************************/
 If the texture doesn't exists, the pogram must finish properly
 NO ./path_to_the_north_texture.xpm
@@ -5,8 +8,8 @@ SO    ./path_to_the_south_texture.xpm
 WE       ./path_to_the_west_texture.xpm
 EA                    ./path_to_the_east_texture.xpm
 
-F                  100,255,255
-C 225,           30,30
+F 211, 151, 138                 100,255,255
+C 99, 51, 40
 
 11111
 11001
@@ -14,3 +17,6 @@ C 225,           30,30
 1W001
  1011
   1
+
+When player is in door element in the map, we can't find the correct orientation_wall_hit:
+(1). Give some flag to rc variable for check his own position

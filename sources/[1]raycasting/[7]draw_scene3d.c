@@ -3,7 +3,7 @@
 void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 {
 	int		start;
-	double	distance;
+	double	dist;
 	t_vec2D	curr_coord;
 	double	xpercent;
 	double	ypercent;
@@ -11,20 +11,20 @@ void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 	start = 0;
 	while (start < data->draw_start)
 	{
-		distance = data->win_y / (2 * cosine * (data->mid_y - start));
+		dist = data->win_y / (2 * cosine * (data->mid_y - start));
 		curr_coord = add_2D_vec(data->rc.player.d_coords, \
-		scalar_mult(ray->ray_vector, distance));
+		scalar_mult(ray->vec, dist));
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
 		my_mlx_pixel_put(data, (t_point){x, start, \
-		ceiling_floor_color(data, xpercent, ypercent, 5)});
+		ceiling_floor_color(data, xpercent, ypercent, 7)});
 		start++;
 	}
 }
 
 void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 {
-	double	distance;
+	double	dist;
 	t_vec2D	curr_coord;
 	double	xpercent;
 	double	ypercent;
@@ -35,13 +35,13 @@ void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 		start++;
 	while (start < data->win_y)
 	{
-		distance = data->win_y / (2 * cosine * (start - data->mid_y));
+		dist = data->win_y / (2 * cosine * (start - data->mid_y));
 		curr_coord = add_2D_vec(data->rc.player.d_coords, \
-		scalar_mult(ray->ray_vector, distance));
+		scalar_mult(ray->vec, dist));
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
 		my_mlx_pixel_put(data, (t_point){x, start, \
-		ceiling_floor_color(data, xpercent, ypercent, 4)});
+		ceiling_floor_color(data, xpercent, ypercent, 6)});
 		start++;
 	}
 }
@@ -54,17 +54,17 @@ void	loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
 	t_point	point;
 
 	step = 1.0 * \
-	data->wall_textures[ray->orientation_wall_hit - 1].img_height / line_height;
+	data->wall_textures[ray->idx_tex].img_height / line_height;
 	texpos = (data->draw_start - data->mid_y + line_height / 2) * step;
 	while (data->draw_start <= data->draw_end)
 	{
-		if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2)
-			xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
-		else
-			xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
+		// if (ray->orientation_wall_hit == 1 || ray->orientation_wall_hit == 2 || ray->orientation_wall_hit == 6 || ray->orientation_wall_hit == 8)
+		// 	xpercent = (ray->hit_point.x - (float)((int)ray->hit_point.x));
+		// else if (ray->orientation_wall_hit == 3 || ray->orientation_wall_hit == 4 || ray->orientation_wall_hit == 5 || ray->orientation_wall_hit == 7)
+		// 	xpercent = (ray->hit_point.y - (float)((int)ray->hit_point.y));
 		texpos += step;
 		point = (t_point){x, data->draw_start, \
-		color_from_texture(data, ray->orientation_wall_hit, xpercent, texpos)};
+		color_from_texture(data, ray->orientation_wall_hit, ray->xpercent, texpos)};
 		my_mlx_pixel_put(data, point);
 		data->draw_start++;
 	}
@@ -75,8 +75,8 @@ void	draw_column(t_cub3D *data, t_ray *ray, int x)
 	int		line_height;
 	double	cosine;
 
-	cosine = dot_prod(ray->ray_vector, data->rc.dir_vec);
-	line_height = (data->win_y / (ray->distance * cosine));
+	cosine = dot_prod(ray->vec, data->rc.dir_vec);
+	line_height = (data->win_y / (ray->dist * cosine));
 	data->draw_start = -line_height / 2 + data->mid_y;
 	if (data->draw_start < 0)
 		data->draw_start = 0;

@@ -43,5 +43,5 @@ int	ceiling_floor_color(t_cub3D *data, double xper, double yper, int type)
 		return (((int *)tex.addr)[y * \
 		(tex.line_len / sizeof(int)) + x]);
 	}
-	return (data->background_colors[type - 4]);
+	return (data->background_colors[type - 6]);
 }

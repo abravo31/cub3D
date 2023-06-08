@@ -84,6 +84,29 @@ t_type	eval_ident_fct(char *ident, t_cub3D *data)
 	return (UNASSIGNED);
 }
 
+// t_type	eval_ident_dflt(char *ident, t_cub3D *data)
+// {
+// 	if (is_identical("DF", ident))
+// 	{
+// 		if (data->ft == 0)
+// 		{
+// 			data->df = 1;
+// 			return (DF);
+// 		}
+// 		return (-1);
+// 	}
+// 	else if (is_identical("DL", ident))
+// 	{
+// 		if (data->ct == 0)
+// 		{
+// 			data->dl = 1;
+// 			return (DL);
+// 		}
+// 		return (-1);
+// 	}
+// 	return (UNASSIGNED);
+// }
+
 // Function to return corresponding token from string
 t_type	eval_ident(char *ident, t_cub3D *data)
 {

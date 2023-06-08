@@ -21,10 +21,6 @@ t_map_list	*new_map_list(char *line, int y)
 	elem = malloc(sizeof(t_map_list));
 	if (!elem)
 		return (NULL);
-	// while (line && line[i] && line[i] == ' ')
-	// 	i++;
-	// if (!line[i])
-	// 	return ;
 	elem->line = ft_strdup(line);
 	if (!elem->line)
 	{

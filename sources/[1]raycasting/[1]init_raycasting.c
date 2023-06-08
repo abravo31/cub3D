@@ -1,26 +1,5 @@
 #include "../../includes/cub3D_struct.h"
 
-// static void	ft_print_raycasting_params(t_rc *rc)
-// {
-// 	printf("Initializing...\n");
-// 	printf("*******************************\n");
-// 	printf("Player:\n");
-// 	printf("f y %f\n", rc->player.d_coords.y);
-// 	printf("f x %f\n", rc->player.d_coords.x);
-// 	printf("y: %d\n", rc->player.i_coords.y);
-// 	printf("x :%d\n", rc->player.i_coords.x);
-// 	printf("Direction %d\n", rc->player.direction);
-// 	printf("*******************************\n");
-// 	printf("Direction vector:\n");
-// 	printf("y %f\n", rc->dir_vec.y);
-// 	printf("x %f\n", rc->dir_vec.x);
-// 	printf("*******************************\n");
-// 	printf("Plane vector:\n");
-// 	printf("y %f\n", rc->plane_vec.y);
-// 	printf("x %f\n", rc->plane_vec.x);
-// 	printf("*******************************\n");
-// }
-
 static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 {
 	rc->player.i_coords.y = data->map.player._y;
@@ -42,20 +21,33 @@ static void	ft_initialize_vectors(t_cub3D *data, t_rc *rc)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 0.0);
 	else if (rc->player.direction == 3)
 		rc->dir_vec = rotate_2D_vector(rc->dir_vec, 180.0);
-	// rc->scale_map = 150;
-	rc->scale_map = 40;
-    rc->fov = ft_deg_to_rad((double)60);
+	rc->scale_map = 50;
+	rc->fov = ft_deg_to_rad((double)60);
 	rc->ray_dist = (2 * tan(rc->fov / 2)) / data->win_x;
-	// printf("fov : %f\n", rc->fov);
-	// printf("tan : %f\n", (2 * tan(rc->fov / 2)));
-	// printf("ray_dist : %f\n", rc->ray_dist);
 }
 
-void    ft_initialize_raycasting(t_cub3D *data)
+void	ft_initialize_door(t_cub3D *data)
 {
-    t_rc	*rc;
+	t_door	*door;
 
-    rc = &data->rc;
+	door = &data->door;
+	door->orientation_hit = -1;
+	door->type_door = -1;
+	door->status = NULL;
+	door->timer = NULL;
+	door->initial_dda.x = -1;
+	door->initial_dda.y = -1;
+	door->next_dda.x = -1;
+	door->next_dda.y = -1;
+}
+
+void	ft_initialize_raycasting(t_cub3D *data)
+{
+	t_rc	*rc;
+
+	rc = &data->rc;
+	rc->doors = 0;
 	ft_initialize_player(data, rc);
 	ft_initialize_vectors(data, rc);
+	ft_initialize_door(data);
 }

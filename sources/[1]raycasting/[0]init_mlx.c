@@ -10,8 +10,8 @@ static int	ft_init_img(t_cub3D *data)
 		return (1);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, \
 									&img->line_len, &img->endian);
-	img->offset_window_x = 0;
-	img->offset_window_y = 0;
+	img->offset_win_x = 0;
+	img->offset_win_y = 0;
 	return (0);
 }
 
@@ -20,7 +20,7 @@ int	ft_exit(t_cub3D *data)
 	int	i;
 
 	i = 0;
-	while (i < 6 && data && data->wall_textures[i].img)
+	while (i < 8 && data && data->wall_textures[i].img)
 		mlx_destroy_image(data->mlx, data->wall_textures[i++].img);
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->mlx_win);
@@ -38,21 +38,22 @@ int	setup_mlx_env(t_cub3D *data)
 {
 	int	i;
 
-	i = 0;
 	data->win_x = 400;
-	data->win_y = 200;
+	data->win_y = 400;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();
 	ft_bzero(&data->events, sizeof(t_event));
 	if (data->mlx == NULL)
 		return (1);
-	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, "cub3D");
+	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, \
+	"cub3D");
 	if (data->mlx_win == NULL)
 		return (free(data->mlx), 1);
 	if (ft_init_img(data))
 		return (free(data->mlx), free(data->mlx_win), 1);
-	while (i < 6)
+	i = 0;
+	while (i < 8)
 		data->wall_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
 	return (0);
 }

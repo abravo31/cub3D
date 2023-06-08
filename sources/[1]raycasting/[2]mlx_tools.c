@@ -13,7 +13,7 @@ void	my_mlx_pixel_put(t_cub3D *data, t_point point)
 	img = &data->img;
 	if (point.x >= 0 && point.x <= data->win_x && point.y >= 0 && point.y <= data->win_y)
 	{
-		index = idx(point.y + img->offset_window_y, point.x + img->offset_window_x, data->win_x) * (img->bpp / 8);
+		index = idx(point.y + img->offset_win_y, point.x + img->offset_win_x, data->win_x) * (img->bpp / 8);
 		*(int *)(img->addr + (int)(index)) = point.color;
 	}
 }

@@ -22,11 +22,11 @@ CORS		=	main.c
 PARSE_DIR	=	[0]parsing/
 PARSE		=	[0]check_map_lst.c [0]get_map.c \
 				[1]parsing_identifier.c [1]parsing_identifier_coord.c [1]parsing_identifier_fc.c [1]parsing_identifier_free.c [1]parsing_identifier_map.c [1]parsing_identifier_tools.c \
-				[2]parsing_map.c [2]parsing_map_player.c
+				[2]parsing_map_doors.c [2]parsing_map_player.c [2]parsing_map_free.c [2]parsing_map.c
 
 EXEC_DIR	=	[1]raycasting/
 EXEC		=	[0]init_mlx.c [1]init_raycasting.c [2]mlx_tools.c [3]hooks.c [4]mini_map.c \
-				[4]ray_generation.c [5]dda.c [6]dda_corners.c [6]draw_scene.c raycasting.c \
+				[4]ray_generation.c [5]dda.c [5]dda_utils.c [6]dda_corners.c [6]draw_scene.c raycasting.c \
 				[7]draw_scene3d_utils.c [7]draw_scene3d.c \
 				[8]doors.c
 

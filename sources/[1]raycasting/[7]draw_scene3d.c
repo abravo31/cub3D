@@ -12,7 +12,7 @@ void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 	while (start < data->draw_start)
 	{
 		dist = data->win_y / (2 * cosine * (data->mid_y - start));
-		curr_coord = add_2D_vec(data->rc.player.d_coords, \
+		curr_coord = add_2d_vec(data->rc.player.d_coords, \
 		scalar_mult(ray->vec, dist));
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);
@@ -36,7 +36,7 @@ void	draw_floor(t_cub3D *data, int x, double cosine, t_ray *ray)
 	while (start < data->win_y)
 	{
 		dist = data->win_y / (2 * cosine * (start - data->mid_y));
-		curr_coord = add_2D_vec(data->rc.player.d_coords, \
+		curr_coord = add_2d_vec(data->rc.player.d_coords, \
 		scalar_mult(ray->vec, dist));
 		xpercent = ft_abs_double(curr_coord.x - (int)curr_coord.x);
 		ypercent = ft_abs_double(curr_coord.y - (int)curr_coord.y);

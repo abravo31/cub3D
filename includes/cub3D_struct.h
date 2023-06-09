@@ -294,11 +294,8 @@ t_type	eval_ident_coord(char *ident, t_cub3D *data);
 int		get_new_fc_colors(t_fc *temp, char *line, int i, char *color);
 t_fc	*new_fc(t_fc *temp, t_type id);
 t_type	eval_ident_fc(char *ident, t_cub3D *data);
-
-
 /*Identifier map*/
 int		handle_new_line_map(t_cub3D *data, char *line, int y);
-
 /*Parsing map*/
 int		ft_check_map_lst(t_list **lst, t_map *map);
 void	ft_free_map(t_map *map);
@@ -306,6 +303,7 @@ int		ft_get_map(t_list **lst, t_map *map);
 int		ft_check_map(t_cub3D *data);
 int		ft_check_player(t_map *map, int c_player, int y, int x);
 int		doors_map(t_map *map);
+void	ft_scan_point_area(t_map *map, int y, int x, int empty);
 /*Init raycasting*/
 void    ft_initialize_raycasting(t_cub3D *data);
 /*Init doors*/
@@ -320,6 +318,9 @@ void	ft_draw_line(t_cub3D *data, t_vec2D vec_1, t_vec2D vec_2, int color);
 void	draw_square_point(t_cub3D *data, t_vec2D point);
 /*Hooks*/
 void	setup_controls_hooks(t_cub3D *data);
+void	ft_rotate_dir_vec(t_cub3D *data, int rotation_direction);
+t_vec2D	move_for_back_ward(t_cub3D *data, int flag);
+t_vec2D	move_left_rigth(t_cub3D *data, int flag);
 /************* Raycasting main functions**************/
 int		lauch_raycasting(t_cub3D *data);
 /*Raycasting*/
@@ -350,13 +351,12 @@ void	normalize_vector(t_vec2D *vector);
 double	ft_abs_double(double n);
 int		ft_diff_epsilon(double n1, double n2);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
-t_vec2D	add_2D_vec(t_vec2D v1, t_vec2D v2);
-t_vec2D subtract_2D_vec(t_vec2D v1, t_vec2D v2);
+t_vec2D	add_2d_vec(t_vec2D v1, t_vec2D v2);
+t_vec2D subtract_2d_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);
-t_vec2D	get_perpendicular_vec(t_vec2D vec);
 t_vec2D	scalar_mult(t_vec2D vec, double scalar);
 double	ft_abs_double(double n);
-t_vec2D rotate_2D_vector(t_vec2D vec, int angle);
+t_vec2D rotate_2d_vector(t_vec2D vec, int angle);
 /*Execution*/
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);

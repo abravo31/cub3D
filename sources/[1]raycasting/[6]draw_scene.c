@@ -49,11 +49,11 @@ static void	draw_vectors(t_cub3D *data, t_rc *rc)
 	vector_center_screen = scalar_mult(rc->center_screen, rc->scale_map);
 	ft_draw_line(data, player_screen, vector_center_screen, 0xFF0000);
 	// Getting perpendicular vector from the screen
-	vector_per_screen = add_2D_vec(rc->center_screen, rc->per_vec);
+	vector_per_screen = add_2d_vec(rc->center_screen, rc->per_vec);
 	vector_per_screen = scalar_mult(vector_per_screen, rc->scale_map);
 	// ft_draw_line(data, player_screen, vector_per_screen, 0xFF0000);
 	// Getting perpendicular opposite from the screen
-	vector_per_screen_opposite = subtract_2D_vec(rc->center_screen, rc->per_vec);
+	vector_per_screen_opposite = subtract_2d_vec(rc->center_screen, rc->per_vec);
 	vector_per_screen_opposite = scalar_mult(vector_per_screen_opposite, rc->scale_map);
 	// ft_draw_line(data, player_screen, vector_per_screen_opposite, 0xFF0000);
 }

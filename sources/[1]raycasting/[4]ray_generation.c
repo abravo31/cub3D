@@ -77,7 +77,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	get_quadrant(&ray);
 	wall_finder(data, &ray, rc, i);
 	get_tex_xpercent(&ray);
-	ray_screen = add_2D_vec(player_screen, ray.hit_point);
+	ray_screen = add_2d_vec(player_screen, ray.hit_point);
 	ray_screen = scalar_mult(ray.hit_point, rc->scale_map);
 	player_screen = scalar_mult(player_screen, rc->scale_map);
 	draw_column(data, &ray, i);
@@ -85,10 +85,8 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 	// // (void)ray_screen;
 	// if (ray.orientation_wall_hit >= 1 && ray.orientation_wall_hit <= 4)
 	// 	ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
-	// else if (ray.orientation_wall_hit == 5)
+	// else if (ray.orientation_wall_hit >= 5 && ray.orientation_wall_hit <= 8)
 	// 	ft_draw_line(data, player_screen, ray_screen, 0x8B0000);
-	// else if (ray.orientation_wall_hit == 6)
-	// 	ft_draw_line(data, player_screen, ray_screen, 0x606060);
 	// ft_draw_line(data, player_screen, ray_screen, 0xA020F0);
 	/****************************************************/
 }
@@ -103,10 +101,10 @@ static void	lauch_rays(t_cub3D *data, t_rc *rc)
 	while (i <= data->win_x)
 	{
 		cur_pix_pos = scalar_mult(rc->per_vec, tan(rc->fov * 0.5) - (rc->ray_dist * i));
-		current_ray_dir = add_2D_vec(cur_pix_pos, rc->dir_vec);
+		current_ray_dir = add_2d_vec(cur_pix_pos, rc->dir_vec);
 		normalize_vector(&current_ray_dir);
-		// if (i == data->win_x)
-		cast_ray(data, rc, current_ray_dir, i);
+		// if (i == data->win_x || i == 0)
+			cast_ray(data, rc, current_ray_dir, i);
 		i++;
 	}
 }
@@ -155,7 +153,7 @@ static void	check_dist_door(t_rc *rc, t_ray *ray, t_door *door)
 	{
 		if (ray->is_facing_up)
 		{
-			if (rc->center_screen.y <= (door->initial_dda.y + 0.2) && ray->hit_point.y == (door->initial_dda.y + 1.0))
+			if (rc->center_screen.y <= (door->initial_dda.y + 0.8) && ray->hit_point.y == (door->initial_dda.y + 1.0))
 			{
 				printf("Here I can open the door in the up\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -164,7 +162,7 @@ static void	check_dist_door(t_rc *rc, t_ray *ray, t_door *door)
 		}
 		else if (ray->is_facing_down)
 		{
-			if (rc->center_screen.y >= (door->initial_dda.y + 0.8) && ray->hit_point.y == (door->initial_dda.y))
+			if (rc->center_screen.y >= (door->initial_dda.y + 0.2) && ray->hit_point.y == (door->initial_dda.y))
 			{
 				printf("Here I can open the door in the down\n");
 				printf("Value of hook for doors %d\n", rc->doors);
@@ -223,7 +221,7 @@ void    raycasting(t_cub3D *data)
 
 	rc = &data->rc;
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
-	rc->center_screen = add_2D_vec(rc->player.d_coords, rc->dir_vec);
+	rc->center_screen = add_2d_vec(rc->player.d_coords, rc->dir_vec);
 	// draw_square_point(data, data->rc.center_screen);
 	// _raycasting(data);
 	lauch_door_ray(data, rc);

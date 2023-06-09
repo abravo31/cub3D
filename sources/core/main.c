@@ -1,35 +1,5 @@
 #include "../../includes/cub3D_struct.h"
 
-//Function to check if the likeds list are created
-void __debug_parsing(t_cub3D *data)
-{
-    t_list *iter = data->ident_coord;
-    t_coord  *current = NULL;
-    while (iter)
-    {
-        current = (t_coord*) iter->content;
-        printf("{%d}[%s]\n", current->id, current->path);
-        iter = iter->next;
-    }
-
-	t_list *iter2 = data->ident_fc;
-    t_fc  *cur = NULL;
-    while (iter2)
-    {
-        cur = (t_fc*) iter2->content;
-        printf("{%d}(%d)(%d)(%d)\n", cur->id, cur->r, cur->g, cur->b);
-        iter2 = iter2->next;
-    }
-	t_list *iter3 = data->map_list;
-    t_map_list  *current3 = NULL;
-    while (iter3)
-    {
-        current3 = (t_map_list*) iter3->content;
-        printf("{%s}(%d)[%d]\n", current3->line, current3->_y, current3->_x);
-        iter3 = iter3->next;
-    }
-}
-
 void	data_init(t_cub3D *data)
 {
 	data->no = 0;
@@ -75,15 +45,15 @@ int	gnl_loop(t_cub3D *data, char *file_name)
 
 static int	ft_check_file_str(char *f_name)
 {
-	int	idx;
+	int	i;
 	int	length_f_name;
 
 	length_f_name = ft_strlen_int(f_name);
-	idx = ft_idx_last_occur_char(f_name, '/');
-	if (idx >= 0 && f_name[idx] == '/' && (idx == (length_f_name - 1)))
+	i = ft_idx_last_occur_char(f_name, '/');
+	if (i >= 0 && f_name[i] == '/' && (i == (length_f_name - 1)))
 		return (printf(ARG_IS_DIR), 1);
-	idx = ft_idx_last_occur_char(f_name, '.');
-	if (idx < 0 || ft_strncmp(f_name + idx, ".cub", ft_strlen_int(f_name + idx)))
+	i = ft_idx_last_occur_char(f_name, '.');
+	if (i < 0 || ft_strncmp(f_name + i, ".cub", ft_strlen_int(f_name + i)))
 		return (printf(INVALID_EXTENSION), 1);
 	return (0);
 }

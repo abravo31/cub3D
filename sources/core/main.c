@@ -11,6 +11,7 @@ void	data_init(t_cub3D *data)
 	data->ft = 0;
 	data->ct = 0;
 	data->y = -1;
+	data->map_s = 4;
 	data->ident_coord = NULL;
 	data->ident_fc = NULL;
 	data->map_list = NULL;

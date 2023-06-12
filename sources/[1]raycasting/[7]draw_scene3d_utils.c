@@ -1,4 +1,3 @@
-
 #include "../../includes/cub3D_struct.h"
 
 double	vec_length(t_vec2D vec)

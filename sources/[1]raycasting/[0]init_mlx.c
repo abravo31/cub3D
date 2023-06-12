@@ -38,8 +38,8 @@ int	setup_mlx_env(t_cub3D *data)
 {
 	int	i;
 
-	data->win_x = 700;
-	data->win_y = 700;
+	data->win_x = 400;
+	data->win_y = 400;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();

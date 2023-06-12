@@ -192,9 +192,6 @@ typedef	struct	s_rc
 	double			scale_map;
 	double			fov;
 	int				doors;
-	// t_door			*door;
-	pthread_t		id_doors;
-	pthread_mutex_t	mutex_doors;
 }				t_rc;
 
 typedef	struct	s_ray
@@ -234,6 +231,7 @@ typedef struct cub3D
 	void		*mlx_win;
 	int			draw_start;
 	int			draw_end;
+	int			map_s;
 	t_image		img;
 	t_rc		rc;
 	t_map		map;
@@ -242,7 +240,6 @@ typedef struct cub3D
 	t_list		*ident_coord;
 	t_list		*map_list;
 	t_texture	wall_textures[8];
-	// t_texture	door_textures[2];
 	t_event		events;
 	unsigned int background_colors[2];
 	int			no;
@@ -333,18 +330,25 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);
 void    dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
 void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir);
 void	get_int_coords(t_player *player, t_vec2D *curr_dda);
+void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit);
+void	horizontal_hit(t_ray *ray, t_vec2D *curr_dda, int ray_orientation);
+void	hit_xy_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *c_dda);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
 void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
 void	draw_scene(t_cub3D *data);
 void	draw_scene_raycasting(t_cub3D *data);
+/*Minimap*/
+void	draw_square_player(t_cub3D *data, t_rc *rc, int scale_map);
+int		check_elem_map(t_cub3D *data, int y, int x);
+void	draw_port_vertical(t_cub3D *data, int y, int x, int square_size);
+void	draw_port_hori(t_cub3D *data, int y, int x, int square_size);
 /*Doors*/
 int		handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
 /*Textures*/
-unsigned int	find_color(t_list	*ident_fc, int type);
+// unsigned int	find_color(t_list	*ident_fc, int type);
 t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
-
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);

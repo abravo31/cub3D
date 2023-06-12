@@ -1,6 +1,6 @@
 #include "../../includes/cub3D_struct.h"
 
-static void	draw_square_player(t_cub3D *data, t_rc *rc)
+static void	draw_player_square(t_cub3D *data, t_rc *rc)
 {
 	t_player	player;
 	int	y;
@@ -26,12 +26,6 @@ static void	draw_square_player(t_cub3D *data, t_rc *rc)
 		i++;
 	}
 }
-
-// static void	print_vec_info(t_vec2D vec, char *msg)
-// {
-// 	printf("%s ", msg);
-// 	printf("x -> %f | y -> %f\n", vec.x, vec.y);
-// }
 
 static void	draw_vectors(t_cub3D *data, t_rc *rc)
 {
@@ -63,11 +57,11 @@ void	draw_player(t_cub3D *data)
 	t_rc	*rc;
 
 	rc = &data->rc;
-	draw_square_player(data, rc);
+	draw_player_square(data, rc);
 	draw_vectors(data, rc);
 }
 
-static void	draw_port_vertical(t_cub3D *data, int y, int x, int obj, int square_size)
+static void	draw_vertical_port(t_cub3D *data, int y, int x, int obj, int square_size)
 {
 	int pixel_step_y;
 	int pixel_step_x;
@@ -94,7 +88,7 @@ static void	draw_port_vertical(t_cub3D *data, int y, int x, int obj, int square_
 	}
 }
 
-static void	draw_port_horizontal(t_cub3D *data, int y, int x, int obj, int square_size)
+static void	draw_horizontal_port(t_cub3D *data, int y, int x, int obj, int square_size)
 {
 		int pixel_step_y;
 	int pixel_step_x;
@@ -104,7 +98,6 @@ static void	draw_port_horizontal(t_cub3D *data, int y, int x, int obj, int squar
 	pixel_step_y = 1;
 	while (pixel_step_y < square_size)
 	{
-		// my_mlx_pixel_put(data, (t_point){x + 0, y + pixel_step_y, 0xFFFFFF});
 		pixel_step_x = 1;
 		if (pixel_step_y == (square_size / 2))
 		{
@@ -138,7 +131,6 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 	pixel_step_y = 1;
 	while (pixel_step_y < square_size)
 	{
-		// my_mlx_pixel_put(data, (t_point){x + 0, y + pixel_step_y, 0xFFFFFF});
 		pixel_step_x = 1;
 		while (pixel_step_x < square_size)
 		{
@@ -157,7 +149,7 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 	}
 }
 
-void	draw_minimap_grid(t_cub3D *data)
+void	draw_grid(t_cub3D *data)
 {
 	int		x;
 	int		y;
@@ -171,9 +163,9 @@ void	draw_minimap_grid(t_cub3D *data)
 		while (x < data->map.max_w)
 		{
 			if (data->map.map[y][x] == 2)
-				draw_port_horizontal(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
+				draw_horizontal_port(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
 			else if (data->map.map[y][x] == 3)
-				draw_port_vertical(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
+				draw_vertical_port(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
 			else
 				draw_square(data, y * scale_map, x * scale_map, data->map.map[y][x], scale_map);
 			x++;
@@ -184,12 +176,6 @@ void	draw_minimap_grid(t_cub3D *data)
 
 void	_raycasting(t_cub3D *data)
 {
-	draw_minimap_grid(data);
+	draw_grid(data);
 	draw_player(data);
 }
-
-// void	draw_scene(t_cub3D *data)
-// {
-// 	draw_minimap_grid(data);
-// 	draw_player(data);
-// }

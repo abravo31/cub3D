@@ -37,9 +37,7 @@ static void	draw_vectors(t_cub3D *data, t_rc *rc)
 
 	player_ptr = &rc->player;
 	player_screen = player_ptr->d_coords;
-	// Getting player position in the screen
 	player_screen = scalar_mult(player_screen, rc->scale_map);
-	// Getting and drawing player + dir in the screen
 	vector_center_screen = scalar_mult(rc->center_screen, rc->scale_map);
 	ft_draw_line(data, player_screen, vector_center_screen, 0xFF0000);
 	// Getting perpendicular vector from the screen
@@ -147,6 +145,14 @@ void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size)
 		}
 		pixel_step_y++;
 	}
+}
+
+void	draw_square_point(t_cub3D *data, t_vec2D point)
+{
+	t_vec2D	point_screen;
+
+	point_screen = scalar_mult(point, data->rc.scale_map);
+	draw_square(data, (int)point_screen.y, (int)point_screen.x, 4, 5);
 }
 
 void	draw_grid(t_cub3D *data)

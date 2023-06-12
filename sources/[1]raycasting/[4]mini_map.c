@@ -11,13 +11,41 @@ static void	init_minimap(t_cub3D *data, t_vec2D *first_pixel, t_vec2D *limits)
 static void	draw_case(t_cub3D *data, int i, int j, int type_elem)
 {
 	if (type_elem == 1)
-		draw_square(data, i * data->map_s, j * data->map_s, 4, data->map_s);
+		draw_square(data, i * data->map_s, j * data->map_s, 4);
 	else if (type_elem == 2)
-		draw_square(data, i * data->map_s, j * data->map_s, 5, data->map_s);
+		draw_square(data, i * data->map_s, j * data->map_s, 5);
 	else if (type_elem == 3)
 		draw_port_hori(data, i * data->map_s, j * data->map_s, data->map_s);
 	else if (type_elem == 4)
 		draw_port_vertical(data, i * data->map_s, j * data->map_s, data->map_s);
+}
+
+void	draw_square(t_cub3D *data, int y, int x, int obj)
+{
+	int pixel_step_y;
+	int pixel_step_x;
+	int color;
+
+	my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0x000000});
+	pixel_step_y = 1;
+	while (pixel_step_y < data->map_s)
+	{
+		pixel_step_x = 1;
+		while (pixel_step_x < data->map_s)
+		{
+			if (obj == 1)
+				color = 0x0000FF;
+			else if (obj == 4)
+				color = 0XC0EB34;
+			else if (obj == 5)
+				color = 0xFF0000;
+			else
+				color = 0xFFFFFF;
+			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});
+			pixel_step_x++;
+		}
+		pixel_step_y++;
+	}
 }
 
 static void	row_minimap(t_cub3D *data, int i, t_vec2D *fp, t_vec2D *limits)
@@ -30,10 +58,10 @@ static void	row_minimap(t_cub3D *data, int i, t_vec2D *fp, t_vec2D *limits)
 	{
 		if (fp->y < 0.0 || fp->x < 0.0
 			|| fp->y >= data->map.max_h || fp->x >= data->map.max_w)
-			draw_square(data, i * data->map_s, j * data->map_s, 4, data->map_s);
+			draw_square(data, i * data->map_s, j * data->map_s, 4);
 		else if (ft_abs_double(fp->x - data->rc.player.d_coords.x) < 0.01
 			&& ft_abs_double(fp->y - data->rc.player.d_coords.y) < 0.01)
-			draw_square(data, i * data->map_s, j * data->map_s, 1, data->map_s);
+			draw_square(data, i * data->map_s, j * data->map_s, 1);
 		else
 		{
 			type_elem = check_elem_map(data, (int)fp->y, (int)fp->x);

@@ -322,8 +322,12 @@ t_vec2D	move_left_rigth(t_cub3D *data, int flag);
 int		lauch_raycasting(t_cub3D *data);
 /*Raycasting*/
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
+void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray ray_door);
+void	lauch_rays(t_cub3D *data, t_rc *rc);
 void    raycasting(t_cub3D *data);
 void	_raycasting(t_cub3D *data);
+void	initialize_ray(t_ray *ray, t_vec2D ray_vec, int doors);
+void	get_quadrant(t_ray *ray);
 /*DDA*/
 // void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
 void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);
@@ -336,7 +340,7 @@ void	hit_xy_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *c_dda);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
-void	draw_square(t_cub3D *data, int y, int x, int obj, int square_size);
+void	draw_square(t_cub3D *data, int y, int x, int obj);
 void	draw_scene(t_cub3D *data);
 void	draw_scene_raycasting(t_cub3D *data);
 /*Minimap*/
@@ -346,8 +350,12 @@ void	draw_port_vertical(t_cub3D *data, int y, int x, int square_size);
 void	draw_port_hori(t_cub3D *data, int y, int x, int square_size);
 /*Doors*/
 int		handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
+void	vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d);
+void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d);
+void	hit_vertical_opening(t_rc *rc, t_ray *ray, t_door *d, int dir);
+void	next_hit_closed(t_rc *rc, t_ray *ray, t_door *d, int dir);
+void	next_hit_open(t_rc *rc, t_ray *ray, t_door *d, int dir);
 /*Textures*/
-// unsigned int	find_color(t_list	*ident_fc, int type);
 t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);

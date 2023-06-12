@@ -26,9 +26,11 @@ PARSE		=	[0]check_map_lst.c [0]get_map.c \
 
 EXEC_DIR	=	[1]raycasting/
 EXEC		=	[0]init_mlx.c [1]init_raycasting.c [2]mlx_tools.c [3]hooks.c [3]hooks_utils.c [4]mini_map.c [4]draws_minimap.c \
-				[4]ray_generation.c [5]dda.c [5]dda_utils.c [6]dda_corners.c [6]draw_scene.c raycasting.c \
+				[4]ray_generation.c [5]dda.c [5]dda_utils.c [6]dda_corners.c \
 				[7]draw_scene3d_utils.c [7]draw_scene3d.c \
-				[8]doors.c [8]doors_event.c
+				[8]doors_hit.c [8]doors_hit_utils.c [8]doors_hit_utils2.c [8]doors_event.c \
+				[9]textures.c \
+				raycasting.c
 
 UTILS_DIR	=	utils/
 UTILS		=	lst_new_generic.c math_utils.c math_utils2.c math_utils3.c

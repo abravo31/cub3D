@@ -27,27 +27,17 @@ static t_texture	get_tex_path(t_cub3D *data, char *path)
 	return (texture);
 }
 
-t_texture	find_texture(t_cub3D *data, t_list *ident_coord, int type)
+void	raycasting(t_cub3D *data)
 {
-	char		*path;
-	t_texture	texture;
+	t_rc	*rc;
+	t_ray	door_ray;
 
-	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
-	while (ident_coord && ((t_coord *)(ident_coord->content))->id != type)
-		ident_coord = ident_coord->next;
-	if (ident_coord == NULL)
-		return (texture);
-	path = ((t_coord *)(ident_coord->content))->path;
-	texture.img = mlx_xpm_file_to_image(data->mlx, path, \
-	&texture.img_width, &texture.img_height);
-	if (texture.img == NULL)
-		return (printf(MLX_ERROR), ft_exit(data), texture);
-	texture.addr = mlx_get_data_addr(texture.img, \
-	&texture.bpp, &texture.line_len, &texture.endian);
-	if (texture.addr == NULL)
-		return (mlx_destroy_image(data->mlx, texture.img), \
-		printf(MLX_ERROR), ft_exit(data), texture);
-	return (texture);
+	rc = &data->rc;
+	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
+	rc->center_screen = add_2d_vec(rc->player.d_coords, rc->dir_vec);
+	lauch_door_ray(data, rc, door_ray);
+	lauch_rays(data, rc);
+	draw_minimap(data);
 }
 
 void	render(t_cub3D *data)

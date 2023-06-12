@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static t_vec2D	check_step(t_cub3D *data, int map_elem, t_vec2D new_pos)
 {

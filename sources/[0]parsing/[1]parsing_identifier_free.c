@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	ft_free_fc(void *content)
 {

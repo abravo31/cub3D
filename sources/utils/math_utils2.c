@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 t_vec2D	add_2d_vec(t_vec2D v1, t_vec2D v2)
 {

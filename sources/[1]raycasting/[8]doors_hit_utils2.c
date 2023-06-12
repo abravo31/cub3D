@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	hit_vertical_opening(t_rc *rc, t_ray *ray, t_door *d, int dir)
 {

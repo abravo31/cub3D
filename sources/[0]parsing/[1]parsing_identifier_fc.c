@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 int	ft_atoi_fc(const char *str)
 {

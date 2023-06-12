@@ -1,11 +1,11 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
-t_texture	find_texture(t_cub3D *data, t_list *ident_coord, int type)
+t_tex	find_texture(t_cub3D *data, t_list *ident_coord, unsigned int type)
 {
 	char		*path;
-	t_texture	texture;
+	t_tex	texture;
 
-	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
+	texture = (t_tex){NULL, NULL, 0, 0, 0, 0, 0};
 	while (ident_coord && ((t_coord *)(ident_coord->content))->id != type)
 		ident_coord = ident_coord->next;
 	if (ident_coord == NULL)

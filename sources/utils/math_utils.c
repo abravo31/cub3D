@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 double	ft_deg_to_rad(double angle)
 {

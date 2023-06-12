@@ -1,26 +1,4 @@
-#include "../../includes/cub3D_struct.h"
-
-static void	ft_print_map(t_map *map, int flag)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map->max_h)
-	{
-		j = 0;
-		while (j < map->max_w)
-		{
-			if (flag == 1)
-				printf("%4d", map->door_state_map[i][j]);
-			else
-				printf("%4f", map->timer_map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-}
+#include "../../includes/cub3D.h"
 
 int	get_doors_state_map(t_map *map)
 {

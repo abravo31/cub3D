@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 int	handle_new_coord(t_cub3D *data, t_type tmp, char *line, int i)
 {
@@ -91,7 +91,7 @@ void	delimitor(char **str, t_cub3D *data, char *line, int i)
 		else if (res == 2)
 			free_line_end_exit (line, data, str, ERROR_RGB_FORMAT);
 	}
-	else if (tmp == -1)
+	else if ((int)tmp == -1)
 		free_line_end_exit (line, data, str, IDENT_INVALID);
 	free(*str);
 	*str = NULL;

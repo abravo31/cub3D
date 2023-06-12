@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	ft_initialize_player(t_cub3D *data, t_rc *rc)
 {

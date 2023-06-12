@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	ft_scan_around(t_map *map, int y, int x, int error_int)
 {

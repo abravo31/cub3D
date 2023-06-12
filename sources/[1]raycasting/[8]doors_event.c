@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	check_door_hook(t_rc *rc, t_door *door)
 {
@@ -59,7 +59,7 @@ void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray ray_door)
 {
 	initialize_ray(&ray_door, rc->dir_vec, 1);
 	get_quadrant(&ray_door);
-	wall_finder(data, &ray_door, rc, 0);
+	wall_finder(data, &ray_door, rc);
 	if (data->door.status != NULL)
 	{
 		check_dist_door(rc, &ray_door, &data->door);

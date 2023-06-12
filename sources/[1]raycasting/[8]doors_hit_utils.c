@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	hit_horizontal_opening(t_rc *rc, t_ray *ray, t_door *d, int dir)
 {
@@ -54,7 +54,7 @@ static void	hit_horizontal_closing(t_rc *rc, t_ray *ray, t_door *d, int dir)
 	}
 }
 
-void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
+void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door)
 {
 	if ((*door->status) == CLOSED)
 		next_hit_closed(&data->rc, ray, door, HORIZONTAL);
@@ -66,7 +66,7 @@ void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
 		hit_horizontal_closing(&data->rc, ray, door, HORIZONTAL);
 }
 
-void	vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d)
+void	vertical_door(t_cub3D *data, t_ray *ray, t_door *door)
 {
 	if ((*door->status) == CLOSED)
 		next_hit_closed(&data->rc, ray, door, VERTICAL);

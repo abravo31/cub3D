@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	draw_square_player(t_cub3D *data, t_rc *rc, int scale_map)
 {

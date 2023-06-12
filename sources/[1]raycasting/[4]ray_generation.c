@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	initialize_ray(t_ray *ray, t_vec2D ray_vec, int doors)
 {
@@ -70,7 +70,7 @@ static void	cast_ray(t_cub3D *data, t_rc *rc, t_vec2D ray_vec, int i)
 
 	initialize_ray(&ray, ray_vec, 0);
 	get_quadrant(&ray);
-	wall_finder(data, &ray, rc, i);
+	wall_finder(data, &ray, rc);
 	get_tex_xpercent(&ray);
 	draw_column(data, &ray, i);
 }

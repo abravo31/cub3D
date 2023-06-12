@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	ft_free_int_map(t_map *map, int **map_int)
 {

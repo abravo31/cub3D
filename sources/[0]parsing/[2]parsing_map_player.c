@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static int	ft_check_player_can_move(t_map *map, int y, int x)
 {

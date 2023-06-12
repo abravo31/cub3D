@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	draw_ceiling(t_cub3D *data, int x, double cosine, t_ray *ray)
 {
@@ -50,7 +50,6 @@ void	loop_draw_wall(t_cub3D *data, int line_height, int x, t_ray *ray)
 {
 	double	texpos;
 	double	step;
-	double	xpercent;
 	t_point	point;
 
 	step = 1.0 * \

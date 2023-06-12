@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 int	check_path_format(char *path)
 {

@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 t_list	*generic_get_node_by_idx(t_list **lst, int idx)
 {

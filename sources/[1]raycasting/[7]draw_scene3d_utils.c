@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 double	vec_length(t_vec2D vec)
 {
@@ -12,7 +12,7 @@ double	dot_prod(t_vec2D vec1, t_vec2D vec2)
 
 int	color_from_texture(t_cub3D *data, int dir, double xper, int y)
 {
-	t_texture	texture;
+	t_tex	texture;
 	int			x;
 
 	texture = data->wall_textures[dir];
@@ -32,7 +32,7 @@ int	ceiling_floor_color(t_cub3D *data, double xper, double yper, int type)
 {
 	int			x;
 	int			y;
-	t_texture	tex;
+	t_tex	tex;
 
 	tex = data->wall_textures[type];
 	if (tex.img)

@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 {
@@ -12,7 +12,7 @@ static void	init_door(t_cub3D *data, t_door *d, t_vec2D *curr_dda)
 	d->next_dda.y = -1;
 }
 
-static int	init_new_points_horizontal(t_cub3D *data, t_ray *ray, t_door *d)
+static int	init_new_points_horizontal(t_ray *ray, t_door *d)
 {
 	if ((*d->status) == OPEN)
 	{
@@ -35,7 +35,7 @@ static int	init_new_points_horizontal(t_cub3D *data, t_ray *ray, t_door *d)
 	return (0);
 }
 
-static int	init_new_points_vertical(t_cub3D *data, t_ray *ray, t_door *door)
+static int	init_new_points_vertical(t_ray *ray, t_door *door)
 {
 	if ((*door->status) == OPEN)
 	{
@@ -60,22 +60,21 @@ static int	init_new_points_vertical(t_cub3D *data, t_ray *ray, t_door *door)
 
 static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
 {
-	t_vec2D	next_dda;
 	int		hit_door;
 
 	hit_door = -1;
 	ray->orientation_wall_hit = -1;
 	if (door->type_door == HORIZONTAL_DOOR)
 	{
-		if (!init_new_points_horizontal(data, ray, door))
+		if (!init_new_points_horizontal(ray, door))
 		{
-			horizontal_door(data, ray, door, &hit_door);
+			horizontal_door(data, ray, door);
 		}
 	}
 	else if (door->type_door == VERTICAL_DOOR)
 	{
-		if (!init_new_points_vertical(data, ray, door))
-			vertical_door(data, ray, door, &hit_door);
+		if (!init_new_points_vertical(ray, door))
+			vertical_door(data, ray, door);
 	}
 	if (ray->orientation_wall_hit != -1)
 		hit_door = 1;
@@ -86,7 +85,6 @@ static int	get_next_hit(t_cub3D *data, t_ray *ray, t_door *door)
 
 int	handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda)
 {
-	t_vec2D	pos_player;
 	int		value;
 
 	if (ray->ray_type != 1)

@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	fuck_normi(t_ray *ray, t_vec2D *dda_corners, t_vec2D *curr_dda)
 {
@@ -12,7 +12,7 @@ static void	fuck_normi(t_ray *ray, t_vec2D *dda_corners, t_vec2D *curr_dda)
 	}
 }
 
-static void	corners(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *curr_dda)
+static void	corners(t_rc *rc, t_ray *ray, t_vec2D *curr_dda)
 {
 	t_vec2D	dda_corners;
 
@@ -74,7 +74,7 @@ static void	go_through_door(t_cub3D *data, t_ray *ray, t_vec2D pos_player)
 	}
 }
 
-void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
+void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc)
 {
 	t_vec2D	curr_dda;
 	t_vec2D	pos_player;
@@ -86,8 +86,8 @@ void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i)
 	curr_dda.x = pos_player.x;
 	while (!hit)
 	{
-		corners(data, rc, ray, &curr_dda);
-		hit_xy_axis(data, rc, ray, &curr_dda);
+		corners(rc, ray, &curr_dda);
+		hit_xy_axis(rc, ray, &curr_dda);
 		if (ray->orientation_wall_hit == 1)
 			curr_dda.y = curr_dda.y - 1;
 		if (ray->orientation_wall_hit == 2)

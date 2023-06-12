@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	init_minimap(t_cub3D *data, t_vec2D *first_pixel, t_vec2D *limits)
 {
@@ -22,9 +22,9 @@ static void	draw_case(t_cub3D *data, int i, int j, int type_elem)
 
 void	draw_square(t_cub3D *data, int y, int x, int obj)
 {
-	int pixel_step_y;
-	int pixel_step_x;
-	int color;
+	int	pixel_step_y;
+	int	pixel_step_x;
+	int	color;
 
 	my_mlx_pixel_put(data, (t_point){x + 0, y + 0, 0x000000});
 	pixel_step_y = 1;
@@ -41,7 +41,8 @@ void	draw_square(t_cub3D *data, int y, int x, int obj)
 				color = 0xFF0000;
 			else
 				color = 0xFFFFFF;
-			my_mlx_pixel_put(data, (t_point){x + pixel_step_x, y + pixel_step_y, color});
+			my_mlx_pixel_put(data, \
+			(t_point){x + pixel_step_x, y + pixel_step_y, color});
 			pixel_step_x++;
 		}
 		pixel_step_y++;

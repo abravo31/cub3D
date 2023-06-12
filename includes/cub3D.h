@@ -1,10 +1,9 @@
-#ifndef CUB3D_STRUCT_H
-# define CUB3D_STRUCT_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "../libft/includes/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
-// # include "execution.h"
 # include <stdio.h>
 
 # define ARG_IS_DIR "You probably aren't launching the program with a file\n"
@@ -100,7 +99,6 @@ typedef struct vector_2D
 	double	y;
 }			t_vec2D;
 
-
 typedef struct player
 {
 	t_int_vec	i_coords;
@@ -108,8 +106,7 @@ typedef struct player
 	int			direction;
 }			t_player;
 
-
-typedef struct	player_position
+typedef struct player_position
 {
 	int		_is_set;
 	int		_y;
@@ -162,7 +159,7 @@ typedef struct texture
 	int		bpp;
 	int		line_len;
 	int		endian;
-}	t_texture;
+}	t_tex;
 
 typedef struct s_cam
 {
@@ -170,7 +167,7 @@ typedef struct s_cam
 	double		fov;
 }				t_cam;
 
-typedef struct	s_door
+typedef struct s_door
 {
 	int		hook_active;
 	int		orientation_hit;
@@ -182,19 +179,19 @@ typedef struct	s_door
 	t_vec2D	next_dda;
 }			t_door;
 
-typedef	struct	s_rc
+typedef struct s_rc
 {
 	t_player		player;
 	t_vec2D			dir_vec;
 	t_vec2D			per_vec;
 	t_vec2D			center_screen;
-	double 			ray_dist;
+	double			ray_dist;
 	double			scale_map;
 	double			fov;
 	int				doors;
 }				t_rc;
 
-typedef	struct	s_ray
+typedef struct s_ray
 {
 	int		ray_type;
 	t_vec2D	vec;
@@ -223,36 +220,36 @@ typedef struct s_event
 
 typedef struct cub3D
 {
-	int			win_x;
-	int			win_y;
-	int			mid_x;
-	int			mid_y;
-	void		*mlx;
-	void		*mlx_win;
-	int			draw_start;
-	int			draw_end;
-	int			map_s;
-	t_image		img;
-	t_rc		rc;
-	t_map		map;
-	t_door		door;
-	t_list		*ident_fc;
-	t_list		*ident_coord;
-	t_list		*map_list;
-	t_texture	wall_textures[8];
-	t_event		events;
-	unsigned int background_colors[2];
-	int			no;
-	int			so;
-	int			we;
-	int			ea;
-	int			f;
-	int			c;
-	int			ft;
-	int			ct;
-	int			df;
-	int			dl;
-	int			y;
+	int				win_x;
+	int				win_y;
+	int				mid_x;
+	int				mid_y;
+	void			*mlx;
+	void			*mlx_win;
+	int				draw_start;
+	int				draw_end;
+	int				map_s;
+	t_image			img;
+	t_rc			rc;
+	t_map			map;
+	t_door			door;
+	t_list			*ident_fc;
+	t_list			*ident_coord;
+	t_list			*map_list;
+	t_tex			wall_textures[8];
+	t_event			events;
+	unsigned int	background_colors[2];
+	int				no;
+	int				so;
+	int				we;
+	int				ea;
+	int				f;
+	int				c;
+	int				ft;
+	int				ct;
+	int				df;
+	int				dl;
+	int				y;
 }	t_cub3D;
 
 void	iter_line(t_cub3D *data, char **str, int i, char *line);
@@ -302,7 +299,7 @@ int		ft_check_player(t_map *map, int c_player, int y, int x);
 int		doors_map(t_map *map);
 void	ft_scan_point_area(t_map *map, int y, int x, int empty);
 /*Init raycasting*/
-void    ft_initialize_raycasting(t_cub3D *data);
+void	ft_initialize_raycasting(t_cub3D *data);
 /*Init doors*/
 void	ft_initialize_door(t_cub3D *data);
 /*Init minilibx*/
@@ -324,19 +321,18 @@ int		lauch_raycasting(t_cub3D *data);
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
 void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray ray_door);
 void	lauch_rays(t_cub3D *data, t_rc *rc);
-void    raycasting(t_cub3D *data);
+void	raycasting(t_cub3D *data);
 void	_raycasting(t_cub3D *data);
 void	initialize_ray(t_ray *ray, t_vec2D ray_vec, int doors);
 void	get_quadrant(t_ray *ray);
 /*DDA*/
-// void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
-void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc, int i);
-void    dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
+void	wall_finder(t_cub3D *data, t_ray *ray, t_rc *rc);
+void	dda_corners(int **map, t_ray *ray, t_vec2D *current_dda, int *hit);
 void	equation_straight_line(t_rc *rc, t_ray *ray, double curr_dda, int dir);
 void	get_int_coords(t_player *player, t_vec2D *curr_dda);
 void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit);
 void	horizontal_hit(t_ray *ray, t_vec2D *curr_dda, int ray_orientation);
-void	hit_xy_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *c_dda);
+void	hit_xy_axis(t_rc *rc, t_ray *ray, t_vec2D *c_dda);
 /*Render*/
 void	render(t_cub3D *data);
 /*Scene*/
@@ -350,13 +346,13 @@ void	draw_port_vertical(t_cub3D *data, int y, int x, int square_size);
 void	draw_port_hori(t_cub3D *data, int y, int x, int square_size);
 /*Doors*/
 int		handle_door_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda);
-void	vertical_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d);
-void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door, int *hit_d);
+void	vertical_door(t_cub3D *data, t_ray *ray, t_door *door);
+void	horizontal_door(t_cub3D *data, t_ray *ray, t_door *door);
 void	hit_vertical_opening(t_rc *rc, t_ray *ray, t_door *d, int dir);
 void	next_hit_closed(t_rc *rc, t_ray *ray, t_door *d, int dir);
 void	next_hit_open(t_rc *rc, t_ray *ray, t_door *d, int dir);
 /*Textures*/
-t_texture	find_texture(t_cub3D *data, t_list	*ident_coord, int type);
+t_tex	find_texture(t_cub3D *data, t_list *ident_coord, unsigned int type);
 /*Math utils*/
 double	ft_deg_to_rad(double angle);
 void	normalize_vector(t_vec2D *vector);
@@ -364,11 +360,11 @@ double	ft_abs_double(double n);
 int		ft_diff_epsilon(double n1, double n2);
 double	vec_cross_product(t_vec2D v1, t_vec2D v2);
 t_vec2D	add_2d_vec(t_vec2D v1, t_vec2D v2);
-t_vec2D subtract_2d_vec(t_vec2D v1, t_vec2D v2);
+t_vec2D	subtract_2d_vec(t_vec2D v1, t_vec2D v2);
 int		ft_abs_2_values(int a, int b);
 t_vec2D	scalar_mult(t_vec2D vec, double scalar);
 double	ft_abs_double(double n);
-t_vec2D rotate_2d_vector(t_vec2D vec, int angle);
+t_vec2D	rotate_2d_vector(t_vec2D vec, int angle);
 /*Execution*/
 void	place_square(t_cub3D *data, t_point point, int square_size);
 void	draw_minimap(t_cub3D *data);

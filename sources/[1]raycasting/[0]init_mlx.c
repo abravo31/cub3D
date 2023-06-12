@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static int	ft_init_img(t_cub3D *data)
 {
@@ -54,6 +54,6 @@ int	setup_mlx_env(t_cub3D *data)
 		return (free(data->mlx), free(data->mlx_win), 1);
 	i = 0;
 	while (i < 8)
-		data->wall_textures[i++] = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
+		data->wall_textures[i++] = (t_tex){NULL, NULL, 0, 0, 0, 0, 0};
 	return (0);
 }

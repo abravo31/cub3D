@@ -1,6 +1,6 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
-static unsigned int	find_color(t_list *ident_fc, int t)
+static unsigned int	find_color(t_list *ident_fc, unsigned int t)
 {
 	while (ident_fc && ((t_fc *)(ident_fc->content)) && \
 	((t_fc *)(ident_fc->content))->id != t)
@@ -10,11 +10,11 @@ static unsigned int	find_color(t_list *ident_fc, int t)
 	| ((t_fc *)(ident_fc->content))->b);
 }
 
-static t_texture	get_tex_path(t_cub3D *data, char *path)
+static t_tex	get_tex_path(t_cub3D *data, char *path)
 {
-	t_texture	texture;
+	t_tex	texture;
 
-	texture = (t_texture){NULL, NULL, 0, 0, 0, 0, 0};
+	texture = (t_tex){NULL, NULL, 0, 0, 0, 0, 0};
 	texture.img = mlx_xpm_file_to_image(data->mlx, path, \
 	&texture.img_width, &texture.img_height);
 	if (texture.img == NULL)

@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static int	ft_initialize_map(t_list **lst, t_map *map)
 {

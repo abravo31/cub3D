@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 void	get_int_coords(t_player *player, t_vec2D *curr_dda)
 {
@@ -65,7 +65,7 @@ void	horizontal_hit(t_ray *ray, t_vec2D *curr_dda, int ray_orientation)
 	}
 }
 
-void	hit_xy_axis(t_cub3D *data, t_rc *rc, t_ray *ray, t_vec2D *c_dda)
+void	hit_xy_axis(t_rc *rc, t_ray *ray, t_vec2D *c_dda)
 {
 	if (ray->is_facing_left == 1 && ray->orientation_wall_hit == -1)
 	{

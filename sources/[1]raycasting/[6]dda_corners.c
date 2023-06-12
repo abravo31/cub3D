@@ -1,4 +1,4 @@
-#include "../../includes/cub3D_struct.h"
+#include "../../includes/cub3D.h"
 
 static void	cor_up_left(int **map, t_ray *ray, t_vec2D *current_dda, int *hit)
 {

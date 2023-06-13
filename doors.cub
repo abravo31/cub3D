@@ -1,21 +1,24 @@
-NO ./textures/swastika.xpm
-SO    ./textures/wall_wolfenstein_1.xpm
-WE       ./textures/wall_wolfenstein_3.xpm
-EA                    ./textures/tnt.xpm
+NO ./textures/sea4.xpm
+SO    ./textures/sea1.xpm
+WE       ./textures/sea2.xpm
+EA                    ./textures/sea3.xpm
 
-F          113, 127, 143
-C   71, 47, 47    
+CT ./textures/clear.xpm
+FT ./textures/sand.xpm
+F          210, 209, 200
+C   153, 224, 255
+
+
+
 
 11111111
 1101011
-10012111
-10000001
-10010111111
+10012111111
 100100010001
-10020N02011
-10010101111
-10010100001
+10020000111
+10010121111
+1001S100001
 10112100001
-10000000011
-111111111
+10000100011
+1111111111
 

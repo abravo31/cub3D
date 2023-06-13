@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:22:36 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 16:22:37 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:45:19 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,20 @@ static int	ft_check_doors(t_map *map, int y, int x)
 		return (1);
 	if (map->map[y - 1][x] == 1 || map->map[y + 1][x] == 1)
 	{
-		if ((map->map[y - 1][x] != 1 || map->map[y + 1][x] != 1)
-			|| (map->map[y][x - 1] != 0 || map->map[y][x + 1] != 0))
-		{
-			return (1);
-		}
-		else
-		{
+		if (!(map->map[y - 1][x] != 1 || map->map[y + 1][x] != 1)
+			&& (map->map[y][x - 1] != 1 && map->map[y][x + 1] != 1))
 			map->map[y][x] = VERTICAL_DOOR;
-		}
+		else
+			return (1);
 	}
 	else if (map->map[y][x - 1] == 1 || map->map[y][x + 1] == 1)
 	{
-		if ((map->map[y][x - 1] != 1 || map->map[y][x + 1] != 1)
-			|| (map->map[y - 1][x] != 0 || map->map[y + 1][x] != 0))
-		{
-			return (1);
-		}
+		if (!(map->map[y][x - 1] != 1 || map->map[y][x + 1] != 1)
+			&& (map->map[y - 1][x] != 1 || map->map[y + 1][x] != 1))
+			return (0);
 	}
+	else
+		return (1);
 	return (0);
 }
 

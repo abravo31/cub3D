@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:22:15 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 16:22:16 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:46:10 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	raycasting(t_cub3D *data)
 	draw_minimap(data);
 }
 
-void	render(t_cub3D *data)
+void render(t_cub3D *data)
 {
 	raycasting(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
@@ -70,7 +70,7 @@ int	lauch_raycasting(t_cub3D *data)
 	data->wall_textures[2] = find_texture(data, data->ident_coord, WE);
 	data->wall_textures[3] = find_texture(data, data->ident_coord, EA);
 	data->wall_textures[4] = get_tex_path(data, "./textures/door.xpm");
-	data->wall_textures[5] = get_tex_path(data, "./textures/doors_side.xpm");
+	data->wall_textures[5] = get_tex_path(data, "./textures/door_side.xpm");
 	data->wall_textures[6] = find_texture(data, data->ident_coord, FT);
 	data->wall_textures[7] = find_texture(data, data->ident_coord, CT);
 	render(data);

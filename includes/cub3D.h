@@ -334,7 +334,7 @@ void	check_hit(t_cub3D *data, t_ray *ray, t_vec2D *curr_dda, int *hit);
 void	horizontal_hit(t_ray *ray, t_vec2D *curr_dda, int ray_orientation);
 void	hit_xy_axis(t_rc *rc, t_ray *ray, t_vec2D *c_dda);
 /*Render*/
-void	render(t_cub3D *data);
+void render(t_cub3D *data);
 /*Scene*/
 void	draw_square(t_cub3D *data, int y, int x, int obj);
 void	draw_scene(t_cub3D *data);

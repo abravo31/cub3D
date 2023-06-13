@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   [9]textures.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/13 16:22:11 by dnieto-c          #+#    #+#             */
+/*   Updated: 2023/06/13 16:22:57 by dnieto-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
 t_tex	find_texture(t_cub3D *data, t_list *ident_coord, unsigned int type)
 {
 	char		*path;
-	t_tex	texture;
+	t_tex		texture;
 
 	texture = (t_tex){NULL, NULL, 0, 0, 0, 0, 0};
 	while (ident_coord && ((t_coord *)(ident_coord->content))->id != type)

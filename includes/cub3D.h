@@ -319,7 +319,7 @@ t_vec2D	move_left_rigth(t_cub3D *data, int flag);
 int		lauch_raycasting(t_cub3D *data);
 /*Raycasting*/
 t_vec2D	ft_get_perpendicular_vec(t_vec2D dir_vec);
-void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray ray_door);
+void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray *ray_door);
 void	lauch_rays(t_cub3D *data, t_rc *rc);
 void	raycasting(t_cub3D *data);
 void	_raycasting(t_cub3D *data);

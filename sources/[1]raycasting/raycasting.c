@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/13 16:22:15 by dnieto-c          #+#    #+#             */
+/*   Updated: 2023/06/13 16:22:16 by dnieto-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
 static unsigned int	find_color(t_list *ident_fc, unsigned int t)
@@ -35,7 +47,7 @@ void	raycasting(t_cub3D *data)
 	rc = &data->rc;
 	rc->per_vec = ft_get_perpendicular_vec(rc->dir_vec);
 	rc->center_screen = add_2d_vec(rc->player.d_coords, rc->dir_vec);
-	lauch_door_ray(data, rc, door_ray);
+	lauch_door_ray(data, rc, &door_ray);
 	lauch_rays(data, rc);
 	draw_minimap(data);
 }

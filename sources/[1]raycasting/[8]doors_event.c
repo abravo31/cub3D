@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   [8]doors_event.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/13 16:22:01 by dnieto-c          #+#    #+#             */
+/*   Updated: 2023/06/13 16:22:02 by dnieto-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
 static void	check_door_hook(t_rc *rc, t_door *door)
@@ -55,14 +67,14 @@ static void	check_dist_door(t_rc *rc, t_ray *ray, t_door *door)
 	}
 }
 
-void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray ray_door)
+void	lauch_door_ray(t_cub3D *data, t_rc *rc, t_ray *ray_door)
 {
-	initialize_ray(&ray_door, rc->dir_vec, 1);
-	get_quadrant(&ray_door);
-	wall_finder(data, &ray_door, rc);
+	initialize_ray(ray_door, rc->dir_vec, 1);
+	get_quadrant(ray_door);
+	wall_finder(data, ray_door, rc);
 	if (data->door.status != NULL)
 	{
-		check_dist_door(rc, &ray_door, &data->door);
+		check_dist_door(rc, ray_door, &data->door);
 		if ((*data->door.status) == OPENING)
 		{
 			while ((*data->door.timer) < 1.0)

@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:21:40 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 16:21:41 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:56:42 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	draw_square(t_cub3D *data, int y, int x, int obj)
 		while (pixel_step_x < data->map_s)
 		{
 			if (obj == 1)
-				color = 0x0000FF;
+				color = 0x000000FF;
 			else if (obj == 4)
-				color = 0XC0EB34;
+				color = 0xC0EB34FF;
 			else if (obj == 5)
-				color = 0xFF0000;
+				color = 0xFF0000FF;
 			else
-				color = 0xFFFFFF;
+				color = 0xFFFFFFFF;
 			my_mlx_pixel_put(data, \
 			(t_point){x + pixel_step_x, y + pixel_step_y, color});
 			pixel_step_x++;

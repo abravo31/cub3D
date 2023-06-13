@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:22:15 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 23:46:10 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/14 00:00:51 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	raycasting(t_cub3D *data)
 	draw_minimap(data);
 }
 
-void render(t_cub3D *data)
+void	render(t_cub3D *data)
 {
 	raycasting(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);

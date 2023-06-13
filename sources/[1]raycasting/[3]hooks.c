@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:21:36 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 19:40:23 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/14 00:00:43 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	active_hook(int key_code, t_cub3D *data)
 
 void	setup_controls_hooks(t_cub3D *data)
 {
-	mlx_hook(data->mlx_win, 2, (1L << 0), active_hook, data); // 2
-	mlx_hook(data->mlx_win, 3, (1L << 1), desactive_hook, data); // 3
+	mlx_hook(data->mlx_win, 2, (1L << 0), active_hook, data);
+	mlx_hook(data->mlx_win, 3, (1L << 1), desactive_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_exit, data);
 }

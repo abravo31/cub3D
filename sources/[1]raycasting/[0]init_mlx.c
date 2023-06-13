@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:21:21 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 16:21:22 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:28:00 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	setup_mlx_env(t_cub3D *data)
 {
 	int	i;
 
-	data->win_x = 400;
-	data->win_y = 400;
+	data->win_x = 1200;
+	data->win_y = 800;
 	data->mid_x = data->win_x / 2;
 	data->mid_y = data->win_y / 2;
 	data->mlx = mlx_init();

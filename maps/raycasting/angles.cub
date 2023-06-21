@@ -3,14 +3,12 @@ SO    ./textures/grass.xpm
 WE       ./textures/stone.xpm
 EA                    ./textures/tnt.xpm
 
-F         225,           30,30       
-FT ./textures/grass_brick.xpm
-CT ./textures/sky_soft.xpm
+F         171,           139,98       
      C   100,255,255
 
 111
  101111
 1W00001
-10112101
+10110101
  100011
   11111

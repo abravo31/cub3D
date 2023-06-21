@@ -6,7 +6,7 @@
 /*   By: dnieto-c <dnieto-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:21:21 by dnieto-c          #+#    #+#             */
-/*   Updated: 2023/06/13 16:28:00 by dnieto-c         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:01:43 by dnieto-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ int	setup_mlx_env(t_cub3D *data)
 	data->mlx = mlx_init();
 	ft_bzero(&data->events, sizeof(t_event));
 	if (data->mlx == NULL)
+	{
+		ft_free_map(&data->map);
 		return (1);
+	}
 	data->mlx_win = mlx_new_window(data->mlx, data->win_x, data->win_y, \
 	"cub3D");
 	if (data->mlx_win == NULL)

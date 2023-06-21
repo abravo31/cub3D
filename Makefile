@@ -1,10 +1,11 @@
 ### Compilation ###
 CC      = cc
-FLAGS  	= -Wall -Wextra -Werror -g
+FLAGS  	= -Wall -Wextra -Werror
 # FLAGS	+= -Ofast -flto
 # FLAGS	+= -pg
 ### Executable ###
 NAME   = cub3D
+NAME_BONUS = cub3D_bonus
 ### Includes ###
 OBJ_PATH  = objs/
 HEADER = includes/
@@ -74,6 +75,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(FLAGS) -MMD -c -o $@ $<
 	@echo "$(CYAN)Creation of object file -> $(CYAN)$(notdir $@)... $(GREEN)[Done]$(NOC)"
 
+
 clean:
 	@echo "$(GREEN)Cleaning libraries$(NOC)"
 	@make -s clean -C $(LIBFT)
@@ -84,10 +86,19 @@ fclean:
 	@echo "$(GREEN)Cleaning libraries files$(NOC)"
 	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
+	@rm -f $(NAME_BONUS)
 	@make -s fclean -C $(LIBFT)
 	@make -s clean -C $(MLX_LINUX)
 
 re: fclean all
+
+
+$(NAME_BONUS) : $(OBJS)
+	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX_LINUX) -o $@ $^ -lm -l:libft.a -l:libmlx.a $(MLX_LINUX_FLAGS)
+	@echo "$(GREEN)Project compiled succesfully$(NOC)"
+
+bonus: lib tmp $(NAME_BONUS)
+	
 
 -include $(DEPS)
 
